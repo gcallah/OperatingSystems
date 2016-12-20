@@ -17,6 +17,10 @@ p {
     margin: 8px 40px 8px 40px;
 }
 
+hr {
+    margin: 24px 160px 24px 160px;
+}
+
 blockquote {
     margin: 8px 64px 8px 64px;
     font-size: 18px;
@@ -58,7 +62,7 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 24px;
+    font-size: 22px;
     margin: 20px 32px 12px 32px;
     color: #336;
     font-weight: bold;
