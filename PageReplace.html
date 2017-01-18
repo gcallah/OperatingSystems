@@ -19,12 +19,92 @@
             </div>
 
             <h2>
-                Major topic
+                Basic Page Replacement Algorithms
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+                <ul>
+                    <li>
+                        <h3>
+                        Optimal Algorithm
+                        </h3>
+                        <ul>
+                            <li>
+                                Select that page for replacement which is going to be replaced the last i.e the page whose time to replacement is the longest.
+                            </li>
+                            <li>
+                                This approach results in fewest page faults.
+                            </li>
+                            <li>
+                                However, this approach is not feasible, as we can never really know which page has the longest time to replacement.
+                            </li>
+                            <li>
+                                This algorithm is just theory, it is not implementable.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Least Recently Used (LRU)
+                        </h3>
+                        <ul>
+                            <li>
+                                Select that page for replacement which has not been used for the longest time.
+                            </li>
+                            <li>
+                                The approach relies on an assumption that the page which has not been used for the longest time is the least likely page
+                                to be used in future.
+                            </li>
+                            <li>
+                                It has reasonably good performance.
+                            </li>
+                            <li>
+                                The algorithm is difficult to implement as calculating page which has been used least recently used creates an overhead.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        First In First Out (FIFO)
+                        </h3>
+                        <ul>
+                            <li>
+                                Implement a Queue and replace pages accordingly.
+                            </li>
+                            <li>
+                                Page which comes in first is the first one to be replaced.
+                            </li>
+                            <li>
+                                i.e Replace the page which has been in main memory the longest.
+                            </li>
+                            <li>
+                                The algorithm is easy to implement.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Clock Policy Algorithm
+                        </h3>
+                        <ul>
+                            <li>
+                                This Algorithm behaves similar to LRU. Associate 'Use Bit' with each frame. When frame first loaded in main memory, use bit for
+                                that frame set to 1.
+                            </li>
+                            <li>
+                                When page is subsequently referenced, use bit set to 1. Set of pages that are candidates for page
+                                replacement form a circular buffer with pointer.
+                            </li>
+                            <li>
+                                Pointer movies along circle when a page is needed for replacement. While moving, any page with use bit 1 , its use bit is set to 0.
+                                The first page with use bit 0 is picked for replacement.
+                            </li>
+                            <li>
+                                Its behaviour is similar to FIFO apart from the fact that it skips pages whose use bit is set to 1.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                
 
             <h2>
                 Source Code
@@ -45,6 +125,13 @@
                         <a href="https://en.wikipedia.org/wiki/Lecture">
                         Lectures
                         </a>
+                </ul>
+            <h2>
+                Credits
+            </h2>
+                <ul>
+                        Referred to Notes by Professor Daniel Katz. (previously professor of Operating Systems at NYU Tandon School of Engineering)
+                    </li>
                 </ul>
             
             <h2>
