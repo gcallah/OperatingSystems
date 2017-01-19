@@ -104,7 +104,100 @@
                         </ul>
                     </li>
                 </ul>
-                
+            <h2>
+                Advanced Page Replacement Algorithms
+            </h2>
+                <ul>
+                    <li>
+                        <h3>
+                        Working Set Strategy
+                        </h3>
+                        <ul>
+                            <li>
+                                W(T,D) = Set of Pages that have been referenced in the last D virtual time units. <br>
+                                Virtual Time Units is generally number of instructions.
+                            </li>
+                            <li>
+                                Working Set is non decreasing function of Window Size(D). i.e W(T,D+1) contains W(T,D)
+                            </li>
+                            <li>
+                                Working Set of each process is monitored.The pages of the process which are no longer in the working set are
+                                periodically removed from the resident set.
+                            </li>
+                            <li>
+                                Process can be executed only if its wrking set is in main memory
+                            </li>
+                            <h4> Disadvantges </h4>
+                            <ul>
+                                <li>
+                                    Size and membership of working set change over time.
+                                </li>
+                                <li>
+                                    Need to timestamp every page reference and keep a time ordered queue.
+                                </li>
+                                <li>
+                                    Optimal value of D is unknown and would vary.
+                                </li>
+                            </ul>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>
+                        Page Fault Frequency
+                        </h3>
+                        <ul>
+                            <li>
+                                Algorithm uses use bit. Use bit is set to 1 when page is accessed.
+                            </li>
+                            <li>
+                                Set a threshold time 'F' for measuring page fault rate. When page fault occurs, OS notes virtual time units since last page fault.
+                            </li>
+                            <li>
+                                If time < F, ad page to resident set of process. <br>
+                                If >=F , discard all pages with use bit 0 and shorten size of resident set.<br>
+
+                            </li>
+                            <li>
+                                Time between page faults is 1/(page fault rate)
+                            </li>
+                            <h4> Disadvantges </h4>
+                            <ul>
+                                <li>
+                                    No page drops out of resident set before F virtual time units.
+                                </li>
+                                <li>
+                                    Does not perform well during locality shifts.
+                                </li>
+
+                            </ul>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <h3>
+                        Variable-Interval Sampled Working Set (VSWS)
+                        </h3>
+                        <ul>
+                            <li>
+                                Evaluates working set of a process at sampling instances based on elapsed virtual time.
+                            </li>
+                            <li>
+                                Use bits of all resident pages are reset at the beginning of a sampling interval. At the end of the interval,
+                                only the pages referenced during the interval will have their use bit set to 1.
+                            </li>
+                            <li>
+                                The pages with use bit set to 1 are retained at the end of the interval while other pages are discarded. That means,
+                                at the end of the interval, resident set can only decrease.
+                            </li>
+                            <li>
+                                However, faulted pages are added to the resident set during the interval.
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                </ul>
 
             <h2>
                 Source Code
