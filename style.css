@@ -75,3 +75,12 @@ h4 {
     font-weight: bold;
 }
 
+figure {
+    text-align: center;
+}
+
+figcaption {
+    color: #606;
+    font-style: italic;
+    text-align: center;
+}
