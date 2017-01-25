@@ -1,4 +1,5 @@
-<html>
+
+html>
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <title>
@@ -22,21 +23,147 @@
                 Processes
             </h2>
 
+                <p>
+                    A process is "a program in execution." It has an address
+                    space, and a set of resources to which it has access, such
+                    as files, registers, related processes, and more, and other
+                    program information. A process is the set of all of this
+                    information necessary to run a program.
+                </p>
+
+                <p>
+                    While I am lecturing, your laptop has several processes
+                    running: you have an editor in which your are ostensibly
+                    taking notes on my lecture, your Facebook page, in which
+                    your are posting pictures of your winter break, and a chat
+                    window, in which you are typing to your (possible)
+                    significant other. The operating system must keep each of
+                    these processes running, as well as background processes
+                    that might be fetching emails, or upgrading your word
+                    processor.
+                </p>
+
+                <p>
+                    The operating system provides calls that deal with the
+                    creation and termination of processes. Generally, a new
+                    process is created as a sub-process of an existing one.
+                </p>
+
+                <figure>
+                    <img src="graphics/SubProcess.png">
+                    <figcaption>
+                    Sub-processes displayed by pstree.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Processes are associated with particular users who started
+                    them, and with groups the user belongs to. There is often a
+                    specially privileged user: in UNIX, it is the
+                    <b>superuser</b>, and in Windows, the <b>administrator</b>.
+                    In <i>The Matrix</i>, he is called <b>Neo</b>.
+                </p>
+
             <h2>
                 Address Spaces                
             </h2>
 
+                <figure>
+                    <img
+                    src="graphics/AddressSpace.png">
+                    <figcaption>
+                    An address space.
+                    </figcaption>
+                </figure>
+
+                <p>
+                Two purposes:
+                </p>
+
+                <ol>
+                    <li>Protect programs from stomping on each other's memory.
+                    <li>Extend the memory available to a single program: the
+                        address space may be <i>larger</i> than the machine's
+                        physical memory.
+                </ol>
+
             <h2>
                 Files 
             </h2>
+                <p>
+                    The <b>file system</b> hides the messiness of disk, CD,
+                    cloud drive, memory stick, etc. details from the
+                    application programs: they can just write and read files
+                    from a location in the file system hirarchy.
+                </p>
+
+                <figure>
+                    <img src="graphics/Hierarchy.png">
+                    <figcaption>
+                    A possible file system hierarchy
+                    </figcaption>
+                </figure>
+
+                <p>
+                    A good file system allows <i>mounting</i> of devices at a
+                    certain point in the directory structure. So, for instance,
+                    a memory stick could be mounted as /memstick. Furthermore,
+                    <b>special files</b> can be mounted at places in the file
+                    system to allow programs to treat printers, modems, and
+                    other devices as files.
+                </p>
+
+                <p>
+                    Finally, <b>pipes</b> are a sort of pseudo-file, used to
+                    connect the output of one program to the input of another.
+                </p>
+
+                <figure>
+                    <img
+                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Pipeline.svg/280px-Pipeline.svg.png">
+                    <figcaption>
+                        A UNIX pipeline
+                    </figcaption>
+                </figure>
 
             <h2>
                 Input/Output
             </h2>
 
+                <p>
+                    Obviously, it is vital that computers be able to accept
+                    input from humans and show humans their output. Some of
+                    this can be dealt with by files, as above. But in many
+                    cases, as with a graphical display or a mouse,
+                    files are not a good abstraction for dealing with these devices.
+                    Operating systems provide services like <b>device drivers</b> to
+                    deal with these situations.
+                </p>
+
             <h2>
                 Protection
             </h2>
+
+                <p>
+                    People often want to protect the information they put on
+                    computers from competitors, foreign governments, Russian
+                    hackers, disgruntled ex-spouses, their boss, and so on.
+                    Operating systems typically provide some form of
+                    protection.
+                </p>
+
+                <p>
+                    <b>Simple example:</b> UNIX protection sets owner, group
+                    and other read, write, and execute bits on every file. For
+                    example:
+                    <br>
+                    <b>rwxr-xr--</b>
+                    <br>
+                    means that the owner of the file can read, write and
+                    execute (run) it, the owner's group members can read an
+                    execute it, and all other system users can only read it.
+                </p>
+
 
             <h2>
                 The Shell
@@ -67,7 +194,9 @@
                     memory can be accessed much faster than RAM, we will have
                     caches. If RAM technology speeds up significantly, they may
                     disappear. But if the CPU jumps ahead again, they will make
-                    a comeback.
+                    a comeback. It is important to understand <i>history</i>,
+                    and why certain concepts fell out of favor, and why they
+                    might come back into favor.
                 </p>
 
                 <h3>
