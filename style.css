@@ -87,3 +87,22 @@ figcaption {
     text-align: center;
     margin: 16px 20px 12px 20px;
 }
+
+table {
+    margin: 8px 140px 8px 140px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    }
+    th, td {
+            padding: 15px;
+    }
+
+td {
+    background: #fff;
+}
+
+th {
+    background: #dcf;
+}
