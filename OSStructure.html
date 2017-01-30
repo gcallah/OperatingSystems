@@ -115,6 +115,20 @@
                     </tr>
                 </table>
 
+                <p>
+                    Understand here that "users" were not "on" the system: they
+                    were submitting batch jobs. The "operator" was a person who
+                    could control... i.e., delete, reschedule, halt, etc. these
+                    batch jobs. That is why the operator layer is above the
+                    user layer.
+                </p>
+
+                <p>
+                    The basic idea is that processes running in ring <i>n +
+                        1</i> cannot alter processes running in ring <i>n</i>,
+                    but the reverse is false.
+                </p>
+
             <h2>
                 Microkernels 
             </h2>
