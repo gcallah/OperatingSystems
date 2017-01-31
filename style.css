@@ -63,9 +63,9 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 22px;
-    margin: 20px 120px 12px 120px;
-    color: #336;
+    font-size: 24px;
+    margin: 20px 120px 12px 200px;
+    color: #137;
     font-weight: bold;
 }
 
@@ -86,4 +86,27 @@ figcaption {
     font-style: italic;
     text-align: center;
     margin: 16px 20px 12px 20px;
+}
+
+table {
+    margin: 20px 140px 20px 140px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    }
+    th, td {
+            padding: 15px;
+    }
+
+td {
+    background: #fff;
+}
+
+th {
+    background: #dcf;
+}
+
+div.other {
+
 }
