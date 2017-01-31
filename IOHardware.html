@@ -14,18 +14,161 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="graphics/IO_1.png">
+                </p>
+            </div>
+
+            
+
+            <h2>
+                I/O Devices
+            </h2>
+
+            <p>
+            	I/O devices can be roughly divided into two categories: block devices and character devices. 
+            </p>
+
+            <ul>
+                <li>
+                    <b>Block Devices</b> <br>
+                    <p>
+                        It stores information in fixed-size blocks, each one with its own address. Common block sizes range from 512 to 65,536 bytes. <br>
+                        Examples are Hard disks, Blu-ray discs, and USB sticks are common block devices.
+                    </p>
+                </li>
+
+                <li>
+                    <b>Character Device</b> <br>
+                    <p>
+                    	It delivers or accepts a stream of characters, without regard to any block structure. Not addressable and does not have any seek operation. <br>
+                    	Examples are Printers, network interfaces, mice, and most other devices that are not disk-like can be seen as character devices.
+                    </p>
+                </li>
+            </ul><br><br>
+
+
+
+            <h2>
+                Device Controllers
+            </h2>
+            <p>
+            	The electronic component of I/O units is called the device controller or adapter. Operating System takes help from device drivers to handle all I/O devices. There is always a device controller and a device driver for each device to communicate with the Operating Systems. A device controller may be able to handle multiple devices. As an interface its main task is to convert serial bit stream to block of bytes, perform error correction as necessary.
+            </p>
+
+            <ul>
+                <li>
+                    <b>Cathode Ray Tube (CRT) Controller</b> <br>
+                    <p>
+                    	Older Version of Monitors that were bulky, power hungry and fragile!! CRT monitors fire a beam of electrons onto a fluorescent screen. Using magnetic fields, the system is able to bend the beam and draw pixels on the screen. 
+                    </p>
+                </li>
+                <li>
+                    <b>LCD Controller</b> <br>
+                    <p>
+                    	This works as a bit serial device at low level. It reads bytes containing the characters to be displayed from memory and generates the signals to modify the polarization of the backlight for the corresponding pixels in order to write them on screen.
+                    </p>
+                </li>
+            </ul><br><br>
+            <h2>
+                Memory-Mapped I/O
+            </h2>
+            <p>
+            	CPU interaction with the control registers and device data buffers either through dedicated port allocation or using device memory to map them all. In memory-mapped I/O, same address space is shared by memory and I/O devices. The device is connected directly to certain main memory locations so that I/O device can transfer block of data to/from memory without going through CPU.
+            </p>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/IO_2.jpg">
+                </p>
+            </div>
+
+            <h3>
+            	Bus Architecture
+            </h3>
+            <div style="text-align:center">
+                <p>
+                <figure>
+				  <img
+                	src="graphics/IOHw_BusArch.png"
+                	height="320" width="700">
+				  <figcaption>(a) Single Bus Architecture &emsp; &emsp; &emsp; &emsp; &emsp;(b) Dual Bus Architecture</figcaption>
+				</figure>
+                
+                </p>
+            </div>
+          
+            <h3>
+            	Advantages of memory-mapped I/O.
+            </h3>
+            <p>
+            	<ul>
+                <li>Same address bus to address memory and I/O devices.
+                </li>
+                <li>Access to the I/O devices using regular instructions.
+                </li>
+            </ul>
+            </p>
+
+            <h3>
+            	Disadvantages of memory-mapped I/O.
+            </h3>
+            <p>
+            	<ul>
+	                <li>Caching a device Control Registers would be disastrous. 
+	                </li>
+	                <li>You use up physical memory address space for your memory mapped I/O devices (think of 32 bit Windows not being able to access all 4G of RAM on a PC)
+	                </li>
+	            </ul>
+            </p>
+            
+
+            
+            <h2>
+            	Direct Memory Access
+            </h2>
+            <p>
+            	To reduce the overhead of Interrupts, DMA hardware bypasses CPU to transfer data directly between I/O device and memory. DMA module itself controls exchange of data between main memory and the I/O device. CPU is only involved at the beginning and end of the transfer and interrupted only after entire block has been transferred.
+            </p>
+            
+            <h3>
+            	Direct Memory Access Controller
+            </h3>
+            <p>
+            	DMA controller (DMAC) manages the data transfers and arbitrates access to the system bus. It contains several registers that can be written and read by the CPU. These include a memory address register, a byte count register, and one or more control registers.
+            </p>
+
+            <div style="text-align:center">
+                <p>
+				  <img
+                	src="graphics/IOHw_DMA.jpg"
+                	height="380" width="360">
+                </p>
+            </div>
+
+            <h3>
+            	Working of DMA
+            </h3>
+            <p>
+            	<ul>
+	                <li>Device driver allocates a DMA buffer, sends signal to device indicating where to send the data, sleeps. </li>
+	                <li>Device writes data to DMA buffer, raises interrupt when finished</li>
+	                <li>Interrupt handler gets data from DMA buffer, acknowledges interrupt, awakens software to process the data</li>
+            	</ul>
+            </p>
+
+            <div style="text-align:center">
+                <p>
+				  <img
+                	src="graphics/IOHw_DMATransfer.png"
+                	>
                 </p>
             </div>
 
             <h2>
-                Major topic
+            	Interrupts Revisited
             </h2>
-
-                <h3>
-                    Minor topic
-                </h3>
-
+  
             <h2>
                 Source Code
             </h2>
