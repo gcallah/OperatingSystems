@@ -17,14 +17,47 @@
                 src="https://upload.wikimedia.org/wikipedia/commons/9/99/File_system_fragmentation.png">
                 </p>
             </div>
-
-            <h2>
-                Major topic
-            </h2>
-
-                <h3>
-                    Minor topic
-                </h3>
+			<p>
+				File System Implementation defines how files and directories are stored, how disk space is managed, and how to make everything work efficiently and reliably.
+			</p>
+			<br/>
+            <h3>
+                File-System Layout
+            </h3>
+			<div align="center">
+			<img src="graphics/FileSystemLayout.png">
+			</div>
+			<br/>
+			<p>
+				File Systems are stored on disks. The above figure depicts a possible File-System Layout. 
+				<ul>
+				<li><b>MBR: </b> Master Boot Record is used to boot the computer </li>
+				<li><b>Partition Table: </b> Partition table is present at the end of MBR. This table gives the starting and ending addresses of each partition. </li>
+				<li><b>Boot Block: </b> When the computer is booted, the BIOS reads in and executes the MBR. The first thing the MBR program does is locate the active partition, 
+				read in its first block, which is called the boot block, and execute it. The program in the boot block loads the operating system contained in that partition. Every 
+				partition contains a boot block at the beginning though it does not contain a bootable operating system.</li>
+				<li><b>Super Block: </b> It contains all the key parameters about the file system and is read into memory when the computer is booted or the file system is first
+				touched.</li>
+				</ul>
+			</p>
+			<h3>
+                Implementing Files
+            </h3>
+			<h3>
+                Implementing Directories
+            </h3>
+			<h3>
+                Shared Files
+            </h3>
+			<h3>
+                Log-Structured File Systems
+            </h3>
+			<h3>
+                Journaling File Systems
+            </h3>
+			<h3>
+                Virtual File Systems
+            </h3>
 
             <h2>
                 Source Code
