@@ -47,6 +47,34 @@
                 <p>
                    C: "All the speed of assembly, with all the ease of use of
                    assembly." 
+                   <br>
+                   <br>
+                   But an operating system <i>needs</i> to have direct access
+                   to memory, device drivers, etc. C delivers that in a
+                   structured language.
+                   <br>
+                   <b>Compare:</b>
+                   <pre>
+                       <code>
+                       if(i > j)
+                       {
+                            z = 1;
+                       }
+                       else
+                       {
+                            z = 0;
+                       }
+                       ...
+
+                                  cmp i, j
+                                  jne set_zero
+                                  mov z, 1
+                                  jump continue
+                        set_zero: mov z, 0
+                        continue: ...
+                       
+                       </code>
+                   </pre>
                 </p>
 
                 <p>
