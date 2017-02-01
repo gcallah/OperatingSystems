@@ -58,13 +58,11 @@ h2 {
 h2.subhead {
     font-weight:
     normal;
-    margin-top:
-    0;
 }
 
 h3 {
-    font-size: 24px;
-    margin: 20px 120px 12px 200px;
+    font-size: 22px;
+    margin: 20px 120px 12px 120px;
     color: #137;
     font-weight: bold;
 }
