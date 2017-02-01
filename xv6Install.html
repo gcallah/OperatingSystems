@@ -1,0 +1,139 @@
+<html>
+<head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+<body class="markdown haroopad">
+<h1 id="xv6-installation-instructions"><a name="xv6-installation-instructions" href="#xv6-installation-instructions"></a>xv6 Installation Instructions</h1>
+
+<div style="text-align:center">
+    <p>
+    By Gustavo Sandoval
+    </p>
+</div>
+
+<p>
+These are the toolchain installation instructions for all 3 OS Versions: Mac/Windows/Linux, use the appropiate one for you.
+We have tried to make the instructions available natively on every OS, however as Operating Systems get upgrades, things invariably break.
+</p>
+
+<h2 id="notes-(please-read-first)"><a name="notes-(please-read-first)" href="#notes-(please-read-first)"></a>NOTES (Please read first)</h2><ul>
+<li>If you are running Mac OS X 10.11 (El Capitan) or above you might have trouble installing, because of some OS changes.  If you are adventurous, you might try this <a href="https://stackoverflow.com/questions/33860902/building-gcc-on-os-x-10-1">stackoverflow answer</a>, otherwise use the Virtual Machine. 
+</li>
+<li>If you are running Windows I mentioned that you could use the Linux Subsystem for Windows (LSW): this only works if you have the 64 bit version of Windows 10, if you don't, just use the Virtual Machine.
+Also LSW is still beta so it will have some bugs.</li><li>If you are using Mac/Windows and it's taking you a long time (more than 60 minutes) to get it sorted out you should strongly consider just using the Virtual Machine or come to office hours to see if we can help you.
+Depending on the problem you might still have to use the Virtual Machine. </li></ul><h2 id="virtual-machine-instructions"><a name="virtual-machine-instructions" href="#virtual-machine-instructions"></a>Virtual Machine Instructions</h2><ul>
+<li>Download VirtualBox from <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a> and install.
+Make sure to run the install program as an admin see this <a href="https://www.youtube.com/watch?v=RV3MDnHvWWA">video</a> if you need to understand what I mean.
+</li>
+<li>Download the Virtual Machine image (CS3224.ova) from NYU Classes</li><li>Double click the .ova file.
+Click Import and leave the defaults. </li><li>Once the VM is imported turn it on and you are done.</li><li>It might ask you for a password an it's <strong>cs3224</strong></li><li>Open the the VM and launch the command line.
+Everything is installed already. </li></ul><h2 id="linux-instructions"><a name="linux-instructions" href="#linux-instructions"></a>Linux Instructions</h2><ul>
+<li>If you're using the Linux VM from above, everything should be installed already. 
+</li>
+
+<li>If you are using another version of Ubuntu or a Debian-based version of Linux,
+    installing the tools you'll need is very simple.  At a terminal type:
+
+<pre>
+<code data-origin="<pre>
+<code>
+  $ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install git nasm build-essential qemu gdb
+</code>
+</pre>">  $ sudo apt-get update &amp;&amp; sudo apt-get install git nasm build-essential qemu gdb
+</code>
+</pre>
+</li>
+</ul><h2 id="windows-instructions"><a name="windows-instructions" href="#windows-instructions"></a>Windows Instructions</h2>
+
+<p>
+As mentioned before this will only work if you have 64bit windows 10. 
+</p>
+
+<ul>
+<li>Install the Linux Subsystem for Windows (LSW) following the  instructions <a href="http://www.howtogeek.com/249966/how-to-install-and-use-the-linux-bash-shell-on-windows-10/">here</a>
+</li>
+<li>When you are done installing open a "Bash on Ubuntu on Windows" terminal console and type the following: 
+
+
+<pre>
+<code data-origin="<pre>
+<code>
+  $ sudo apt-get update &amp;amp;&amp;amp; sudo apt-get install git nasm build-essential qemu gdb
+</code>
+</pre>">  $ sudo apt-get update &amp;&amp; sudo apt-get install git nasm build-essential qemu gdb
+</code>
+</pre>
+</li>
+</ul><ul>
+<li> Modify the makefile.  Find the following line: 
+
+<pre>
+<code data-origin="<pre>
+<code>
+  QEMUOPTS = -hdb fs.img xv6.img -smp $(CPUS) -m 512 $(QEMUEXTRA)
+</code>
+</pre>">  QEMUOPTS = -hdb fs.img xv6.img -smp $(CPUS) -m 512 $(QEMUEXTRA)
+</code>
+</pre>
+</li>
+
+<li>Modify it to this:
+
+
+<pre>
+<code data-origin="<pre>
+<code>
+  QEMUOPTS = -hdb fs.img xv6.img -smp $(CPUS) -m 512 $(QEMUEXTRA) -display none
+</code>
+</pre>">  QEMUOPTS = -hdb fs.img xv6.img -smp $(CPUS) -m 512 $(QEMUEXTRA) -display none
+</code>
+</pre>
+</li>
+</ul>
+
+<h2 id="max-os-x-instructions"><a name="max-os-x-instructions" href="#max-os-x-instructions"></a>
+    Max OS X Instructions
+</h2>
+
+<p>
+Getting things setup on Mac OS X is a bit tricker.
+It's sufficiently tricky that Prof.
+Dolan-Gavitt created a shell script that should set things up for you.
+</p>
+
+<ul>
+<li>
+Download the shell script: <a href="http://laredo-13.mit.edu/~brendan/install_cross.sh">install_cross.sh</a>.
+You may have to use File-&gt;Save Page As in order to download it; on Safari, make sure to save as "Page Source" rather than "Web Archive".
+</p>
+
+<li>
+Now, open up OS X's Terminal app (it's in the Utilities folder under Applications), and type the following to run it:
+
+<pre>
+<code data-origin="<pre>
+<code>
+$ bash install_cross.sh
+</code>
+</pre>">$ bash install_cross.sh
+</code>
+</pre>
+</li>
+
+<li>
+Note: Do not type the $ sign in the above command -- it's just there
+to indicate you're typing something in at the command line prompt.
+</li>
+
+<li>
+This will take a long time (roughly 30 minutes) and you will see lots of output.
+At the end you should see:
+</li>
+
+<li>
+<img src="C:\Users\Gustavo\Dropbox\CS3224~2\FALL20~1\TOOLCH~1/success.png" alt="Install Success">
+</li>
+
+<footer style="position:fixed; font-size:.8em; text-align:right; bottom:0px; margin-left:-25px; height:20px; width:100%;">generated by <a href="http://pad.haroopress.com" target="_blank">haroopad</a></footer>
+</body>
+</html>

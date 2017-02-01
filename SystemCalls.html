@@ -19,12 +19,72 @@
             </div>
 
             <h2>
-                Major topic
+                System Calls for Process Management
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+                <ul>
+                    <li>load
+                    <li>execute
+                    <li>end, abort
+                    <li>create process (for example, fork on Unix-like systems, or
+                    <li>tCreateProcess in the Windows NT Native API)
+                    <li>terminate process
+                    <li>get/set process attributes
+                    <li>wait for time, wait event, signal event
+                    <li>allocate, free memory
+                </ul>
+
+            <h2>
+                System Calls for File Management
+            </h2>
+
+                <ul>
+                    <li>create file, delete file
+                    <li>open, close
+                    <li>read, write, reposition
+                    <li>get/set file attributes
+                </ul>
+
+            <h2>
+                System Calls for Directory Management
+            </h2>
+
+                <ul>
+                    <li>mkdir
+                    <li>rmdir
+                    <li>link
+                    <li>mount
+                </ul>
+
+            <h2>
+                Miscellaneous System Calls
+            </h2>
+
+                <ul>
+                    <li>chdir
+                    <li>chmod
+                    <li>kill
+                    <li>time
+                </ul>
+                
+            <h2>
+                The Windows Win32 API
+            </h2>
+
+                <p>
+                    The key here is that, unlike POSIX, Microsoft has decoupled
+                    system calls and library routines. While POSIX system calls
+                    number about 100, Win32 has thousands of API calls.
+                </p>
+
+                <p>
+                Charles Petzold: "The original hello world program in
+                the Windows 1.0 SDK was a bit of a scandal. HELLO.C was about
+                150 lines long, and the HELLO.RC resource script had another 20
+                or so more lines... Veteran programmers often curled up in
+                horror or laughter when encountering the Windows hello-world
+                program."[18]
+                </p>
 
             <h2>
                 External Links
@@ -34,13 +94,13 @@
                         <a href="https://en.wikipedia.org/wiki/System_call">
                         System call
                         </a>
+                        <br>
+                        (Some of the above material is drawn from this
+                        article.)
+                    <li><a href="https://en.wikipedia.org/wiki/POSIX">POSIX</a>
+                    <li><a href="https://en.wikipedia.org/wiki/Windows_API">
+                            Windows API</a>
                 </ul>
             
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>

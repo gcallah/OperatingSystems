@@ -11,36 +11,267 @@
             Operating System Structure
         </h1>
 
-            <div style="text-align:center">
+            <h2>
+                Monolithic Systems
+            </h2>
+
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/en/thumb/5/53/African_monolith_2001.jpg/350px-African_monolith_2001.jpg">
+                    <figcaption>
+                    The monolith!
+                    </figcaption>
+                </figure>
+
                 <p>
-                <img
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/300px-Priv_rings.svg.png">
+                    Basically, it's a big blob! But some structure can be
+                    introduced:
                 </p>
-            </div>
+
+                <ol>
+                    <li>A main program that invokes the requested service
+                        procedure.
+                    <li>A set of service procedures that carry out the system
+                        calls.
+                    <li>A set of utility procedures that helped the service
+                        procedures.
+                </ol>
+
+                <p>
+                    Also, extensions can be loaded to the OS after booting:
+                    shared libraries (UNIX) or dynamic link libraries (Windows).
+                </p>
 
             <h2>
-                Major topic
+                Layered Systems                
+            </h2>
+
+                <figure>
+                <img
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Priv_rings.svg/300px-Priv_rings.svg.png">
+                </figure>
+            </div>
+
+                <p>
+                    An early layered system was THE. Its layers were:
+                </p>
+
+                <table>
+                    <tr>
+                        <th>
+                            Layer
+                        </th>
+                        <th>
+                            Function
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            5
+                        </td>
+                        <td>
+                            The operator
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            4
+                        </td>
+                        <td>
+                            User programs
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            3
+                        </td>
+                        <td>
+                            Input/output management
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            2
+                        </td>
+                        <td>
+                            Operator-process communication
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            1
+                        </td>
+                        <td>
+                            Memory and drum management
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            0
+                        </td>
+                        <td>
+                            Processor allocation and multiprogramming
+                        </td>
+                    </tr>
+                </table>
+
+                <p>
+                    Understand here that "users" were not "on" the system: they
+                    were submitting batch jobs. The "operator" was a person who
+                    could control... i.e., delete, reschedule, halt, etc. these
+                    batch jobs. That is why the operator layer is above the
+                    user layer.
+                </p>
+
+                <p>
+                    The basic idea is that processes running in ring <i>n +
+                        1</i> cannot alter processes running in ring <i>n</i>,
+                    but the reverse is false.
+                </p>
+
+            <h2>
+                Microkernels 
+            </h2>
+
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Popcorn_up_close_salted_and_air_popped.jpg/220px-Popcorn_up_close_salted_and_air_popped.jpg">
+                    <figcaption>
+                    Microkernels, popped and salted!
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Why microkernels?
+                    <br>
+                    Bugs per 100 lines of code: between 2 and 10. That means a
+                    big kernel is likely to contain between 10,000 and 50,000
+                    bugs!
+                    <br>
+                    <br>
+                    The authors claim that cars, TV sets, and stereos do not
+                    have reset buttons. Hmmm...
+                    <br>
+                    <br>
+                    <i>Nevertheless</i>, microkernels do offer a stability
+                    advantage. OS X is based on the Mach microkernel. Many
+                    real-time, industrial, avionics and military systems use
+                    microkernels.
+                    <br>
+                    <br>
+                    Minix: The kernel is 12,000 lines of C and 1400 of
+                    assembler.
+                    <br>
+                    <br>
+                    <b>Compare:</b> The 
+                    <a href="https://github.com/torvalds/linux/blob/master/kernel/sched/core.c">
+                        core of the Linux scheduler
+                    </a>
+                    is 2200 lines of C. There are
+                    <a
+                        href="https://github.com/torvalds/linux/tree/master/kernel/sched">
+                    27 other source code
+                    </a>
+                    files comprising the scheduler. And
+                    <a
+                        href="https://github.com/torvalds/linux/tree/master/kernel">
+                    the Linux kernel
+                    </a>
+                    contains 13 other modules like that, plus 80 or 90 source
+                    code files in the main directory.
+                    And some of the source is
+                    <a
+                        href="https://github.com/torvalds/linux/blob/master/firmware/3com/typhoon.bin.ihex">
+                        a little difficult to read.
+                    </a>
+                </p>
+
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/OS-structure.svg/750px-OS-structure.svg.png">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                    In the above figure, contemplate the effect of a buggy
+                    printer driver in each style of OS.
+                </p>
+
+            <h2>
+                Client-Server Model 
+            </h2>
+
+                <p>
+                </p>
+
+                <p>
+                    Web servers are a great example. Apple voice-recognition,
+                    Dropbox, Google Docs are others.
+                </p>
+
+            <h2>
+                Virtual Machines 
             </h2>
 
                 <h3>
-                    Minor topic
+                    Virtual Machines Rediscovered
                 </h3>
 
+                    <p>
+                    Used extensively in web hosting.
+                    <br>
+                    <br>
+                    See <a
+                        href="http://businessinsights.bitdefender.com/hypervisor-introspection-fights-advanced-persistent-threats-datacenters">
+                        hypervisor ad
+                    </a>.
+                    </p>
+
+                <h3>
+                    Java Virtual Machine
+                </h3>
+
+                    <p>
+                    The same Java program can run on many different
+                    systems.
+                    </p>
             <h2>
-                External Links
+                Exokernels 
+            </h2>
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Exokernel_revised%28english%29.png">
+                    <figcaption>
+                    Exokernel design
+                    </figcaption>
+                </figure>
+
+                <p>
+                The exokernel just keeps virtual machines out of each other's
+                hair.
+                </p>
+
+            <h2>
+                External links
             </h2>
                 <ul>
                     <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
-                        Lectures
+                        <a href="https://en.wikipedia.org/wiki/Hypervisor">
+                            Hypervisors
                         </a>
                 </ul>
-            
+
             <h2>
-                Homework
+                Credits
             </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
+                <ul>
+                    <li>Microkernel structure: By Wooptoo - Own work, Public
+                        Domain,
+                        https://commons.wikimedia.org/w/index.php?curid=4265836
+                    <li>Exokernel: By Thorben Bochenek -
+                        //en.wikipedia.org/wiki/File:Exokernel_(english).png,
+                        CC BY-SA 3.0,
+                        https://commons.wikimedia.org/w/index.php?curid=25131239
+                </ul>
     </body>
 </html>

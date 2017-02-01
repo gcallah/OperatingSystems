@@ -19,12 +19,129 @@
             </div>
 
             <h2>
-                Major topic
+                Paging and Segmentation Characteristics
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+            <ul>
+                <li>
+                    <b>Simple Segmentation</b><br>
+                    <p> Every process is divided into number of segments of potentially different sizes and loaded onto main memory by
+                        creating dynamic partitions which need not be contagious. <br>
+                    Hence, Logical Address is now (segment number, offset)<br>
+                    This offers a solution with no internal fragmentation.</p>
+                </li>
+
+                <li>
+                    <b>Simple Paging</b><br>
+                    <p> Every process is divided into number of 'pages' of equal size and loaded onto main memory which is itself divided into partitions
+                        called 'frames'. Size of a page is the same as size of a frame. As a result, there is no internal fragmentation.<br>
+                    Hence, Logical Address is now (page number, offset)<br>
+                        Page table information is used to calculate (frame number, offset).
+                    </p>
+                </li>
+            </ul>
+
+            <h2>
+                Virtual memory
+            </h2>
+
+
+                <ul>
+                    <li>
+                        <p> Logical Addresses are dynamically translated to physical addresses at runtime.<br>
+                        This means that a page can occupy different areas of main memory at different times.</p>
+                    </li>
+                    <li>
+                        <p> Process pages are not contagiously located in main memory.<br>
+                        Logical address to physical address translation is of utmost importance at runtime using Page Table.</p>
+                    </li>
+
+                    <li>
+                        <b> <p>HENCE, It is NOT necessary that all the pages are in main memory during process execution.</p></b>
+                    </li>
+
+                    <li>
+                        <b><p> If, for the time being, the next page/segment to be executed is in main memory, then execution can proceed.</b>
+                        <br> This is the idea of <b>VIRTUAL MEMORY.</p></b>
+                    </li>
+        </ul>
+
+        <h3> Working of Virtual memory</h3>
+
+        <ul>
+            <li>
+                <b> Resident Set</b>
+                <br><p> Resident Set is the portion of the process which is in main memory.
+                    <br> If processor encounters a logical address which is not in main memory:
+                    <ul>
+                  <li>
+                      It generates an interrupt which indicates a memory access fault.
+                  </li>
+                  <li>
+                      Interrupted process is put in blocked state and Operating System takes control.
+                  </li>
+                  <li>
+                      Disk I/O request is issued to bring into main memory the page whose logical address caused a fault.
+                  </li>
+                  <li>
+                      Once disk I/O interrupt is issued, the OS takes control and resumes the process which threw an interrupt.
+                  </li>
+            </ul></p>
+
+            </li>
+
+            <li>
+                <b> Page Table Structure</b>
+                <ul>
+                    <li>
+                        Page Table becomes more complex than what it is in Simple Paging.
+                    </li>
+                    <li>
+                        Bit 'P' indicates the presence of the page in main memory.
+                    </li>
+                    <li>
+                        If P is flagged as true, then frame number of that page is also present.
+                    </li>
+                    <li>
+                        Modify bit 'M' indicates whether contents of that page have been altered since it was last loaded into main memory.
+                    </li>
+                    <li>
+                        If M is flagged as false, then no need to write out the page when it is replaced in the frame it is occupying in main memory
+                    </li>
+                </ul>
+
+
+            </li>
+
+            <li>
+                <b> Translation Lookaside Buffer (TLB) </b>
+                <ul>
+                    <li>
+                        Each Virtual memory Reference can cause 2 physical address lookups viz. the page table entry and the actual data.
+                    </li>
+                    <li>
+                        TLB provides a solution to this by providing a high speed cache storing page table entries.
+                    </li>
+                    <li>
+                        Given a virtual address, the processor will first examine the TLB
+                    </li>
+                    <li>
+                        If TLB contains the physical address, then page is loaded, else, page is loaded from main memory and also stored in TLB for future use.
+                        If page is not present in both TLB and main memory, then page fault occurs.
+                    </li>
+                    <li>
+                        TLB contains both page number as well as complete page table entry.
+                    </li>
+                </ul>
+
+
+            </li>
+        </ul>
+
+
+
+
+
 
             <h2>
                 Source Code
@@ -45,6 +162,14 @@
                         <a href="https://en.wikipedia.org/wiki/Lecture">
                         Virtual Memory
                         </a>
+                </ul>
+        <h2>
+                Credits
+            </h2>
+                <ul>
+
+                        Referred to Notes by Professor Daniel Katz. (previously professor of Operating Systems at NYU Tandon School of Engineering)
+                    </li>
                 </ul>
             
             <h2>

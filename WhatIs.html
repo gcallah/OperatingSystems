@@ -19,34 +19,141 @@
             </div>
 
             <p>
-
-            <img src="graphics/OperatingSystem.png">
+            <b>A Key Distinction</b>: <b>Kernel</b> versus <b>user</b> mode.
+            <br>
+            <br>
+            <b>Kernel:</b>
             </p>
+                <ul>
+                    <li>Can access any part of the machine.
+                    <li>Can execute any instruction.
+                </ul>
+            <p>
+            <b>User:</b>
+            </p>
+                <ul>
+                    <li>Accesses machine through the kernel.
+                    <li>Blocked from executing some instructions.
+                </ul>
+            </p>
+
+            <p>
+            <br>
+            <b>Operating systems are:</b>
+            </p>
+            <ul>
+                <li>Huge
+                    <br>
+                    Windows: 70,000,000 lines of code!
+                    <br>
+                    Over 1000 volumes of large books.
+                <li>Complex
+                <li>Long-lived
+                <br>
+                UNIX was started in 1970.
+            </ul>
+
+            <figure>
+            <img src="graphics/OperatingSystem.png">
+            <figcaption>
+            Computers are like onions
+            </figcaption>
+            </figure>
 
 
             <h2>
                 The Operating System as an Extended Machine
             </h2>
 
+            <p>
+                The textbook gives the following example:
+            </p>
+
+                <figure>
+                    <img src="graphics/DiskLayers.png">
+                    <figcaption>
+                        The layers of disk software.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    It seems to me here that what the authors really mean by
+                    "extended machine" is "abstract machine." They say as much
+                    here:
+                </p>
+
+                <blockquote>
+                    The job of the operating system is to create good
+                    abstractions and then implement and manage the abstract
+                    objects thus created. In this book, we will talk a lot
+                    about abstractions. They are one of the keys to
+                    understanding operating systems.
+                </blockquote>
+
+                <p>
+                <br>
+                    <b>Crucial</b>: "The operating systems real customers are
+                    the application programs (via the application programmers,
+                    of course)."
+                    <br>
+                    <br>
+                    It is the relationship between the operating system and the
+                    application programs that our textbook focuses on, and that
+                    we will focus on in this course.
+                    <br>
+                    <br>
+                    And that relationship is why you should care about this
+                    course: most of you will never write an operating system.
+                    But in your work as application programmers you will work
+                    with an operating system, and use its services. To be a master
+                    application programmer, you must understand the services
+                    you are using.
+                    <br>
+                    <br>
+                    <b>Furthermore:</b> oftentimes, applications themselves
+                    must do some of the jobs an operating system usually does.
+                    Knowing how an operating system with millions of users has
+                    solved a problem can be a great guide as to how you, as an
+                    application programmer, should solve it.
+                    <br>
+                    <br>
+                    <b>Personal example:</b> caching theoretical values for
+                    stock options: the system we built was much like a paging
+                    system for virtual memory.
+                </p>
+
+
             <h2>
                 The Operating System as Resource Manager
             </h2>
 
-            <h2>
-                External Links
-            </h2>
-                <ul>
-                    <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
-                        Lectures
-                        </a>
-                </ul>
-            
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
+                <p>
+                    The previous section gives a top-down view. The bottom-up
+                    view is that the OS manages access to the CPU, disks,
+                    displays, printers, mice, memory, and so on by the various
+                    applications running on the system.
+                </p>
+
+                <p>
+                    Imagine three programs printing at once with no OS,
+                    one printing "Hello world," one printing "Namaste,"
+                    and one printing "Ni hao."
+                    The printer might print out something like:
+                    <br>
+                    "HNNeaillm haorasowosrtled"
+                    <br>
+                    <br>
+                    Obviously, this is not what we want to have happen!
+                    The OS must manage the printer resource, so that
+                    applications can acccess it in an orderly manner.
+                </p>
+
+                <p>
+                    The OS should share resources across both time and space:
+                    each app must get its own time with the printer, but may
+                    divide up memory at any single point in time.
+                </p>
+
+
     </body>
 </html>
