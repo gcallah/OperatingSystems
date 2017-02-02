@@ -14,7 +14,7 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="graphics/IO_1.png">
+                src="graphics/IOHw_Intro.png">
                 </p>
             </div>
 
@@ -73,13 +73,18 @@
                 Memory-Mapped I/O
             </h2>
             <p>
-            	CPU interaction with the control registers and device data buffers either through dedicated port allocation or using device memory to map them all. In memory-mapped I/O, same address space is shared by memory and I/O devices. The device is connected directly to certain main memory locations so that I/O device can transfer block of data to/from memory without going through CPU.
+            	CPU interaction with the control registers and device data buffers either through dedicated port allocation or using device memory to map them all. CPU communicates can with the control registers and the device data buffers in three ways.
+            	<ul>
+            		<li><b>Seperate I/O and Memory Space</b>: Each control register is assigned an I/O port number. Using special I/O instructions like -IN REG, PORT -ompare IN R0, 4 with MOV R0, 4 for memory address -OUT PORT, REG.</li>
+            		<li><b>Memory Mapped I/O</b>: Same address space is shared by memory and I/O devices. The device is connected directly to certain main memory locations so that I/O device can transfer block of data to/from memory without going through CPU.</li>
+            		<li><b>Hybrid</b>: Memory-mapped data buffers and separate I/O ports for the control registers. (Pentium)</li>
+            	</ul>
             </p>
 
             <div style="text-align:center">
                 <p>
                 <img
-                src="graphics/IO_2.jpg">
+                src="graphics/IOHw_MemoryMapped.png">
                 </p>
             </div>
 
@@ -130,7 +135,13 @@
             <p>
             	To reduce the overhead of Interrupts, DMA hardware bypasses CPU to transfer data directly between I/O device and memory. DMA module itself controls exchange of data between main memory and the I/O device. CPU is only involved at the beginning and end of the transfer and interrupted only after entire block has been transferred.
             </p>
-            
+            <div style="text-align:center">
+                <p>
+				  <img
+                	src="graphics/IOHw_DMA.png"
+                	height="380" width="360">
+                </p>
+            </div>
             <h3>
             	Direct Memory Access Controller
             </h3>
@@ -138,25 +149,11 @@
             	DMA controller (DMAC) manages the data transfers and arbitrates access to the system bus. It contains several registers that can be written and read by the CPU. These include a memory address register, a byte count register, and one or more control registers.
             </p>
 
-            <div style="text-align:center">
-                <p>
-				  <img
-                	src="graphics/IOHw_DMA.jpg"
-                	height="380" width="360">
-                </p>
-            </div>
+            
 
             <h3>
             	Working of DMA
             </h3>
-            <p>
-            	<ul>
-	                <li>Device driver allocates a DMA buffer, sends signal to device indicating where to send the data, sleeps. </li>
-	                <li>Device writes data to DMA buffer, raises interrupt when finished</li>
-	                <li>Interrupt handler gets data from DMA buffer, acknowledges interrupt, awakens software to process the data</li>
-            	</ul>
-            </p>
-
             <div style="text-align:center">
                 <p>
 				  <img
@@ -164,21 +161,51 @@
                 	>
                 </p>
             </div>
+            <p>
+            	<ul>
+            		<li>First the CPU programs the DMA controller by setting its registers so it knows what to transfer where</li>
+            		<li>Alongside, DMAC issues a command to the disk controller telling it to read data from the disk into its internal buffer and verify the checksum. When valid data are in the disk controller’s buffer, DMA can begin.</li>
+            		<li>The DMA controller initiates the transfer by issuing a read request over the bus to the disk controller</li>
+            		<li>The write to memory is another standard bus cycle</li>
+            		<li>When the write is complete, the disk controller sends an acknowledgement signal to the DMA controller, also over the bus</li>
+            		<li>The DMA controller then increments the memory address to use and decrements the byte count. If the byte count is still greater than 0, steps 2 through 4 are repeated until the count reaches 0. At that time, the DMA controller interrupts the CPU to let it know that the transfer is now complete.</li>
+	            </ul>
+
+            </p>
+            <p>
+            	DMA controllers vary considerably in their sophistication. The simplest ones handle one transfer at a time, whereas sophisticated DMAC have multiple sets of registers internally, one for each channel. Word Transfer may be set up to use a round-robin algorithm, or it may have a priority scheme design to favor some devices over others. Many buses can operate in two modes: <b>word-at-a-time mode</b> and <b>block mode</b>. Some DMA controllers can also operate in either mode. In word-at-a-time mode, the DMA controller requests the transfer of one word and gets it. If the CPU also wants the bus, it has to wait. The mechanism is called <b>cycle stealing</b> because the device controller sneaks in and steals an occasional bus cycle from the CPU once in a while, delaying it slightly. In block mode, the DMA controller tells the device to acquire the bus, issue a series of transfers, then release the bus. This form of operation is called <b>burst mode</b>. It is more ef- ficient than cycle stealing because acquiring the bus takes time and multiple words can be transferred for the price of one bus acquisition. The down side to burst mode is that it can block the CPU and other devices for a substantial period if a long burst is being transferred. 
+            </p>
+
+            
 
             <h2>
             	Interrupts Revisited
             </h2>
-  
-            <h2>
-                Source Code
-            </h2>
-                <ul>
-                    <li>
-                    <a
-                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
-                        HTML
-                    </a>
-                </ul>
+            <p>
+            	When an I/O device has finished the work given to it, it causes an interrupt by asserting a signal on a bus line that it has been assigned, signals are detected by the interrupt controller chip. If no other interrupts pending, the interrupt controller processes the interrupt immediately. If another interrupt is in progress or there is a simultaneous request on a higher-priority interrupt request line which it continues to assert until serviced by the CPU. The controller puts a number on the address lines and asserts a signal that interrupts the CPU. This number is used as an index into a table called the <b>interrupt vector</b> to start a corresponding interrupt service procedure. The service procedure in certain moment acknowledges the interrupt by sending some value to some controller’s port which enables the controller to issue other interrupts. 
+            </p>
+            <div style="text-align:center">
+                <p>
+				  <img
+                	src="graphics/IOHw_Interrupt.png"
+                	>
+                </p>
+            </div>
+            <h3>
+            	Precise and Imprecise Interrupts
+            </h3>
+            <p>
+            An interrupt that leaves the machine in a well-defined state is called a <b>precise interrupt</b> (Walker and Cragon, 1995). Such an interrupt has four properties:
+            	<ul>
+            		<li>The PC (Program Counter) is saved in a known place.</li>
+            		<li>All instructions before the one pointed to by the PC have completed.</li>
+            		<li>No instruction beyond the one pointed to by the PC has finished.</li>
+            		<li>The execution state of the instruction pointed to by the PC is known.</li>
+            	</ul>
+            </p>
+            <p>
+				An interrupt that does not meet these requirements is called an <b>imprecise</b> interrupt and makes life most unpleasant for the operating system writer, who now has to figure out what has happened and what still has to happen.
+            </p>
 
             <h2>
                 External Links
