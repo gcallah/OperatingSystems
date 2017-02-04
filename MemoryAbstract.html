@@ -1,0 +1,205 @@
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+            No Memory Abstraction
+        </title>
+    </head>
+
+    <body>
+        <h1>
+            No Memory Abstraction
+        </h1>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                 src="graphics/MemChip.png">
+                </p>
+            </div>
+
+
+
+            <h2>
+                Memory
+            </h2>
+
+            <p>
+                There is never enough memory to actively hold all code and data structures needed by running processes in memory at any given point of time.
+                The idea is to swap in and out blocks of code as they are required from secondary memory.
+
+            </p>
+
+            <h2>
+                Memory Management Requirements
+            </h2>
+
+            <ul>
+                <li>
+                    <b>Relocation</b> <br>
+                    <p>
+                        Every time a process is swapped in or out, it must be correctly located and referenced in order to continue from its
+                        previously active state.
+                    </p>
+                </li>
+                <li>
+                    <b>Protection</b>  <br>
+                    <p>
+                        Programs in other processes must be forbidden from referencing memory locations of a given process without valid permissions.
+                    </p>
+                </li>
+                <li>
+                    <b>Sharing</b>  <br>
+                    <p>
+                        Multiple processes accessing same main memory.
+                    </p>
+                </li>
+                <li>
+                    <b>Logical Organization</b> <br>
+                    <p>
+                        Organize User programs in form of modules so that they can later be broken down into chunks for memory abstraction.
+                    </p>
+                </li>
+            </ul><br><br>
+
+              <h2>
+                Memory Management Techniques
+            </h2>
+
+            <ul>
+                <li>
+                    <b>Fixed Partitioning</b> <br>
+                    <p>
+                        Main memory is divided into static partitions.
+                        Any process, given its requirements may be loaded into a partition of equal or greater size. <br>
+                        Note that here processes are not divided into modules,  rather memory is divided and entire processes are placed
+                        inside a partition.<br><br>
+
+                        Partitions may be of two types :
+                        <ul>
+                    <li>
+                        <b>Equal Sized</b><br>
+                        <p> If program size is beyond that of the partition size, need overlays</p>
+                        <p> Gives rise to internal fragmentation</p>
+                    </li>
+                    <li>
+                        <b>Unequal Sized</b><br>
+                        <p> Fit into smallest possible partition</p>
+                    </li>
+                </ul>
+
+                    </p>
+                </li>
+                <li>
+                    <b>Dynamic Partitioning</b>  <br>
+                    <p>
+                        Here, partitions are created dynamically as per the requirement/size of the process in question.
+                        <ul>
+                            <li>
+                                Partition created to be exact fit for asking process size. No Internal fragmentation.
+                            </li>
+                            <li>
+                                When processes are pulled out, it creates holes in memory space. This causes external fragmentation.
+                            </li>
+                            <li>
+                                Need to perform a process known as compaction to regularly shift partitions and remove holes created by processes leaving
+                                main memory. This is a costly process and cannot be done repeatedly.
+                            </li>
+                </ul>
+                    </p>
+                </li>
+                <li>
+                    <b>Paging</b>  <br>
+                    <p>
+                        <ul>
+                            <li>
+                                Main Memory is divided into equal sized partitions. Each partition is called a <b>frame</b>.
+                            </li>
+                            <li>
+                                Processes are divided into equal sized chunks where each chunk is called a <b>page</b>
+                            </li>
+                            <li>
+                                To load a process, all of its pages are loaded into frames which need not be contagious.
+                                The OS takes care of the order of execution.
+                            </li>
+                            <li>
+                                Operating System maintains a page table for each process which contains the frame location for each page.
+                            </li>
+                            <li>
+                                Paging causes zero internal fragmentation and is optimal among static partitioning techniques.
+                            </li>
+                            <li>
+                                Paging causes minimal external fragmentation.
+                            </li>
+                </ul>
+                    </p>
+                </li>
+                <li>
+                    <b>Simple Segmentation</b> <br>
+                    <p>
+                        <ul>
+                            <li>
+                                Every process is divided into a number of chunks where each chunk is called a <b>segment</b>
+                            </li>
+                            <li>
+                                Each process is loaded by bringing all of its segments onto main memory.
+                                Every segment of the process is loaded ont the main memory by creating partitions dynamically matching the size of each segment.
+                                This creates an exact fit for every segment.
+                            </li>
+                            <li>
+                                Segmentation is free of internal fragmentation.
+                            </li>
+                            <li>
+                                Suffers from external fragmentation but not as much, because process is divided into segments which are smaller in size.
+                            </li>
+                            <li>
+                                Every program/process may occupy more than one non contagious segments, similar to dynamic partitioning.
+                            </li>
+                </ul>
+                    </p>
+                </li>
+            </ul>
+
+
+
+            <h2>
+                Source Code
+            </h2>
+                <ul>
+                    <li>
+                    <a
+                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
+                        HTML
+                    </a>
+                </ul>
+
+            <h2>
+                Credits
+            </h2>
+                <ul>
+                    <li>Chip image: By yellowcloud from Germany - 4Mbit EPROM
+                        Toshiba TC574200D, CC BY 2.0,
+                        https://commons.wikimedia.org/w/index.php?curid=24965259</li>
+                    <li>
+                        Referred to Notes by Professor Daniel Katz. (previously professor of operating Systems at NYU Tandon School of Engineering)
+                    </li>
+                </ul>
+
+            <h2>
+                External Links
+            </h2>
+                <ul>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Lecture">
+                        Lectures
+                        </a>
+                </ul>
+
+            <h2>
+                Homework
+            </h2>
+                <ol>
+                    <li>Study lectures!
+                </ol>
+    </body>
+</html>
