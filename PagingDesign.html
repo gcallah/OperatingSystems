@@ -19,8 +19,178 @@
             </div>
 
             <h2>
-                Major topic
+                Load Control
             </h2>
+
+            <p> Consider the case where all processes want more memory. In such a case the processor would need to remove one or more processes from
+                memory. <br>
+                <b> Load Control is deployed to achieve the target, i.e to remove one or more processes from memory in order to fulfill the memory requirement
+                of another process.</b></p>
+
+
+                   <ul>
+                    <li>
+                        <h3>
+                        Load Control using Working Set and Page Fault Frequency Algorithm
+                        </h3>
+                        <ul>
+                            <li>
+                                Approach involves determining number of processes that are resident in main memory i.e multiprogramming level.
+                            </li>
+                            <li>
+                                Working Set and Page Fault Frequency algorithm implicitly perform load control as they change the resident set after every clock cycle.
+                            </li>
+                            <li>
+                                Adjust page fault such that time between page fault is equal to time required to process page fault.
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Load Control using Clock Page Replacement Algorithm
+                        </h3>
+                        <ul>
+                            <li>
+                                Monitor the rate at which the pointer scans the buffer of frames.
+                            </li>
+                            <li>
+                                If number of page faults is below a certain level, which results in fewer requests to advance the pointer OR
+                            </li>
+                            <li>
+                                Average number of frames scanned by pointer per request is small, THEN
+                            </li>
+                            <li>
+                                Number of processes on memory cn be increased.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Reducing number of process in main memory
+                        </h3>
+                        <ul>
+                            <li>
+                                Remove process with lowest priority
+                            </li>
+                            <li>
+                                Remove process with lowest probability of having a working set in main memory i.e highest probability of page fault.
+                            </li>
+                            <li>
+                                Remove last activated process
+                            </li>
+                            <li>
+                                Remove process with smallest working resident set.
+                            </li>
+                            <li>
+                                Remove largest process
+                            </li>
+                            <li>
+                                Remove process with largest remaining execution window.
+                            </li>
+                        </ul>
+                    </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                <h2>
+                Page Size
+            </h2>
+
+            <p> Page Size affects implementation in a variety of ways and choosing an optimal page size is very important.
+                </p>
+
+
+                   <ul>
+                    <li>
+                        <h3>
+                        General considerations
+                        </h3>
+                        <ul>
+                            <li>
+                                Internal Fragmentation<br>Smaller page size means lower internal fragmentation. Larger page size means more internal fragmentation.
+                            </li>
+                            <li>
+                                Smaller page size means more number of processes per process and larger page tables.
+                            </li>
+
+
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Co-relation between page size and page fault rate
+                        </h3>
+                        <ul>
+                            <li>
+                                Small page size -> more number of pages in memory -> lesser page faults AND larger page table
+                            </li>
+                            <li>
+                                Large page size -> less pages in memory -> smaller page table AND larger page size
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <h3>
+                        Object Oriented Techniques to reduce multiprogramming
+                        </h3>
+                        <ul>
+                            <li>
+                                More number of modules with small sized code.
+                            </li>
+                            <li>
+                                Deploy multithreaded applications
+                            </li>
+
+                        </ul>
+                    </li>
+
+                        </ul>
+                    </li>
+                </ul>
+
+                    <h2>
+                Global vs. Local Allocation of pages
+            </h2>
+
+        <p> <b>Local Replacement Policy:</b> choose among resident set of process that generated page fault<br>
+            <b>Global replacement policy:</b> choose among all pages eligible for replacement in main memory
+                </p>
+
+
+                   <ul>
+                    <li>
+                        <h3>
+                        Types of allocations
+                        </h3>
+                        <ul>
+                            <li>
+                                Fixed Allocation, Local scope. Allocations cannot be too large or too small as it would be irreparable.
+                            </li>
+                            <li>
+                                Variable allocation, Global Scope <br>
+                                Processes that fault a lot need more replacement.
+                                difficult to obtain a good replacement policy.
+
+                            </li>
+                            <li>
+                                Variable Allocation, Local Scope
+                            </li>
+                            <li>
+                                Re-evaluate allocation from time to time.
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+
+                        </ul>
+                    </li>
+                </ul>
 
                 <h3>
                     Minor topic
@@ -45,6 +215,13 @@
                         <a href="https://en.wikipedia.org/wiki/Lecture">
                         Lectures
                         </a>
+                </ul>
+            <h2>
+                Credits
+            </h2>
+                <ul>
+                       <li> Referred to Notes by Professor Daniel Katz. (previously professor of Operating Systems at NYU Tandon School of Engineering)
+                    </li>
                 </ul>
             
             <h2>
