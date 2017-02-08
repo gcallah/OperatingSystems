@@ -20,12 +20,191 @@
             </div>
 
             <h2>
-                Major topic
+                Thread Usage
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+                <p>
+                    Why threads?
+                </p>
+
+                <ul>
+                    <li>Many programs consist of multiple activities that could
+                    go on "at once."
+                    <ul>
+                        <li>User interface
+                        <li>Disk I/O
+                        <li>Network I/O
+                        <li>Calculation
+                    </ul>
+                    <li>Light-weight processes
+                    <li>Performance benefits
+                    <li>Use multiple cores efficiently
+                </ul>
+
+                <p>
+                    <br>
+                    Thread scenario: user changes sentence one of an 800-page
+                    book, then goes to make a second change. A singl-threaded
+                    program must re-format the whole book, and then return
+                    control to the user. With two threads, one formats and the
+                    other handles user input. We can add a third-thread to
+                    handle disk I/O.
+                    <br>
+                    Processes won't do here: they can't share the memory
+                    containing the document.
+                    <br>
+                    <br>
+                    Situation is tricky: think of all those times you have
+                    clicked on the wrong link, because the mouse was live.
+                </p>
+
+            <h2>
+                The Classical Thread Model
+            </h2>
+
+                <p>
+                    Process as group of resources versus process as thread of
+                    execution.
+                    <br>
+                    Threads separate the latter from the former.
+                    <br>
+                    An analogy: we have theaters (resources) and in them we put
+                    on plays (threads). In the process-only model, each play
+                    gets its own theater. With threads, several plays can run
+                    "at once" in a single theater, sharing lights, props,
+                    ticket booths, etc.
+                </p>
+
+                <table>
+                    <tr>
+                        <th>
+                            Per Process
+                        </th>
+                        <th>
+                            Per Thread
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            Address space
+                        </td>
+                        <td>
+                            Program counter
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Global variables
+                        </td>
+                        <td>
+                            Registers
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Open files
+                        </td>
+                        <td>
+                            Stack
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Child processes
+                        </td>
+                        <td>
+                            State
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Pending alarms
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Signals and signal handlers
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Accounting information
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+
+                <p>
+                    Threads have the same states as processes.
+                </p>
+
+            <h2>
+                Implementing Threads in User Space
+            </h2>
+
+                <p>
+                    <b>Upsides:</b>
+                </p>
+
+                <ul>
+                    <li>Fast: we don't need context switching.
+                    <li>Processes can have their own scheduling algorithm.
+                </ul>
+
+                <p>
+                    <b>Downsides:</b>
+                </p>
+
+                <ul>
+                    <li>Can't make blocking system calls: they block all
+                    threads, and the whole <i>point</i> of threads is to keep
+                    most going while some are waiting.
+                    <li>One thread can start going and block all other threads
+                    forever: there are no clock interrupts.
+                    <li>Need a run-time system: like a mini-OS. (JVM is like
+                    this.)
+                </ul>
+
+
+            <h2>
+                Implementing Threads in Kernel Space
+            </h2>
+
+                <p>
+                    <b>Upsides:</b>
+                </p>
+
+                <ul>
+                    <li>No special system calls needed.
+                    <li>No user-level run-time system needed.
+                    <li>Clock pre-emption available.
+                </ul>
+
+                <p>
+                    <b>Downsides:</b>
+                </p>
+
+                <ul>
+                    <li><b>Slow:</b> a context switch is needed to switch
+                    between threads.
+                </ul>
+
+
+            <h2>
+                Hybrid Implementations
+            </h2>
+
+
+            <h2>
+                Implementing Threads in Kernel Space
+            </h2>
+
+
 
             <h2>
                 Credits
@@ -47,11 +226,5 @@
                         </a>
                 </ul>
             
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>
