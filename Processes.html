@@ -195,9 +195,29 @@
                 Implementation of Processes
             </h2>
 
+                <p>
+                    In this case, we can usefully turn to the Wikipedia page on
+                    the
+                    <a
+                        href="https://en.wikipedia.org/wiki/Process_control_block">
+                    process control block
+                    </a>.
+                </p>
+
             <h2>
                 Modeling Multiprogramming
             </h2>
+
+                <p>
+                    We look at CPU usage from a probabilistic viewpoint, and
+                    try to see what the <i>likely</i> rate of CPU usage is. We
+                    get a formula, where <i>p</i> is the fraction of time an
+                    average process waits for I/O, and <i>n</i> is the number
+                    of processes:
+                    <br>
+                    <br>
+                    CPU utilization = 1 - <i>p<sup>n</sup></i>
+                </p>
 
             <h2>
                 Credits
@@ -230,6 +250,11 @@
                     <li>
                         <a href="https://gist.github.com/jboner/2841832">
                             Latency numbers
+                        </a>
+                    <li>
+                        <a
+                           href="http://www.cs.nott.ac.uk/~pszgxk/courses/g53ops/Memory%20Management/MM02-modelingmulti.html">
+                            Degree of multiprogramming:
                         </a>
                 </ul>
             
