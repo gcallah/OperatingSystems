@@ -161,7 +161,11 @@
                 </p>
 
                 <ul>
-                    <li>Can't make blocking system calls: they block all
+                    <li>Can't make
+                    <a href="https://en.wikipedia.org/wiki/Blocking_(computing)">
+                        blocking
+                    </a>
+                    system calls: they block all
                     threads, and the whole <i>point</i> of threads is to keep
                     most going while some are waiting.
                     <li>One thread can start going and block all other threads
@@ -169,6 +173,10 @@
                     <li>Need a run-time system: like a mini-OS. (JVM is like
                     this.)
                 </ul>
+
+                <p>
+                    <b>Example:</b> Java threading and <i>synchronized</i> keyword.
+                </p>
 
 
             <h2>
@@ -199,11 +207,65 @@
                 Hybrid Implementations
             </h2>
 
+                <p>
+                    The programmer can put some threads in kernel space, and
+                    some in user space.
+                </p>
+
 
             <h2>
-                Implementing Threads in Kernel Space
+                Scheduler Activations
             </h2>
 
+                <p>
+                    Also tries to be the best of both worlds: here, the kernel
+                    makes a call (<i>upcall</i>)
+                    into user space to tell the user code that a thread has blocked. 
+                    <br>
+                    <b>Objection:</b> Calls are supposed to go in the opposite
+                    direction!
+                </p>
+
+
+            <h2>
+                Pop-up Threads
+            </h2>
+
+                <p>
+                    Imagine a web server, waiting for HTTP requests.
+                    <br>
+                    <br>
+                    <b>Usual approach:</b> Have a process or a thread blocking,
+                    waiting for a request to come in.
+                    <br>
+                    <br>
+                    <b>Pop-up approach:</b> create a thread at the moment a
+                    request arrives: the thread "pops up" Justin Handel the
+                    request.
+                    <br>
+                    These can take over quickly, since they have no state to
+                    restore.
+                </p>
+
+            <h2>
+                Making Single-Threaded Code Multi-Threaded
+            </h2>
+
+                <p>
+                    <b>Why this is tricky:</b>
+                    <br>
+                    <br>
+                    <b>Shared resource:</b> Bulletin board example.
+                    <br>
+                    <b>Non-reentrant library calls:</b> E.g, writing a file
+                    with fwrite().
+                    <br>
+                    <b>Signals:</b> Who gets the signal? The OS doesn't know
+                    about user-level threads.
+                    <br>
+                    <br>
+                    <b>The point:</b> Conversion is hard work!
+                </p>
 
 
             <h2>
