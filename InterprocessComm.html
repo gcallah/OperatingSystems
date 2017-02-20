@@ -174,7 +174,18 @@
                 </h3>
 
                     <p>
-                        The lock variable 
+                        Let's go back to the bathroom example to understand the
+                        lock variable solution. This is like having the bathroom
+                        doors bear a little sign that says in use. The person
+                        who wants to use the restroom checks to see if the sign
+                        says "in use." If it does not, the person enters the
+                        room, And then sets the sign by locking both doors.
+                        <br>
+                        <br>
+                        However, this does not solve the problem: both people
+                        can show up, won at the south door and one at the north
+                        door, both find the sign says "Vacant," and both enter
+                        the room.
                     </p>
 
 
@@ -182,15 +193,62 @@
                     Strict Alternation
                 </h3>
 
+                    <p>
+                        <b>Busy waiting:</b> Continually testing some condition
+                        until it says "go ahead". Not very efficient.
+                        <br>
+                        <br>
+                        Strict alternation violates condition three of our
+                        desired conditions above: is the turn of process X to
+                        enter its critical region, but it doesn't need to enter
+                        that region at the moment, it nevertheless blocks
+                        processes Y and Z entering their critical region.
+                        <br>
+                        Bathroom analogy: it is as though you can't go to the
+                        bathroom when it is someone else's turn, <i>even if
+                        they don't need the bathroom!</i>
+                        <br>
+                        <br>
+                        A lock using busy waiting is called a <b>spin lock</b>.
+                    </p>
+
 
                 <h3>
                     Peterson's Solution
                 </h3>
 
+                    <p>
+                        Peterson's ingenious solution is to combine the turn
+                        idea with the idea of "being interested": so you go to
+                        use the loo (British for restroom). You register that
+                        you are interested, and then set <i>turn</i> to you.
+                        Whoever sets <i>turn</i> last wins, and gets to go in.
+                        But if no one else is interested, you always get to
+                        "go."
+                    </p>
+
 
                 <h3>
                     The TSL Instruciton
                 </h3>
+
+                    <p>
+                        This solution solves the race condition problem by
+                        creating a new, atomic instruction, <b>TSL</b> (test
+                        and set lock), that means a process checking to see if
+                        the bathroom is free can also set a lock on the door in
+                        an uninterruptible operation.
+                        <br>
+                        <br>
+                        <b>Crucial point:</b> All solutions depending upon
+                        calls to <i>enter_region</i> and <i>leave_region</i>
+                        depend upon processes not cheating and simply entering
+                        their critical region without making the proper calls!
+                        <br>
+                        <br>
+                        <b>XCHG</b> is a similar instruction, now available on Intel
+                        processors.
+                    </p>
 
 
             <h2>
@@ -198,11 +256,28 @@
             </h2>
 
                 <p>
-                <br>
-                <a
-                    href="https://en.wikipedia.org/wiki/Mars_Pathfinder#On-board_computer">
-                    Mars Pathfinder priority inversion problem
-                </a>
+                    A problem with Peterson, TCL, and XCHG: they all involve
+                    <i>busy waiting</i>.
+                    <br>
+                    Bathroom analogy: you stand at the bathroom door,
+                    repeatedly knocking once every microsecond.
+                    <br>
+                    <br>
+                    This not only wastes CPU time, but can create <b>priority
+                    inversion problems</b>: a high-priority process is
+                    looping, waiting to enter its critical region, and a low-
+                    priority process is ready to leave its critical region.
+                    But the high-priority process never yields to the lower
+                    one, and so it loops forever! 
+                    <br>
+                    <a
+                        href="https://en.wikipedia.org/wiki/Mars_Pathfinder#On-board_computer">
+                        Mars Pathfinder priority inversion problem
+                    </a>
+                    <br>
+                    <br>
+                    We can use a <b>sleep</b> and <b>wakeup</b> pair of calls
+                    to avoid busy waiting.
                 </p>
 
 
@@ -210,11 +285,38 @@
                     The Producer-Consumer Problem
                 </h3>
 
+                    <p>
+                        <b>The situation:</b> Once process listens on a socket
+                        and <b>produces</b> stock quotes, putting them in a
+                        buffer. Another process <b>consumes</b> stock quotes, 
+                        removing them from the buffer.
+                    </p>
+
+                    <p>
+                        We can still get race conditions with these calls: the
+                        consumer could check the number of items in the buffer
+                        and finds it to be 0, but before it can go to sleep, the
+                        producer is scheduled, and begins filling the buffer.
+                        The producer repeatedly calls <b>wakeup</b> on the
+                        consumer, but the consumer has not gone to sleep!
+                        Finally, the producer fills the buffer, and goes to
+                        sleep. The consumer is activated, finds the buffer size
+                        (it held from long ago) is 0, and goes to sleep.
+                        <br>
+                        Everyone is asleep!
+                    </p>
+
 
             <h2>
                 Semaphores
             </h2>
 
+                    <figure>
+                        <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rail-semaphore-signal-Dave-F.jpg/220px-Rail-semaphore-signal-Dave-F.jpg">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
                 <h3>
                     Solving the Producer-Consumer Problem Using Semaphores
                 </h3>
