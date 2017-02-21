@@ -19,12 +19,361 @@
             </div>
 
             <h2>
-                Major topic
+                Overview
             </h2>
 
+                <p>
+                    Three major issues:
+                </p>
+
+                <ol>
+                    <li>How do processes communicate at all? (They live in
+                        separate address spaces.)
+                    <li>How can they avoid stepping on each other's toes?
+                    <li>How to get the order right when processes depend upon
+                        each other? (E.g., one process produces data that
+                        another one uses to do calculations.)
+                </ol>
+
+                <p>
+                    <b>Note:</b> Two and three apply to threads just as much as
+                    to processes! Number one doesn't, since threads share memory.
+                </p>
+
+            <h2>
+                Race Conditions
+            </h2>
+
+                <p>
+                    Picture a single-user bathroom with a door
+                    on its north side and a door
+                    on its south side. You want to enter by the north door,
+                    while someone else wants to enter by the south one. You
+                    both knock: no one answers. 
+                    <br>
+                    So you both enter.
+                    <br>
+                    <b>Oops!</b> Embarrasment.
+                </p>
+
+                <p>
+                    But in the case of processes, the result can be worse. Two
+                    processes check to see if there is a seat left on a flight
+                    to London. There is... <b>one</b> seat left. Both processes
+                    get told "Yes." And now they each assign the seat... to
+                    different passengers.
+                    <br>
+                    <b>Oops!</b> One of them is going to have to be given a lot
+                    of bonus miles to give up their seat.
+                    <br>
+                    And this can get even worse: imagine the code is
+                    determining if it is safe to place more uranium in the core
+                    of a nuclear power plant, and two processes both get told
+                    it is safe two put in one more unit... so they <b>both</b>
+                    put in one more unit... and we have a terrible disaster.
+                    <br>
+                    This is not a mere hypothetical... race conditions in the
+                    <a href="https://en.wikipedia.org/wiki/Therac-25">
+                        Therac-25
+                    </a> radiation therapy machine killed at least three
+                    people. The
+                    <a
+                        href="https://en.wikipedia.org/wiki/Northeast_blackout_of_2003">
+                        great Northeast blackout of 2003
+                    </a>
+                    was also caused by race conditions in software not being dealt
+                    with properly.
+                </p>
+
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Map_of_North_America%2C_blackout_2003.svg/300px-Map_of_North_America%2C_blackout_2003.svg.png">
+                    <figcaption>
+                        Areas affected by the blackout are in red.
+                    </figcaption>
+                </figure>
+
+                <p>
+                    <b>Race conditions</b>
+                    are made only more prevalent by multi-core CPUs, since
+                    more processes are actually running at once.
+                </p>
+
+
+            <h2>
+                Critical Regions
+            </h2>
+
+                <figure>
+                    <img
+                    src="graphics/CriticalSection.png">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+
+                <p>
+                    Four conditions for a good "critical region" solution:
+                </p>
+
+                <ol>
+                    <li>No to processes may be simultaneously inside their
+                        critical regions.
+                    <li>No assumptions made about speeds or the number of CPUs.
+                    <li>No process running outside its critical region may
+                        block any process.
+                    <li>No process should have to wait forever to enter its
+                        critical region.
+                </ol>
+
+            <h2>
+                Mutual Exclusion with Busy Waiting
+            </h2>
+
+                <p>
+                    Various possibilities for achieving mutual exclusion:
+                </p>
+
+
                 <h3>
-                    Minor topic
+                    Disabling Interrupts
                 </h3>
+
+                    <p>
+                        The CPU only switches among processes when an 
+                        <a href="https://en.wikipedia.org/wiki/Interrupt">
+                            interrupt
+                        </a>
+                        occurs. Therefore, if a process disables interrupts
+                        upon entering a critical region, there is no danger
+                        another process can interfere with what it is up to.
+                    </p>
+
+                    <p>
+                        But what if a user process turns off interrupts, and
+                        never turns them on again? The system is now dead!
+                        <br>
+                        Also, on a multi-CPU system, disabling interrupts only
+                        affects one CPU: other CPUs can still access shared
+                        memory.
+                    </p>
+
+                    <p>
+                        On the other hand, it may be useful for the
+                        <i>kernel</i> to disable interrupts: if it is updating
+                        a critical table, it may be important that no process
+                        can interrupt the update.
+                        <br>
+                        <b>So:</b> Disabling interrupts is OK inside the
+                        kernel, but is not a useful way for user processes to
+                        avoid race conditions.
+                    </p>
+
+
+                <h3>
+                    Lock Variables
+                </h3>
+
+                    <p>
+                        Let's go back to the bathroom example to understand the
+                        lock variable solution. This is like having the bathroom
+                        doors bear a little sign that says in use. The person
+                        who wants to use the restroom checks to see if the sign
+                        says "in use." If it does not, the person enters the
+                        room, And then sets the sign by locking both doors.
+                        <br>
+                        <br>
+                        However, this does not solve the problem: both people
+                        can show up, won at the south door and one at the north
+                        door, both find the sign says "Vacant," and both enter
+                        the room.
+                    </p>
+
+
+                <h3>
+                    Strict Alternation
+                </h3>
+
+                    <p>
+                        <b>Busy waiting:</b> Continually testing some condition
+                        until it says "go ahead". Not very efficient.
+                        <br>
+                        <br>
+                        Strict alternation violates condition three of our
+                        desired conditions above: is the turn of process X to
+                        enter its critical region, but it doesn't need to enter
+                        that region at the moment, it nevertheless blocks
+                        processes Y and Z entering their critical region.
+                        <br>
+                        Bathroom analogy: it is as though you can't go to the
+                        bathroom when it is someone else's turn, <i>even if
+                        they don't need the bathroom!</i>
+                        <br>
+                        <br>
+                        A lock using busy waiting is called a <b>spin lock</b>.
+                    </p>
+
+
+                <h3>
+                    Peterson's Solution
+                </h3>
+
+                    <p>
+                        Peterson's ingenious solution is to combine the turn
+                        idea with the idea of "being interested": so you go to
+                        use the loo (British for restroom). You register that
+                        you are interested, and then set <i>turn</i> to you.
+                        Whoever sets <i>turn</i> last wins, and gets to go in.
+                        But if no one else is interested, you always get to
+                        "go."
+                    </p>
+
+
+                <h3>
+                    The TSL Instruciton
+                </h3>
+
+                    <p>
+                        This solution solves the race condition problem by
+                        creating a new, atomic instruction, <b>TSL</b> (test
+                        and set lock), that means a process checking to see if
+                        the bathroom is free can also set a lock on the door in
+                        an uninterruptible operation.
+                        <br>
+                        <br>
+                        <b>Crucial point:</b> All solutions depending upon
+                        calls to <i>enter_region</i> and <i>leave_region</i>
+                        depend upon processes not cheating and simply entering
+                        their critical region without making the proper calls!
+                        <br>
+                        <br>
+                        <b>XCHG</b> is a similar instruction, now available on Intel
+                        processors.
+                    </p>
+
+
+            <h2>
+                Sleep and Wakeup
+            </h2>
+
+                <p>
+                    A problem with Peterson, TCL, and XCHG: they all involve
+                    <i>busy waiting</i>.
+                    <br>
+                    Bathroom analogy: you stand at the bathroom door,
+                    repeatedly knocking once every microsecond.
+                    <br>
+                    <br>
+                    This not only wastes CPU time, but can create <b>priority
+                    inversion problems</b>: a high-priority process is
+                    looping, waiting to enter its critical region, and a low-
+                    priority process is ready to leave its critical region.
+                    But the high-priority process never yields to the lower
+                    one, and so it loops forever! 
+                    <br>
+                    <a
+                        href="https://en.wikipedia.org/wiki/Mars_Pathfinder#On-board_computer">
+                        Mars Pathfinder priority inversion problem
+                    </a>
+                    <br>
+                    <br>
+                    We can use a <b>sleep</b> and <b>wakeup</b> pair of calls
+                    to avoid busy waiting.
+                </p>
+
+
+                <h3>
+                    The Producer-Consumer Problem
+                </h3>
+
+                    <p>
+                        <b>The situation:</b> Once process listens on a socket
+                        and <b>produces</b> stock quotes, putting them in a
+                        buffer. Another process <b>consumes</b> stock quotes, 
+                        removing them from the buffer.
+                    </p>
+
+                    <p>
+                        We can still get race conditions with these calls: the
+                        consumer could check the number of items in the buffer
+                        and finds it to be 0, but before it can go to sleep, the
+                        producer is scheduled, and begins filling the buffer.
+                        The producer repeatedly calls <b>wakeup</b> on the
+                        consumer, but the consumer has not gone to sleep!
+                        Finally, the producer fills the buffer, and goes to
+                        sleep. The consumer is activated, finds the buffer size
+                        (it held from long ago) is 0, and goes to sleep.
+                        <br>
+                        Everyone is asleep!
+                    </p>
+
+
+            <h2>
+                Semaphores
+            </h2>
+
+                    <figure>
+                        <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rail-semaphore-signal-Dave-F.jpg/220px-Rail-semaphore-signal-Dave-F.jpg">
+                        <figcaption>
+                        </figcaption>
+                    </figure>
+                <h3>
+                    Solving the Producer-Consumer Problem Using Semaphores
+                </h3>
+
+
+            <h2>
+                Mutexes
+            </h2>
+
+
+                <h3>
+                    Futexes
+                </h3>
+
+                <h3>
+                    Mutexes in Pthreads
+                </h3>
+
+
+            <h2>
+                Monitors
+            </h2>
+
+
+            <h2>
+                Message Passing
+            </h2>
+
+
+                <h3>
+                    Design Issues for Message-Passing Systems
+                </h3>
+
+                <h3>
+                    The Producer-Consumer Problem with Message Passing
+                </h3>
+
+
+            <h2>
+                Barriers
+            </h2>
+
+
+            <h2>
+                Avoiding Locks: Read-Copy-Update
+            </h2>
+
+            
+            <h2>
+                Credits
+            </h2>
+
+                <ul>
+                    <li>Critical region graphic: By Kartikharia - Own work, CC
+                        BY-SA 4.0,
+                        https://commons.wikimedia.org/w/index.php?curid=51597926
+                </ul>
 
             <h2>
                 External Links
@@ -35,13 +384,11 @@
                             href="https://en.wikipedia.org/wiki/Inter-process_communication">
                         Interprocess Communication
                         </a>
+                    <li>
+                        <a
+                            href="http://javahungry.blogspot.com/2014/04/fail-fast-iterator-vs-fail-safe-iterator-difference-with-example-in-java.html">
+                        Java's Fail-Safe and Fail-Fast Iterators
+                        </a>
                 </ul>
-            
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>

@@ -141,6 +141,62 @@
                     </figcaption>
                 </figure>
 
+                <p>
+                    Why microkernels?
+                    <br>
+                    Bugs per 100 lines of code: between 2 and 10. That means a
+                    big kernel is likely to contain between 10,000 and 50,000
+                    bugs!
+                    <br>
+                    <br>
+                    The authors claim that cars, TV sets, and stereos do not
+                    have reset buttons. Hmmm...
+                    <br>
+                    <br>
+                    <i>Nevertheless</i>, microkernels do offer a stability
+                    advantage. OS X is based on the Mach microkernel. Many
+                    real-time, industrial, avionics and military systems use
+                    microkernels.
+                    <br>
+                    <br>
+                    Minix: The kernel is 12,000 lines of C and 1400 of
+                    assembler.
+                    <br>
+                    <br>
+                    <b>Compare:</b> The 
+                    <a href="https://github.com/torvalds/linux/blob/master/kernel/sched/core.c">
+                        core of the Linux scheduler
+                    </a>
+                    is 2200 lines of C. There are
+                    <a
+                        href="https://github.com/torvalds/linux/tree/master/kernel/sched">
+                    27 other source code
+                    </a>
+                    files comprising the scheduler. And
+                    <a
+                        href="https://github.com/torvalds/linux/tree/master/kernel">
+                    the Linux kernel
+                    </a>
+                    contains 13 other modules like that, plus 80 or 90 source
+                    code files in the main directory.
+                    And some of the source is
+                    <a
+                        href="https://github.com/torvalds/linux/blob/master/firmware/3com/typhoon.bin.ihex">
+                        a little difficult to read.
+                    </a>
+                </p>
+
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/OS-structure.svg/750px-OS-structure.svg.png">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+                <p>
+                    In the above figure, contemplate the effect of a buggy
+                    printer driver in each style of OS.
+                </p>
+
             <h2>
                 Client-Server Model 
             </h2>
@@ -149,8 +205,8 @@
                 </p>
 
                 <p>
-                    Web servers are a great example. Apple voice-recognition is
-                    another.
+                    Web servers are a great example. Apple voice-recognition,
+                    Dropbox, Google Docs are others.
                 </p>
 
             <h2>
@@ -163,6 +219,12 @@
 
                     <p>
                     Used extensively in web hosting.
+                    <br>
+                    <br>
+                    See <a
+                        href="http://businessinsights.bitdefender.com/hypervisor-introspection-fights-advanced-persistent-threats-datacenters">
+                        hypervisor ad
+                    </a>.
                     </p>
 
                 <h3>
@@ -172,7 +234,20 @@
                     <p>
                     The same Java program can run on many different
                     systems.
+                    <br>
+                    <br>
+                    But not <i>only</i> that: there are many languages that can
+                    run on the JVM:
                     </p>
+                    <ul>
+                        <li>Clojure
+                        <li>Scala
+                        <li>JRuby
+                        <li>Jython
+                        <li>Ada
+                        <li>Pascal
+                        <li>Prolog
+                    </ul>
             <h2>
                 Exokernels 
             </h2>
@@ -190,9 +265,22 @@
                 </p>
 
             <h2>
+                External links
+            </h2>
+                <ul>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Hypervisor">
+                            Hypervisors
+                        </a>
+                </ul>
+
+            <h2>
                 Credits
             </h2>
                 <ul>
+                    <li>Microkernel structure: By Wooptoo - Own work, Public
+                        Domain,
+                        https://commons.wikimedia.org/w/index.php?curid=4265836
                     <li>Exokernel: By Thorben Bochenek -
                         //en.wikipedia.org/wiki/File:Exokernel_(english).png,
                         CC BY-SA 3.0,
