@@ -10,32 +10,99 @@
         <h1>
             Directories
         </h1>
-
-            <div style="text-align:center">
+		    <div style="text-align:center">
                 <p>
                 <img
                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Files11_directory_hierarchy.svg/251px-Files11_directory_hierarchy.svg.png">
                 </p>
             </div>
-
-            <h2>
-                Major topic
-            </h2>
-
-                <h3>
-                    Minor topic
-                </h3>
-
-            <h2>
-                Source Code
-            </h2>
-                <ul>
-                    <li>
-                    <a
-                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
-                        HTML
-                    </a>
-                </ul>
+			<p> 
+			<b> Directories </b> or <b> Folders </b> are used by File Systems to keep track of files. Directories are files itself.
+			
+			<div>
+            <h3>
+				Single-Level Directory Systems
+            </h3>
+			<p>
+				In Single-Level Directory System, one directory contains all the files. This directory is sometimes called as a root directory. 
+				<br/>
+				<b>Example:</b>
+				<br/>
+				<div align="center">
+				<img src="graphics/SingleHierarchy.png">
+				</div>
+			</p>
+			</div>
+			<h3>
+				Hierarchical Directory Systems
+            </h3>
+			<p>
+				When there are a large number of files, finding a single file in the directory would become very tough. Hence Hierarchical directory Systems are preferred when there
+				are large number of files. This forms a tree of directories.
+				<br/>
+				<b>Example:</b>
+				<div align="center">
+				<img src="graphics/HierarchicalSystem.png" height="350" width="400">
+				</div>
+				
+			</p>
+			<h3>
+				Path Names
+            </h3>
+			<p>
+				When the file System is organized as a directory tree <b> Path Names </b> are used to specify the file names. 
+				<br/>
+				<ul>
+					<li><b> Absolute Path Name: </b> It consists of the path name from the root directory to the file.Absolute path names always start at the root directory and 
+					are unique. <br/><br/>
+					<b>Example : </b><br/>
+					<b> Windows: </b> \usr\ast\mailbox<br/>
+					<b> UNIX: </b> /usr/ast/mailbox
+					<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usr - root directory<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ast - sub directory<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mailbox - required File
+					
+					</li>
+					<li><b> Relative Path Name: </b>A user can designate one directory as the current working directory, in which case all path names not beginning at the 
+					root directory are taken relative to the working directory. Such path names which are relative to the working directory are called Relative Path Names.
+					<br/>
+					<br/>
+					<b>Example:</b> <br/>
+					<b>Working Directory :</b> /usr/ast <br/>
+					<b>Absolute Path Name:</b> /usr/ast/mailbox <br/>
+					<b>Relative path Name:</b> mailbox
+					</li>
+				</ul>
+			</p>
+			<p>
+				Most of the Operating Systems that support a hierarchical directory system have two special entries in every directory. <b> "." </b> and <b> ".." </b> pronounced as "dot" 
+				and "dotdot" respectively. Dot refers to the current directory; dotdot refers to its parent. 
+			</p>
+			<h3>
+				Directory Operations
+            </h3> 
+			<p>
+			Following are a set of system calls allowed for managing directories in UNIX operating System.
+				<ul>
+					<li><b>Create:</b>A directory is created</li>
+					<li><b>Delete:</b>A directory is deleted</li>
+					<li><b>Opendir</b>Directories can be read</li>
+					<li><b>Closedir:</b>When a directory has been read it should be closed to free up internal table space.</li>
+					<li><b>Readdir:</b>This system call returns the next entry in an open directory.</li>
+					<li><b>Rename:</b>As Directories are also files, it can be renamed the same way files can be.</li>
+					<li><b>Link:</b>This system call specifies an existing file and a path name, and creates a link from the existing file to the name specified by the path. This makes the
+					file appear in more than one directory.<br/>This link is sometimes refered to as<b> Hard Link</b>, which just creates another file with a link to the same underlying node.</li>
+					<li><b>Unlink:</b>A directory entry is removed. If a file is present in multiple directories then only the file in specified path is deleted.</li>
+				</ul>
+			</p>
+			<br/>
+			<div>
+			<p>
+			<b>Symbolic Link :</b> A symbolic link is a link to another name in the file System. It can also be defined as the nickname for any file that contains a reference to another 
+				file or directory in the form of an absolute or relative path and that affects pathname resolution. Also called a <b>Soft Link </b>.
+			</p>
+			</div>
 
             <h2>
                 External Links

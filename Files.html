@@ -14,26 +14,220 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="graphics/Files.jpeg">
                 </p>
             </div>
-
-            <h2>
-                Major topic
-            </h2>
-
-                <h3>
-                    Minor topic
-                </h3>
-
-            <h2>
-                Source Code
+			<p>
+				Files are logical units of information created by processes and are managed by the operating systems. The part of the opearting system dealing with files is known as 
+				<b> File Systems </b>
+			</p>
+            <br/>
+            <h3>
+                 File Naming
+            </h3>
+			<p>
+				When a process creates a file it gives the file a name, even after this process terminates the file continues to exist and can be accessed by other processes by its 
+				name.<br/> 
+				The exact rules for file naming might vary from one system to another but almost all operating systems allow strings of one to eight characters along with special characters
+				like underscore.<br/>
+				The file naming as two parts which are seperated by a period. The name of the file after the period is called the <b> File Extension </b> which indicates something about the file.
+				<div align="center">
+				<table>
+				<tr>
+					<th> <b> Extension </b> </th>
+					<th> <b> Meaning </b> </th>
+				</tr>
+				<tr>
+					<td> .bak </td>
+					<td> backup file </td>
+				</tr>
+				<tr>
+					<td> .c </td>
+					<td> C source program </td>
+				</tr>
+				<tr>
+					<td> .gif </td>
+					<td> Compuserve Graphical Interchange For mat image </td>
+				</tr>
+				<tr>
+					<td> .hlp </td>
+					<td> Help file</td>
+				</tr>
+				<tr>
+					<td> .html </td>
+					<td> Wor ld Wide Web HyperText Mar kup Language document </td>
+				</tr>
+				<tr>
+					<td> .jpg </td>
+					<td> Still picture encoded with the JPEG standard </td>
+				</tr>
+				<tr>
+					<td> .mp3 </td>
+					<td> Music encoded in MPEG layer 3 audio for mat </td>
+				</tr>
+				</table>
+				</div>
+				
+			</p>
+			<br/>
+			<h3>
+				File Structure
+			</h3>
+			<figure>
+			<img src="graphics/FileStructure.png" height="350" width="450">
+			</figure>
+			<p>
+				There are three common ways for structuring of files
+				<ul>
+					<li>Byte Sequence (unstructured sequence of bytes)</li> 
+					<li>Record Sequence </li>
+					<li>Tree </li>
+				</ul>
+				<br/>
+			</p>
+			<p>
+				<b> Byte Sequence : </b> In this way of structuring, a file is an unstructured sequence of bytes. What is contained inside the file is of no concern
+				<br/>
+				<b> Record Sequence : </b> In this structuring, a file is a sequence of fixed-length records, each with some internal structure. 
+				<br/>
+				<b> Tree : </b> In this organization, a file consists of a tree of records, not necessarily all the same length, each containing a key field in a fixed 
+					position in the record. The tree is sorted on the key field, to allow rapid searching for a particular key. All the basic operations are performed using the Key 
+					value. This type of file is clearly quite different from the unstructured byte streams used in UNIX and Windows and is used on some large mainframe computers for
+					commercial data processing.
+			</p>
+			<br/>
+			<h3>
+				File Types
+			</h3>
+			<p>
+				UNIX and Windows operating systems have regular files and Directories.
+				<br/>
+				<b> Regular Files : </b>Files containing user information
+				<br/>
+				<b> Directories : </b> These are the system files for maintaining the structure of file system.
+				<br/>
+				UNIX also has two other types of files.
+				<br/>
+				<b> Character Special Files : </b> These files are related to input and output operations. They are used to model serial I/O devices,such as terminals, printers, and networks. 
+				<br/>
+				<b> Block special Files : </b> These files are used to model disks.
+			</p>
+			<p>
+				Regular files are generally ASCII or binary files
+				<br/>
+				<b> ASCII files: </b> Files containing lines of text. These files can be displayed and printed as is, and they can be edited with any text editor.
+				<br/>
+				<b> Binary Files: </b> These files are not human readable. All the program executable files are in this format. 
+				    Executable binary Files: The operating system will execute an executable  binary file only if it has the proper format.Format of a binary file has 5 sections:
+					Header, Text, Data, Relocation bits and Symbol table.
+					Header section indiactes that the binary file is executable.
+					Archive: It consists of a collection of library procedures compiled but not linked. Each one is prefaced by a header telling its name, creation date, owner,
+					protection code, and size.
+			</p>
+			<figure>
+			<img src="graphics/FileTypes.png" height="400" width="450">
+			</figure>
+			<br/>
+			<h3>
+				File Access
+			</h3>
+			<p>
+				<ul>
+					<li> Sequential Access: Earlier operating Systems provided only one kind of file access called Sequential file access in which a process could read all the bytes or 
+						 records in a file in a order. Sequential files were convenient when the storage medium was magnetic tape rather than disk. </li>
+					<li> Random Access: Using diks it is possible to read the bytes or records of a file out of order making use of the Key value. Processes that can read a file in a random order
+						 is termed as random access and the file read in this manner is called as Random access file. 
+						 Methods used for specifying where to start reading from in a random access file are <b> read </b> operation and <b> seek </b> operation. 
+					</li>
+				</ul>
+				
+			</p>
+			<br/>
+			<h3>
+				File Attributes
+			</h3>
+			<p>
+				Operating Systems associate other information related to files such as date and time when a file was created, permissions for the file access as <b>File Attributes</b>.
+				These attributes are also called as <b> Metadata </b>. The list of attributes considerably vary from system to system. 
+			</p>
+			<p>
+			List of few File attributes:
+			<br/>
+			<div align="center">
+			<table>
+			<tr>
+				<th><b> Attribute </b></th>
+				<th><b> Meaning </b></th>
+			</tr>
+			<tr>
+				<td>Protection</td>
+				<td>Who can access the file and in what way</td>
+			</tr>
+			<tr>
+				<td>Read-only flag</td>
+				<td>0 for read/write; 1 for read only</td>
+			</tr>
+			<tr>
+				<td>Creation time</td>
+				<td>Date and time the file was created</td>
+			</tr>
+			<tr>
+				<td>Time of last change</td>
+				<td>Date and time the file was last changed</td>
+			</tr>
+			<tr>
+				<td>Current size</td>
+				<td>Number of bytes in the file</td>
+			</tr>
+			<tr>
+				<td>Owner</td>
+				<td>Current owner</td>
+			</tr>
+			<tr>
+				<td>Key Length</td>
+				<td>Number of bytes in the key field</td>
+			</tr>
+			<tr>
+				<td>Temporary flag</td>
+				<td>0 for normal; 1 for delete file on process exit</td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td>Password needed to access the file</td>
+			</tr>
+			</table>
+			</div>
+			</p>
+			<br/>
+			<h3>
+				File Operations
+			</h3>
+			<p>
+				Files exist to store information and allow it to be retrieved later. Different systems provide different operations to allow storage and retrieval. 
+				Some of the Operations are listed below.
+				<ul>
+					<li>Create</li>
+					<li>Delete</li>
+					<li>Open</li>
+					<li>Close</li>
+					<li>Read</li>
+					<li>Write</li>
+					<li>Append - This call is a restricted form of wr ite. It can add data only to the end of the file.</li>
+					<li>Seek - It is a system call,that repositions the file pointer to a specific place in the file</li>
+					<li>Get Attributes - Processes often need to read file attributes to do their work.</li>
+					<li>Set Attributes - Some of the attributes are user settable and can be changed after the file has been created and this system call can be used for the same.</li>
+					<li>Rename - This system call is used to change the name of the file.</li>
+				</ul>
+			</p>
+			
+			<h2>
+                File System calls code
             </h2>
                 <ul>
                     <li>
                     <a
-                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
-                        HTML
+                        href="FileCode.c">
+                        System calls
                     </a>
                 </ul>
 
@@ -42,7 +236,7 @@
             </h2>
                 <ul>
                     <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
+                        <a href="https://en.wikipedia.org/wiki/File_system">
                         Lectures
                         </a>
                 </ul>
