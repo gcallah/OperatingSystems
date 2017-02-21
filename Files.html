@@ -34,8 +34,8 @@
 				<div align="center">
 				<table>
 				<tr>
-					<td> <b> Extension </b> </td>
-					<td> <b> Meaning </b> </td>
+					<th> <b> Extension </b> </th>
+					<th> <b> Meaning </b> </th>
 				</tr>
 				<tr>
 					<td> .bak </td>
@@ -74,7 +74,7 @@
 				File Structure
 			</h3>
 			<figure>
-			<img src="graphics/FileStructure.png">
+			<img src="graphics/FileStructure.png" height="350" width="450">
 			</figure>
 			<p>
 				There are three common ways for structuring of files
@@ -125,7 +125,7 @@
 					protection code, and size.
 			</p>
 			<figure>
-			<img src="graphics/FileTypes.png">
+			<img src="graphics/FileTypes.png" height="400" width="450">
 			</figure>
 			<br/>
 			<h3>
@@ -156,8 +156,8 @@
 			<div align="center">
 			<table>
 			<tr>
-				<td><b> Attribute </b></td>
-				<td><b> Meaning </b></td>
+				<th><b> Attribute </b></th>
+				<th><b> Meaning </b></th>
 			</tr>
 			<tr>
 				<td>Protection</td>
@@ -212,11 +212,11 @@
 					<li>Close</li>
 					<li>Read</li>
 					<li>Write</li>
-					<li>Append</li>
-					<li>Seek</li>
-					<li>Get Attributes</li>
-					<li>Set Attributes</li>
-					<li>Rename</li>
+					<li>Append - This call is a restricted form of wr ite. It can add data only to the end of the file.</li>
+					<li>Seek - It is a system call,that repositions the file pointer to a specific place in the file</li>
+					<li>Get Attributes - Processes often need to read file attributes to do their work.</li>
+					<li>Set Attributes - Some of the attributes are user settable and can be changed after the file has been created and this system call can be used for the same.</li>
+					<li>Rename - This system call is used to change the name of the file.</li>
 				</ul>
 			</p>
 			

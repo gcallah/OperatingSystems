@@ -1,35 +1,39 @@
-#include <sys/types.h>                    /* include necessary header files */
+#include <sys/types.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <unistd.h>
-int main(int argc, char *argv[]);         /* ANSI prototype */
-#define BUF SIZE 4096                    /* use a buffer size of 4096 bytes */
-#define OUTPUT MODE 0700 				/* protection bits for output file */
+
+int main(int argc, char *argv[]);
+
+#define BUF SIZE 4096
+#define OUTPUT MODE 0700
 int main(int argc, char *argv[])
 {
-int in fd, out fd, rd count, wt count;
-char buffer[BUF SIZE];
-if (argc != 3) exit(1); 				/* syntax error if argc is not 3 */
+    int in fd, out fd, rd count, wt count;
+    char buffer[BUF SIZE];
+    if (argc != 3)
+        exit(1);
 
-/* Open the input file and create the output file */
-in fd = open(argv[1], O RDONLY); 		/* open the source file */
-if (in fd < 0) exit(2);					 /* if it cannot be opened, exit */
-	out fd = creat(argv[2], OUTPUT MODE); /* create the destination file */
-if (out fd < 0) exit(3);			 /* if it cannot be created, exit */
+    in fd = open(argv[1], O RDONLY);
+    if (in fd < 0)
+        exit(2);
+	out fd = creat(argv[2], OUTPUT MODE);
+    if (out fd < 0)
+        exit(3);
 
-/* Copy loop */
-while (TRUE) {
-	rd count = read(in fd, buffer, BUF SIZE); /* read a block of data */
-	if (rd count <= 0) break; 			/* if end of file or error, exit loop */
-		wt count = write(out fd, buffer, rd count); /* wr ite data */
-	if (wt count <= 0) exit(4); 		/* wt count <= 0 is an error */
-}
-
-/* Close the files */
+    while (TRUE)
+    {
+        rd count = read(in fd, buffer, BUF SIZE);
+        if (rd count <= 0)
+            break;
+		wt count = write(out fd, buffer, rd count);
+        if (wt count <= 0)
+            exit(4);
+    }
 close(in fd);
 close(out fd);
-if (rd count == 0) 					/* no error on last read */
-exit(0);
+if (rd count == 0)
+    exit(0);
 else
-exit(5);
+    exit(5);
 }

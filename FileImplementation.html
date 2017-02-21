@@ -5,27 +5,24 @@
             File System Implementation
         </title>
     </head>
-
     <body>
         <h1>
             File System Implementation
         </h1>
-
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/99/File_system_fragmentation.png">
+                src="graphics/File_system_fragmentation.png">
                 </p>
             </div>
 			<p>
 				File System Implementation defines how files and directories are stored, how disk space is managed, and how to make everything work efficiently and reliably.
 			</p>
-			<br/>
-            <h3>
+			<h3>
                 File-System Layout
             </h3>
 			<div align="center">
-			<img src="graphics/FileSystemLayout.png">
+			<img src="graphics/FileSystemLayout.png" width="450" height="400">
 			</div>
 			<br/>
 			<p>
@@ -40,46 +37,146 @@
 				touched.</li>
 				</ul>
 			</p>
+			<br/>
 			<h3>
                 Implementing Files
             </h3>
+			<p>
+				<ul>
+					<li><b>Contiguous Allocation:</b><br/> Each file is stored as a contiguous run of disk blocks. <br/>
+						<b>Example</b>: On a disk with 1KB blocks, a 50KB file would be allocated 50 consecutive blocks. With 2KB blocks it would be 25 consecutive blocks. <br/>
+						Each file begins at the start of a new block, so that if file A is occupying 3½ blocks, some space is wasted at the end of the last block.<br/>
+						<br/>
+						<b>Advantages: </b>
+						<br/>
+						Simple to implement.
+						<br/>
+						The read performance is excellent because the entire file can be read from the disk in a single operation.
+						<br/>
+						<br/>
+						<b>Drawbacks:</b> <br/>
+						Over the course of time the disk becomes <b>fragmented</b>. 
+					</li>
+					<li>
+					<b>Linked List Allocation: </b><br/>
+					The second method for storing files is to keep each one as a linked list of disk blocks. The first word of each block is used as a pointer to the next one. 
+					The rest of the block is for data. Unlike Contiguous allocation no space is lost in disk fragmentation. <br/>
+					<div align="center">
+					<img src="graphics/Linkedlist.png" width="400" height="300">
+					</div>
+					Random access of a file is very slow. 
+					</li>
+					<li>
+					<b>Linked-List Allocation Using a Table in Memory: </b> <br/>
+					The disadvantage of linked list can be overcomed by taking the pointer word from each disk block and putting it in a table in memory. Such a table in main memory is called a FAT
+					(File Allocation Table). Using FAT random access can be made much easier.
+					<br/>
+					The primary disadvantage of this method is that the entire table must be in memory all the time to make it work. 
+					</li>
+					<li>
+					<b>I-nodes: </b> I-node is a data structure which is used to identify which block belongs to which file. It contains the attributes and disk addresses of the file's blocks.
+					Unlike for in-memory table the i-node need to be in memory only when the corresponding file is open. 
+					<div align="center">
+					<img src="graphics/inode.png" width="400" height="350">
+					</div>
+					</li>
+				</ul>
+			</p>
+			<br/>
 			<h3>
                 Implementing Directories
             </h3>
+			<p>
+				The main function of the directory system is to map the ASCII name of the file onto the information needed to locate the data. A directory can be designed in two ways.
+				<ul>
+					<li>
+					In a simple design a directory consists of a list of fixed-size entries,one per file, containing a (fixed-length) file name, a structure of the file attributes, and 
+					one or more disk addresses telling where the disk blocks are.
+					<div align="center">
+					<img src="graphics/simpledir.png">
+					</div>
+					</li>
+					<li>
+					For systems that use i-nodes, another possibility for storing the attributes is in the i-nodes, rather than in the directory entries. In that case, the directory 
+					entry can be shorter: just a file name and an i-node number.
+					<div align="center">
+					<img src="graphics/inodedir.png" width="450" height="350">
+					</div>
+					</li>
+				</ul>
+			</p>
+			<br/>
 			<h3>
                 Shared Files
             </h3>
+			<p>
+				When several users are working together sharing of files takes place. In such a case it is convenient for  a file to appear simultaneously in different directories belonging to
+				different users. Sharing files is convenient but also introduces problems like if the original file or the shared file are appended with new features then it will not be updated in both
+				the copies of the file, it is updated only at its original location. This way the purpose of file sharing is defeated. This problem can be solved by two ways:
+			 <ul>
+			 <li>i-node</li>
+			 <li>Symbolic linking</li>
+			 </ul>
+			</p>
+			<br/>
 			<h3>
                 Log-Structured File Systems
             </h3>
+			<p>
+			<ul>
+			A log-structured filesystem is a file system in which data and metadata are written sequentially to a circular buffer, called a log. <li>The idea that drove the LFS design is that
+			as CPU's and RAM's are getting faster and larger in the future, most disk accesses will be writes, so the read-ahead mechanism used in some file systems to fetch blocks before 
+			they are needed no longer gains much performance. </li><li>Using LFS all writes are initially buffered in memory, and periodically all the buffered writes are written to the disk in a 
+			single segment, at the end of the log. Opening a file now consists of using the map to locate the i-node for the file. Once the i-node has been located, the addresses of the blocks
+			can be found from it. All of the blocks will themselves be in segments, somewhere in the log. </li>
+			<li>Since eventually the log will occupy the entire disk, at which time no new segments can be written to the log. To deal with this problem, LFS has a cleaner thread that 
+			spends its time scanning the log circularly to compact it. In this the disk is a big circular buffer, with the writer thread adding new segments to the front and the
+			<b>cleaner</b> thread removing old ones from the back. </li><br/>
+			While Log-Structured File Systems are a good idea they are not widely used.
+			</ul>
+			</p>
+			<br/>
 			<h3>
                 Journaling File Systems
             </h3>
+			<p>
+			The basic idea here is to keep a log of what the file system is going to do before it does it, so that if the system crashes before it can do its planned work, upon 
+			rebooting the system can look in the log to see what was going on at the time of the crash and finish the job. Such file systems, called journaling file systems, are 
+			actually in use.
+			<br/>
+			Operations that take place for removing a file:
+			<ul>
+			<li>Remove the file from its directory</li>
+			<li>Release the i-node to the pool of free i-nodes</li>
+			<li>Return all the disk blocks to the pool of free disk blocks</li>
+			</ul>
+			<p>
+			The functioning of Journaling file system is such that it first writes a log entry listing the three actions to be completed. The log entry is then written to disk.
+			Only after the log entry has been written, the various operations begin. After the operations are completed successfully, the log entry is erased. If the system now crashes
+			upon recovery the file system can check the log to see if any operations were pending. If so, all of them can be rerun (multiple times in the event of repeated crashes)
+			until the file is correctly removed.<br/>
+			Crash recovery can be made fast and secure when log operations are <b>idempotent.</b>
+			</p>
+			</p>
+			<br/>
 			<h3>
                 Virtual File Systems
             </h3>
-
-            <h2>
-                Source Code
-            </h2>
-                <ul>
-                    <li>
-                    <a
-                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
-                        HTML
-                    </a>
-                </ul>
-
-            <h2>
-                External Links
-            </h2>
-                <ul>
-                    <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
-                        Lectures
-                        </a>
-                </ul>
-            
+			<p>
+			An Operating system can have multiple file systems in it. <b> Virtual File Systems </b> are used to integrate multiple file systems into an orderly structure. The key 
+			idea is to abstract out that part of the file system that is common to all file systems and put that code in a separate layer that calls the underlying concrete file 
+			systems to actually manage the data.<br/><br/>
+			Structure of Virtual File Systems in UNIX system:
+			<div align="center">
+			<img src="graphics/vfs.png" width="400" height="300">
+			</div>
+			</p>
+			<p>
+			The VFS also has a ‘‘lower’’ interface to the concrete file systems, which is labeled <b>VFS interface</b>. This interface consists of several dozen function calls that
+			the VFS can make to each file system to get work done. VFS has two distinct interfaces: the upper one to the user processes and the lower one to the concrete file systems
+			<br/>
+			VFS supports remote file systems using the <b>NFS(Network File System)</b> protocol. 
+                        
             <h2>
                 Homework
             </h2>
