@@ -304,6 +304,11 @@
                         (it held from long ago) is 0, and goes to sleep.
                         <br>
                         Everyone is asleep!
+                        <br>
+                        <br>
+                        The soltion is to make the operations of checking the
+                        relevant variable, and then re-setting it or going to
+                        sleep, <b>atomic</b>.
                     </p>
 
 
@@ -354,9 +359,55 @@
                 <h3>
                     Solving the Producer-Consumer Problem Using Semaphores
                 </h3>
+                    <p>
+                        Here is the Tanenbaum-Bos code for solving the
+                        producer-consumer problem using semaphores:
+                    </p>
+
+                    <pre>
+                    <code>
+                    #define N 100    /* number of slots in buffer */
+                    typedef int sem; /* a special sort of int */
+                    sem mutex = 1;   /* for mutual exclusion */
+                    sem empty = N;   /* keep producer from over-producing */
+                    sem full = 0;    /* keep consumer sleeping if nothing to consume */
+                
+                    void producer() {
+                        int item;
+
+                        while (TRUE) {
+                            item = produce_item();  /* produce something */
+                            down(&empty);           /* decrement empty count */
+                            down(&mutex);           /* start critical section */
+                            insert_item(item);      /* put item in buffer */
+                            up(&mutex);             /* end critical section */
+                            up(&full);              /* +1 full slot */
+                        }
+                    }
+
+                    void consumer() {
+                        int item;
+
+                        while (TRUE) {
+                            down(&full);            /* one less item */
+                            down(&mutex);           /* start critical section */
+                            remove_item(item);      /* get the item from the buffer */
+                            up(&mutex);             /* end critical section */
+                            up(&empty);             /* one more empty slot */
+                            consume_item(item);     /* consume it */
+                        }
+                    }
+                    </code>
+                    </pre>
+
             <h2>
                 Mutexes
             </h2>
+
+                <p>
+                A <b>mutex</b> is a binary semaphore, short for <b>mu</b>tual
+                <b>ex</b>clusion.
+                </p>
 
 
                 <h3>
@@ -461,6 +512,10 @@
                         <a
                             href="https://en.wikipedia.org/wiki/Inter-process_communication">
                         Interprocess Communication
+                        </a>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Mutual_exclusion">
+                            Mutual Exclusion
                         </a>
                     <li>
                         <a
