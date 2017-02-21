@@ -311,17 +311,49 @@
                 Semaphores
             </h2>
 
-                    <figure>
-                        <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rail-semaphore-signal-Dave-F.jpg/220px-Rail-semaphore-signal-Dave-F.jpg">
-                        <figcaption>
-                        </figcaption>
-                    </figure>
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Rail-semaphore-signal-Dave-F.jpg/220px-Rail-semaphore-signal-Dave-F.jpg">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+
+                <p>
+                    The key to semaphores is that they are implemented as
+                    <b>atomic operations</b> at the OS level. That means that
+                    <i>all</i> of the operations in the semaphore complete as a
+                    unit, with no possibility of interruption.
+                    <br>
+                    Below is code for semaphores: if either <i>up()</i> or
+                    <i>down()</i> is entered, it is guaranteed to complete
+                    without interruption.
+                    <br>
+                    <pre>
+                    <code>
+                    down(sem s) {
+                        if (s > 0)
+                            s = s - 1;
+                        else
+                            /* put the thread to sleep on event s */
+                    }
+                    
+                    up (sem s) {
+                        if (one or more threads are waiting on s)
+                            /* wake up one of the threads sleeping on s  */
+                        else
+                            s = s + 1;
+                    }
+                    </code>
+                    </pre>
+                    <p>
+                    (Code from:
+                    https://www.cs.rutgers.edu/~pxk/416/notes/06-sync.html)
+                    </p>
+                </p>
+
                 <h3>
                     Solving the Producer-Consumer Problem Using Semaphores
                 </h3>
-
-
             <h2>
                 Mutexes
             </h2>
@@ -339,6 +371,52 @@
             <h2>
                 Monitors
             </h2>
+
+
+                <p>
+                    Monitors are a feature of a programming language created to
+                    make synchronization easier. Languages with monitors
+                    include Java, C#, Visual Basic, and Ada.
+                    <br>
+                    <br>
+                    Below is code showing the use of monitors in Java: it is
+                    the <b>synchronized</b> keyword that creates the monitor.
+                </p>
+
+                <pre>
+                <code>
+                class producer_consumer {
+                    private boolean item_ready = false;
+                
+                    public synchronized int produce_item() {
+                        while (item_ready == true) {
+                            try {
+                                wait();    // block until signaled (notify)
+                            } catch (InterruptedException e) { } // ignore
+                        }
+                        item_ready = true;
+                        // generate the item
+                        notify();    // signal the monitor
+                        return item;
+                    }
+                
+                    public synchronized void consume_item(int item) {
+                        while (item_ready == false) {
+                            try {
+                                wait();    // block until notified
+                            } catch (Interrupted Exception e) { } // ignore
+                        }
+                        // consume the item
+                        item_ready = false;
+                        notify();    // signal the monitor
+                    }
+                }
+
+                </code>
+                </pre>
+				<p>
+					(Code from: https://www.cs.rutgers.edu/~pxk/416/notes/06-sync.html)
+				</p>
 
 
             <h2>
