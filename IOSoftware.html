@@ -18,13 +18,206 @@
                 </p>
             </div>
 
+            
             <h2>
-                Major topic
+                Goals of the I/O Software
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+            <p>
+            	<ul>
+            		<li>
+            			A key concept in the design of I/O software is known as <b>device independence</b>. It means that I/O devices should be accessable programs without specifying the device in advance.
+            		</li>
+            		<li>
+            			<b>Uniform Naming</b>, simply be a string or an integer and not depend on the device in any way. In UNIX, all disks can be integrated in the file-system hierarchy in arbitrary ways so the user need not be aware of which name corresponds to which device. 
+            		</li>
+            		<li>
+            			<b>Error Handling</b>: If the controller discovers a read error, it should try to correct the error itself if it can. If it cannot, then the device driver should handle it, perhaps by just trying to read the block again. In many cases, error recovery can be done transparently at a low level without the upper levels even knowing about the error.
+            		</li>
+            		<li>
+            			<b>Synchronous (blocking) and Asynchronous (interrupt-driven) transfers</b>: Most physical I/O is asynchronous, however, some very high-performance applications need to control all the details of the I/O, so some operating systems make asynchronous I/O available to them. 
+            		</li>
+            		<li>
+            			<b>Buffering</b>: Often data that come off a device cannot be stored directly in their final destination.
+            		</li>
+            		<li>
+            			<b>Sharable and Dedicated devices</b>: Some I/O devices, such as disks, can be used by many users at the same time. No problems are caused by multiple users having open files on the same disk at the same time. Other devices, such as printers, have to be dedicated to a single user until that user is finished. Then another user can have the printer. Introducing dedicated (unshared) devices also introduces a variety of problems, such as deadlocks. Again, the operating system must be able to hanfle both shared and dedicated devices in a way that avoids problems.
+            		</li>
+            	</ul>
+            	 
+            </p>
+
+            <h2>
+            	Programmed I/O
+            </h2>
+
+            <p>
+            	This is one of the three fundamentally different ways that I/O can be performed. The programmed I/O was the most simple type of I/O technique for the exchanges of data or any types of communication between the processor and the external devices. With programmed I/O, data are exchanged between the processor and the I/O module. The processor executes a program that gives it direct control of the I/O operation, including sensing device status, sending a read or write command, and transferring the data. When the processor issues a command to the I/O module, it must wait until the I/O operation is complete. If the processor is faster than the I/O module, this is wasteful of processor time. The overall operation of the programmed I/O can be summaries as follow:
+            	<ul>
+            		<li>The processor is executing a program and encounters an instruction relating to I/O operation.</li>
+            		<li>The processor then executes that instruction by issuing a command to the appropriate I/O module.</li>
+            		<li>The I/O module will perform the requested action based on the I/O command issued by the processor (READ/WRITE) and set the appropriate bits in the I/O status register.</li>
+            		<li>The processor will periodically check the status of the I/O module until it find that the operation is complete.</li>
+            	</ul>
+            </p>
+
+
+            <h3>
+            	Programmed I/O Mode: Input Data Transfer
+            </h3>
+            <ul>
+            	<li>Each input is read after first testing whether the device is ready with the input (a state reflected by a bit in a status register).</li>
+            	<li>The program waits for the ready status by repeatedly testing the status bit and till all targeted bytes are read from the input device.</li>
+            	<li>The program is in busy (non-waiting) state only after the device gets ready else in wait state.</li>
+            </ul>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/IOSw_Programmed_Input.png" height="280" width="350">
+                </p>
+            </div>
+
+            <h3>
+            	Programmed I/O Mode: Output Data Transfer
+            </h3>
+            <ul>
+            	<li>Each output written after first testing whether the device is ready to accept the byte at its output register or output buffer is empty.</li>
+            	<li>The program waits for the ready status by repeatedly testing the status bit(s) and till all the targeted bytes are written to the device.</li>
+            	<li>The program in busy (non-waiting) state only after the device gets ready else wait state.</li>
+            </ul>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/IOSw_Programmed_Output.png" height="280" width="350">
+                </p>
+            </div>
+
+            <h3>
+            	Programmed I/O Commands
+            </h3>
+            <p>
+            	To execute an I/O-related instruction, the processor issues an address, specifying the particular I/O module and external device, and an I/O command. There are four types of I/O commands that an I/O module may receive when it is addressed by a processor:
+            </p>
+
+            <ul>
+            	<li><b>Control</b></li>
+            	<li><b>Test</b></li>
+            	<li><b>Read</b></li>
+            	<li><b>Write</b></li>
+            </ul>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/IOSw_Programmed_Code.png">
+                </p>
+            </div>
+
+            <h3>
+            	Advantages of PRogrammed I/O    
+            </h3>
+            <ul>
+            	<li>Simple to implement</li>
+            	<li>Very little hardware support</li>
+            </ul>
+
+            <h3>
+            	Disadvantages of Programmed I/O
+            </h3>
+            <ul>
+            	<li>Busy waiting</li>
+            	<li>Ties up CPU for long period with no useful work</li>
+            </ul>
+
+            <h2>
+            	Interrupt-Driven I/O
+            </h2>
+            <p>
+            	Interrupt driven I/O is an alternative scheme dealing with I/O. Interrupt I/O is a way of controlling input/output activity whereby a peripheral or terminal that needs to make or receive a data transfer sends a signal. This will cause a program interrupt to be set. At a time appropriate to the priority level of the I/O interrupt. Relative to the total interrupt system, the processors enter an interrupt service routine. 
+            </p>
+
+            <h3>
+            	Intrrupt I/O Inputs
+            </h3>
+            <p>
+            	For input, the device interrupts the CPU when new data has arrived and is ready to be retrieved by the system processor. The actual actions to perform depend on whether the device uses I/O ports or memory mapping.
+            </p>
+
+            <h3>
+            	Intrrupt I/O Outputs
+            </h3>
+            <p>
+            	For output, the device delivers an interrupt either when it is ready to accept new data or to acknowledge a successful data transfer. Memory-mapped and DMA-capable devices usually generate interrupts to tell the system they are done with the buffer.
+            </p>
+            <h3>
+            	Operations in Intrrupt I/O
+            </h3>
+            <ul>
+            	<li>CPU issues read command.</li>
+            	<li>I/O module gets data from peripheral whilst CPU does other work.</li>
+            	<li>I/O module interrupts CPU.</li>
+            	<li>CPU requests data.</li>
+            	<li>I/O module transfers data.</li>
+            </ul>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/IOSw_Intrrupt_Code.png">
+                </p>
+            </div>
+
+            <h3>
+            	Advantages of Intrrupt I/O
+            </h3>  
+            <ul>
+            	<li>Its faster than Programmed I/O.</li>
+            	<li>Efficient too.</li>
+            </ul>
+
+            <h3>
+            	Disadvantages of Intrrupt I/O
+            </h3>
+            <ul>
+            	<li></li>
+            	<li>It can be tricky to write if using a low level language.</li>
+            	<li>It can be tough to get various pieces to work well together.</li>
+            </ul>
+
+            <h2>
+            	I/O Using DMA
+            </h2>
+            <p>
+            	Direct Memory Access is a technique for transferring data within main memory and external device without passing it through the CPU. DMA is a way to improve processor activity and I/O transfer rate by taking-over the job of transferring data from processor, and letting the processor to do other tasks. This technique overcomes the drawbacks of other two I/O techniques which are the time consuming process when issuing command for data transfer and tie-up the processor in data transfer while the data processing is neglected. It is more efficient to use DMA method when large volume of data has to be transferred. For DMA to be implemented, processor has to share its’ system bus with the DMA module. Therefore, the DMA module must use the bus only when the processor does not need it, or it must force the processor to suspend operation temporarily.
+            </p>
+            <h3>
+            	Operations of Direct Memory Access
+            </h3>
+         
+            <ul>
+            	<li>Read or Write Command</li>
+            	<li>Control Lines Communication</li>
+            	<li>Data Lines Communication</li>	
+            </ul>
+
+            <div style="text-align:center; vertical-align: middle;">
+                <p>
+                <img
+                src="graphics/IOSw_DMA_Read.png">
+
+                <img
+                src="graphics/IOSw_DMA_Code.png" width=500>
+                </p>
+            </div>
+
+            <h3>
+            	Advantages of DMA
+            </h3>
+            <ul>
+            	<li>Speed, as in no waiting due to much shorter execution path and no rotation delay.</li>
+            </ul>
 
             <h2>
                 Source Code
@@ -42,8 +235,8 @@
             </h2>
                 <ul>
                     <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
-                        Lectures
+                        <a href="inputoutput5822.weebly.com/programmed-io.html">
+                        PRogrammed I/O
                         </a>
                 </ul>
             
