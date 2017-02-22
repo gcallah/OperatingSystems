@@ -21,142 +21,67 @@
 
 
             <h2>
-                Memory
+                History
             </h2>
 
-            <p>
-                There is never enough memory to actively hold all code and data structures needed by running processes in memory at any given point of time.
-                The idea is to swap in and out blocks of code as they are required from secondary memory.
+        <p> <b>The Simplest memory abstraction is no abstraction at all.</b></p>
 
-            </p>
+                <ul>
+                    <li>
+                        Early Computers did not have any memory abstraction at all. Which means, all programs had access to physical memory.
+                    </li>
+                    <li>
+                        Programs were executed with instructions like <br><br>
+                        <b> MOV REGISTER1, 1000</b> <br><br>
+                        This means the computer simply moved contents of memory location 1000 to REGISTER1
+                    </li>
+                    <li>
+                        This means we could not have 2 programs running in main memory at once, as this would cause inconsistency in data.
+                    </li>
+                    <li>
+                        Processes could erase each others' written output/input and cause severe inconsistencies.
+                    </li>
+                </ul>
 
             <h2>
-                Memory Management Requirements
+                Multiprogramming without memory abstraction
             </h2>
+        <ul>
+            <li>
+                It is possible to run multiple programs without having memory abstraction.
+            </li>
+            <li>
+                The idea is to have just one running process in main memory at any point of time.
+            </li>
+            <li>
+                Whenever a process leaves main memory, all of its current state and values are copied onto main memory and another proces is nrought onto main memory.
 
+            </li>
+            <li>
+                Whenever the process returns to main memory, all of the saved contents are briught back to main memory.
+            </li>
+        </ul>
+
+            <h2>
+                Multiprogramming without memory abstraction and swapping
+            </h2>
             <ul>
                 <li>
-                    <b>Relocation</b> <br>
-                    <p>
-                        Every time a process is swapped in or out, it must be correctly located and referenced in order to continue from its
-                        previously active state.
-                    </p>
+                    With addition of special hardware, it is possible to run multiprogramming without swapping.
                 </li>
                 <li>
-                    <b>Protection</b>  <br>
-                    <p>
-                        Programs in other processes must be forbidden from referencing memory locations of a given process without valid permissions.
-                    </p>
-                </li>
-                <li>
-                    <b>Sharing</b>  <br>
-                    <p>
-                        Multiple processes accessing same main memory.
-                    </p>
-                </li>
-                <li>
-                    <b>Logical Organization</b> <br>
-                    <p>
-                        Organize User programs in form of modules so that they can later be broken down into chunks for memory abstraction.
-                    </p>
-                </li>
-            </ul><br><br>
+                    Early models of IBM 360 followed this approach:<br><br>
 
-              <h2>
-                Memory Management Techniques
-            </h2>
+                    Memory was divided into 2 KB bloks and each block was assigned a 4-bit protetion key held in special registers inside the CPU.<br><br>
 
-            <ul>
-                <li>
-                    <b>Fixed Partitioning</b> <br>
-                    <p>
-                        Main memory is divided into static partitions.
-                        Any process, given its requirements may be loaded into a partition of equal or greater size. <br>
-                        Note that here processes are not divided into modules,  rather memory is divided and entire processes are placed
-                        inside a partition.<br><br>
+                    A machine with 1 MB memory needed only 512 of these 4 bit registers for a total of 256 bytes of key storage.<br><br>
 
-                        Partitions may be of two types :
-                        <ul>
-                    <li>
-                        <b>Equal Sized</b><br>
-                        <p> If program size is beyond that of the partition size, need overlays</p>
-                        <p> Gives rise to internal fragmentation</p>
-                    </li>
-                    <li>
-                        <b>Unequal Sized</b><br>
-                        <p> Fit into smallest possible partition</p>
-                    </li>
-                </ul>
+                    The PSW (Program Status Word) also contained a 4-bit key.<br><br>
 
-                    </p>
-                </li>
-                <li>
-                    <b>Dynamic Partitioning</b>  <br>
-                    <p>
-                        Here, partitions are created dynamically as per the requirement/size of the process in question.
-                        <ul>
-                            <li>
-                                Partition created to be exact fit for asking process size. No Internal fragmentation.
-                            </li>
-                            <li>
-                                When processes are pulled out, it creates holes in memory space. This causes external fragmentation.
-                            </li>
-                            <li>
-                                Need to perform a process known as compaction to regularly shift partitions and remove holes created by processes leaving
-                                main memory. This is a costly process and cannot be done repeatedly.
-                            </li>
-                </ul>
-                    </p>
-                </li>
-                <li>
-                    <b>Paging</b>  <br>
-                    <p>
-                        <ul>
-                            <li>
-                                Main Memory is divided into equal sized partitions. Each partition is called a <b>frame</b>.
-                            </li>
-                            <li>
-                                Processes are divided into equal sized chunks where each chunk is called a <b>page</b>
-                            </li>
-                            <li>
-                                To load a process, all of its pages are loaded into frames which need not be contagious.
-                                The OS takes care of the order of execution.
-                            </li>
-                            <li>
-                                Operating System maintains a page table for each process which contains the frame location for each page.
-                            </li>
-                            <li>
-                                Paging causes zero internal fragmentation and is optimal among static partitioning techniques.
-                            </li>
-                            <li>
-                                Paging causes minimal external fragmentation.
-                            </li>
-                </ul>
-                    </p>
-                </li>
-                <li>
-                    <b>Simple Segmentation</b> <br>
-                    <p>
-                        <ul>
-                            <li>
-                                Every process is divided into a number of chunks where each chunk is called a <b>segment</b>
-                            </li>
-                            <li>
-                                Each process is loaded by bringing all of its segments onto main memory.
-                                Every segment of the process is loaded ont the main memory by creating partitions dynamically matching the size of each segment.
-                                This creates an exact fit for every segment.
-                            </li>
-                            <li>
-                                Segmentation is free of internal fragmentation.
-                            </li>
-                            <li>
-                                Suffers from external fragmentation but not as much, because process is divided into segments which are smaller in size.
-                            </li>
-                            <li>
-                                Every program/process may occupy more than one non contagious segments, similar to dynamic partitioning.
-                            </li>
-                </ul>
-                    </p>
+                    The 360 hardware trapped any attempt by a running process to access memory with a protection code from the PSW key.<br><br>
+
+                    Only the OS is permitted to change the protection keys, hence, user processes could not interfere with one another and also with the OS process.
+
                 </li>
             </ul>
 

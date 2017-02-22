@@ -7,24 +7,224 @@
     </head>
 
     <body>
+        <div style="text-align:center">
+            <p>
+            <img
+             src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Htop.png">
+            </p>
+        </div>
+
         <h1>
             Processes
         </h1>
 
-            <div style="text-align:center">
-                <p>
-                <img
-                 src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Htop.png">
-                </p>
-            </div>
+            <p>
+                Why multiple-processes? Check this
+                <a href="https://gist.github.com/jboner/2841832">
+                    table of latencies.
+                </a>
+                We can use the CPU while RAM, disk, and network access are
+                occurring.
+                <br>
+                <br>
+                Two types of parallelism:
+                <br>
+                <b>Pseudo-parallelism:</b> on one CPU, gives the appearance that
+                processes are running simultaneously.
+                <br>
+                <b>Real parallelism:</b> with multiple CPUs, processes
+                <i>do</i> run simultaneously. (But not <i>all</i> of them,
+                usually: e.g., four CPUs on my Mac, but 392 processes.)
+            </p>
 
             <h2>
-                Major topic
+                The Process Model
             </h2>
 
-                <h3>
-                    Minor topic
-                </h3>
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/0/04/Context_switch.png">
+                    <figcaption>
+                        A context switch
+                    </figcaption>
+                </figure>
+
+                <p>
+                    The illusion of parallelism is produced by continually
+                    switching the CPU between processes. These switches are
+                    expensive.
+                    <br>
+                    <br>
+                    there is no real difference conceptually between what a
+                    single CPU running 100 processes does been a four core CPU
+                    running 400 processes. So here we will just look at the
+                    single CPU situation.
+                    <br>
+                    <br>
+                    It is important to know that from the point of view of a
+                    single program, multiprocessing renders the behavior of the
+                    program nondeterministic. The program cannot be certain how
+                    frequently it will get the CPU. This can become crucial
+                    with programs doing things like playing a video, and
+                    really, really crucial, if the program is monitoring the
+                    state of a nuclear power plant or a patient's vital signs
+                    in the hospital.
+                    <br>
+                    <br>
+                    A process is a program <i>in action</i>.
+                </p>
+
+            <h2>
+                Process Creation
+            </h2>
+
+                <p>
+                    How processes are created:
+                </p>
+
+                <ol>
+                    <li>System initialization
+                    <li>A running process executes a process-creation system
+                        call.
+                    <li>A user requests a new process.
+                    <li>A batch job starts.
+                </ol>
+
+                <p>
+                    Technically, in <b>all</b> cases, 2 is how new processes
+                    are created.
+                    <br>
+                    <br>
+                    At boot time, a windowing system or command shell may be
+                    started. But the system also starts daemons that listen on
+                    ports for mail or web page requests, scan for viruses,
+                    handle print requests, etc.
+                    <br>
+                    <br>
+                    The book claims that the batch situation only applies on
+                    mainframes. But UNIX has a <b>cron</b> facility for running batch
+                    jobs, and Windows has a <b>Task Scheduler</b>.
+                    <br>
+                    <br>
+                    <b>UNIX:</b> <b>fork</b> and <b>exec</b> pair start process. After fork,
+                    the child is a copy of the parent. It can then manipulate
+                    file handles, and then exec a new program in its process
+                    space.
+                    <br>
+                    <b>Windows:</b> <b>CreateProcess</b> is the single call that
+                    accomplishes both of the above tasks. Win32 has 100 other
+                    calls for managing processes.
+                </p>
+
+            <h2>
+                Process Termination
+            </h2>
+
+                <p>
+                    How processes terminate:
+                </p>
+
+                <ol>
+                    <li>Normal exit (voluntary)
+                    <li>Error exit (voluntary)
+                    <li>Fatal error exit (involuntary)
+                    <li>Killed by another (involuntary)
+                </ol>
+
+                <p>
+                    Very often, a process and because it has finished its work.
+                    The user clicks "Exit" on a word processor, or a compiler
+                    finishes compiling a program. In UNIX, the process executes
+                    the <b>exit</b> system call, and on Windows,
+                    <b>ExitProcess</b>.
+                    <br>
+                    <br>
+                    The second case is really a special instance of the first:
+                    if we try to compile foo.c and no such file exists, the
+                    compiler exits with the complaint "No such file." but it
+                    may set a different exit code.
+                    <br>
+                    <br>
+                    In the third case, the process has done something naughty,
+                    and the OS kills it: it tried an illegal instruction (e.g.,
+                    switching into kernel mode without executing a system call)
+                    or accessed memory not its own, or dividing by zero.
+                    <br>
+                    <br>
+                    The fourth case is when one process kills another with a
+                    system call and process ID. In UNIX, the call is
+                    <b>kill</b>, and in Windows, <b>TerminateProcess</b>. In
+                    neither case does this kill processes created by the murder
+                    victim. (In some OSes it will.) The murderer needs the
+                    right permissions, e.g., a user process can't kill a kernel
+                    process, and a (non-root) user can't kill the process of
+                    another user.
+                </p>
+
+            <h2>
+                Process Hierarchies
+            </h2>
+
+                <p>
+                    UNIX processes form a hierarchy: a parent spwans child
+                    processes, which spawn grandchild processes, etc. For
+                    instance, a signal may be sent to the whole process group.
+                    <br>
+                    <br>
+                    Windows has no such process hierarchy.
+                </p>
+
+            <h2>
+                Process States
+            </h2>
+                <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Process_states.svg/300px-Process_states.svg.png">
+                    <figcaption>
+                        Various process states
+                    </figcaption>
+                </figure>
+
+                <ol>
+                    <li>Running
+                    <li>Ready
+                    <li>Blocked
+                </ol>
+
+            <h2>
+                Implementation of Processes
+            </h2>
+
+                <p>
+                    In this case, we can usefully turn to the Wikipedia page on
+                    the
+                    <a
+                        href="https://en.wikipedia.org/wiki/Process_control_block">
+                    process control block
+                    </a>.
+                </p>
+
+            <h2>
+                Modeling Multiprogramming
+            </h2>
+
+                <figure>
+                    <img
+                    src="http://www.cs.nott.ac.uk/~pszgxk/courses/g53ops/images/CPUutilisation.jpg">
+                    <figcaption>
+                    </figcaption>
+                </figure>
+
+                <p>
+                    We look at CPU usage from a probabilistic viewpoint, and
+                    try to see what the <i>likely</i> rate of CPU usage is. We
+                    get a formula, where <i>p</i> is the fraction of time an
+                    average process waits for I/O, and <i>n</i> is the number
+                    of processes:
+                    <br>
+                    <br>
+                    CPU utilization = 1 - <i>p<sup>n</sup></i>
+                </p>
 
             <h2>
                 Credits
@@ -35,6 +235,9 @@
                         screenshot of htop running in ubuntu jeos in virtualbox,
                         then cropped to remove frame., CC BY-SA 3.0,
                         https://commons.wikimedia.org/w/index.php?curid=3419089
+                    <li>Context switch: By Michael Alexander -
+                        http://www.gearforgaming.com, CC BY-SA 4.0,
+                        https://commons.wikimedia.org/w/index.php?curid=53415227
                 </ul>
 
             <h2>
@@ -51,13 +254,16 @@
                             href="https://www.nayuki.io/page/a-fundamental-introduction-to-x86-assembly-programming#1-tools-and-testing">
                             Assembly language guide
                         </a>
+                    <li>
+                        <a href="https://gist.github.com/jboner/2841832">
+                            Latency numbers
+                        </a>
+                    <li>
+                        <a
+                           href="http://www.cs.nott.ac.uk/~pszgxk/courses/g53ops/Memory%20Management/MM02-modelingmulti.html">
+                            Degree of multiprogramming:
+                        </a>
                 </ul>
             
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>

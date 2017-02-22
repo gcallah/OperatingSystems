@@ -2,56 +2,197 @@
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <title>
-            File System Management and Optimiization
+            File System Management and Optimization
         </title>
     </head>
 
     <body>
         <h1>
-            File System Management and Optimiization
+            File System Management and Optimization
         </h1>
 
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/9a/100_000-files_5-bytes_each_--_400_megs_of_slack_space.png">
+                src="graphics/File_Management.png">
                 </p>
             </div>
+						
+            <h3>
+                Disk-Space Management
+            </h3>
+			<p>
+				Since all the files are normally stored on disk one of the main concerns of file system is management of disk space.<br/>
+			</p>
+				<h4>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Size
+				</h4>
+				<p>
+				The main question that arises while storing files in a fixed-size blocks is the size of the block. If the block is too large space gets wasted and if 
+				the block is too small time gets waste. So, to choose a correct block size some information about the file-size distribution is required. 
+				Performance and space-utilization are always in conflict. 
+				</p>
+				<h4>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keeping track of free blocks
+				</h4>
+				<p>
+				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that 
+				are widely used:
+				<ul>
+				<li>Using Linked List: Using a linked list of disk blocks with each block holding as many free disk block numbers as will fit.
+				<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/LL.png" height="300" width="350">
+                </p>
+				</div>
+				</li>
+				<li>
+				Bitmap: A disk with n blocks has a bitmap with n bits. Free blocks are represented using 1's and allocated blocks as 0's as seen below in the figure.
+				<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/bitmap.png" height="300" width="350">
+                </p>
+				</div>
+				</li>
+				</ul>
+				</p>
+				<h4>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disk quotas
+				</h4>
+				<p>
+				Multiuser operating systems often provide a mechanism for enforcing disk quotas. A system administrator assigns each user a maximum allotment of files and blocks and
+				the operating system makes sure that the users donot exceed their quotas. Quotas are kept track of on a per-user basis in a quota table. 
+				</p>
+						
+			<h3>
+                File-system Backups
+            </h3>
+			<p>
+			If a computer's file system is irrevocably lost, whether due to hardware or software restoring all the information will be difficult, time consuming and in many cases impossible.
+			So it is adviced to always have file-system backups. <br/>Backing up files is time consuming and as well occupies large amount of space, so doing it efficiently and convenietly is
+			important. Below are few points to be considered before creating backups for files.
+			<ul>
+			<li>Is it requied to backup the entire file system or only a part of it.</li>
+			<li>Backing up files that haven't been changed from previous backup leads to <b>incremental dumps</b>. So it's better to take a backup of only those files which have changed from the time of 
+			previous backup. But recovery gets complicated in such cases.</li>
+			<li>Since there is immense amount of data, it is generally desired to compress the data before taking a backup for the same.</li>
+			<li>It is difficult to perform a backup on an active file-system since the backup may be inconsistent.</li>
+			<li> Making backups introduces many security issues </li>
+			</ul>
+				
+			<br/>
+			<p>There are two ways for dumping a disk to the backup disk:</p>
+			<ul>
+			<li><b>Physical dump: </b>In this way dump starts at block 0 of the disk, writes all the disk blocks onto thee output disk in order and stops after copying the last one. <br/>
+			<b>Advantages: </b> Simplicity and great speed.<br/>
+			<b>Disadvantages:</b> inability o skip selected directories, make incremental dumps, and restore individual files upon request</li>
+			<li><b>Logical dump:</b> In this way the dump starts at one or more specified directories and recursively dump all files and directories found that have been changed since some given base
+			date.This is the most commonly used way.
+			<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/backup.png" height="300" width="350">
+                </p>
+			</div>
+			The above figure depicts a popular algorithm used in many UNIX systems wherein squares depict directories and circles depict files.This algorith dumps all the files and directories
+			that have been modified and also the ones on the path to a modified file or directory. The dump algorithm maintains a bitmap indexed by i-node number with several bits per i-node. 
+			Bits will be set and cleared in this map as the algorithm proceeds. Although logical dumping is straightforward, there are few issues associated with it.
+			<ul>
+			<li>Since the free block list is not a file, it is not dumped and hence it must be reconstructed from scratch after all the dumps have been restored</li>
+			<li>If a file is linked to two or more directories, it is important that the file is restored only one time and that all the directories that are supposed to point to it do so</li>
+			<li>UNIX files may contain holes</li>
+			<li>Special files, named pipes and all other files that are not real should never be dumped.</li>
+			</ul>
+			</li>
+			</ul>
+			</p>
+			<h3>
+                File-system Consistency
+            </h3>
+			<p>
+			To deal with inconsistent file systems, most computers have a utility program that checks file-system consistency. For example, UNIX has fsck and Windows has sfc.
+			This utility can be run whenever the system is booted. The utility programs perform two kinds of consistency checks.
+			<ul>
+			<li>
+			Blocks: To check block consistency the program builds two tables, each one containing a counter for each block, initially set to 0.If the file system is consistent, each 
+			block will have a 1 either in the first table or in the second table as you can see in the figure below.
+			<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/consistencyblock.png" height="300" width="350">
+                </p>
+			</div>
+			In case if both the tables have 0 in it that may be because the block is missing and hence will be reported as a missing block. The two other situations are if a block is seen 
+			more than once in free list and same data block is present in two or more files. 
+			<br/>
+			</li>
+			<li>In addition to checking to see that each block is properly accounted for, the file-system checker also checks the directory system. It too uses a table of counters but per file-size
+			rather than per block.These counts start at 1 when a file is created and are incremented each time a (hard) link is made to the file. In a consistent file system, both counts will
+			agree</li>
+			</ul>
+			</p>
+			<h3>
+                File-system Performance
+            </h3>
+			<p>
+			Since the access to disk is much slower than access to memory, many file systems have been designed with various optimizations to improve performance as described below.
+			</p>
+			<h4>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caching
+			</h4>
+			<p>
+			The most common technique used to reduce disk access time is the block cache or buffer cache. Cache can be defined as a collection of items of the same type stored in a hidden or 
+			inaccessible place. The most common algorithm for cache works in such a way that if a disk access is initiated, the cache is checked first if the disk is present, if yes then the read
+			request can be satisfied without a disk access else the disk is copied to cache first and then the read request is processed. 
+			<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/cache.png" height="300" width="350">
+                </p>
+			</div>
+			<p>The above figure depicts how to quickly determine if a block is present in a cache or not, for doing so a hash table can be implemented and look up the result in a hash table.
+			</p>
+			<h4>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Read Ahead
+			</h4>
+			<p>
+			Another technique to improve file-system performance is to try to get blocks into the cache before they are needed to increase the hit rate. This works only when files are read sequentially.
+			When a file system is asked for block 'k' in the file it does that and then also checks before hand if 'k+1' is available if not it schedules a read for the block k+1 thinking that it
+			might be of use later. 
+			<h4>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reducing disk arm motion
+			</h4>
+			<p>
+			Another way to increase file-system performance is by reducing the disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other,preferably in the
+			same cylinder. 
+			<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/arm.png" height="300" width="350">
+                </p>
+			</div>
+			<p>In the above figure all the i-nodes are near the start of the disk, so the average distance between an inode and its blocks will be half the number of cylinders, requiring long seeks.
+			But to increase the performance the placement of i-nodes can be modified as below. </p>
+			<div style="text-align:center">
+                <p>
+                <img
+                src="graphics/arminode.png" height="300" width="350">
+                </p>
+			</div>
+			</p>
+				
+			</p>
+			</p>
+			<h3>
+                Defragmenting Disks
+            </h3>
+            <p>
+			Due to continuous creation and removal of files the disks get badly fragmented with files and holes all over the place. As a consequence, when a new file is created, the blocks used
+			for it may be spread all over the disk, giving poor performance. The performance can be restored by moving files around to make them contiguous and to put all (or at least most) of
+			the free space in one or more large contiguous regions on the disk. 
+			</p>
 
-            <h2>
-                Major topic
-            </h2>
-
-                <h3>
-                    Minor topic
-                </h3>
-
-            <h2>
-                Source Code
-            </h2>
-                <ul>
-                    <li>
-                    <a
-                        href="https://github.com/gcallah/utils/blob/master/LectureTempl.html">
-                        HTML
-                    </a>
-                </ul>
-
-            <h2>
-                External Links
-            </h2>
-                <ul>
-                    <li>
-                        <a href="https://en.wikipedia.org/wiki/Lecture">
-                        Lectures
-                        </a>
-                </ul>
-            
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
-    </body>
+          </body>
 </html>
