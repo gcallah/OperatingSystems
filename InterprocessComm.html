@@ -420,9 +420,34 @@
                     Futexes
                 </h3>
 
+                    <p>
+                        Spin locks are OK if the wait is short, but bad if not.
+                        <br>
+                        So block the process!
+                        <br>
+                        But if there is little contention, this creates to many
+                        switches to kernel mode.
+                        <br>
+                        <br>
+                        So, how about <b>futexes</b>: they are a Linux feature,
+                        short for "fast user space mutex." A thread grabs a
+                        lock, and if the lock is free, just proceeds with no
+                        kernel-mode switch. Only if the lock was not free it
+                        performs a system call to put the thread on the queue
+                        in the kernel.
+                    </p>
+
                 <h3>
                     Mutexes in Pthreads
                 </h3>
+
+                    <p>
+                        <b>Pthreads</b> is short for <b>POSIX threads</b>, and
+                        they are implemented by a set of types, functions and
+                        constants in the C programming language. The standard
+                        supports mutexes, condition variables, and the
+                        possibility of busy waiting.
+                    </p>
 
 
             <h2>
