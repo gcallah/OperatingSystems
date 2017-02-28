@@ -493,9 +493,7 @@
                         notify();    // signal the monitor
                     }
                 }
-
-                </code>
-                </pre>
+                </code></pre>
 				<p>
 					(Code from: https://www.cs.rutgers.edu/~pxk/416/notes/06-sync.html)
 				</p>
@@ -505,10 +503,35 @@
                 Message Passing
             </h2>
 
+                <p>
+                    Message passing uses system calls like:
+                    <br>
+                    send(destination, &message)
+                    <br>
+                    and
+                    <br>
+                    receive(source, &message)
+                    <br>
+                    <br>
+                    The calls <i>could</i> block, or could return with an error
+                    code. The process might busy-wait.
+                </p>
+
 
                 <h3>
                     Design Issues for Message-Passing Systems
                 </h3>
+
+                    <p>
+                        Main isues:
+                    </p>
+
+                    <ul>
+                        <li>Acknowledging receipt
+                        <li>Recognizing duplicates
+                        <li>Authenticating the other party
+                        <li>Performance
+                    </ul>
 
                 <h3>
                     The Producer-Consumer Problem with Message Passing
