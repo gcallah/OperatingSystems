@@ -93,9 +93,9 @@
                     chunks for memory abstraction.
                     </p>
                 </li>
-            </ul><br><br>
+            </ul>
 
-              <h2>
+            <h2>
                 Memory Management Techniques
             </h2>
 
@@ -105,21 +105,20 @@
                 The idea is to swap in and out blocks of code as they are required from secondary memory.
 
             </p>
+
             <h2>
                 Swapping
             </h2>
-            <ul>
-                <li>
+                <p>
                     <b>Fixed Partitioning</b> <br>
-                    <p>
                         Main memory is divided into static partitions.
                         Any process, given its requirements may be loaded into a partition of equal or greater size. <br>
                         Note that here processes are not divided into modules,  rather memory is divided and entire processes are placed
                         inside a partition.<br><br>
 
                         Partitions may be of two types :
-                    </p>
-                    <ul>
+                </p>
+                    <ol>
                     <li>
                         <b>Equal Sized</b><br>
                         If program size is beyond that of the partition size, need overlays
@@ -130,78 +129,74 @@
                         <b>Unequal Sized</b><br>
                         Fit into smallest possible partition
                     </li>
-                </ul>
+                    </ol>
 
-                </li>
-                <li>
-                    <b>Dynamic Partitioning</b>  <br>
-                    <p>
+                <p>
+                <br>
+                <b>Dynamic Partitioning</b>  <br>
+                    <br>
                         Here, partitions are created dynamically as per the requirement/size of the process in question.
-                    </p>
-                    <ul>
-                        <li>
-                            Partition created to be exact fit for asking process size. No Internal fragmentation.
-                        </li>
-                        <li>
-                            When processes are pulled out, it creates holes in memory space. This causes external fragmentation.
-                        </li>
-                        <li>
-                            Need to perform a process known as compaction to regularly shift partitions and remove holes created by processes leaving
-                            main memory. This is a costly process and cannot be done repeatedly.
-                        </li>
-                    </ul>
-                </li>
+                </p>
+                <ul>
+                    <li>
+                        Partition created to be exact fit for asking process size. No Internal fragmentation.
+                    </li>
+                    <li>
+                        When processes are pulled out, it creates holes in memory space. This causes external fragmentation.
+                    </li>
+                    <li>
+                        Need to perform a process known as compaction to regularly shift partitions and remove holes created by processes leaving
+                        main memory. This is a costly process and cannot be done repeatedly.
+                    </li>
+                </ul>
                 <h2>
                     Paging
                 </h2>
-                <li> Paging
-                        <ul>
-                            <li>
-                                Main Memory is divided into equal sized partitions. Each partition is called a <b>frame</b>.
-                            </li>
-                            <li>
-                                Processes are divided into equal sized chunks where each chunk is called a <b>page</b>
-                            </li>
-                            <li>
-                                To load a process, all of its pages are loaded into frames which need not be contagious.
-                                The OS takes care of the order of execution.
-                            </li>
-                            <li>
-                                Operating System maintains a page table for each process which contains the frame location for each page.
-                            </li>
-                            <li>
-                                Paging causes zero internal fragmentation and is optimal among static partitioning techniques.
-                            </li>
-                            <li>
-                                Paging causes minimal external fragmentation.
-                            </li>
+                <ul>
+                    <li>
+                        Main Memory is divided into equal sized partitions. Each partition is called a <b>frame</b>.
+                    </li>
+                    <li>
+                        Processes are divided into equal sized chunks where each chunk is called a <b>page</b>
+                    </li>
+                    <li>
+                        To load a process, all of its pages are loaded into frames which need not be contagious.
+                        The OS takes care of the order of execution.
+                    </li>
+                    <li>
+                        Operating System maintains a page table for each process which contains the frame location for each page.
+                    </li>
+                    <li>
+                        Paging causes zero internal fragmentation and is optimal among static partitioning techniques.
+                    </li>
+                    <li>
+                        Paging causes minimal external fragmentation.
+                    </li>
                 </ul>
-                </li>
-                <li>
-                    <b>Simple Segmentation</b> <br>
-                        <ul>
-                            <li>
-                            Every process is divided into a
-                            number of chunks where each chunk is called a <b>segment</b>
-                            </li>
-                            <li>
-                                Each process is loaded by bringing all of its segments onto main memory.
-                                Every segment of the process is loaded into
-                                the main memory by creating partitions dynamically matching the size of each segment.
-                                This creates an exact fit for every segment.
-                            </li>
-                            <li>
-                                Segmentation is free of internal fragmentation.
-                            </li>
-                            <li>
-                                Suffers from external fragmentation but not as much, because process is divided into segments which are smaller in size.
-                            </li>
-                            <li>
-                                Every program/process may occupy more than one non contagious segments, similar to dynamic partitioning.
-                            </li>
+                <p>
+                <b>Simple Segmentation</b> <br>
+                </p>
+                <ul>
+                    <li>
+                    Every process is divided into a
+                    number of chunks where each chunk is called a <b>segment</b>
+                    </li>
+                    <li>
+                        Each process is loaded by bringing all of its segments onto main memory.
+                        Every segment of the process is loaded into
+                        the main memory by creating partitions dynamically matching the size of each segment.
+                        This creates an exact fit for every segment.
+                    </li>
+                    <li>
+                        Segmentation is free of internal fragmentation.
+                    </li>
+                    <li>
+                        Suffers from external fragmentation but not as much, because process is divided into segments which are smaller in size.
+                    </li>
+                    <li>
+                        Every program/process may occupy more than one non contagious segments, similar to dynamic partitioning.
+                    </li>
                 </ul>
-                </li>
-            </ul>
 
     </body>
 </html>
