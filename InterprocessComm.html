@@ -537,15 +537,55 @@
                     The Producer-Consumer Problem with Message Passing
                 </h3>
 
+                    <p>
+                        We use <b>mailboxes</b> as a buffer.
+                        <br>
+                        <br>
+                        Or we could have no buffer, and block when there is no
+                        message, or until the message is received.
+                    </p>
+
 
             <h2>
                 Barriers
             </h2>
 
+                <p>
+                    A barrier is a way to ensure, for example, that the
+                    repeated computation of a very large matrix, distributed
+                    across many processors, completely finishes iteration
+                    <i>n</i> before iteration <i>n + 1</i> kicks off.
+                    <br>
+                    <br>
+                    The idea is all processes need to reach the barrier before
+                    any go to the next phase.
+                </p>
+
 
             <h2>
                 Avoiding Locks: Read-Copy-Update
             </h2>
+
+                <p>
+                    Usually we can't let multiple process "have at" a data
+                    structure at the same time. We can't have one process sort
+                    records while another averages them.
+                    <br>
+                    <br>
+                    But <i>sometimes</i> it makes sense to let:
+                    <br>
+                    <b>One</b> writer; and
+                    <br>
+                    <b>Multiple</b> readers
+                    <br>
+                    access some data.
+                    <br>
+                    <br>
+                    Readers get a copy of the data. The writer updates the data
+                    privately, then the new, "fixed up" version is put back in
+                    a single operation. Later readers only see the new version.
+                    No one sees an intermediate one.
+                </p>
 
             
             <h2>
