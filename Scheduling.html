@@ -23,8 +23,16 @@
             </h2>
 
                 <p>
-
+                    Different goals. May optimize:
                 </p>
+                <ul>
+                    <li>CPU utlization
+                    <li>Interactive wait time
+                    <li>Average wait time
+                    <li>Throughput
+                    <li>Battery usage!
+                    <li>Etc.
+                </ul>
 
             <h2>
                 Introduction to Scheduling
@@ -33,13 +41,154 @@
                     Process Behavior
                 </h3>
 
+                    <p>
+                        CPU-intensive versus I/O-intensive processes
+                        <br>
+                        <br>
+                        Over time, processes are becoming more I/O bound: CPUs
+                        are improving faster than disks.
+                    </p>
+
                 <h3>
                     When to Schedule
                 </h3>
 
+                    <p>
+                        Scheduling decisions can be made when:
+                    </p>
+
+                    <ol>
+                        <li>A new processes is created (fork)
+                        <li>When a process exits
+                        <li>When a process blocks on I/O, on a semaphore, etc.
+                        <li>When an I/O interrupt occurs. This may be a clock
+                        interrupt.
+                        <br>
+                        (Some <a
+                            href="http://www.gabrielececchetti.it/Teaching/CalcolatoriElettronici/Docs/i8086_and_DOS_interrupts.pdf">
+                            sample interrupts</a>.
+                    </ol>
+
+                    <p>
+                        <b>Nonpremptive</b> versus <b>preemptive</b>
+                        scheduling.
+                        <br>
+                        Do we ever stop a running process (one that has not
+                        blocked)? We need clock interrupts to do this.
+                    </p>
+
                 <h3>
                     Categories of Scheduling Algorithms
                 </h3>
+
+                <h3>
+                    Scheduling Algorithm Goals
+                </h3>
+
+            <h2>
+                Scheduling in Batch Systems
+            </h2>
+
+                <p>
+                    Think of who gets to checkout next at the grocery store.
+                </p>
+
+
+                <h3>
+                    First-Come, First Served
+                </h3>
+
+
+                <h3>
+                    Shortest Job First
+                </h3>
+
+
+                <h3>
+                    Shortest Remaining Time Next
+                </h3>
+
+
+            <h2>
+                Scheduling in Interactive Systems
+            </h2>
+
+
+                <h3>
+                    Round-Robin Scheduling
+                </h3>
+
+                <figure>
+                <img
+                src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Round-robin_schedule_quantum_3.png"
+                height="256" width="640">
+                <figcaption>
+                Round-robin scheduling
+                </figcaption>
+                </figure>
+
+                <h3>
+                    Priority Scheduling
+                </h3>
+
+                <h3>
+                    Multiple Queues
+                </h3>
+
+                <h3>
+                    Shortest Process Next
+                </h3>
+
+                <h3>
+                    Guaranteed Scheduling
+                </h3>
+
+                <h3>
+                    Lottery Scheduling
+                </h3>
+
+                <h3>
+                    Fair-Share Scheduling
+                </h3>
+
+            <h2>
+                Scheduling in Real-Time Systems
+            </h2>
+
+
+            <h2>
+                Policy Versus Mechanism
+            </h2>
+
+                <p>
+                    The <b>mechanism</b> for scheduling may be in the
+                    kernel, but the policy may be set by a user process
+                    setting parameters, e.g., a parent may set its
+                    children's priority level.
+                </p>
+
+            <h2>
+                Thread Scheduling
+            </h2>
+
+
+                <p>
+                    Usually, threads are scheduled at the user level.
+                    <br>
+                    No clock interrupt: must cooperate!
+                    <br>
+                    But everything is in a single process, so cooperation
+                    should be easier than between processes.
+                    <br>
+                    It is good coding practice to <b>yield()</b>
+                    occasionally.
+                    <br>
+                    But if threads behave badly, only <b>one</b> process
+                    (the one containing those threads) is harmed. The OS
+                    continues scheduling processes in general the same way
+                    as always.
+                </p>
+
 
             <h2>
                 Credits
@@ -47,7 +196,7 @@
                 <ul>
                     <li>Linux I/O Schedulers: By wfischer (talk) -
                         https://www.thomas-krenn.com/en/wiki/Linux_Storage_Stack_Diagram
-                        (created by Werner Fischer and Georg Schönberger), CC BY-SA
+                        (created by Werner Fischer and Georg Schonberger), CC BY-SA
                         3.0,
                         https://commons.wikimedia.org/w/index.php?curid=37544620
                 </ul>
@@ -63,11 +212,5 @@
                         </a>
                 </ul>
             
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>
