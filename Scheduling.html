@@ -81,9 +81,55 @@
                     Categories of Scheduling Algorithms
                 </h3>
 
+                    <ol>
+                        <li>Batch
+                        <li>Interactive
+                        <li>Real time
+                    </ol>
+
+                    <p>
+                    "Computer users are always in a big hurry."
+                    </p>
+
                 <h3>
                     Scheduling Algorithm Goals
                 </h3>
+
+                <ul>
+                    <li><b>All systems</b>
+                        <br>
+                        Fairness
+                        <br>
+                        Policy enforcement
+                        <br>
+                        Balance
+                        <br>
+
+                    <li><b>Batch systems</b>
+                        <br>
+                        Throughput 
+                        <br>
+                        Turnaround time
+                        <br>
+                        CPU utilization
+                        <br>
+
+                    <li><b>Interactive systems</b>
+                        <br>
+                        Response time
+                        <br>
+                        Proportionality (meets users expectations)
+                        <br>
+
+                    <li><b>Real-time systems</b>
+                        <br>
+                        Meet deadlines
+                        <br>
+                        Predictability
+                        <br>
+
+                </ul>
+
 
             <h2>
                 Scheduling in Batch Systems
@@ -98,15 +144,31 @@
                     First-Come, First Served
                 </h3>
 
+                    <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Thread_pool.svg/580px-Thread_pool.svg.png">
+                    <figcaption>
+                    A FIFO
+                    </figcaption>
+                    </figure>
 
                 <h3>
                     Shortest Job First
                 </h3>
 
+                    <p>
+                        Reduces average time to completion.
+                    </p>
+
 
                 <h3>
                     Shortest Remaining Time Next
                 </h3>
+
+                    <p>
+                        Like the above, but looks at time left. The OS has to
+                        know a lot about the processes being run!
+                    </p>
 
 
             <h2>
@@ -118,22 +180,41 @@
                     Round-Robin Scheduling
                 </h3>
 
-                <figure>
-                <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Round-robin_schedule_quantum_3.png"
-                height="256" width="640">
-                <figcaption>
-                Round-robin scheduling
-                </figcaption>
-                </figure>
+                    <figure>
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Round-robin_schedule_quantum_3.png"
+                    height="256" width="640">
+                    <figcaption>
+                    Round-robin scheduling
+                    </figcaption>
+                    </figure>
+
+                    <p>
+                        Starvation free.
+                    </p>
+
 
                 <h3>
                     Priority Scheduling
                 </h3>
 
+                    <p>
+                        Higher prority jobs run first.
+                        <br>
+                        <br>
+                        We could have priority classes, and run round-robin
+                        within the classes.
+                    </p>
+
+
+
                 <h3>
                     Multiple Queues
                 </h3>
+
+                    <p>
+                        Don't worry about this one.
+                    </p>
 
                 <h3>
                     Shortest Process Next
@@ -147,9 +228,20 @@
                     Lottery Scheduling
                 </h3>
 
+                    <p>
+                        Give processes "lottery tickets" in proportion to how
+                        much CPU time they need.
+                    </p>
+
                 <h3>
                     Fair-Share Scheduling
                 </h3>
+
+                    <p>
+                        Allocates CPU time by user, not by process. No one
+                        person can hog all of the CPU.
+                    </p>
+
 
             <h2>
                 Scheduling in Real-Time Systems
