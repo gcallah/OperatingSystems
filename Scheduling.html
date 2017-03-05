@@ -152,12 +152,28 @@
                     </figcaption>
                     </figure>
 
+                    <p>
+                        This is the typical situation at the grocery store:
+                        whoever gets in line first, gets to checkout first.
+                        <br>
+                        This form of scheduling is annoying when a person with
+                        a giant shopping cart full of groceries arrives just
+                        before you, and you are only buying one item. You
+                        wait a long time to check out, whereas if the system
+                        has let you go first, the person with the full shopping
+                        cart only would have been delayed a few seconds.
+                    </p>
+
                 <h3>
                     Shortest Job First
                 </h3>
 
                     <p>
                         Reduces average time to completion.
+                        <br>
+                        <br>
+                        Analogy: the person with the full shopping cart lets
+                        the person with only one item go ahead of them.
                     </p>
 
 
@@ -190,7 +206,16 @@
                     </figure>
 
                     <p>
-                        Starvation free.
+                        Each process only runs for a certain <b>quantum</b> of time,
+                        and then is halted, and then the next process in a list
+                        of processes is activated.
+                        <br>
+                        <br>
+                        Setting the quantum correctly is the tricky bit: if it
+                        is set to too small an amount of time, the system will
+                        spend too much time swapping processes in and out of
+                        being active. If the quantum is set too high, then a
+                        crucial process may not get the CPU soon enough.
                     </p>
 
 
@@ -204,6 +229,11 @@
                         <br>
                         We could have priority classes, and run round-robin
                         within the classes.
+                        <br>
+                        <br>
+                        <b>Downside:</b> a high-priority process may hog the
+                        CPU for extremely long lengths of time, starving 
+                        low-priority processes.
                     </p>
 
 
@@ -220,9 +250,33 @@
                     Shortest Process Next
                 </h3>
 
+                    <p>
+                        In an interactive system, the OS can try to estimate
+                        which thing the user has clicked done, typed, etc.,
+                        that will take the least time to run, and then run that
+                        shortest time process next.
+                        <br>
+                        <br>
+                        So, if the user has clicked on two buttons, one of
+                        which launches a re-coloring of an hour-long video, and
+                        the other of which displays a list of files in the
+                        current directory, the OS runs the second process
+                        first.
+                    </p>
+
                 <h3>
                     Guaranteed Scheduling
                 </h3>
+
+                    <p>
+                        We might guarantee each process an equal share of the
+                        CPU time. We then choose which process to run based on
+                        which one is the most "behind" in getting its
+                        guaranteed share. It then runs until it passes at least
+                        one other process in terms of getting its guaranteed
+                        share. Then the OS switches to that process, since it
+                        is now the one most behind.
+                    </p>
 
                 <h3>
                     Lottery Scheduling
@@ -231,6 +285,16 @@
                     <p>
                         Give processes "lottery tickets" in proportion to how
                         much CPU time they need.
+                        <br>
+                        <br>
+                        This way, the low priority processes get the CPU, but
+                        only in proportion to the number of lottery tickets
+                        they "own." They will not have to wait forever if some
+                        high-priority process is hogging the CPU.
+                        <br>
+                        <br>
+                        Cooperating processes may exchange tickets in cases
+                        where that makes sense.
                     </p>
 
                 <h3>
@@ -239,7 +303,8 @@
 
                     <p>
                         Allocates CPU time by user, not by process. No one
-                        person can hog all of the CPU.
+                        person can hog all of the CPU simply because they have
+                        kicked off multiple processes.
                     </p>
 
 
@@ -247,6 +312,21 @@
                 Scheduling in Real-Time Systems
             </h2>
 
+                <p>
+                    Real-time systems are just an extreme case of interactive
+                    systems.
+                </p>
+
+                <ul>
+                    <li><b>Hard real time</b>
+                        <br>
+                            Constraints simply <i>must</i> be met.
+                        <br>
+                    <li><b>Soft real time</b>
+                        <br>
+                            Constraints <i>should</i> be met.
+                        <br>
+                </ul>
 
             <h2>
                 Policy Versus Mechanism
@@ -254,9 +334,13 @@
 
                 <p>
                     The <b>mechanism</b> for scheduling may be in the
-                    kernel, but the policy may be set by a user process
+                    kernel, but the <b>policy</b> may be set by a user process
                     setting parameters, e.g., a parent may set its
                     children's priority level.
+                    <br>
+                    <br>
+                    This can be helpful if the parent process has information
+                    about it's children that the OS lacks.
                 </p>
 
             <h2>
