@@ -1,181 +1,563 @@
 <html>
     <head>
-        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <link href="MTStyle.css" rel="stylesheet" type="text/css"/>
         <title>
             Midterm
         </title>
     </head>
 
     <body>
-        <h1>
-            Midterm
-        </h1>
+        <h2>
+            Operating System Midterm, Spring 2017
+        </h2>
+
+        <p>
+        <br>
+        Name: ____________________________________________________
+        <br>
+        <br>
+        NYU Net ID: ______________________________________________
+        <br>
+        </p>
 
         <ol>
             <li>The type of scheduling that gives each process an equal turn at
-            the CPU is called:
+            the CPU in order is called:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>round-robin
+                <li>first-come, first-served
+                <li>batch
+                <li>shortest job first
             </ol>
 
             <li>If one process is outputting jobs to print and another is
             printing them, we have a:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>batch system
+                <li>interactive system
+                <li>producer-consumer situation
+                <li>semaphore
             </ol>
 
             <li>A thread can be considered a process without:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>any real reason to exist
+                <li>its own path of execution
+                <li>its own program counter
+                <li>its own pool of resources
             </ol>
 
             <li>A minimal operating system that runs virtual machines and keeps
             them out of each other's way is called a:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>Windows
+                <li>a hypervisor
+                <li>a micro-kernel
+                <li>Linux
             </ol>
 
             <li>What is wrong with the following C code:
+                <pre>
+                <code>
+                void producer(void)
+                {
+                    item = produce_item()
+                    up(&mutex)
+                    up(&empty)
+                    insert_item(item)
+                    down(&mutex)
+                    down(&empty)
+                }
+                </code></pre>
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>'void' is not a valid return type for a C function.
+                <li>the return of insert_item() is not stored.
+                <li>the '&' symbol is illegal in those spots.
+                <li>the place of the calls to up() and down() should be
+                reversed.
             </ol>
 
-            <li>In a batch system, we can reduce average-time-to-completion by
-            scheduling:
+            <li>In a batch system, we can often reduce
+                average-time-to-completion by scheduling:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>the longest jobs first
+                <li>the shortest jobs first
+                <li>the highest priority jobs first
+                <li>the most interactive jobs first
             </ol>
 
-            <li>A problem with shortest first scheduling is:
+            <li>A problem with shortest-first scheduling is:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>a long job may wait forever to get scheduled
+                <li>there is no possible way to know what jobs will be short
+                <li>a long job may block and starve a short job of CPU time
+                <li>short jobs generally deserve little CPU time
             </ol>
 
             <li>In scheduling, the virtue of <b>proportionality</b> means:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>tasks that have nice proportions should be scheduled first
+                <li>each task should get an equal proportion of the CPU
+                <li>tasks that the user <b>thinks</b> should execute quickly
+                    <b>should</b> execute quickly
+                <li>every portion of memory should have its own task
             </ol>
 
             <li>Java is unsuitable as a language for writing an OS because:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>it is too new
+                <li>Oracle has too much control over its standards
+                <li>it is object-oriented
+                <li>its garbage-collector could kick off at any moment,
+                    preventing the OS from scheduling a vital task
             </ol>
 
-            <li>
+            <li>A hard real time system is one
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>that is very difficult to program.
+                <li>where the schedule constraints simply <i>must</i> be met.
+                <li>that consists mostly of hardware.
+                <li>that is schedulable.
             </ol>
 
-            <li>
+            <li>We might want to separate scheduling policy from the scheduling
+                mechanism when
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>we want the OS to set scheduling policy.
+                <li>the scheduling mechanism is too hard to get right.
+                <li>the scheduling policy is illegal.
+                <li>a parent process has information about its child processes
+                    that the OS doesn't have.
             </ol>
 
-            <li>
+            <li>What are the loadable extensions to the OS called in UNIX?
+            	<ol type=”a”>
+            		<li>DLLs
+            		<li>shared libraries
+            		<li>command-line tools
+            		<li>micro-kernels
+            	</ol>
+
+            <li> One reason C used in this course instead of other programming
+                languages is?
+            	<ol type=”a”>
+            		<li>because it is an old-school language
+            		<li>tradition
+            		<li>because it has direct access to memory
+            		<li>coding is easy in C
+            	</ol>
+
+
+            <li> If the processes appear to run simultaneously
+                but are really sharing just one CPU
+                then such a scenario is called?
+            	<ol type=”a”>
+            		<li>pseudo-parallelism
+            		<li>simultaneous-parallelism
+            		<li>false-parallelism
+            		<li>real-parallelism
+            	</ol>
+
+            <li>Which of the following facilities is used by UNIX for running
+                batch jobs?
+            	<ol type="a">
+            		<li>Task Scheduler
+            		<li>Cat
+            		<li>Cron
+            		<li>Grep
+            	</ol>
+
+            <li>TLS and XCHG are:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>The names of registers on Intel chips.
+                <li>Assembly language instructions for checking a lock
+                    and assigning to it atomically.
+                <li>Two common interrupts that occur on Intel chips.
+                <li>Assembly language instrucitons for Transmit Low Semaphore
+                    and eXtra CHarGe for a laptop.
             </ol>
 
-            <li>
+            <li>When a program tries to access a page that is mapped in
+                its virtual address space but not loaded in physical memory, then
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>the program stops executing
+                <li>a fatal error occurs
+                <li>a page fault occurs
+                <li>another program will automatically get the CPU
             </ol>
 
-            <li>
+            <li>What is the ready state of a process?
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>when process is all set to run but does not have the CPU
+                <li>when process is unable to run until some task has been completed
+                <li>when process is using the CPU
+                <li>none of the above
             </ol>
 
-            <li>
+            <li>In a time-sharing operating system, when the time slot
+                given to a process is completed, the process goes from
+                the running state to the
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>blocked state
+                <li>terminated state
+                <li>red state
+                <li>ready state
             </ol>
 
-            <li>
+            <li>A message-passing system allows processes to:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>communicate with one another without resorting to shared
+                    memory.
+                <li>communicate with one another using shared memory.
+                <li>avoid all inter-process communication problems.
+                <li>use hardware-level instructions to avoid race conditions.
             </ol>
 
-            <li>
+            <li>The operating system provides abstractions to?
+                <ol type="a">
+                    <li>applications
+                    <li>device drivers
+                    <li>the CPU
+                    <li>none of the above
+                </ol>
+
+            <li>Which type of memory provides the fastest access?
+                <ol type="a">
+                    <li>L1 cache
+                    <li>hardware registers
+                    <li>magnetic tape
+                    <li>main memory
+                </ol>
+
+            <li>The I/O method where a process continuously polls
+				a device to check for I/O completion is called?
+                <ol type="a">
+                    <li>direct memory access
+                    <li>busy waiting
+                    <li>interrupt-driven programming
+                    <li>none of the above
+                </ol>
+
+            <li>What is the text-based user interface to an
+                operating system called?
+                <ol type="a">
+                    <li>a kernel
+                    <li>a shared library
+                    <li>a shell
+                    <li>a hypervisor
+                </ol>
+
+            <li>Which of the following items are kept "per thread" in a thread
+                based system?
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>accounting information and address space
+                <li>child processes and signal handlers
+                <li>address space, pending alarms, and global variables
+                <li>program counter, registers, and stack
             </ol>
 
-            <li>
+            <li>To obtain the services of the operating system,
+				a user program must
+                <ol type="a">
+                    <li>make a system call
+                    <li>use a semaphore
+                    <li>pass a message to another process
+                    <li>use Peterson's algorithm
+                </ol>
+
+            <li>Which of the below is an example of non-persistent storage?
+                <ol type="a">
+                    <li>magnetic disks
+                    <li>RAM
+                    <li>magnetic tape
+                    <li>flash drives
+                </ol>
+
+            <li>In a "hybrid" thread implementation
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>some threads are kernel level, and some are user level.
+                <li>threads are "hybrids" of typical threads and of processes.
+                <li>threads use genetic algorithms to create new, "hybrid"
+                    threads.
+                <li>all of the above.
             </ol>
 
-            <li>
+            <li>All varieties of process creation ultimately come down to:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>a hardware interrupt.
+                <li>a user mouse click on an icon.
+                <li>a semaphore being bypassed.
+                <li>a running process executing a process-creation system call.
+                   
             </ol>
 
-            <li>
+            <li>Process termination can be achieved by:
             <ol type="a">
-                <li>
-                <li>
-                <li>
-                <li>
+                <li>normal exit
+                <li>error exit
+                <li>fatal error
+                <li>all of the above
             </ol>
+
+            <li>System calls for file management might include:
+            <ol type="a">
+                <li>load(), execute() and abort()
+                <li>wait(), malloc() and load()
+                <li>open(), close(), and write()
+                <li>kill(), time(), and chmod()
+            </ol>
+
+            <li>A crucial point to remember about multi-processing systems is
+                that, from the point of view of a single process, that
+                process's behavior is
+            <ol type="a">
+                <li>batch processing oriented.
+                <li>determined by its critical sections.
+                <li>determined at the level of the machine language.
+                <li>nondeterministic, because it can't know how often it will
+                    get the CPU.
+            </ol>
+
+            <li>Sensor-node operating systems handle things like:
+            <ol type="a">
+                <li>motion detection
+                <li>smoke detection
+                <li>recording temperature changes
+                <li>all of the above
+            </ol>
+
+            <li>The UNIX kill() system call is a way for
+            <ol type="a">
+                <li>one process to terminate another process.
+                <li>a process to stop its own execution.
+                <li>a user to exit the program they are running.
+                <li>all of the above.
+            </ol>
+
+            <li>An advantage of implementing threads in the kernel is
+            <ol type="a">
+                <li>no special system calls are needed to avoid blocking.
+                <li>no user-level threading system is needed.
+                <li>clock pre-emption is available.
+                <li>all of the above.
+            </ol>
+
+            <li>What is wrong with the following C code?
+                <pre>
+                <code>
+                def N 10
+                s = malloc(N);
+                int i;
+                for(i = 0; i < N; i++)
+                {
+                    s[i] = 'x';
+                }
+                printf(s);
+                </code></pre>
+            <ol type="a">
+                <li>We can't assign a character to s[i].
+                <li>The loop will never terminate.
+                <li>The C string is not properly terminated.
+                <li>We can't define N that way.
+            </ol>
+
+            <li>Programming sensor-node operating systems is dominated by
+                concerns about:
+            <ol type="a">
+                <li>an elegant user interface
+                <li>shortest-time first scheduling
+                <li>limited memory and battery life
+                <li>all of the above
+            </ol>
+
+            <li>One advantage of microkernels is
+            <ol type="a">
+                <li>an OS based on one is monolithic.
+                <li>a microkernel-based OS needs no other pieces than the
+                microkernel.
+                <li>all device drivers, file systems, etc are in the
+                microkernel.
+                <li>they reduce the number of kernel bugs.
+            </ol>
+
+            <li>Virtual machines have been made more popular by the importance
+            of
+            <ol type="a">
+                <li>web hosting
+                <li>Java
+                <li>cloud computing
+                <li>all of the above
+            </ol>
+
+            <li>One difference between user mode and kernel mode is:
+            <ol type="a">
+                <li>there are certain machine-level instrucitons that can only
+                be executed in kernel mode.
+                <li>semaphores can only be set in kernel mode.
+                <li>only in the kernel mode can any machine language
+                instructions be used.
+                <li>all GUI interactions take place in kernel mode.
+            </ol>
+
+            <li>An advantage of user-level threads is
+            <ol type="a">
+                <li>they can make blocking system calls.
+                <li>individual processes can have their own scheduling
+                    algorithm.
+                <li>one thread cannot block all other threads from proceeding.
+                <li>all of the above.
+            </ol>
+
+            <li>Your program is running on a machine with 4 GB of memory. You
+            want to allocate an 8 GB buffer for a video file. This is
+            <ol type="a">
+                <li>impossible.
+                <li>might be possible using a monitor.
+                <li>might be possible using interrupts.
+                <li>might be possible using virtual memory.
+            </ol>
+
+            <li>When making single-threaded code multi-threaded, one must be
+                careful
+            <ol type="a">
+                <li>to check if the data structures accessed by several threads
+                    are "thread safe".
+                <li>to place every piece of code inside a monitor.
+                <li>to ensure that Peterson's algorithm is employed before
+                    setting any variable.
+                <li>put mutexes before and after every loop.
+            </ol>
+
+            <li>Pop-up threads
+            <ol type="a">
+                <li>"pop up" a signal whenever they are going to block.
+                <li>pop up the call stack as necessary to get more CPU time.
+                <li>pop up at random.
+                <li>are created at the moment they are needed.
+            </ol>
+
+            <li>A process that runs continually in the background on some OS is
+                called
+            <ol type="a">
+                <li>ineffective.
+                <li>low priority.
+                <li>a daemon.
+                <li>a cron job.
+            </ol>
+
+            <li>When a single-CPU system is running multiple processes, it can
+                create the illusion of parallelism by
+            <ol type="a">
+                <li>repeatedly switching the CPU between processes.
+                <li>displaying process information as if all of them are
+                    running at once.
+                <li>batch processing.
+                <li>all of the above.
+            </ol>
+
+            <li>A process exits with a <b>fatal error</b> when
+            <ol type="a">
+                <li>it tries to execute an instruction illegal in user mode.
+                <li>it accesses memory it does not own.
+                <li>it tries to divide a number by zero.
+                <li>all of the above.
+            </ol>
+
+            <li>A process could achieve exclusive access to a critical area by
+                disabling interrupts. A downside to this technique is:
+            <ol type="a">
+                <li>it involves busy waiting.
+                <li>it involves multiple context switches.
+                <li>if the process hangs, the system is dead.
+                <li>all of the above.
+            </ol>
+
+            <li>Consider the following code:
+				<pre>
+                <code>
+        /* N has been defined elsewhere */
+        int level[N];
+        int last_to_enter[N-1];
+
+        void enter_region(int proc)
+        {
+            int lev;
+            for(lev = 0; lev < (N - 1); lev++)
+            {
+                level[proc] = lev;
+                last_to_enter[lev] = proc
+                int k = exists_not_equal(proc);  /* returns 0 if no such proc as k exists */
+                while((last_to_enter[lev] == proc) && k &&
+                    (level[k] >= lev))
+                {
+                    wait()  /* a call that puts this process to sleep */
+                }
+            }
+        }
+                </code></pre>
+                This code is
+            <ol type="a">
+                <li>an example of Dijkstra's use of semaphores.
+                <li>an example of busy waiting with queues.
+                <li>a clever implementation of monitors.
+                <li>a multi-process implementation of Peterson's algorithm.
+            </ol>
+
+            <li>The code in #49 works by
+                <ol type="a">
+                    <li>making sure only one process can be in any level.
+                    <li>making sure one fewer process can enter each level.
+                    <li>ensuring that the last to enter gets into the critical
+                        region first.
+                    <li>stopping one level shy of the critical region, at N -
+                        1.
+                </ol>
+
+            <li>A <b>futexes</b> are
+                    <ol type="a">
+                        <li>a way for threads to usually run in user space, but can involve
+                            the kernel when needed.
+                        <li>a future POSIX-compliant thread paradigm.
+                        <li><b>fu</b>tile mu<b>texes</b>/
+                        <li>all of the above.
+                    </ol>
+
+            <li>An advantage of lottery scheduling is
+                <ol type="a">
+                    <li>each processes is guaranteed an equal amount of CPU
+                        time.
+                    <li>even the lowest priority processes have a shot at some
+                        CPU time.
+                    <li>when each process will get the CPU is known in advance.
+                    <li>you can't win of you don't play!
+                </ol>
+
+            <li>A good candidate for running in a batch system would be
+                <ol type="a">
+                    <li>an interactive role-playing game.
+                    <li>the program that adds up a businesses sales from each
+                        region and generates a daily financial report.
+                    <li>the automatic pilot on a commercial jet.
+                    <li>all of the above.
+                </ol>
+
+            <li>The type of scheduling that tries to allocate CPU time by user,
+                not just by process, is called
+                <ol type="a">
+                    <li>batch scheduling.
+                    <li>guaranteed scheduling.
+                    <li>lottery scheduling.
+                    <li>fair-share scheduling.
+                </ol>
+
+                <li>With <b>non-preemptive</b> scheduling, a process will run
+                    until it
+                <ol type="a">
+                    <li>blocks.
+                    <li>voluntarily gives up the CPU.
+                    <li>encounters a fatal error.
+                    <li>all of the above.
+                </ol>
         </ol>
-
     </body>
 </html>
