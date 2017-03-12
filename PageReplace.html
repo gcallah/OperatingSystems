@@ -29,13 +29,16 @@
                         </h3>
                         <ul>
                             <li>
-                                Select that page for replacement which is going to be replaced the last i.e the page whose time to replacement is the longest.
+                                Select that page for replacement which is going to be
+                                replaced the last i.e the page whose time to replacement
+                                is the longest.
                             </li>
                             <li>
                                 This approach results in fewest page faults.
                             </li>
                             <li>
-                                However, this approach is not feasible, as we can never really know which page has the longest time to replacement.
+                                However, this approach is not feasible, as we can never
+                                really know which page has the longest time to replacement.
                             </li>
                             <li>
                                 This algorithm is just theory, it is not implementable.
@@ -48,17 +51,20 @@
                         </h3>
                         <ul>
                             <li>
-                                Select that page for replacement which has not been used for the longest time.
+                                Select that page for replacement which has not been used
+                                for the longest time.
                             </li>
                             <li>
-                                The approach relies on an assumption that the page which has not been used for the longest time is the least likely page
+                                The approach relies on an assumption that the page which
+                                has not been used for the longest time is the least likely page
                                 to be used in future.
                             </li>
                             <li>
                                 It has reasonably good performance.
                             </li>
                             <li>
-                                The algorithm is difficult to implement as calculating page which has been used least recently used creates an overhead.
+                                The algorithm is difficult to implement as calculating page
+                                which has been used least recently used creates an overhead.
                             </li>
                         </ul>
                     </li>
@@ -87,19 +93,23 @@
                         </h3>
                         <ul>
                             <li>
-                                This Algorithm behaves similar to LRU. Associate 'Use Bit' with each frame. When frame first loaded in main memory, use bit for
+                                This Algorithm behaves similar to LRU. Associate 'Use Bit' with each
+                                frame. When frame first loaded in main memory, use bit for
                                 that frame set to 1.
                             </li>
                             <li>
-                                When page is subsequently referenced, use bit set to 1. Set of pages that are candidates for page
+                                When page is subsequently referenced, use bit set to 1. Set of
+                                pages that are candidates for page
                                 replacement form a circular buffer with pointer.
                             </li>
                             <li>
-                                Pointer movies along circle when a page is needed for replacement. While moving, any page with use bit 1 , its use bit is set to 0.
+                                Pointer movies along circle when a page is needed for replacement.
+                                While moving, any page with use bit 1 , its use bit is set to 0.
                                 The first page with use bit 0 is picked for replacement.
                             </li>
                             <li>
-                                Its behaviour is similar to FIFO apart from the fact that it skips pages whose use bit is set to 1.
+                                Its behaviour is similar to FIFO apart from the fact that it skips
+                                pages whose use bit is set to 1.
                             </li>
                         </ul>
                     </li>
@@ -114,18 +124,21 @@
                         </h3>
                         <ul>
                             <li>
-                                W(T,D) = Set of Pages that have been referenced in the last D virtual time units. <br>
+                                W(T,D) = Set of Pages that have been referenced in the last D
+                                virtual time units. <br>
                                 Virtual Time Units is generally number of instructions.
                             </li>
                             <li>
-                                Working Set is non decreasing function of Window Size(D). i.e W(T,D+1) contains W(T,D)
+                                Working Set is non decreasing function of Window Size(D).
+                                i.e W(T,D+1) contains W(T,D)
                             </li>
                             <li>
-                                Working Set of each process is monitored.The pages of the process which are no longer in the working set are
+                                Working Set of each process is monitored.The pages of the
+                                process which are no longer in the working set are
                                 periodically removed from the resident set.
                             </li>
                             <li>
-                                Process can be executed only if its wrking set is in main memory
+                                Process can be executed only if its working set is in main memory
                             </li>
                             <h4> Disadvantges </h4>
                             <ul>
@@ -151,11 +164,13 @@
                                 Algorithm uses use bit. Use bit is set to 1 when page is accessed.
                             </li>
                             <li>
-                                Set a threshold time 'F' for measuring page fault rate. When page fault occurs, OS notes virtual time units since last page fault.
+                                Set a threshold time 'F' for measuring page fault rate. When page
+                                fault occurs, OS notes virtual time units since last page fault.
                             </li>
                             <li>
                                 If time < F, ad page to resident set of process. <br>
-                                If >=F , discard all pages with use bit 0 and shorten size of resident set.<br>
+                                If >=F , discard all pages with use bit 0 and shorten size of
+                                resident set.<br>
 
                             </li>
                             <li>
@@ -180,14 +195,18 @@
                         </h3>
                         <ul>
                             <li>
-                                Evaluates working set of a process at sampling instances based on elapsed virtual time.
+                                Evaluates working set of a process at sampling instances based
+                                on elapsed virtual time.
                             </li>
                             <li>
-                                Use bits of all resident pages are reset at the beginning of a sampling interval. At the end of the interval,
-                                only the pages referenced during the interval will have their use bit set to 1.
+                                Use bits of all resident pages are reset at the beginning of a
+                                sampling interval. At the end of the interval,
+                                only the pages referenced during the interval will have their use
+                                bit set to 1.
                             </li>
                             <li>
-                                The pages with use bit set to 1 are retained at the end of the interval while other pages are discarded. That means,
+                                The pages with use bit set to 1 are retained at the end of the
+                                interval while other pages are discarded. That means,
                                 at the end of the interval, resident set can only decrease.
                             </li>
                             <li>
@@ -214,7 +233,9 @@
                 Credits
             </h2>
                 <ul>
-                        Referred to Notes by Professor Daniel Katz. (previously professor of Operating Systems at NYU Tandon School of Engineering)
+                        Referred to Notes by Professor Daniel Katz.
+                    (previously professor of Operating Systems at
+                    NYU Tandon School of Engineering)
                     </li>
                 </ul>
             
