@@ -19,7 +19,7 @@
             </div>
 
             <h2>
-                Virtual Memory
+                Overview
             </h2>
                 <ul>
                     <li>
@@ -35,20 +35,24 @@
                     </li>
                     <li>
                         We need for the program to be free of worries involving the
-                        contraction and shrinking of tables storing variables in a way which
+                        contraction and shrinking of 
+                        tables storing variables in a way which
                         is similar to how virtual memory handles the problem by dividing
                         it into overlays.
                     </li>
                     <li>
                         A general solution for this is to divide the virtual memory space
-                        into completely independent address spaces called <b>segments.</b>
+                        into completely independent address 
+                        spaces called <b>segments.</b>
                         Every segment consists of a linear address space starting from 0
                         to some maximum. <br>
-                        The maximum may vary for each segment as segments may have variable lengths.
+                        The maximum may vary for each segment 
+                        as segments may have variable lengths.
                     </li>
                     <li>
                         Because each segment constitutes a different address space,
-                        the segment may grow or shrink independently without affecting each other.
+                        the segment may grow or shrink independently 
+                        without affecting each other.
                     </li>
                 </ul>
                 <br><br>
@@ -56,7 +60,7 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="http://images.slideplayer.com/13/3611123/slides/slide_96.jpg">
+                src="graphics/segmentation.gif">
                 </p>
             </div>
 
@@ -76,8 +80,10 @@
                     where each chunk is called a <b>segment</b>
                 </li>
                 <li>
-                    Each process is loaded by bringing all of its segments onto main memory.
-                    Every segment of the process is loaded ont the main memory by creating partitions
+                    Each process is loaded by bringing 
+                    all of its segments into main memory.
+                    Every segment of the process is loaded 
+                    into main memory by creating partitions
                     dynamically matching the size of each segment.
                     This creates an exact fit for every segment.
                 </li>
@@ -85,12 +91,11 @@
                     Segmentation is free of internal fragmentation.
                 </li>
                 <li>
-                    Suffers from external fragmentation but not as much,
-                    because process is divided into segments which are smaller in size.
+                    Suffers from external fragmentation.
                 </li>
                 <li>
-                    Every program/process may occupy more than one non contagious
-                    segments, similar to dynamic partitioning.
+                    Every program/process may occupy more than one
+                    non-contiguous segment, similar to dynamic partitioning.
                 </li>
                 <li>
                     Consider a case where if a larger segment is evicted and a
@@ -103,7 +108,8 @@
                 <li>
                     The 'holes' created by external fragmentation are dealt with
                     by implementing a process called 'compaction'.
-                    This is a costly process with a large overhead and hence must not be called very often.
+                    This is a costly process with a large 
+                    overhead and hence must not be called very often.
                 </li>
             </ul>
 
@@ -114,7 +120,8 @@
             <ul>
                 <li>
                     This is a combination of segmentation and paging which
-                    tries to take advantage of the befits of both segmentation and paging.
+                    tries to take advantage of the befits of both 
+                    segmentation and paging.
                 </li>
                 <li>
                     User's address space is divided into segments.
@@ -156,9 +163,9 @@
             </ul>
 
 
-
-
-
+            <h2>
+                External Links
+            </h2>
                 <ul>
                     <li>
                         <a
@@ -167,13 +174,12 @@
                         </a>
                 </ul>
 
-                <h2>
+            <h2>
                 Credits
             </h2>
                 <ul>
-                       <li> Referred to Notes by Professor Daniel Katz.
-                           (previously professor of Operating Systems at
-                           NYU Tandon School of Engineering)
+                       <li> Based on notes by Professor Daniel Katz
+                           (professor at NYU Tandon School of Engineering).
                     </li>
                 </ul>
             

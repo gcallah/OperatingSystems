@@ -23,95 +23,99 @@
             </h2>
 
 
-
-                        <h3>
-                        Optimal Algorithm
-                        </h3>
-                        <ul>
-                            <li>
-                                Select that page for replacement which is going to be
-                                replaced the last i.e the page whose time to replacement
-                                is the longest.
-                            </li>
-                            <li>
-                                This approach results in fewest page faults.
-                            </li>
-                            <li>
-                                However, this approach is not feasible, as we can never
-                                really know which page has the longest time to replacement.
-                            </li>
-                            <li>
-                                This algorithm is just theory, it is not implementable.
-                            </li>
-                        </ul>
-
-
-                        <h3>
-                        Least Recently Used (LRU)
-                        </h3>
-                        <ul>
-                            <li>
-                                Select that page for replacement which has not been used
-                                for the longest time.
-                            </li>
-                            <li>
-                                The approach relies on an assumption that the page which
-                                has not been used for the longest time is the least likely page
-                                to be used in future.
-                            </li>
-                            <li>
-                                It has reasonably good performance.
-                            </li>
-                            <li>
-                                The algorithm is difficult to implement as calculating page
-                                which has been used least recently used creates an overhead.
-                            </li>
-                        </ul>
+                <h3>
+                Optimal Algorithm
+                </h3>
+                <ul>
+                    <li>
+                        Select that page for replacement which is going to be
+                        replaced the last i.e the page whose time to replacement
+                        is the longest.
+                    </li>
+                    <li>
+                        This approach results in fewest page faults.
+                    </li>
+                    <li>
+                        However, this approach is not feasible, as we can never
+                        really know which page has the longest time to replacement.
+                    </li>
+                    <li>
+                        This algorithm is just theory, it is not implementable.
+                    </li>
+                </ul>
 
 
-                        <h3>
-                        First In First Out (FIFO)
-                        </h3>
-                        <ul>
-                            <li>
-                                Implement a Queue and replace pages accordingly.
-                            </li>
-                            <li>
-                                Page which comes in first is the first one to be replaced.
-                            </li>
-                            <li>
-                                i.e Replace the page which has been in main memory the longest.
-                            </li>
-                            <li>
-                                The algorithm is easy to implement.
-                            </li>
-                        </ul>
+                <h3>
+                Least Recently Used (LRU)
+                </h3>
+                <ul>
+                    <li>
+                        Select that page for replacement which has not been used
+                        for the longest time.
+                    </li>
+                    <li>
+                        The approach relies on an assumption that the page which
+                        has not been used for the longest time is the least likely page
+                        to be used in future.
+                    </li>
+                    <li>
+                        It has reasonably good performance in terms of limiting
+                        swapping.
+                    </li>
+                    <li>
+                        Calculating page which has been used least 
+                        recently used creates an overhead.
+                    </li>
+                </ul>
 
 
-                        <h3>
-                        Clock Policy Algorithm
-                        </h3>
-                        <ul>
-                            <li>
-                                This Algorithm behaves similar to LRU. Associate 'Use Bit' with each
-                                frame. When frame first loaded in main memory, use bit for
-                                that frame set to 1.
-                            </li>
-                            <li>
-                                When page is subsequently referenced, use bit set to 1. Set of
-                                pages that are candidates for page
-                                replacement form a circular buffer with pointer.
-                            </li>
-                            <li>
-                                Pointer movies along circle when a page is needed for replacement.
-                                While moving, any page with use bit 1 , its use bit is set to 0.
-                                The first page with use bit 0 is picked for replacement.
-                            </li>
-                            <li>
-                                Its behaviour is similar to FIFO apart from the fact that it skips
-                                pages whose use bit is set to 1.
-                            </li>
-                        </ul>
+                <h3>
+                First In First Out (FIFO)
+                </h3>
+                <ul>
+                    <li>
+                        Implement a queue and replace pages accordingly.
+                    </li>
+                    <li>
+                        Page which comes in first is the first one to be replaced.
+                    </li>
+                    <li>
+                        I.e replace the page which has been in main memory the longest.
+                    </li>
+                    <li>
+                        The algorithm is easy to implement.
+                    </li>
+                    <li> But it may swap out pages that are used a lot!
+                </ul>
+
+
+                <h3>
+                Clock Policy Algorithm
+                </h3>
+                <ul>
+                    <li>
+                        This Algorithm behaves similar to LRU. 
+                        Associate 'Use Bit' with each
+                        frame. When frame first loaded in main memory, use bit for
+                        that frame set to 1.
+                    </li>
+                    <li>
+                        When page is subsequently referenced, use bit set to 1. Set of
+                        pages that are candidates for page
+                        replacement form a circular buffer with pointer.
+                    </li>
+                    <li>
+                        Pointer movies along circle when a page is 
+                        needed for replacement.
+                        While moving, any page with use bit 1 , its use bit is set to 0.
+                        The first page with use bit 0 is picked for replacement.
+                    </li>
+                    <li>
+                        Its behaviour is similar to FIFO apart 
+                        from the fact that it skips
+                        pages whose use bit is set to 1.
+                    </li>
+                </ul>
 
 
             <h2>
@@ -119,106 +123,114 @@
             </h2>
 
 
-                        <h3>
-                        Working Set Strategy
-                        </h3>
-                        <ul>
-                            <li>
-                                W(T,D) = Set of Pages that have been referenced in the last D
-                                virtual time units. <br>
-                                Virtual Time Units is generally number of instructions.
-                            </li>
-                            <li>
-                                Working Set is non decreasing function of Window Size(D).
-                                i.e W(T,D+1) contains W(T,D)
-                            </li>
-                            <li>
-                                Working Set of each process is monitored.The pages of the
-                                process which are no longer in the working set are
-                                periodically removed from the resident set.
-                            </li>
-                            <li>
-                                Process can be executed only if its working set is in main memory
-                            </li>
-                            <b> Disadvantages </b>
+                <h3>
+                Working Set Strategy
+                </h3>
+                <ul>
+                    <li>
+                        W(T,D) = Set of Pages that have been referenced in the last D
+                        virtual time units. <br>
+                        Virtual Time Units is generally number of instructions.
+                    </li>
+                    <li>
+                        Working Set is non decreasing function of Window Size(D).
+                        i.e W(T,D+1) contains W(T,D)
+                    </li>
+                    <li>
+                        Working Set of each process is monitored.The pages of the
+                        process which are no longer in the working set are
+                        periodically removed from the resident set.
+                    </li>
+                    <li>
+                        Process can be executed only if its working set is in main memory
+                    </li>
+                </ul>
+                <h4> Disadvantages </h4>
 
-                                <li>
-                                    Size and membership of working set change over time.
-                                </li>
-                                <li>
-                                    Need to timestamp every page reference and keep a time ordered queue.
-                                </li>
-                                <li>
-                                    Optimal value of D is unknown and would vary.
-                                </li>
+                <ul>
+                    <li>
+                        Size and membership of working set change over time.
+                    </li>
+                    <li>
+                        Need to timestamp every page reference and 
+                        keep a time ordered queue.
+                    </li>
+                    <li>
+                        Optimal value of D is unknown and would vary.
+                    </li>
 
-                        </ul>
-
-
-
-                        <h3>
-                        Page Fault Frequency
-                        </h3>
-                        <ul>
-                            <li>
-                                Algorithm uses use bit. Use bit is set to 1 when page is accessed.
-                            </li>
-                            <li>
-                                Set a threshold time 'F' for measuring page fault rate. When page
-                                fault occurs, OS notes virtual time units since last page fault.
-                            </li>
-                            <li>
-                                If time < F, ad page to resident set of process. <br>
-                                If >=F , discard all pages with use bit 0 and shorten size of
-                                resident set.<br>
-
-                            </li>
-                            <li>
-                                Time between page faults is 1/(page fault rate)
-                            </li>
-                            <b> Disadvantages </b>
-
-                                <li>
-                                    No page drops out of resident set before F virtual time units.
-                                </li>
-                                <li>
-                                    Does not perform well during locality shifts.
-                                </li>
+                </ul>
 
 
-                        </ul>
+                <h3>
+                Page Fault Frequency
+                </h3>
+                <ul>
+                    <li>
+                        Algorithm uses use bit. Use bit is set to 1 when page is accessed.
+                    </li>
+                    <li>
+                        Set a threshold time 'F' for measuring page fault rate. When page
+                        fault occurs, OS notes virtual time units since last page fault.
+                    </li>
+                    <li>
+                        If time < F, ad page to resident set of process. <br>
+                        If >=F , discard all pages with use bit 0 and shorten size of
+                        resident set.<br>
+
+                    </li>
+                    <li>
+                        Time between page faults is 1/(page fault rate)
+                    </li>
+                    <b> Disadvantages </b>
+
+                        <li>
+                            No page drops out of resident set before F virtual time units.
+                        </li>
+                        <li>
+                            Does not perform well during locality shifts.
+                        </li>
 
 
-
-                        <h3>
-                        Variable-Interval Sampled Working Set (VSWS)
-                        </h3>
-                        <ul>
-                            <li>
-                                Evaluates working set of a process at sampling instances based
-                                on elapsed virtual time.
-                            </li>
-                            <li>
-                                Use bits of all resident pages are reset at the beginning of a
-                                sampling interval. At the end of the interval,
-                                only the pages referenced during the interval will have their use
-                                bit set to 1.
-                            </li>
-                            <li>
-                                The pages with use bit set to 1 are retained at the end of the
-                                interval while other pages are discarded. That means,
-                                at the end of the interval, resident set can only decrease.
-                            </li>
-                            <li>
-                                However, faulted pages are added to the resident set during the interval.
-                            </li>
-                            
-                        </ul>
+                </ul>
 
 
 
+                <h3>
+                Variable-Interval Sampled Working Set (VSWS)
+                </h3>
+                <ul>
+                    <li>
+                        Evaluates working set of a process at sampling instances based
+                        on elapsed virtual time.
+                    </li>
+                    <li>
+                        Use bits of all resident pages are reset at the beginning of a
+                        sampling interval. At the end of the interval,
+                        only the pages referenced during the interval will have their use
+                        bit set to 1.
+                    </li>
+                    <li>
+                        The pages with use bit set to 1 are retained at the end of the
+                        interval while other pages are discarded. That means,
+                        at the end of the interval, resident set can only decrease.
+                    </li>
+                    <li>
+                        However, faulted pages are added to the resident
+                        set during the interval.
+                    </li>
+                    
+                </ul>
 
+            <h2>
+                External Links
+            </h2>
 
+                <p>
+                <a href="https://en.wikipedia.org/wiki/Paging">
+                    Paging
+                </a>
+                </p>
 
 
             <h2>
@@ -226,9 +238,8 @@
             </h2>
                 <ul>
                     <li>
-                    Referred to Notes by Professor Daniel Katz.
-                    (previously professor of Operating Systems at
-                    NYU Tandon School of Engineering)
+                    Based on notes by Professor Daniel Katz
+                    (professor at NYU Tandon School of Engineering)
                     </li>
                 </ul>
             

@@ -15,7 +15,7 @@ table, th, td {
     }
 
 p {
-    margin: 8px 100px 8px 140px;
+    margin: 8px 60px 8px 60px;
 }
 
 hr {
@@ -28,7 +28,7 @@ blockquote {
 }
 
 ol, ul, dl, li {
-    margin: 20px 120px 8px 80px;
+    margin: 20px 60px 8px 60px;
 }
 
 p {
@@ -63,7 +63,7 @@ h2.subhead {
 
 h3 {
     font-size: 22px;
-    margin: 20px 120px 12px 120px;
+    margin: 20px 80px 12px 120px;
     color: #137;
     font-weight: bold;
 }
