@@ -102,13 +102,23 @@
 				<ul>
 					<li><b>Create: </b>A directory is created</li>
 					<li><b>Delete: </b>A directory is deleted</li>
-					<li><b>Opendir</b>Directories can be read</li>
-					<li><b>Closedir: </b>When a directory has been read it should be closed to free up internal table space.</li>
-					<li><b>Readdir: </b>This system call returns the next entry in an open directory.</li>
-					<li><b>Rename: </b>As Directories are also files, it can be renamed the same way files can be.</li>
-					<li><b>Link: </b>This system call specifies an existing file and a path name, and creates a link from the existing file to the name specified by the path. This makes the
-					file appear in more than one directory.<br/>This link is sometimes refered to as<b> Hard Link</b>, which just creates another file with a link to the same underlying node.</li>
-					<li><b>Unlink: </b>A directory entry is removed. If a file is present in multiple directories then only the file in specified path is deleted.</li>
+					<li><b>Opendir:</b> Directories can be read</li>
+					<li><b>Closedir: </b>When a directory has been read it
+                        should be closed to free up internal table space.</li>
+					<li><b>Readdir: </b>This system call returns the next
+                        entry in an open directory.</li>
+					<li><b>Rename: </b>As directories are also files, they
+                        can be renamed the same way files can be.</li>
+					<li><b>Link: </b>This system call specifies an existing
+                        file and a path name, and creates a link from the existing
+                        file to the name specified by the path. This makes the
+					file appear in more than one directory.
+                    <br/>This link is sometimes refered to as a
+                    <b>hard link</b>, which just creates another file with a
+                    link to the same underlying node.</li>
+					<li><b>Unlink: </b>A directory entry is removed.
+                        If a file is present in multiple directories
+                        then only the file in specified path is deleted.</li>
 				</ul>
 			</p>
 			<br/>
