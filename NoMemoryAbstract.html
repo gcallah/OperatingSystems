@@ -33,7 +33,8 @@
                     programs had access to physical memory.
                     </li>
                     <li>
-                        This means we could not have 2 programs running in main memory at once, as this would cause inconsistency in data.
+                        This means we could not have 2 programs running in main memory at once,
+                        as this would cause inconsistency in data.
                     </li>
                     <li>
                         Processes could erase each others' written output/input and cause severe inconsistencies.
@@ -51,11 +52,13 @@
                 The idea is to have just one running process in main memory at any point of time.
             </li>
             <li>
-                Whenever a process leaves main memory, all of its current state and values are copied onto main memory and another proces is nrought onto main memory.
+                Whenever a process leaves main memory, all of its current state and values are copied
+                onto main memory and another process is brought onto main memory.
 
             </li>
             <li>
-                Whenever the process returns to main memory, all of the saved contents are brought back to main memory.
+                Whenever the process returns to main memory, all of the saved contents
+                are brought back to main memory.
             </li>
         </ul>
 
@@ -69,15 +72,19 @@
                 <li>
                     Early models of IBM 360 followed this approach:<br><br>
 
-                    Memory was divided into 2 KB bloks and each block was assigned a 4-bit protetion key held in special registers inside the CPU.<br><br>
+                    Memory was divided into 2 KB bloks and each block was assigned a 4-bit protetion key
+                    held in special registers inside the CPU.<br><br>
 
-                    A machine with 1 MB memory needed only 512 of these 4 bit registers for a total of 256 bytes of key storage.<br><br>
+                    A machine with 1 MB memory needed only 512 of these 4 bit registers for a total
+                    of 256 bytes of key storage.<br><br>
 
                     The PSW (Program Status Word) also contained a 4-bit key.<br><br>
 
-                    The 360 hardware trapped any attempt by a running process to access memory with a protection code from the PSW key.<br><br>
+                    The 360 hardware trapped any attempt by a running process to access memory
+                    with a protection code from the PSW key.<br><br>
 
-                    Only the OS is permitted to change the protection keys, hence, user processes could not interfere with one another and also with the OS process.
+                    Only the OS is permitted to change the protection keys, hence,
+                    user processes could not interfere with one another and also with the OS process.
 
                 </li>
             </ul>

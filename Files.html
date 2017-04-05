@@ -18,19 +18,29 @@
                 </p>
             </div>
 			<p>
-				Files are logical units of information created by processes and are managed by the operating systems. The part of the opearting system dealing with files is known as 
-				<b> File Systems </b>
+				Files are logical units of information created by 
+                processes and are managed by the operating systems.
+            The part of the opearting system dealing with files is known as 
+                the
+				<b>file system</b>.
 			</p>
             <br/>
             <h3>
                  File Naming
             </h3>
 			<p>
-				When a process creates a file it gives the file a name, even after this process terminates the file continues to exist and can be accessed by other processes by its 
+				When a process creates a file it gives the file a name, 
+                and even after this process terminates the file 
+                continues to exist and can be accessed by other processes by its 
 				name.<br/> 
-				The exact rules for file naming might vary from one system to another but almost all operating systems allow strings of one to eight characters along with special characters
+				The exact rules for file naming might vary from one system to another 
+                but almost all operating systems allow strings of one to 
+                eight characters along with special characters
 				like underscore.<br/>
-				The file naming as two parts which are seperated by a period. The name of the file after the period is called the <b> File Extension </b> which indicates something about the file.
+				The file naming as two parts which are seperated by a period.
+                The name of the file after the period is called the 
+                <b>file extension</b> which indicates something about the file.
+			</p>
 				<div align="center">
 				<table>
 				<tr>
@@ -43,11 +53,23 @@
 				</tr>
 				<tr>
 					<td> .c </td>
-					<td> C source program </td>
+					<td> C source code </td>
+				</tr>
+				<tr>
+					<td> .h </td>
+					<td> C header file </td>
+				</tr>
+				<tr>
+					<td> .sh </td>
+					<td> Shell script </td>
+				</tr>
+				<tr>
+					<td> .py </td>
+					<td> Python source code </td>
 				</tr>
 				<tr>
 					<td> .gif </td>
-					<td> Compuserve Graphical Interchange For mat image </td>
+					<td> Compuserve Graphical Interchange Format image </td>
 				</tr>
 				<tr>
 					<td> .hlp </td>
@@ -55,7 +77,7 @@
 				</tr>
 				<tr>
 					<td> .html </td>
-					<td> Wor ld Wide Web HyperText Mar kup Language document </td>
+					<td> World Wide Web HyperText Markup language document </td>
 				</tr>
 				<tr>
 					<td> .jpg </td>
@@ -68,13 +90,12 @@
 				</table>
 				</div>
 				
-			</p>
 			<br/>
 			<h3>
 				File Structure
 			</h3>
 			<figure>
-			<img src="graphics/FileStructure.png" height="350" width="450">
+			<img src="graphics/FileStruct.png" height="350" width="480">
 			</figure>
 			<p>
 				There are three common ways for structuring of files
@@ -86,46 +107,96 @@
 				<br/>
 			</p>
 			<p>
-				<b> Byte Sequence : </b> In this way of structuring, a file is an unstructured sequence of bytes. What is contained inside the file is of no concern
+				<b> Byte Sequence:</b>
+                In this way of structuring, a file is an unstructured sequence of bytes.
+                What is contained inside the file is specific to the program that
+                will write / read them.
 				<br/>
-				<b> Record Sequence : </b> In this structuring, a file is a sequence of fixed-length records, each with some internal structure. 
+				<b> Record Sequence:</b>
+                In this structuring, a file is a sequence of 
+                fixed-length records, each with some internal structure.
+
 				<br/>
-				<b> Tree : </b> In this organization, a file consists of a tree of records, not necessarily all the same length, each containing a key field in a fixed 
-					position in the record. The tree is sorted on the key field, to allow rapid searching for a particular key. All the basic operations are performed using the Key 
-					value. This type of file is clearly quite different from the unstructured byte streams used in UNIX and Windows and is used on some large mainframe computers for
+				<b> Tree:</b>
+                In this organization, a file consists of a tree of records, 
+                not necessarily all the same length, each containing a key 
+                field in a fixed position in the record.
+                The tree is sorted on the key field, to allow rapid 
+                searching for a particular key. All the basic operations are 
+                performed using the key value.
+                This type of file is clearly quite different from the 
+                unstructured byte streams used in UNIX and Windows 
+                and is used on some large mainframe computers for
 					commercial data processing.
+                <br>
+                Databases such as Oracle creates files that are like this,
+                without relying on the OS to know the format.
 			</p>
 			<br/>
 			<h3>
 				File Types
 			</h3>
 			<p>
-				UNIX and Windows operating systems have regular files and Directories.
+				UNIX and Windows operating systems have regular files and directories.
 				<br/>
-				<b> Regular Files : </b>Files containing user information
 				<br/>
-				<b> Directories : </b> These are the system files for maintaining the structure of file system.
+				<b> Regular files:</b> Files containing user information. (This
+                is how the book puts it, but these may also contain system
+                info, such as /etc/passwd.)
 				<br/>
-				UNIX also has two other types of files.
+				<b> Directories:</b>
+                These are the system files for maintaining the structure of file system.
 				<br/>
-				<b> Character Special Files : </b> These files are related to input and output operations. They are used to model serial I/O devices,such as terminals, printers, and networks. 
 				<br/>
-				<b> Block special Files : </b> These files are used to model disks.
+				UNIX also has two other types of files:
+				<br/>
+				<b> Character-special files:</b>
+                These files are related to input and output operations.
+                They are used to model serial I/O devices, such as terminals, 
+                printers, and networks. 
+				<br/>
+				<b> Block-special files:</b>
+                These files are used to model disks.
 			</p>
 			<p>
-				Regular files are generally ASCII or binary files
+				Regular files are generally ASCII or binary files:
 				<br/>
-				<b> ASCII files: </b> Files containing lines of text. These files can be displayed and printed as is, and they can be edited with any text editor.
 				<br/>
-				<b> Binary Files: </b> These files are not human readable. All the program executable files are in this format. 
-				    Executable binary Files: The operating system will execute an executable  binary file only if it has the proper format.Format of a binary file has 5 sections:
-					Header, Text, Data, Relocation bits and Symbol table.
-					Header section indiactes that the binary file is executable.
-					Archive: It consists of a collection of library procedures compiled but not linked. Each one is prefaced by a header telling its name, creation date, owner,
+				<b> ASCII files:</b>
+                Files containing lines of text.
+                These files can be displayed and printed as is, and 
+                 they can be edited with any text editor.
+				<br/>
+                They can be used in pipelines, processed by scripts, etc.
+				<br/>
+				<b> Binary Files:</b>
+                These files are not human readable.
+                <br>
+                <b>Executable binary files:</b>
+                The operating system will execute an executable 
+                binary file only if it has the proper format.
+                Format of an executable file has 5 sections:
+            </p>
+                <ol>
+                    <li> Header
+                    <li>Text
+                    <li>Data
+                    <li>Relocation bits
+                    <li>Symbol table
+                </ol>
+            <p>
+                Header section indicates that the binary file is executable,
+                and contains other info about the program.
+            <br>
+            <br>
+            <b>Archive:</b>
+            It consists of a collection of library procedures compiled but not linked.
+            Each one is prefaced by a header telling its name, creation date, owner,
 					protection code, and size.
 			</p>
+
 			<figure>
-			<img src="graphics/FileTypes.png" height="400" width="450">
+			<img src="graphics/FTypes.png" height="400" width="450">
 			</figure>
 			<br/>
 			<h3>
@@ -133,11 +204,25 @@
 			</h3>
 			<p>
 				<ul>
-					<li> Sequential Access: Earlier operating Systems provided only one kind of file access called Sequential file access in which a process could read all the bytes or 
-						 records in a file in a order. Sequential files were convenient when the storage medium was magnetic tape rather than disk. </li>
-					<li> Random Access: Using diks it is possible to read the bytes or records of a file out of order making use of the Key value. Processes that can read a file in a random order
-						 is termed as random access and the file read in this manner is called as Random access file. 
-						 Methods used for specifying where to start reading from in a random access file are <b> read </b> operation and <b> seek </b> operation. 
+					<li> <b>Sequential Access</b>:
+                        Earlier operating systems provided only 
+                        one kind of file access called sequential file 
+                        access in which a process could read all the bytes or 
+						 records in a file in a order.
+                        Sequential files were convenient when 
+                        the storage medium was magnetic tape rather than disk. 
+                    </li>
+					<li> <b>Random Access</b>:
+                        Using disks it is possible to read the bytes or 
+                        records of a file out of order making use of the Key value.
+                        Processes that can read a file in a random order
+						 is termed as random access and the file 
+                         read in this manner is called as a random-access file.
+
+						 Methods used for specifying where to start 
+                         reading from in a random access file are 
+                         <b>read</b> operation and <b>seek</b> operation.
+
 					</li>
 				</ul>
 				
@@ -147,11 +232,15 @@
 				File Attributes
 			</h3>
 			<p>
-				Operating Systems associate other information related to files such as date and time when a file was created, permissions for the file access as <b>File Attributes</b>.
-				These attributes are also called as <b> Metadata </b>. The list of attributes considerably vary from system to system. 
+				Operating systems associate other information related to 
+                iles such as date and time when a file was created, 
+                ermissions for the file access as <b>file attributes</b>.
+				These attributes are also called <b>metadata</b>.
+                The list of attributes considerably vary from system to system.
+
 			</p>
 			<p>
-			List of few File attributes:
+			Some file attributes:
 			<br/>
 			<div align="center">
 			<table>
@@ -203,7 +292,9 @@
 				File Operations
 			</h3>
 			<p>
-				Files exist to store information and allow it to be retrieved later. Different systems provide different operations to allow storage and retrieval. 
+				Files exist to store information and allow it to be retrieved later.
+                Different systems provide different operations to 
+                allow storage and retrieval. 
 				Some of the Operations are listed below.
 				<ul>
 					<li>Create</li>
@@ -212,16 +303,23 @@
 					<li>Close</li>
 					<li>Read</li>
 					<li>Write</li>
-					<li>Append - This call is a restricted form of wr ite. It can add data only to the end of the file.</li>
-					<li>Seek - It is a system call,that repositions the file pointer to a specific place in the file</li>
-					<li>Get Attributes - Processes often need to read file attributes to do their work.</li>
-					<li>Set Attributes - Some of the attributes are user settable and can be changed after the file has been created and this system call can be used for the same.</li>
-					<li>Rename - This system call is used to change the name of the file.</li>
+					<li>Append: This call is a restricted form of wr ite.
+                    It can add data only to the end of the file.</li>
+					<li>Seek: This that repositions the file pointer to a 
+                        specific place in the file</li>
+					<li>Get Attributes - Processes often need to read file 
+                        attributes to do their work.</li>
+					<li>Set Attributes - Some of the attributes are user 
+                        settable and can be changed after the 
+                        file has been created and this system call 
+                        can be used for the same.</li>
+					<li>Rename - This system call is used to 
+                        change the name of the file.</li>
 				</ul>
 			</p>
 			
 			<h2>
-                File System calls code
+                Source code
             </h2>
                 <ul>
                     <li>
@@ -237,15 +335,9 @@
                 <ul>
                     <li>
                         <a href="https://en.wikipedia.org/wiki/File_system">
-                        Lectures
+                        File system
                         </a>
                 </ul>
             
-            <h2>
-                Homework
-            </h2>
-                <ol>
-                    <li>Study lectures!
-                </ol>
     </body>
 </html>
