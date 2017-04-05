@@ -25,7 +25,7 @@
 				Since all the files are normally stored on disk one of the main concerns of file system is management of disk space.<br/>
 			</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Size
+					Block Size
 				</h4>
 				<p>
 				The main question that arises while storing files in a fixed-size blocks is the size of the block. If the block is too large space gets wasted and if 
@@ -33,7 +33,7 @@
 				Performance and space-utilization are always in conflict. 
 				</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keeping track of free blocks
+					Keeping track of free blocks
 				</h4>
 				<p>
 				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that are widely used:
@@ -58,7 +58,7 @@
 				</ul>
 				</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disk quotas
+					Disk quotas
 				</h4>
 				<p>
 				Multiuser operating systems often provide a mechanism for enforcing disk quotas. A system administrator assigns each user a maximum allotment of files and blocks and
@@ -130,9 +130,14 @@
 			more than once in free list and same data block is present in two or more files. 
 			<br/>
 			</li>
-			<li>In addition to checking to see that each block is properly accounted for, the file-system checker also checks the directory system. It too uses a table of counters but per file-size
+            <li>In addition to checking to see that each block is
+            properly accounted for, the file-system checker also
+            checks the directory system. It too uses a table
+            of counters but per file-size
 			rather than per block.
-            These counts start at 1 when a file is created and are incremented each time a (hard) link is made to the file. In a consistent file system, both counts will
+            These counts start at 1 when a file is created and
+            are incremented each time a (hard) link is made
+            to the file. In a consistent file system, both counts will
 			agree</li>
 			</ul>
 			</p>
@@ -140,32 +145,49 @@
                 File-system Performance
             </h3>
 			<p>
-			Since the access to disk is much slower than access to memory, many file systems have been designed with various optimizations to improve performance as described below.
+            Since the access to disk is much slower than access to memory,
+            many file systems have been designed with various
+            optimizations to improve performance as described below.
 			</p>
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caching
+				Caching
 			</h4>
 			<p>
-			The most common technique used to reduce disk access time is the block cache or buffer cache. Cache can be defined as a collection of items of the same type stored in a hidden or 
-			inaccessible place. The most common algorithm for cache works in such a way that if a disk access is initiated, the cache is checked first if the disk is present, if yes then the read
-			request can be satisfied without a disk access else the disk is copied to cache first and then the read request is processed. 
+            The most common technique used to reduce disk
+            access time is the block cache or buffer cache.
+            Cache can be defined as a collection of items of
+            the same type stored in a hidden or 
+            inaccessible place.
+            The most common algorithm for cache works in such a way
+            that if a disk access is initiated, the cache is
+            checked first to see if the disk block is present.
+            If yes then the read
+            request can be satisfied without a disk access else 
+            the disk block is copied to cache first and then the
+            read request is processed. 
 			<div style="text-align:center">
                 <p>
                 <img
                 src="graphics/cache.png" height="300" width="350">
                 </p>
 			</div>
-			<p>The above figure depicts how to quickly determine if a block is present in a cache or not, for doing so a hash table can be implemented and look up the result in a hash table.
+            <p>The above figure depicts how to quickly determine if a block is present in a cache or not.
+            For doing so a hash table can be implemented and look up the result in a hash table.
 			</p>
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Read Ahead
+				Block Read Ahead
 			</h4>
 			<p>
-			Another technique to improve file-system performance is to try to get blocks into the cache before they are needed to increase the hit rate. This works only when files are read sequentially.
-			When a file system is asked for block 'k' in the file it does that and then also checks before hand if 'k+1' is available if not it schedules a read for the block k+1 thinking that it
-			might be of use later. 
+            Another technique to improve file-system performance is to try
+            to get blocks into the cache before they are needed to
+            increase the hit rate. This works only when files are read
+            sequentially.
+            When a file system is asked for block 'k' in the file
+            it does that and then also checks before hand if 'k+1'
+            is available if not it schedules a read for the block
+            k+1 thinking that it might be of use later. 
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reducing disk arm motion
+				Reducing disk arm motion
 			</h4>
 			<p>
 			Another way to increase file-system performance is by reducing the disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other,preferably in the
