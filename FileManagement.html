@@ -36,8 +36,7 @@
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keeping track of free blocks
 				</h4>
 				<p>
-				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that 
-				are widely used:
+				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that are widely used:
 				<ul>
 				<li>Using Linked List: Using a linked list of disk blocks with each block holding as many free disk block numbers as will fit.
 				<div style="text-align:center">
@@ -89,14 +88,16 @@
 			<b>Advantages: </b> Simplicity and great speed.<br/>
 			<b>Disadvantages:</b> inability o skip selected directories, make incremental dumps, and restore individual files upon request</li>
 			<li><b>Logical dump:</b> In this way the dump starts at one or more specified directories and recursively dump all files and directories found that have been changed since some given base
-			date.This is the most commonly used way.
+            date.
+            This is the most commonly used way.
 			<div style="text-align:center">
                 <p>
                 <img
-                src="graphics/backup.png" height="300" width="350">
+                src="graphics/backup.png" height="300" width="440">
                 </p>
 			</div>
-			The above figure depicts a popular algorithm used in many UNIX systems wherein squares depict directories and circles depict files.This algorith dumps all the files and directories
+			The above figure depicts a popular algorithm used in many UNIX systems wherein squares depict directories and circles depict files.
+            This algorith dumps all the files and directories
 			that have been modified and also the ones on the path to a modified file or directory. The dump algorithm maintains a bitmap indexed by i-node number with several bits per i-node. 
 			Bits will be set and cleared in this map as the algorithm proceeds. Although logical dumping is straightforward, there are few issues associated with it.
 			<ul>
@@ -116,12 +117,13 @@
 			This utility can be run whenever the system is booted. The utility programs perform two kinds of consistency checks.
 			<ul>
 			<li>
-			Blocks: To check block consistency the program builds two tables, each one containing a counter for each block, initially set to 0.If the file system is consistent, each 
+			Blocks: To check block consistency the program builds two tables, each one containing a counter for each block, initially set to 0.
+            If the file system is consistent, each 
 			block will have a 1 either in the first table or in the second table as you can see in the figure below.
 			<div style="text-align:center">
                 <p>
                 <img
-                src="graphics/consistencyblock.png" height="300" width="350">
+                src="graphics/consistencyblock.png" height="300" width="520">
                 </p>
 			</div>
 			In case if both the tables have 0 in it that may be because the block is missing and hence will be reported as a missing block. The two other situations are if a block is seen 
@@ -129,7 +131,8 @@
 			<br/>
 			</li>
 			<li>In addition to checking to see that each block is properly accounted for, the file-system checker also checks the directory system. It too uses a table of counters but per file-size
-			rather than per block.These counts start at 1 when a file is created and are incremented each time a (hard) link is made to the file. In a consistent file system, both counts will
+			rather than per block.
+            These counts start at 1 when a file is created and are incremented each time a (hard) link is made to the file. In a consistent file system, both counts will
 			agree</li>
 			</ul>
 			</p>
