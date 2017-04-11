@@ -25,7 +25,7 @@
 				Since all the files are normally stored on disk one of the main concerns of file system is management of disk space.<br/>
 			</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Size
+					Block Size
 				</h4>
 				<p>
 				The main question that arises while storing files in a fixed-size blocks is the size of the block. If the block is too large space gets wasted and if 
@@ -33,11 +33,10 @@
 				Performance and space-utilization are always in conflict. 
 				</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Keeping track of free blocks
+					Keeping track of free blocks
 				</h4>
 				<p>
-				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that 
-				are widely used:
+				After a block size has been finalized the next issue that needs to be catered is how to keep track of the free blocks. In order to keep track there are two methods that are widely used:
 				<ul>
 				<li>Using Linked List: Using a linked list of disk blocks with each block holding as many free disk block numbers as will fit.
 				<div style="text-align:center">
@@ -59,7 +58,7 @@
 				</ul>
 				</p>
 				<h4>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Disk quotas
+					Disk quotas
 				</h4>
 				<p>
 				Multiuser operating systems often provide a mechanism for enforcing disk quotas. A system administrator assigns each user a maximum allotment of files and blocks and
@@ -89,14 +88,16 @@
 			<b>Advantages: </b> Simplicity and great speed.<br/>
 			<b>Disadvantages:</b> inability o skip selected directories, make incremental dumps, and restore individual files upon request</li>
 			<li><b>Logical dump:</b> In this way the dump starts at one or more specified directories and recursively dump all files and directories found that have been changed since some given base
-			date.This is the most commonly used way.
+            date.
+            This is the most commonly used way.
 			<div style="text-align:center">
                 <p>
                 <img
-                src="graphics/backup.png" height="300" width="350">
+                src="graphics/backup.png" height="300" width="440">
                 </p>
 			</div>
-			The above figure depicts a popular algorithm used in many UNIX systems wherein squares depict directories and circles depict files.This algorith dumps all the files and directories
+			The above figure depicts a popular algorithm used in many UNIX systems wherein squares depict directories and circles depict files.
+            This algorith dumps all the files and directories
 			that have been modified and also the ones on the path to a modified file or directory. The dump algorithm maintains a bitmap indexed by i-node number with several bits per i-node. 
 			Bits will be set and cleared in this map as the algorithm proceeds. Although logical dumping is straightforward, there are few issues associated with it.
 			<ul>
@@ -116,20 +117,27 @@
 			This utility can be run whenever the system is booted. The utility programs perform two kinds of consistency checks.
 			<ul>
 			<li>
-			Blocks: To check block consistency the program builds two tables, each one containing a counter for each block, initially set to 0.If the file system is consistent, each 
+			Blocks: To check block consistency the program builds two tables, each one containing a counter for each block, initially set to 0.
+            If the file system is consistent, each 
 			block will have a 1 either in the first table or in the second table as you can see in the figure below.
 			<div style="text-align:center">
                 <p>
                 <img
-                src="graphics/consistencyblock.png" height="300" width="350">
+                src="graphics/consistencyblock.png" height="300" width="520">
                 </p>
 			</div>
 			In case if both the tables have 0 in it that may be because the block is missing and hence will be reported as a missing block. The two other situations are if a block is seen 
 			more than once in free list and same data block is present in two or more files. 
 			<br/>
 			</li>
-			<li>In addition to checking to see that each block is properly accounted for, the file-system checker also checks the directory system. It too uses a table of counters but per file-size
-			rather than per block.These counts start at 1 when a file is created and are incremented each time a (hard) link is made to the file. In a consistent file system, both counts will
+            <li>In addition to checking to see that each block is
+            properly accounted for, the file-system checker also
+            checks the directory system. It too uses a table
+            of counters but per file-size
+			rather than per block.
+            These counts start at 1 when a file is created and
+            are incremented each time a (hard) link is made
+            to the file. In a consistent file system, both counts will
 			agree</li>
 			</ul>
 			</p>
@@ -137,32 +145,49 @@
                 File-system Performance
             </h3>
 			<p>
-			Since the access to disk is much slower than access to memory, many file systems have been designed with various optimizations to improve performance as described below.
+            Since the access to disk is much slower than access to memory,
+            many file systems have been designed with various
+            optimizations to improve performance as described below.
 			</p>
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Caching
+				Caching
 			</h4>
 			<p>
-			The most common technique used to reduce disk access time is the block cache or buffer cache. Cache can be defined as a collection of items of the same type stored in a hidden or 
-			inaccessible place. The most common algorithm for cache works in such a way that if a disk access is initiated, the cache is checked first if the disk is present, if yes then the read
-			request can be satisfied without a disk access else the disk is copied to cache first and then the read request is processed. 
+            The most common technique used to reduce disk
+            access time is the block cache or buffer cache.
+            Cache can be defined as a collection of items of
+            the same type stored in a hidden or 
+            inaccessible place.
+            The most common algorithm for cache works in such a way
+            that if a disk access is initiated, the cache is
+            checked first to see if the disk block is present.
+            If yes then the read
+            request can be satisfied without a disk access else 
+            the disk block is copied to cache first and then the
+            read request is processed. 
 			<div style="text-align:center">
                 <p>
                 <img
                 src="graphics/cache.png" height="300" width="350">
                 </p>
 			</div>
-			<p>The above figure depicts how to quickly determine if a block is present in a cache or not, for doing so a hash table can be implemented and look up the result in a hash table.
+            <p>The above figure depicts how to quickly determine if a block is present in a cache or not.
+            For doing so a hash table can be implemented and look up the result in a hash table.
 			</p>
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Block Read Ahead
+				Block Read Ahead
 			</h4>
 			<p>
-			Another technique to improve file-system performance is to try to get blocks into the cache before they are needed to increase the hit rate. This works only when files are read sequentially.
-			When a file system is asked for block 'k' in the file it does that and then also checks before hand if 'k+1' is available if not it schedules a read for the block k+1 thinking that it
-			might be of use later. 
+            Another technique to improve file-system performance is to try
+            to get blocks into the cache before they are needed to
+            increase the hit rate. This works only when files are read
+            sequentially.
+            When a file system is asked for block 'k' in the file
+            it does that and then also checks before hand if 'k+1'
+            is available if not it schedules a read for the block
+            k+1 thinking that it might be of use later. 
 			<h4>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reducing disk arm motion
+				Reducing disk arm motion
 			</h4>
 			<p>
 			Another way to increase file-system performance is by reducing the disk-arm motion by putting blocks that are likely to be accessed in sequence close to each other,preferably in the

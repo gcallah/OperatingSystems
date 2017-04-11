@@ -24,7 +24,7 @@
                 File-System Layout
             </h3>
 			<div align="center">
-			<img src="graphics/FileSystemLayout.png" width="480" height="400">
+			<img src="graphics/FileSystemLayout.PNG" width="480" height="400">
 			</div>
 			<br/>
 			<p>
@@ -86,18 +86,22 @@ Unlike Contiguous allocation no space is lost in disk fragmentation.
 					</li>
 					<li>
 					<b>Linked-List Allocation Using a Table in Memory: </b> <br/>
-					The disadvantage of linked list can be overcomed by taking the pointer word from each disk block and putting it in a table in memory.
-Such a table in main memory is called a FAT
+                    The disadvantage of linked list can be overcome by
+                    taking the pointer word from each disk 
+                    block and putting it in a table in memory.
+                    Such a table in main memory is called a FAT
 					(File Allocation Table).
-Using FAT random access can be made much easier.
+                    Using FAT random access can be made much easier.
 					<br/>
-					The primary disadvantage of this method is that the entire table must be in memory all the time to make it work.
+                    The primary disadvantage of this method is
+                    that the entire table must be in memory all the time to make it work.
 
 					</li>
 					<li>
 					<b>I-nodes: </b> I-node is a data structure which is used to identify which block belongs to which file.
-It contains the attributes and disk addresses of the file's blocks.
-					Unlike for in-memory table the i-node need to be in memory only when the corresponding file is open.
+                    It contains the attributes and disk addresses of the file's blocks.
+                    Unlike the in-memory table the i-node need
+                    to be in memory only when the corresponding file is open.
 
 					<div align="center">
 					<img src="graphics/inode.png" width="400" height="350">
