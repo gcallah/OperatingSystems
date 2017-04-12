@@ -116,8 +116,10 @@
 			<li> Making backups introduces many security issues </li>
 			</ul>
 				
-			<br/>
-			<p>There are two ways for dumping a disk to the backup disk:</p>
+            <p>
+                There are two ways for dumping a disk to the backup disk:
+            </p>
+
 			<ul>
 			<li><b>Physical dump: </b>In this way dump starts at 
             block 0 of the disk, writes all the disk blocks 
@@ -132,12 +134,13 @@
             recursively dump all files and directories 
             found that have been changed since some given base date.
             This is the most commonly used way.
+            </li>
+        </ul>
 			<div style="text-align:center">
-                <p>
                 <img
                 src="graphics/backup.png" height="300" width="440">
-                </p>
 			</div>
+            <p>
 			The above figure depicts a popular algorithm used 
             in many UNIX systems wherein squares depict 
             directories and circles depict files.
@@ -149,6 +152,7 @@
 			Bits will be set and cleared in this map as the algorithm proceeds.
             Although logical dumping is straightforward, 
             there are few issues associated with it.
+            </p>
 			<ul>
 			<li>Since the free block list is not a file, 
             it is not dumped and hence it must be reconstructed 
@@ -161,9 +165,7 @@
 			<li>Special files, named pipes and all 
             other files that are not real should never be dumped.</li>
 			</ul>
-			</li>
-			</ul>
-			</p>
+
 			<h3>
                 File-system Consistency
             </h3>
@@ -306,6 +308,10 @@
                 Quiz
             </h3>
 
+            <p>
+                I am experimenting with including quizzes:
+            </p>
+
             <p class="question">1. One means of keeping track of free blocks is?
             </p>
             <ul class="answers">
@@ -321,10 +327,6 @@
             <input type="radio" name="q1" value="d" id="q1d">
             <label for="q1d">The boot sector</label><br/>
             </ul>
-
-            <div id="results">
-                Show me the answers!
-            </div>
 
           </body>
 </html>
