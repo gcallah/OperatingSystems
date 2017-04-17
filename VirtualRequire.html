@@ -14,26 +14,60 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Hardware_Virtualization_%28copy%29.svg/740px-Hardware_Virtualization_%28copy%29.svg.png"
+                height="300" width="230">
                 </p>
             </div>
 
             <details>
                 <summary id="sum1">
-                    Major Topic
+                    Requirements
                 </summary>
     
-                <details>
-                    <summary id="sum2">
-                        Minor topic
-                    </summary>
-    
-                    <details>
-                        <summary id="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
+                <p>
+                    Hypervisors need to score well on
+                </p>
+
+                <ol>
+                    <li>
+                        <b>Safety:</b>
+                        the hypervisor
+                        has full control of the virtualized resources.
+                    </li>
+                    <li>
+                        <b>Fidelity:</b>
+                        the behavior of a program running on the virtual
+                        machine should be the same as if it were running on the
+                        machine being imitated.
+                    </li>
+                    <li>
+                        <b>Efficiency:</b>
+                        as much code as possible should run without
+                        intervention by the hypervisor.
+                    </li>
+                </ol>
+                <br />
+                
+                <p>
+                    An <b>interpreter</b> can be safe and faithful, but
+                    performance will be bad.
+                </p>
+
+                <p>
+                    <b>Sensitive instructions</b>:
+                    behave differently if executed in kernel mode than when
+                    executed in user mode.
+                    <br />
+                    <b>Privileged instructions</b>:
+                    trap if executed in user mode.
+                    <br />
+                    <br />
+                    Popek and Goldberg showed that a machine is virtualizable
+                    only if the sensitive instructions are a subset of the
+                    privileged instructions.
+                </p>
+
+
             </details>
 
             <details>
@@ -42,18 +76,98 @@
                 </summary>
                 <ol>
                     <li>
+                        Hypervisors should be
+                    </li>
+                    <ol type="a">
+                        <li>
+                        <input type="radio" name="q1" value="a">
+                        running as much code as possible directly on the
+                        hardware.
+                        </li>
+                        <li>
+                        <input type="radio" name="q1" value="b">
+                        in control of the virtual resources.
+                        </li>
+                        <li>
+                        <input type="radio" name="q1" value="c">
+                        faithful to the imitated machine.
+                        </li>
+                        <li>
+                        <input type="radio" name="q1" value="d">
+                        all of the above.
+                        </li>
+                    </ol>
+                    <li>
+                        An interpreter implementing a virtual machine is going
+                        to fall short in
+                    </li>
+                    <ol type="a">
+                        <li>
+                        <input type="radio" name="q2" value="a">
+                        performance.
+                        </li>
+                        <li>
+                        <input type="radio" name="q2" value="b">
+                        fidelity.
+                        </li>
+                        <li>
+                        <input type="radio" name="q2" value="c">
+                        safety.
+                        </li>
+                        <li>
+                        <input type="radio" name="q2" value="d">
+                        all of the above.
+                        </li>
+                    </ol>
+                    <li>
+                        Sensitive instructions
+                    </li>
+                    <ol type="a">
+                        <li>
+                        <input type="radio" name="q3" value="a">
+                        cause a trap.
+                        </li>
+                        <li>
+                        <input type="radio" name="q3" value="b">
+                        cause a segmentation error.
+                        </li>
+                        <li>
+                        <input type="radio" name="q3" value="c">
+                        behave differently if executed in kernel versus user
+                        mode.
+                        </li>
+                        <li>
+                        <input type="radio" name="q3" value="d">
+                        should never be called.
+                        </li>
+                    </ol>
+                    <li>
                         Question
                     </li>
                     <ol type="a">
                         <li>
+                        <input type="radio" name="q4" value="a">
                         </li>
                         <li>
-                        <li>
+                        <input type="radio" name="q4" value="b">
                         </li>
                         <li>
+                        <input type="radio" name="q4" value="c">
+                        </li>
+                        <li>
+                        <input type="radio" name="q4" value="d">
                         </li>
                     </ol>
                 </ol>
+
+                <details>
+                    <summary id="sum4">
+                        Answers
+                    </summary>
+                    <p>
+                        1. d, 2. a, 3. c, 4. 
+                    </p>
+                </details>
 
             </details>
             
