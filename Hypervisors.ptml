@@ -2,13 +2,13 @@
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <title>
-             Case Study: VMware
+             Type 1 and Type 2 Hypervisors
         </title>
     </head>
 
     <body>
         <h1>
-             Case Study: VMware
+             Type 1 and Type 2 Hypervisors
         </h1>
 
             <div style="text-align:center">
@@ -36,6 +36,16 @@
                 </details>
             </details>
 
-<!--include quizzes/quiz7.12.html -->            
+<!--include quizzes/quiz7.3.html -->            
+            <details>
+                <summary id="sum1">
+                    External Links
+                </summary>
+                    <ol>
+                        <li>
+                            Link
+                        </li>
+                    </ol>
+            </details>
     </body>
 </html>

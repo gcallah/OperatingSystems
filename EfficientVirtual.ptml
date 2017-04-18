@@ -2,13 +2,13 @@
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
         <title>
-             Case Study: VMware
+             Techniques for Efficient Virtualization
         </title>
     </head>
 
     <body>
         <h1>
-             Case Study: VMware
+             Techniques for Efficient Virtualization
         </h1>
 
             <div style="text-align:center">
@@ -36,6 +36,8 @@
                 </details>
             </details>
 
-<!--include quizzes/quiz7.12.html -->            
+<!--include quizzes/quiz7.4.html -->            
+     
+     
     </body>
 </html>
