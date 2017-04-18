@@ -1,0 +1,1 @@
+For each virtual machine, a hypervisor needs to create,lottery scheduling,clock driven interrupts,hypervisor induced page faults,^a shadow page table

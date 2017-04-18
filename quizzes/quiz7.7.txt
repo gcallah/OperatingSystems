@@ -1,0 +1,1 @@
+A device pass through allows,a hacker to directly access a device by bypassing the hypervisor,interrupt remapping,a printer to pass through jobs to another printer,^a physical device to be assigned directly to a particular virtual machine

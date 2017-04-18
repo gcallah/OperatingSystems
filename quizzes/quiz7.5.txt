@@ -1,0 +1,1 @@
+A hypercall is,^a replacement for a sensitive instruction,a call that jumps far in memory,a call that won't settle down,a new element in HTML5
