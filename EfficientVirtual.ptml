@@ -41,6 +41,15 @@
                 <p>
                     So how was this handled before VT was available?
                 </p>
+    
+                <figure>
+                <img
+                src="graphics/07-04.jpg"
+                height="210" width="400">
+                <figcaption>
+                Binary translator rewriting the guest OS.
+                </figcaption>
+                </figure>
             </details>
 
             <details>
