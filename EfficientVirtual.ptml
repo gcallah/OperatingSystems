@@ -72,7 +72,10 @@
 
                 <p>
                     Type II hypervisors are little bit different, in
-                    that they rely upon the host's device drivers 
+                    that they rely upon the host's device drivers. They are
+                    like teenagers hosting a party while their parents are
+                    away: they can move everything, so long as it is all back
+                    in place when the parents return. 
                 </p>
 
             </details>
