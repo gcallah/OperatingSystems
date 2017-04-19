@@ -29,6 +29,13 @@
                 This makes it essentially an OS.
                 </p>
 
+                <p>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/szhEiTOUt2s"
+                    frameborder="0" allowfullscreen></iframe>
+                <i>Type 1 video</i>
+                </p>
+
             </details>
 
             <details>
@@ -42,6 +49,13 @@
                 it.
                 </p>
 
+                <p>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/xTkvClJZmyA"
+                    frameborder="0" allowfullscreen></iframe>
+                <i>Type 2 video</i>
+                </p>
+
             </details>
 
 <!--include quizzes/quiz7.3.qhtm -->            
@@ -52,7 +66,9 @@
                 </summary>
                     <ol>
                         <li>
-                            Link
+                            <a href="https://en.wikipedia.org/wiki/Hypervisor">
+                                Hypervisor
+                            </a>
                         </li>
                     </ol>
             </details>
