@@ -105,6 +105,8 @@
                     But a hypervisor need not <i>really</i> turn off
                     interrupts: it only needs to make it look to the guest OS
                     <i>as if</i> they are off.
+                    So it can just keep a binary flag per guest OS: much
+                    cheaper!
                 </p>
 
             </details>
