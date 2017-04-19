@@ -20,6 +20,7 @@
             </div>
 
             <p>
+            <br />
             Scenario: a type 1 hypervisor is running a guest OS that thinks it
             is the kernel, but really is in user mode.
             The guest runs in <b>virtual kernel mode</b>. Its
@@ -29,8 +30,8 @@
             What happens when the guest executes a privileged instruction?
             Normally, this would cause the program to crash. But with VT, the
             instruction traps to the hypervisor, and the hypervisor determines
-            if the guest OS called it -- OK! -- or a guest application did --
-            not OK!
+            if the guest OS (or at least its kernel) 
+            called it -- OK! -- or a guest application did -- not OK!
             </p>
 
             <details>
@@ -40,16 +41,23 @@
     
                 <p>
                     So how was this handled before VT was available?
+                    <br />
+                    <br />
+                    Using techniques like <b>binary translation</b> and
+                    <b>protection rings</b>.
                 </p>
     
                 <figure>
-                <img
-                src="graphics/07-04.jpg"
-                height="210" width="400">
-                <figcaption>
-                Binary translator rewriting the guest OS.
-                </figcaption>
+                    <img
+                    src="graphics/07-04.jpg"
+                    height="210" width="400">
+                    <figcaption>
+                    Binary translator rewriting the guest OS, which runs in
+                    ring 1, while the hypervisor runs in ring 0.
+                    The user programs remain in ring 3.
+                    </figcaption>
                 </figure>
+
             </details>
 
             <details>
