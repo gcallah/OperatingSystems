@@ -75,7 +75,8 @@
                     that they rely upon the host's device drivers. They are
                     like teenagers hosting a party while their parents are
                     away: they can move everything, so long as it is all back
-                    in place when the parents return. 
+                    in place when the parents return. This restoration is
+                    called a <b>world switch</b>.
                 </p>
 
             </details>
