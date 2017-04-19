@@ -87,7 +87,13 @@
                 </summary>
     
                 <p>
-
+                    Do CPUs with VT outperform software-based approaches?
+                    <br />
+                    Not necessarily! VT generates lots of traps, and traps are
+                    expensive.
+                    <br />
+                    Sometimes software beats hardware: so sometimes hypervisors
+                    translate anyway, even if there is hardware support.
                 </p>
             </details>
 
