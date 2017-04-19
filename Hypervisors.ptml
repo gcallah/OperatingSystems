@@ -20,20 +20,28 @@
 
             <details>
                 <summary id="sum1">
-                    Major Topic
+                    Type 1 Hypervisor
                 </summary>
     
-                <details>
-                    <summary id="sum2">
-                        Minor topic
-                    </summary>
+                <p>
+                Runs directly on the hardware.
+                <br />
+                This makes it essentially an OS.
+                </p>
+
+            </details>
+
+            <details>
+                <summary id="sum1">
+                    Type 2 Hypervisor
+                </summary>
     
-                    <details>
-                        <summary id="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
+                <p>
+                This is a program that runs in an underlying OS. For example,
+                Parallels runs on MacOS, and allows Windows or Linux to run on
+                it.
+                </p>
+
             </details>
 
 <!--include quizzes/quiz7.3.qhtm -->            

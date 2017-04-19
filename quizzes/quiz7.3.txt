@@ -1,1 +1,2 @@
 The operating system running on top of either a type 1 or type 2 hypervisor is called,tourist operating system,^guest operating system,migrant operating system,Windows
+A type 1 hypervisor is,^like an OS,runs on a host OS,cannot be used to run Windows,all of the above
