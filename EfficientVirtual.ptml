@@ -18,23 +18,38 @@
                 </p>
             </div>
 
+            <p>
+            Scenario: a type 1 hypervisor is running a guest OS that thinks it
+            is the kernel, but really is in user mode.
+            The guest runs in <b>virtual kernel mode</b>. Its
+            apps think they are in user mode (and really are).
+            <br />
+            <br />
+            What happens when the guest executes a privileged instruction?
+            Normally, this would cause the program to crash. But with VT, the
+            instruction traps to the hypervisor, and the hypervisor determines
+            if the guest OS called it -- OK! -- or a guest application did --
+            not OK!
+            </p>
+
             <details>
                 <summary id="sum1">
-                    Major Topic
+                    Virtualizing the Unvirtualizable
                 </summary>
     
-                <details>
-                    <summary id="sum2">
-                        Minor topic
-                    </summary>
+                <p>
+
+                </p>
+
+            <details>
+                <summary id="sum1">
+                    The Cost of Virtualization
+                </summary>
     
-                    <details>
-                        <summary id="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
-            </details>
+                <p>
+
+                </p>
+
 
 <!--include quizzes/quiz7.4.qhtm -->            
      
