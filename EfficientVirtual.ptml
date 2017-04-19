@@ -95,6 +95,18 @@
                     Sometimes software beats hardware: so sometimes hypervisors
                     translate anyway, even if there is hardware support.
                 </p>
+
+                <p>
+                    An example where translation is cheaper:
+                    <br />
+                    Turning off interrupts may be very expensive, if there are
+                    deep caches and out-of-order execution.
+                    <br />
+                    But a hypervisor need not <i>really</i> turn off
+                    interrupts: it only needs to make it look to the guest OS
+                    <i>as if</i> they are off.
+                </p>
+
             </details>
 
 
