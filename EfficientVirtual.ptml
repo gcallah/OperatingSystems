@@ -14,7 +14,8 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="graphics/07-03.jpg">
+                src="graphics/07-03.jpg"
+                height="300" width="400">
                 </p>
             </div>
 
