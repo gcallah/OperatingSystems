@@ -58,6 +58,18 @@
                     </figcaption>
                 </figure>
 
+                <p>
+                    Sensitive instructions are eliminated by re-writing the
+                    guest's kernel code, one <b>basic block</b> at a time.
+                    A basic block is a run of consecutive instructions, where
+                    the instruction pointer advances a single instruction at a
+                    time. Sensitive instructions are replaced with calls to
+                    hypervisor procedures.
+                    <br />
+                    Translated blocks are cached, so that they do not need to
+                    be translated again.
+                </p>
+
             </details>
 
             <details>

@@ -58,6 +58,18 @@
                     </figcaption>
                 </figure>
 
+                <p>
+                    Sensitive instructions are eliminated by re-writing the
+                    guest's kernel code, one <b>basic block</b> at a time.
+                    A basic block is a run of consecutive instructions, where
+                    the instruction pointer advances a single instruction at a
+                    time. Sensitive instructions are replaced with calls to
+                    hypervisor procedures.
+                    <br />
+                    Translated blocks are cached, so that they do not need to
+                    be translated again.
+                </p>
+
             </details>
 
             <details>
@@ -118,13 +130,34 @@
                 very very slowly
                 </li>
             </ol>
+            <li>
+                Without VT one thing hypervisors did was to rely on
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                automatic trapping of sensitive instructions
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the native x86 virtualization technology
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                protection rings
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                all of the above
+                </li>
+            </ol>
         </ol>
         <details>
             <summary id="sum4">
                 Answers
             </summary>
             <p>
-                1. c; 2. a; 
+                1. c; 2. a; 3. c; 
             </p>
         </details>
     </details>
