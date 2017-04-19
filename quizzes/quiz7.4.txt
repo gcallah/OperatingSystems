@@ -1,3 +1,4 @@
 What is a basic block of assembler?,the most fundamental instructions on any machine,the boot block on the disk,^a short straight-line sequence of instructions,a group of assembly language code re-written in BASIC
 The guest OS runs, ^in virtual kernel mode, in kernel mode, as an ordinary application, very very slowly
 Without VT one thing hypervisors did was to rely on, automatic trapping of sensitive instructions, the native x86 virtualization technology, ^protection rings, all of the above
+When virtualizing without VT support sensitive instructions in basic blocks are replaced by, ^calls to the hypervisor, interrupts, page faults, segementation errors.
