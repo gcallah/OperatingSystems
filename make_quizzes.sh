@@ -1,5 +1,6 @@
 #!/bin/sh
 
+quiz2html.py quizzes/quiz7.2.txt >quizzes/quiz7.2.qhtm
 quiz2html.py quizzes/quiz7.3.txt >quizzes/quiz7.3.qhtm
 quiz2html.py quizzes/quiz7.4.txt >quizzes/quiz7.4.qhtm
 quiz2html.py quizzes/quiz7.5.txt >quizzes/quiz7.5.qhtm
