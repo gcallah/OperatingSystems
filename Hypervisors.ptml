@@ -33,6 +33,7 @@
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/szhEiTOUt2s"
                     frameborder="0" allowfullscreen></iframe>
+                <br />
                 <i>Type 1 video</i>
                 </p>
 
@@ -53,6 +54,7 @@
                 <iframe width="560" height="315"
                     src="https://www.youtube.com/embed/xTkvClJZmyA"
                     frameborder="0" allowfullscreen></iframe>
+                <br />
                 <i>Type 2 video</i>
                 </p>
 
