@@ -48,6 +48,9 @@
                 This is a program that runs in an underlying OS. For example,
                 Parallels runs on MacOS, and allows Windows or Linux to run on
                 it.
+                <br />
+                <br />
+                Also called <b>hosted hypervisors</b>.
                 </p>
 
                 <p>
