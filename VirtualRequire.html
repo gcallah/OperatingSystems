@@ -65,6 +65,24 @@
                     Popek and Goldberg showed that a machine is virtualizable
                     only if the sensitive instructions are a subset of the
                     privileged instructions.
+                    <br />
+                    <br />
+                    The Intel family did not have this property until 2005.
+                    Also, user mode programs could read senstive info, like
+                    whether they were in user mode. (We don't want the guest OS
+                    doing this.)
+                    <br />
+                    <br />
+                    What we need is <b>trap-and-emulate</b>.
+                </p>
+
+                <p>
+                So how <i>were</i> hypervisors possible before 2005?!
+                Answer: <b>binary translation</b>.
+                </p>
+
+                <p>
+                Another approach: <b>paravirtualization</>.
                 </p>
 
 
