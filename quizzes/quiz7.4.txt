@@ -1,3 +1,2 @@
 What is a basic block of assembler?,the most fundamental instructions on any machine,the boot block on the disk,^a short straight-line sequence of instructions,a group of assembly language code re-written in BASIC
-The guest OS runs, ^in virtual kernel mode, in kernel mode, as an ordinary
-application, very very slowly
+The guest OS runs, ^in virtual kernel mode, in kernel mode, as an ordinary application, very very slowly
