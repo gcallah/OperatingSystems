@@ -65,121 +65,114 @@
                     Popek and Goldberg showed that a machine is virtualizable
                     only if the sensitive instructions are a subset of the
                     privileged instructions.
+                    <br />
+                    <br />
+                    The Intel family did not have this property until 2005.
+                    Also, user mode programs could read senstive info, like
+                    whether they were in user mode. (We don't want the guest OS
+                    doing this.)
+                    <br />
+                    <br />
+                    What we need is <b>trap-and-emulate</b>.
+                </p>
+
+                <p>
+                So how <i>were</i> hypervisors possible before 2005?!
+                Answer: <b>binary translation</b>.
+                </p>
+
+                <p>
+                Another approach: <b>paravirtualization</b>.
+                Here, the host presents a "machine-like" software interface
+                that allows the guest to make <b>hypercalls</b>.
+                <br />
+                <br />
+                Drawback: the guest has to be aware it is running on a VM,
+                since it has to make the hypercalls.
                 </p>
 
 
             </details>
 
-            <details>
-                <summary id="sum1">
-                    Quiz
-                </summary>
-                <ol>
-                    <li>
-                        Hypervisors should be
-                    </li>
-                    <ol type="a">
-                        <li>
-                        <input type="radio" name="q1" value="a">
-                        running as much code as possible directly on the
-                        hardware.
-                        </li>
-                        <li>
-                        <input type="radio" name="q1" value="b">
-                        in control of the virtual resources.
-                        </li>
-                        <li>
-                        <input type="radio" name="q1" value="c">
-                        faithful to the imitated machine.
-                        </li>
-                        <li>
-                        <input type="radio" name="q1" value="d">
-                        all of the above.
-                        </li>
-                    </ol>
-                    <li>
-                        An interpreter implementing a virtual machine is going
-                        to fall short in
-                    </li>
-                    <ol type="a">
-                        <li>
-                        <input type="radio" name="q2" value="a">
-                        performance.
-                        </li>
-                        <li>
-                        <input type="radio" name="q2" value="b">
-                        fidelity.
-                        </li>
-                        <li>
-                        <input type="radio" name="q2" value="c">
-                        safety.
-                        </li>
-                        <li>
-                        <input type="radio" name="q2" value="d">
-                        all of the above.
-                        </li>
-                    </ol>
-                    <li>
-                        Sensitive instructions
-                    </li>
-                    <ol type="a">
-                        <li>
-                        <input type="radio" name="q3" value="a">
-                        cause a trap.
-                        </li>
-                        <li>
-                        <input type="radio" name="q3" value="b">
-                        cause a segmentation error.
-                        </li>
-                        <li>
-                        <input type="radio" name="q3" value="c">
-                        behave differently if executed in kernel versus user
-                        mode.
-                        </li>
-                        <li>
-                        <input type="radio" name="q3" value="d">
-                        should never be called.
-                        </li>
-                    </ol>
-                    <li>
-                        Question
-                    </li>
-                    <ol type="a">
-                        <li>
-                        <input type="radio" name="q4" value="a">
-                        </li>
-                        <li>
-                        <input type="radio" name="q4" value="b">
-                        </li>
-                        <li>
-                        <input type="radio" name="q4" value="c">
-                        </li>
-                        <li>
-                        <input type="radio" name="q4" value="d">
-                        </li>
-                    </ol>
-                </ol>
+    <details>
+        <summary id="sum1">
+            Quiz
+        </summary>
+        <ol>
+            <li>
+                Hypervisors should be
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q1" value="new">
+                running as much code as possible directly on the hardware
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                in control of the virtual resources
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                faithful to the imitated machine
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                all of the above.
+                </li>
+            </ol>
+            <li>
+                An interpreter implementing a virtual machine is going to fall short in
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                performance
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                fidelity
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                safety
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                all of the above.
+                </li>
+            </ol>
+            <li>
+                Sensitive instructions
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                cause a trap
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                cause a segmentation error
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                behave differently if executed in kernel versus user mode
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                should never be called.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary id="sum4">
+                Answers
+            </summary>
+            <p>
+                1. d; 2. a; 3. c; 
+            </p>
+        </details>
+    </details>
+    </details>
 
-                <details>
-                    <summary id="sum4">
-                        Answers
-                    </summary>
-                    <p>
-                        1. d, 2. a, 3. c, 4. 
-                    </p>
-                </details>
-
-            </details>
-            
-            <details>
-                <summary id="sum1">
-                    External Links
-                </summary>
-                    <ol>
-                        <li>
-                            Link
-                        </li>
-                    </ol>
-            </details>
     </body>
 </html>

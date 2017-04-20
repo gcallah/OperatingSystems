@@ -14,26 +14,72 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Hyperviseur.png">
                 </p>
             </div>
 
             <details>
                 <summary id="sum1">
-                    Major Topic
+                    Type 1 Hypervisor
                 </summary>
     
-                <details>
-                    <summary id="sum2">
-                        Minor topic
-                    </summary>
+                <figure>
+                <img src="graphics/07-01.jpg"
+                    height="210" width="400">
+                <figcaption>
+                    Location of type 1 and 2 hypervisors.
+                </figcaption>
+                </figure>
+                <p>
+                Runs directly on the hardware.
+                <br />
+                This makes it essentially an OS.
+                </p>
+
+                <p>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/szhEiTOUt2s"
+                    frameborder="0" allowfullscreen></iframe>
+                <br />
+                <i>Type 1 video</i>
+                </p>
+
+            </details>
+
+            <details>
+                <summary id="sum1">
+                    Type 2 Hypervisor
+                </summary>
     
-                    <details>
-                        <summary id="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
+                <figure>
+                <img src="graphics/07-02.jpg"
+                    height="180" width="550">
+                <figcaption>
+                Table of hypervisor examples.
+                </figcaption>
+                </figure>
+                <p>
+                This is a program that runs in an underlying OS. For example,
+                Parallels runs on MacOS, and allows Windows or Linux to run on
+                it.
+                <br />
+                <br />
+                Also called <b>hosted hypervisors</b>.
+                <br />
+                <br />
+                It installs a guest OS by pretending it is a machine being
+                booted for the first time, and installing the OS from media,
+                onto a "disk" (that is really an ordinary OS file).
+                </p>
+
+                <p>
+                <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/xTkvClJZmyA"
+                    frameborder="0" allowfullscreen></iframe>
+                <br />
+                <i>Type 2 video</i>
+                </p>
+
             </details>
 
 <!--include quizzes/quiz7.3.qhtm -->            
@@ -44,7 +90,9 @@
                 </summary>
                     <ol>
                         <li>
-                            Link
+                            <a href="https://en.wikipedia.org/wiki/Hypervisor">
+                                Hypervisor
+                            </a>
                         </li>
                     </ol>
             </details>
