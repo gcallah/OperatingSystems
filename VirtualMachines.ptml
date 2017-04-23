@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -19,17 +20,17 @@
             </div>
 
             <details>
-                <summary id="sum1">
+                <summary class="sum1">
                     Major Topic
                 </summary>
     
                 <details>
-                    <summary id="sum2">
+                    <summary class="sum2">
                         Minor topic
                     </summary>
     
                     <details>
-                        <summary id="sum3">
+                        <summary class="sum3">
                             Teeny topic
                         </summary>
                     </details>

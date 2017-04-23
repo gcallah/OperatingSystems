@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -19,7 +20,7 @@
             </div>
 
             <details>
-                <summary id="sum1">
+                <summary class="sum1">
                     Type 1 Hypervisor
                 </summary>
     
@@ -47,7 +48,7 @@
             </details>
 
             <details>
-                <summary id="sum1">
+                <summary class="sum1">
                     Type 2 Hypervisor
                 </summary>
     
@@ -85,7 +86,7 @@
 <!--include quizzes/quiz7.3.qhtm -->            
 
             <details>
-                <summary id="sum1">
+                <summary class="sum1">
                     External Links
                 </summary>
                     <ol>

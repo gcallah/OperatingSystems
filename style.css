@@ -114,25 +114,25 @@ div.other {
 
 }
 
-summary#sum1 {
+summary.sum1 {
     font-size: 30px;
     color: #903;
     margin: 16px 24px 16px 24px;
 }
 
-summary#sum2 {
+summary.sum2 {
     font-size: 26px;
     color: #137;
     margin: 12px 24px 12px 40px;
 }
 
-summary#sum3 {
+summary.sum3 {
     font-size: 22px;
     color: #339;
     margin: 8px 24px 8px 56px;
 }
 
-summary#sum4 {
+summary.sum4 {
     font-size: 20px;
     color: #903;
     margin: 8px 24px 8px 56px;

@@ -10,5 +10,7 @@ website: $(HTMLFILES)
 	git commit -a -m "HTML rebuild."
 	git push origin master
 
+local: $(HTMLFILES)
+
 clean:
 	rm $(HTMLFILES)
