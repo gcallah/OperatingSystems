@@ -6,6 +6,24 @@ body {
     background: #def;
 }
 
+#header {
+    width: auto;
+    height: 60px;
+    padding: 10px 40px;
+    line-height: 40px;
+    background-color: #063;
+    color: #dff;
+    overflow: hidden;
+}
+
+#header a:link, #header a:visited {
+    color: #fff;
+}
+
+#header a:focus , #header a:hover {
+    text-decoration: underline;
+}
+
 table, th, td {
     border-collapse: collapse;
     border: 1px solid black;
@@ -41,7 +59,8 @@ h1,h2,h3,h4,h5 {
 }
 
 h1 {
-    margin: 36px 8px 24px 8px;
+    margin: 0px 0px 24px 0px;
+    padding-bottom: 24px;
     text-align: center;
     font-weight: 300;
     font-size: 32px;
@@ -136,4 +155,25 @@ summary.sum4 {
     font-size: 20px;
     color: #903;
     margin: 8px 24px 8px 56px;
+}
+
+#user-tools {
+    float: right;
+    padding: 0;
+    margin: 0 0 0 20px;
+    font-weight: 300;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+#user-tools a {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+#user-tools a:focus, #user-tools a:hover {
+    text-decoration: none;
+    border-bottom-color: #285d91;
+    color: #ead;
 }

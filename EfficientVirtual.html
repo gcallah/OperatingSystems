@@ -8,6 +8,20 @@
     </head>
 
     <body>
+    <div id="header">
+        <div id="logo">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png"
+            height="56" width="70">
+        </div>
+        <div id="user-tools">
+            <a href="index.html">Home</a>
+            &nbsp; &nbsp; 
+            <a href="about.html">About</a>
+        </div>
+    </div>
+
+
         <h1>
              Techniques for Efficient Virtualization
         </h1>
@@ -114,7 +128,7 @@
 
 
     <details>
-        <summary id="sum1">
+        <summary class="sum1">
             Quiz
         </summary>
         <ol>
@@ -139,9 +153,114 @@
                 a group of assembly language code re-written in BASIC
                 </li>
             </ol>
+            <li>
+                The guest OS runs
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                 ^in virtual kernel mode
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                 in kernel mode
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                 as an ordinary application
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                 very very slowly
+                </li>
+            </ol>
+            <li>
+                Without VT one thing hypervisors did was to rely on
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                 automatic trapping of sensitive instructions
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                 the native x86 virtualization technology
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                 ^protection rings
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                 all of the above
+                </li>
+            </ol>
+            <li>
+                When virtualizing without VT support sensitive instructions in basic blocks are replaced by
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q4" value="new">
+                 ^calls to the hypervisor
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                 interrupts
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                 page faults
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                 segementation errors.
+                </li>
+            </ol>
+            <li>
+                When a type 2 hypervisor needs to pass control to the host OS to handle a hardware interrupt it executes
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q5" value="new">
+                 a trap
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                 a hypercall
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                 a prisoner
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                 ^a world switch.
+                </li>
+            </ol>
+            <li>
+                Virtualization relying on VT hardware
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q6" value="new">
+                 always beats translation
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                 never beats translation
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                 ^sometimes beats translation
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                 no one knows.
+                </li>
+            </ol>
         </ol>
         <details>
-            <summary id="sum4">
+            <summary class="sum4">
                 Answers
             </summary>
             <p>

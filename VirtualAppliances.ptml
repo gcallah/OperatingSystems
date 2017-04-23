@@ -8,6 +8,7 @@
     </head>
 
     <body>
+<!--include menu.txt -->
         <h1>
              Virtual Appliances
         </h1>

@@ -8,6 +8,7 @@
     </head>
 
     <body>
+<!--include menu.txt -->
         <h1>
              Type 1 and Type 2 Hypervisors
         </h1>

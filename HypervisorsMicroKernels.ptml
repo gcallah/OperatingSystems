@@ -8,6 +8,7 @@
     </head>
 
     <body>
+<!--include menu.txt -->
         <h1>
              Are Hypervisors Microkernels Done Right?
         </h1>
