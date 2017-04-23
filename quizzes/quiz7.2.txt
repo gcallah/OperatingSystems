@@ -1,0 +1,3 @@
+Hypervisors should be,running as much code as possible directly on the hardware,in control of the virtual resources,faithful to the imitated machine,^all of the above.
+An interpreter implementing a virtual machine is going to fall short in,^performance,fidelity,safety,all of the above.
+Sensitive instructions,cause a trap,cause a segmentation error,^behave differently if executed in kernel versus user mode,should never be called.
