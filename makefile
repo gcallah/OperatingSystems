@@ -8,7 +8,7 @@ INCS = menu.txt
 
 website: $(HTMLFILES) $(INCS)
 	./make_quizzes.sh
-	git commit -a -m "HTML rebuild."
+	-git commit -a -m "HTML rebuild."
 	git push origin master
 
 local: $(HTMLFILES)
