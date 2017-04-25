@@ -136,10 +136,19 @@
                         several layers of mapping.
                     </li>
                     <li>
+                        We now have <b>guest virtual addresses</b>, <b>guest
+                        physical addresses</b>, and <b>host physical
+                        addresses</b>.
+                    </li>
+                    <li>
                         No need to maintain shadow page tables.
                     </li>
                     <li>
                         No need for VM exits.
+                    </li>
+                    <li>
+                        Switching virtual machines changes the mapping the same
+                        way an OS does when switching processes.
                     </li>
                 </ul>
     
@@ -150,6 +159,22 @@
                     Reclaiming Memory 
                 </summary>
     
+                <ul>
+                    <li>
+                        <b>Overcommitment</b> is the allocation of more virtual
+                        memory to VMs than there is actual physical memory,
+                        e.g., on a 32GB machine, running three 16GB VMs.
+                    </li>
+                    <li>
+                        <b>Deduplication</b> is when certain pages are shared
+                        between VMs, e.g., the Linux kernel.
+                    </li>
+                    <li>
+                        The hypervisor can't really page out guest pages,
+                        because it has no clue which ones should be kept in
+                        memory.
+                    </li>
+                </ul>
             </details>
 
     <details>
@@ -241,13 +266,34 @@
                 control returns to the hypervisor
                 </li>
             </ol>
+            <li>
+                Deduplication is when
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q5" value="new">
+                some resources (like the Linux kernel) are shared between VMs
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                duplicate files are removed from a disk drive
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                duplicate pages are removed from a VMs memory
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                duplicate VMs are removed from a hypervisor
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum4">
                 Answers
             </summary>
             <p>
-                1. d; 2. a; 3. b; 4. d; 
+                1. d; 2. a; 3. b; 4. d; 5. a; 
             </p>
         </details>
     </details>

@@ -123,10 +123,19 @@
                         several layers of mapping.
                     </li>
                     <li>
+                        We now have <b>guest virtual addresses</b>, <b>guest
+                        physical addresses</b>, and <b>host physical
+                        addresses</b>.
+                    </li>
+                    <li>
                         No need to maintain shadow page tables.
                     </li>
                     <li>
                         No need for VM exits.
+                    </li>
+                    <li>
+                        Switching virtual machines changes the mapping the same
+                        way an OS does when switching processes.
                     </li>
                 </ul>
     
@@ -137,6 +146,22 @@
                     Reclaiming Memory 
                 </summary>
     
+                <ul>
+                    <li>
+                        <b>Overcommitment</b> is the allocation of more virtual
+                        memory to VMs than there is actual physical memory,
+                        e.g., on a 32GB machine, running three 16GB VMs.
+                    </li>
+                    <li>
+                        <b>Deduplication</b> is when certain pages are shared
+                        between VMs, e.g., the Linux kernel.
+                    </li>
+                    <li>
+                        The hypervisor can't really page out guest pages,
+                        because it has no clue which ones should be kept in
+                        memory.
+                    </li>
+                </ul>
             </details>
 
 <!--include quizzes/quiz7.6.qhtm -->            
