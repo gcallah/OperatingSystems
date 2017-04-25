@@ -12,7 +12,8 @@
         <div id="logo">
             <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png"
-            height="56" width="70">
+            height="56" width="70"
+            max-height=100%>
         </div>
         <div id="user-tools">
             <a href="index.html">Home</a>
@@ -25,30 +26,230 @@
              Memory Virtualization
         </h1>
 
-            <div style="text-align:center">
+            <div class="lead_illus">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/440px-Virtual_address_space_and_physical_address_space_relationship.svg.png"
+                height="280" width="260">
                 </p>
             </div>
 
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    Shadow Page Tables
                 </summary>
     
-                <details>
-                    <summary class="sum2">
-                        Minor topic
-                    </summary>
-    
-                    <details>
-                        <summary class="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
+                <ul>
+                    <li>
+                        The problem is that each guest OS thinks it is "president
+                        of the university," and can map virtual pages to real pages
+                        as it wishes to.
+                    </li>
+                    <li>
+                        But it isn't president: the hypervisor is. And some other
+                        guest OS may be using those physical pages already.
+                    </li>
+                    <li>
+                        <b>Solution:</b> a <b>shadow page table</b>.
+                    </li>
+                    <li>
+                        The hypervisor traps on the sensitive instruction that
+                        loads a hardware register to point to the page tables.
+                        (On a type 1 hypervisor with VT.) It maps the guest OS
+                        virtual pages to their <i>real</i> hardware addresses.
+                    </li>
+                    <li>
+                        But the hypervisor will need to update the shadow page
+                        table every time the guest OS page tables update. How?
+                        The guest OS just writes to memory to update these: no
+                        sensitive instruction is used.
+                    </li>
+                </ul>
+
             </details>
 
+            <details>
+                <summary class="sum1">
+                    Page Faults
+                </summary>
+
+                <ul>
+                    <li>
+                        Two possible ways to handle this:
+                        <br />
+                        1) Make the guest OS page tables read-only, 
+                        so any attempt to access them creates a page fault.
+                        <br />
+                        2) Let the guest OS modify its page tables at will:
+                        then attempts to access those pages will create page
+                        faults.
+                    </li>
+                    <li>
+                        Both methods will create lots of... page faults!
+                        <br />
+                        And page faults are expensive.
+                    </li>
+                    <li>
+                        We distinguish two types of page faults:
+                        <br />
+                        1) <b>guest-induced page faults</b>, which involve
+                        pages actually swapped out of RAM; and
+                        <br />
+                        2) <b>hypervisor-induced page faults</b>, which occur
+                        in order to keep the shadow page table up to date.
+                    </li>
+                    <li>
+                        Page faults are extra expensive in virtualized
+                        environments, because they lead to <b>VM exits</b>.
+                    </li>
+                    <li>
+                        In a VM exit, the hypervisor regains control. This
+                        involves saving and restoring lots of state, and may
+                        tens of thousands of cycles.
+                    </li>
+                    <li>
+                        With paravirtualization, the situation is different.
+                        The guest OS knows it is virtualized, and knows to
+                        notify the hypervisor when its page tables have been
+                        updated.
+                    </li>
+                </ul>
+    
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Hardware Support for Nested Page Tables    
+                </summary>
+    
+                <ul>
+                    <li>
+                        There is now hardware support for <b>nested page
+                        tables</b> (AMD) or <b>Extended Page Tables</b>
+                        (Intel).
+                    </li>
+                    <li>With <a
+                            href="https://gcallah.github.io/OperatingSystems/VirtualMemory.html">
+                            virtual memory</a>, the OS is already mapping
+                        between virtual pages and physical pages. Nested page
+                        tables simply extend that scheme so that we can have
+                        several layers of mapping.
+                    </li>
+                    <li>
+                        No need to maintain shadow page tables.
+                    </li>
+                    <li>
+                        No need for VM exits.
+                    </li>
+                </ul>
+    
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Reclaiming Memory 
+                </summary>
+    
+            </details>
+
+    <details>
+        <summary class="sum1">
+            Quiz
+        </summary>
+        <ol>
+            <li>
+                For each virtual machine a hypervisor needs to create
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q1" value="new">
+                lottery scheduling
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                clock driven interrupts
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                hypervisor-induced page faults
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                a shadow page table
+                </li>
+            </ol>
+            <li>
+                The problem with shadow page tables is
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                they create lots of page faults
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                the hypervisor itself doesn't know where pages really are in memory
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                they suck up too much RAM
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                they are illegal on Intel CPUs
+                </li>
+            </ol>
+            <li>
+                A hypervisor-induced page fault occurs when
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                a page has been swapped to disk
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the shadow page table must be updated
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the hypervisor tries to access a page not in memory
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                all of the above
+                </li>
+            </ol>
+            <li>
+                A VM exit is when
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q4" value="new">
+                the virtual machine crashes
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                the hypervisor crashes
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                the virtual machine is done working
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                control returns to the hypervisor
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum4">
+                Answers
+            </summary>
+            <p>
+                1. d; 2. a; 3. b; 4. d; 
+            </p>
+        </details>
+    </details>
     </body>
 </html>

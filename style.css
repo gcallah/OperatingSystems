@@ -1,23 +1,23 @@
 body {
     margin: 0;
     padding: 0;
-    font-size: 20px;
+    font-size: 100%;
     color: #333;
     background: #def;
 }
 
 #header {
     width: auto;
-    height: 60px;
-    padding: 10px 40px;
-    line-height: 40px;
+    height: 3em;
+    padding: .5em 2em;
+    line-height: 2em;
     background-color: #063;
     color: #dff;
     overflow: hidden;
 }
 
 #header a:link, #header a:visited {
-    color: #fff;
+    color: #fcc;
 }
 
 #header a:focus , #header a:hover {
@@ -33,20 +33,20 @@ table, th, td {
     }
 
 p {
-    margin: 8px 60px 8px 60px;
+    margin: .4em 3em .4em 3em;
 }
 
 hr {
-    margin: 24px 240px 24px 240px;
+    margin: 1.2em 22em 1.2em 22em;
 }
 
 blockquote {
-    margin: 8px 64px 8px 64px;
-    font-size: 18px;
+    margin: .4em 64px .4em 64px;
+    font-size: 1.4em;
 }
 
 ol, ul, dl, li {
-    margin: 20px 60px 8px 60px;
+    margin: 1em 3em .4em 3em;
 }
 
 p {
@@ -59,8 +59,8 @@ h1,h2,h3,h4,h5 {
 }
 
 h1 {
-    margin: 0px 0px 24px 0px;
-    padding-bottom: 24px;
+    margin: 0px 0px 1.2em 0px;
+    padding-bottom: 1.2em;
     text-align: center;
     font-weight: 300;
     font-size: 32px;
@@ -70,8 +70,8 @@ h1 {
 
 h2 {
     text-align: center;
-    font-size: 26px;
-    margin: 32px 24px 12px 24px;
+    font-size: 1.3em;
+    margin: 32px 1.2em .6em 1.2em;
     color: #903;
 }
 
@@ -81,33 +81,32 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 22px;
-    margin: 20px 80px 12px 120px;
+    font-size: 1.1em;
+    margin: 1em 1.4em .6em 1.4em;
     color: #137;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 18px;
-    margin: 16px 100px 12px 100px;
+    font-size: 1.4em;
+    margin: .8em 1.6em .6em 1.6em;
     color: #339;
     font-weight: bold;
 }
 
 figure {
     text-align: center;
-/*    margin: 12px 20px 12px 100px;  */
 }
 
 figcaption {
     color: #606;
     font-style: italic;
     text-align: center;
-    margin: 16px 20px 12px 20px;
+    margin: .8em 1em .6em 1em;
 }
 
 table {
-    margin: 20px 140px 20px 140px;
+    margin: 1em 12em 1em 12em;
 }
 
 table, th, td {
@@ -134,46 +133,45 @@ div.other {
 }
 
 summary.sum1 {
-    font-size: 30px;
+    font-size: 1.5em;
     color: #903;
-    margin: 16px 24px 16px 24px;
+    margin: .8em 1.2em .8em 1.2em;
 }
 
 summary.sum2 {
-    font-size: 26px;
+    font-size: 1.3em;
     color: #137;
-    margin: 12px 24px 12px 40px;
+    margin: .6em 1.2em .6em 2em;
 }
 
 summary.sum3 {
-    font-size: 22px;
+    font-size: 1.1em;
     color: #339;
-    margin: 8px 24px 8px 56px;
+    margin: .4em 1.2em .4em 2.8em;
 }
 
 summary.sum4 {
-    font-size: 20px;
+    font-size: 1em;
     color: #903;
-    margin: 8px 24px 8px 56px;
+    margin: .4em 1.2em .4em 2.8em;
+}
+
+.lead_illus {
+    text-align: center;
+}
+
+#logo {
+    float: left;
 }
 
 #user-tools {
     float: right;
     padding: 0;
-    margin: 0 0 0 20px;
+    margin: 0 0 0 1em;
     font-weight: 300;
-    font-size: 11px;
+    font-size: .8em;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     text-align: right;
 }
 
-#user-tools a {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-}
-
-#user-tools a:focus, #user-tools a:hover {
-    text-decoration: none;
-    border-bottom-color: #285d91;
-    color: #ead;
-}

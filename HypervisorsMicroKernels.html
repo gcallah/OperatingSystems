@@ -12,7 +12,8 @@
         <div id="logo">
             <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png"
-            height="56" width="70">
+            height="56" width="70"
+            max-height=100%>
         </div>
         <div id="user-tools">
             <a href="index.html">Home</a>
@@ -25,31 +26,29 @@
              Are Hypervisors Microkernels Done Right?
         </h1>
 
-            <div style="text-align:center">
-                <p>
-                <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
-                </p>
-            </div>
-
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    Well, Are They?
                 </summary>
     
-                <details>
-                    <summary class="sum2">
-                        Minor topic
-                    </summary>
-    
-                    <details>
-                        <summary class="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
+                <ul>
+                    <li>
+                    With <b>paravirtualization</b>, the hypervisor in effect acts
+                    like a microkernel, and the guest OSs are like modules running
+                    on top of it.
+                    </li>
+                    <li>
+                    They make <b>hypercalls</b> into the hypervisor,
+                    instead of the hypervisor trying to emulate difficult hardware
+                    instructions.
+                    </li>
+                    <li>
+                    Of course, this means the guest OS <i>knows</i>
+                    it is a guest and a special version of it must be run.
+                    </li>
+                </ul>
      
-                </details>
+            </details>
                 
     <details>
         <summary class="sum1">
@@ -77,13 +76,55 @@
                 a new element in HTML5
                 </li>
             </ol>
+            <li>
+                Hypercalls are the hypervisor equivalent of
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                system calls
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                class methods
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                recursive calls
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                long distance calls
+                </li>
+            </ol>
+            <li>
+                A disadvantage of paravirtualization is
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                the need to emulate elaborate hardware instructions
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the fact that Intel processors do not support it
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the fact that we need a special version of the guest OS
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                all of the above
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum4">
                 Answers
             </summary>
             <p>
-                1. a; 
+                1. a; 2. a; 3. c; 
             </p>
         </details>
     </details>
