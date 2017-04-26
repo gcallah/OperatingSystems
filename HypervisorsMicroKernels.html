@@ -33,14 +33,15 @@
     
                 <ul>
                     <li>
-                    With <b>paravirtualization</b>, the hypervisor in effect acts
-                    like a microkernel, and the guest OSs are like modules running
-                    on top of it.
+                    With <b>paravirtualization</b>, the hypervisor 
+                    in effect acts
+                    like a microkernel, and the guest OSs are 
+                    like modules running on top of it.
                     </li>
                     <li>
                     They make <b>hypercalls</b> into the hypervisor,
-                    instead of the hypervisor trying to emulate difficult hardware
-                    instructions.
+                    instead of the hypervisor trying to emulate 
+                    difficult hardware instructions.
                     </li>
                     <li>
                     Of course, this means the guest OS <i>knows</i>
@@ -48,7 +49,31 @@
                     </li>
                 </ul>
      
+                <figure>
+                    <img src="graphics/07-05.png"
+                        height="200" width="460">
+                    <figcaption>
+                        True virtualization and paravirtualization
+                    </figcaption>
+                </figure>
             </details>
+
+            <details>
+                <summary class="sum1">
+                    Issues with Paravirtualization
+                </summary>
+     
+                <figure>
+                    <img src="graphics/07-06.png"
+                        height="200" width="460">
+                    <figcaption>
+                        VMI Linux
+                    </figcaption>
+                </figure>
+
+            </details>
+
+                
                 
     <details>
         <summary class="sum1">
