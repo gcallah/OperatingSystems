@@ -9,7 +9,7 @@ website: $(HTMLFILES) $(INCS) quizzes
 	git push origin master
 
 quizzes:
-	cd quizzes; ${MAKE} all
+	cd quizzes; make all
 
 local: $(HTMLFILES)
 
