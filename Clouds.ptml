@@ -144,6 +144,21 @@
                     Checkpointing
                 </summary>
 
+                <ul>
+                    <li>
+                        Captures the machine at various times, so we can
+                        rollback if we need to.
+                    </li>
+                    <li>
+                        Use <b>copy on write</b> to save time: only copy what
+                        has changed.
+                    </li>
+                    <li>
+                        Unsolvable: what to do about remote machines that were
+                        interacting with ours? A: Nothing can be done (in
+                        general).
+                    </li>
+                </ul>
 
             </details>
 

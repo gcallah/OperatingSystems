@@ -157,6 +157,21 @@
                     Checkpointing
                 </summary>
 
+                <ul>
+                    <li>
+                        Captures the machine at various times, so we can
+                        rollback if we need to.
+                    </li>
+                    <li>
+                        Use <b>copy on write</b> to save time: only copy what
+                        has changed.
+                    </li>
+                    <li>
+                        Unsolvable: what to do about remote machines that were
+                        interacting with ours? A: Nothing can be done (in
+                        general).
+                    </li>
+                </ul>
 
             </details>
 
@@ -207,13 +222,34 @@
                 no lawsuits were filed against the cloud provider
                 </li>
             </ol>
+            <li>
+                A insurmountable problem for VM checkpointing is
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                what to do about large disks
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                what to do if the machine crashes
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                how to handle security
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                restoring remote interactions at the time of the checkpoint.
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum2">
                 Answers
             </summary>
             <p>
-                1. c; 2. a; 
+                1. c; 2. a; 3. d; 
             </p>
         </details>
     </details>

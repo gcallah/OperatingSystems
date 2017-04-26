@@ -1,2 +1,3 @@
 "Elasticity" refers to, the ability of paging to make memory appear larger than it is, the change in demand for a good in response to price, ^the ability of cloud services to add and drop resources swiftly, the way cloud providers stretch the truth in their advertising
 In a seamless live migration,^no users notice there was a migration, VMs only need to be shut down for a few minutes, the data center never closed during the migration, no lawsuits were filed against the cloud provider
+A insurmountable problem for VM checkpointing is, what to do about large disks, what to do if the machine crashes, how to handle security, ^restoring remote interactions at the time of the checkpoint.
