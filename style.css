@@ -11,7 +11,7 @@ body {
     height: 3em;
     padding: .5em 2em;
     line-height: 2em;
-    background-color: #063;
+    background-color: #045;
     color: #dff;
     overflow: hidden;
 }
@@ -64,7 +64,7 @@ h1 {
     text-align: center;
     font-weight: 300;
     font-size: 32px;
-    background-color: #063;
+    background-color: #045;
     color: #fcc;
 }
 

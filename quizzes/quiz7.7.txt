@@ -1,1 +1,2 @@
 A device pass through allows,a hacker to directly access a device by bypassing the hypervisor,interrupt remapping,a printer to pass through jobs to another printer,^a physical device to be assigned directly to a particular virtual machine
+I/O virtualization can be used to,allow access to more memory than the real machine has, trap sensitive instructions, ^upgrade hardware without having to update the guest OSs, all of the above
