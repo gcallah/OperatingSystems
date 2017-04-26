@@ -5,3 +5,6 @@ all: $(QINCS)
 
 %.qhtm: %.txt
 	../utils/quiz2html.py $< >$@
+
+clean:
+	touch *.txt

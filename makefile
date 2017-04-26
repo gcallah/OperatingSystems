@@ -14,4 +14,4 @@ quizzes:
 local: $(HTMLFILES)
 
 clean:
-	rm $(HTMLFILES)
+	touch *.ptml
