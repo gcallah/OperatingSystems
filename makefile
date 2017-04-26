@@ -15,3 +15,4 @@ local: $(HTMLFILES)
 
 clean:
 	touch *.ptml
+	cd quizzes ; make clean
