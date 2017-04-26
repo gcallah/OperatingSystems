@@ -4,12 +4,12 @@ INCS = menu.txt
 %.html: %.ptml $(INCS)
 	html_include.awk <$< >$@
 
-website: $(HTMLFILES) $(INCS) quizzes
+website: quizzes $(HTMLFILES) $(INCS)
 	-git commit -a -m "HTML rebuild."
 	git push origin master
 
 quizzes:
-	cd quizzes; make all
+	cd quizzes ; make all
 
 local: $(HTMLFILES)
 
