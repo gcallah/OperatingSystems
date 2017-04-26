@@ -15,8 +15,7 @@
 
             <div style="text-align:center">
                 <p>
-                <img
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/Cosmo_Appliances_Gas_Range.jpg/220px-Cosmo_Appliances_Gas_Range.jpg">
+                <img src="graphics/GasRange.png">
                 </p>
             </div>
 
@@ -34,9 +33,43 @@
                         on.
                     </li>
                     <li>
+                        <b>Software as a Service</b>:
+                        <br />
+                        <a
+                            href="https://en.wikipedia.org/wiki/Amazon_Web_Services#Application_services">
                         Amazon Web Services
+                        </a>
+                        <br />
+                        "SaaS has become a common delivery model for many
+                        business applications, including office and messaging
+                        software, payroll processing software, DBMS software,
+                        management software, CAD software, development
+                        software, gamification, virtualization, accounting,
+                        collaboration, customer relationship management (CRM),
+                        management information systems (MIS), enterprise
+                        resource planning (ERP), invoicing, human resource
+                        management (HRM), talent acquisition, content
+                        management (CM), and service desk management. SaaS
+                        has been incorporated into the strategy of nearly all
+                        leading enterprise software companies."
+                        <a
+                            href="https://en.wikipedia.org/wiki/Software_as_a_service">
+                            Wikipedia
+                        </a>
                     </li>
                 </ul>
+
+                <details>
+                <summary class="sum2">
+                    SAS Video
+                </summary>
+                    <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/-oF-lM5PWLY"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                    </figure>
+                </details>
 
             </details>
 

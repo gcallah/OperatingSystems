@@ -1,1 +1,1 @@
-Q,a,a,^a,a
+"Elasticity" refers to, the ability of paging to make memory appear larger than it is, the change in demand for a good in response to price, ^the ability of cloud services to add and drop resources swiftly, the way cloud providers stretch the truth in their advertising

@@ -22,23 +22,65 @@
 
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    Overview
                 </summary>
     
+                <p>
+                    Five essential characteristics:
+                </p>
+
+                <ol>
+                    <li>
+                        <b>On-demand self-service</b>:
+                        users do not need human help to add service.
+                    </li>
+                    <li>
+                        <b>Broad network access</b>:
+                        resources are available over the network via standard
+                        mechanisms (e.g., http).
+                    </li>
+                    <li>
+                        <b>Resource pooling</b>:
+                        users acquire resources from a common pool, and have no
+                        idea where "their" resources live.
+                    </li>
+                    <li>
+                        <b>Rapid elasticity</b>:
+                        fast an automatic scaling has loads change.
+                    </li>
+                    <li>
+                        <b>Measured service</b>:
+                        the services are metered much like electricity usage.
+                    </li>
+                </ol>
+
                 <details>
                     <summary class="sum2">
-                        Minor topic
+                        Cloud computing video
                     </summary>
     
-                    <details>
-                        <summary class="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
                 </details>
             </details>
 
-<!--include quizzes/quiz7.11.html -->            
+            <details>
+                <summary class="sum1">
+                    Clouds as a Service
+                </summary>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Virtual Machine Migration
+                </summary>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Checkpointing
+                </summary>
+            </details>
+
+<!--include quizzes/quiz7.11.qhtm -->            
 
     </body>
 </html>
