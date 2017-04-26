@@ -98,6 +98,10 @@ figure {
     text-align: center;
 }
 
+figure#front-page {
+    margin: 0em 1em 1em 1em;
+}
+
 figcaption {
     color: #606;
     font-style: italic;

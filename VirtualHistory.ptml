@@ -8,21 +8,7 @@
     </head>
 
     <body>
-    <div id="header">
-        <div id="logo">
-            <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IBM_PPC604e_200.jpg/220px-IBM_PPC604e_200.jpg"
-            height="56" width="56"
-            max-height=100%>
-        </div>
-        <div id="user-tools">
-            <a href="index.html">Home</a>
-            &nbsp; &nbsp; 
-            <a href="about.html">About</a>
-        </div>
-    </div>
-
-
+<!--include menu.txt -->
         <h1>
              History
         </h1>

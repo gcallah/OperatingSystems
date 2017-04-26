@@ -7,10 +7,14 @@ INCS = menu.txt
 	html_include.awk <$< >$@
 
 website: $(HTMLFILES) $(INCS)
-	./make_quizzes.sh
 	-git commit -a -m "HTML rebuild."
 	git push origin master
 
+quizzes: $(QINCS)
+	./make_quizzes.sh
+
+$(QINCS):
+	
 local: $(HTMLFILES)
 
 clean:
