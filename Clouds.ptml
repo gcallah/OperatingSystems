@@ -66,18 +66,76 @@
                 <summary class="sum1">
                     Clouds as a Service
                 </summary>
+
+                <ul>
+                    <li>
+                        <b>Infrastructure as a service (IAAS)</b>:
+                        Offers direct access to a VM user can use as they see
+                        fit.
+                    </li>
+                    <li>
+                        <b>Platform as a service (PAAS)</b>:
+                        Includes things such as web servers and databases.
+                    </li>
+                    <li>
+                        Old worries gone: backup, power, cooling, scalability,
+                        upgrading, etc.
+                    </li>
+                    <li>
+                        New worries arrive: is data secure? What laws apply?
+                        Can a co-hosted competitor snoop?
+                    </li>
+                    <li>
+                        <b>Vendor lock-in</b>: once you choose a cloud
+                        provider, can you ever (practically) leave?
+                    </li>
+                </ul>
+
+                <figure>
+                    <iframe width="560" height="315"
+                    src="https://www.youtube.com/embed/vgI5F5Si518"
+                    frameborder="0" allowfullscreen>
+                    </iframe>
+                    <figcaption>
+                    IAAS video
+                    </figcaption>
+                </figure>
+
             </details>
 
             <details>
                 <summary class="sum1">
                     Virtual Machine Migration
                 </summary>
+
+                <dl>
+                    <dt>
+                        How to migrate to faster hardware, off of broken
+                        hardware, etc.?
+                    </dt>
+                    <dd>
+                        We could shut down all virtual machines and re-start
+                        them on new hardware: significant pause!
+                    </dd>
+                    <dd>
+                        We could pause them, transfer their memory, and resume:
+                        still a noticable pause.
+                    </dd>
+                    <dd>
+                        Or, using <b>pre-copy memory migration</b>, we can copy
+                        pages first, then do a <b>live migration</b>. If no one
+                        notices, it was a <b>seamless live migration</b>!
+                    </dd>
+                </dl>
+
             </details>
 
             <details>
                 <summary class="sum1">
                     Checkpointing
                 </summary>
+
+
             </details>
 
 <!--include quizzes/quiz7.11.qhtm -->            

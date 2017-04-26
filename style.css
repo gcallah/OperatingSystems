@@ -42,11 +42,17 @@ hr {
 
 blockquote {
     margin: .4em 64px .4em 64px;
-    font-size: 1.4em;
+    font-size: .9em;
 }
 
 ol, ul, dl, li {
     margin: 1em 3em .4em 3em;
+}
+
+dt {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: .4em 3em .4em 1em;
 }
 
 p {
