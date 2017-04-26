@@ -73,12 +73,35 @@
                     </li>
                 </ul>
 
+                <details>
+                    <summary class="sum2">
+                        I/O virtualization video
+                    </summary>
+                    <figure>
+                            <iframe width="560" height="315"
+                                src="https://www.youtube.com/embed/EfcG852_W6w"
+                                frameborder="0" allowfullscreen>
+                            </iframe>
+                            <figcaption>
+                                I/O Virtualization Explained
+                            </figcaption>
+                    </figure>
+                </details>
+
             </details>
 
             <details>
                 <summary class="sum1">
                     I/O MMUs
                 </summary>
+
+                <figure>
+                        <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/MMU_and_IOMMU.svg/282px-MMU_and_IOMMU.svg.png">
+                        <figcaption>
+                        IOMMU and MMU
+                        </figcaption>
+                </figure>
 
                 <ul>
                     <li>
@@ -123,6 +146,10 @@
                     <li>
                         <b>Interrupt remapping</b> is necessary so that the
                         right interrupt goes to the right VM.
+                        <br />
+                        A generated interrupt hits the I/O MMU first, which
+                        redirects it to the proper VM with the proper interrupt
+                        vector.
                     </li>
                 </ul>
             </details>
@@ -132,12 +159,71 @@
                     Device Domains
                 </summary>
 
+                <ul>
+                    <li>
+                        In this approach, one VM runs a standard OS, and all
+                        I/O calls from other VMs are directed to it.
+                    </li>
+                    <li>
+                        Type 2 hypervisors have an edge here: the OS upon which
+                        they run can have device drivers for all sorts of
+                        unusual I/O devices (3D printers, virtual reality
+                        setups, smell-o-ramas, etc.)
+                    </li>
+                    <li>
+                        The authors contend that as VM matures, hardware
+                        enhancements will allow guest OSs to access hardware
+                        devices directly in a secure way.
+                    </li>
+                </ul>
+
             </details>
 
             <details>
                 <summary class="sum1">
                     Single Root I/O Virtualization
                 </summary>
+
+                <ul>
+                    <li>
+                        We often can't directly assign a device to a VM. What
+                        if we have 128 VMs on a server... we would need 128
+                        network cards to directly assign a VM to each!
+                    </li>
+                    <li>
+                        We can do this in software, but we may not be able to
+                        take advantage of all of a device's advanced features,
+                        because the software has no support for them. (The
+                        tendency will be to support the common features among
+                        various devices first.)
+                    </li>
+                    <li>
+                        <a
+                         href="https://en.wikipedia.org/wiki/PCI_Express">PCIe</a>
+                        provides a solution in hardware. It is known as
+                        <b>Single Root I/O Virtualization (SR-IOV)</b>,
+                        by allowing SR-IOV devices to provide an independent
+                        memory space, independent interrupts, and DMA streams
+                        to each VM.
+                    </li>
+                    <li>
+                        <b>PF (Physical Function):</b>
+                        <br />
+                        These allow the VM to configure the device directly,
+                        however they see fit.
+                    </li>
+                    <li>
+                        <b>VF (Virtual Function):</b>
+                        <br />
+                        These provide lightweight functions that trick a VM
+                        into thinking it is sole owner of some device.
+                        <br />
+                        Some device hardware supports this: Intel I350 network
+                        cards have 8 separate send and receive queues, which
+                        provides hardware support for up to 8 VMs that think
+                        this is their own card.
+                    </li>
+                </ul>
 
                 <details>
                     <summary class="sum2">
