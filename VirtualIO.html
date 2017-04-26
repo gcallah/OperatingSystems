@@ -29,27 +29,130 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="graphics/05-05.png"
+                height="180" width="500"
+                max-width="100%">
                 </p>
             </div>
 
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    Overview
                 </summary>
     
+                <ul>
+                    <li>
+                        The guest OS will begin by probing for hardware
+                        devices.
+                    </li>
+                    <li>
+                        What should the hypervisor do?
+                    </li>
+                    <li>
+                        One approach: respond with a list of the actual
+                        hardware devices.
+                    </li>
+                    <li>
+                        Guest OS attempts to write to the device registers will
+                        then trap (they are sensitive instructions), and the
+                        hypervisor can then do whatever is needed, perhaps just
+                        really write to those registers.
+                    </li>
+                    <li>
+                        But the hypervisor can also "fake" devices: pretend to
+                        have an old device when a fancy new one has been
+                        installed. This allows device upgrades to be invisible
+                        to the guests.
+                        <figure>
+                                <img
+                                src="https://www.ibm.com/developerworks/library/l-pci-passthrough/figure1.gif">
+                                <figcaption>
+                                    Hypervisor-based device emulation
+                                </figcaption>
+                        </figure>
+                    </li>
+                </ul>
+
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    I/O MMUs
+                </summary>
+
+                <ul>
+                    <li>
+                        The problem: DMA. DMA hardware is trying to directly
+                        access memory. This memory must be re-mapped for VMs.
+                    </li>
+                    <li>
+                        <b>I/O MMU</b> (memory management unit): virtualizes
+                        I/O the same way an MMU virtualizes memory.
+                    </li>
+                    <li>
+                        The I/O MMU eliminates the DMA problem. It maps device
+                        memory addresses to real physical addresses. It can
+                        keep different guests DMA out of each other's way.
+                    </li>
+                    <li>
+                        <b>Device pass through</b> allows both the device and
+                        the guest OS to be unaware that any address translation
+                        may be going on: both think they are directly
+                        addressing the same memory locations. It is useful when
+                        sharing a device between VMs is not feasible .
+                        <figure>
+                                <img
+                                src="https://www.ibm.com/developerworks/library/l-pci-passthrough/figure3.gif">
+                                <figcaption>
+                                    Device pass through
+                                </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <b>Device isolation</b> lets a device assigned to a VM
+                        directly access its memory without interfering with
+                        other guests.
+                        <figure>
+                                <img
+                                src="https://pubs.vmware.com/vsphere-4-esx-vcenter/topic/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/images/sec_virtual_connections.png">
+                                <figcaption>
+                                    Virtual machine isolation
+                                </figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <b>Interrupt remapping</b> is necessary so that the
+                        right interrupt goes to the right VM.
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Device Domains
+                </summary>
+
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Single Root I/O Virtualization
+                </summary>
+
                 <details>
                     <summary class="sum2">
-                        Minor topic
+                        Single root I/O virtualization video
                     </summary>
-    
-                    <details>
-                        <summary class="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
+                    <figure>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/zCsYA81b2xI"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                    </figure>
                 </details>
+
             </details>
+
 
     <details>
         <summary class="sum1">
@@ -77,13 +180,34 @@
                 a physical device to be assigned directly to a particular virtual machine
                 </li>
             </ol>
+            <li>
+                I/O virtualization can be used to
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                allow access to more memory than the real machine has
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                trap sensitive instructions
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                upgrade hardware without having to update the guest OSs
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                all of the above
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum4">
                 Answers
             </summary>
             <p>
-                1. d; 
+                1. d; 2. c; 
             </p>
         </details>
     </details>
