@@ -8,20 +8,7 @@
     </head>
 
     <body>
-    <div id="header">
-        <div id="logo">
-            <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IBM_PPC604e_200.jpg/220px-IBM_PPC604e_200.jpg"
-            height="56" width="56"
-            max-height=100%>
-        </div>
-        <div id="user-tools">
-            <a href="index.html">Home</a>
-            &nbsp; &nbsp; 
-            <a href="about.html">About</a>
-        </div>
-    </div>
-
+<!--include menu.txt -->
         <h1>
             No Memory Abstraction
         </h1>
@@ -132,84 +119,7 @@
                 </ul>
             </details>
 
-    <details>
-        <summary class="sum1">
-            Quiz
-        </summary>
-        <ol>
-            <li>
-                The main problem with having two programs in memory without memory abstraction is
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q1" value="new">
-                it is difficult to determine the name of each program
-                </li>
-                <li>
-                <input type="radio" name="q1" value="new">
-                each program will have different ideas about what the CPU should be doing
-                </li>
-                <li>
-                <input type="radio" name="q1" value="new">
-                each program can overwrite the memory of the other
-                </li>
-                <li>
-                <input type="radio" name="q1" value="new">
-                none of the above
-                </li>
-            </ol>
-            <li>
-                Without memory abstraction we can still have multiprogramming
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q2" value="new">
-                by only running one program at a time and completely swapping each successive program in and out of memory
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                by using VT
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                by taking advantage of an MMU
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                with paging
-                </li>
-            </ol>
-            <li>
-                Even without swapping or memory abstraction we can multiprogram
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q3" value="new">
-                if we write our code very carefully
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                if we have an MMU
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                if we have special hardware to divide memory between different programs
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                all of the above
-                </li>
-            </ol>
-        </ol>
-        <details>
-            <summary class="sum2">
-                Answers
-            </summary>
-            <p>
-                1. c; 2. a; 3. c; 
-            </p>
-        </details>
-    </details>
+<!--include quizzes/quiz3.1.qhtm -->            
 
     </body>
 </html>

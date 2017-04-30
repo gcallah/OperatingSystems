@@ -1,5 +1,5 @@
 For each virtual machine a hypervisor needs to create,lottery scheduling,clock driven interrupts,hypervisor-induced page faults,^a shadow page table
 The problem with shadow page tables is,^they create lots of page faults, the hypervisor itself doesn't know where pages really are in memory, they suck up too much RAM, they are illegal on Intel CPUs
-A hypervisor-induced page fault occurs when, a page has been swapped to disk, ^the shadow page table must be updated, the hypervisor tries to access a page not in memory, all of the above
-A VM exit is when, the virtual machine crashes, the hypervisor crashes, the virtual machine is done working, ^control returns to the hypervisor
+A hypervisor-induced page fault occurs when, a page has been swapped to disk,^the shadow page table must be updated, the hypervisor tries to access a page not in memory, all of the above
+A VM exit is when, the virtual machine crashes, the hypervisor crashes, the virtual machine is done working,^control returns to the hypervisor
 Deduplication is when,^some resources (like the Linux kernel) are shared between VMs, duplicate files are removed from a disk drive, duplicate pages are removed from a VMs memory, duplicate VMs are removed from a hypervisor
