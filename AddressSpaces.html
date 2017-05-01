@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -7,6 +8,20 @@
     </head>
 
     <body>
+    <div id="header">
+        <div id="logo">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IBM_PPC604e_200.jpg/220px-IBM_PPC604e_200.jpg"
+            height="56" width="56"
+            max-height=100%>
+        </div>
+        <div id="user-tools">
+            <a href="index.html">Home</a>
+            &nbsp; &nbsp; 
+            <a href="about.html">About</a>
+        </div>
+    </div>
+
         <h1>
             A Memory Abstraction: Address Spaces
         </h1>
@@ -19,10 +34,10 @@
             </div>
 
 
-
-            <h2>
-                Memory Abstraction: Address Spaces
-            </h2>
+            <details>
+            <summary class="sum1">
+                Overview
+            </summary>
 
                 <ul>
                     <li>
@@ -60,10 +75,12 @@
                     the process reads or writes from and to memory.
                     </li>
                 </ul>
+            </details>
 
-            <h2>
+            <details>
+            <summary class="sum1">
                 Memory Management Requirements
-            </h2>
+            </summary>
 
             <ul>
                 <li>
@@ -97,10 +114,12 @@
                     </br>
                 </li>
             </ul>
+            </details>
 
-            <h2>
+            <details>
+            <summary class="sum1">
                 Memory Management Techniques
-            </h2>
+            </summary>
 
 
             <p>
@@ -111,10 +130,12 @@
                 required from secondary memory.
 
             </p>
+            </details>
 
-            <h2>
+            <details>
+            <summary class="sum1">
                 Swapping
-            </h2>
+            </summary>
                 <p>
                     <b>Fixed Partitioning</b> <br>
                         Main memory is divided into static partitions.
@@ -159,15 +180,19 @@
                     <li>
                         Need to perform a process known as compaction to regularly
                         shift partitions and remove holes created by processes leaving
-                        main memory. This is a costly process and cannot be done repeatedly.
+                        main memory. This is a costly process and 
+                        cannot be done repeatedly.
                     </li>
                 </ul>
-                <h2>
+            </details>
+
+            <details>
+                <summary class="sum1">
                     Paging
-                </h2>
+                </summary>
                 <ul>
                     <li>
-                        Main Memory is divided into equal sized partitions.
+                        Main memory is divided into equal sized partitions.
                         Each partition is called a <b>frame</b>.
                     </li>
                     <li>
@@ -191,35 +216,37 @@
                         Paging causes minimal external fragmentation.
                     </li>
                 </ul>
-                <br>
-                <p>
-                <b>Simple Segmentation</b> <br>
-                </p>
-                <ul>
-                    <li>
-                    Every process is divided into a
-                    number of chunks where each chunk is called a <b>segment</b>
-                    </li>
-                    <li>
-                        Each process is loaded by bringing all of its segments onto main memory.
-                        Every segment of the process is loaded into
-                        the main memory by creating partitions dynamically
-                        matching the size of each segment.
-                        This creates an exact fit for every segment.
-                    </li>
-                    <li>
-                        Segmentation is free of internal fragmentation.
-                    </li>
-                    <li>
-                        Suffers from external fragmentation but not as much,
-                        because process is divided into segments which are
-                        smaller in size.
-                    </li>
-                    <li>
-                        Every program/process may occupy more than one non contagious
-                        segments, similar to dynamic partitioning.
-                    </li>
-                </ul>
+                <details>
+                    <summary class="sum2">
+                    Simple Segmentation
+                    </summary>
+                    <ul>
+                        <li>
+                        Every process is divided into a
+                        number of chunks where each chunk is called a <b>segment</b>
+                        </li>
+                        <li>
+                            Each process is loaded by bringing all of its 
+                            segments onto main memory.
+                            Every segment of the process is loaded into
+                            the main memory by creating partitions dynamically
+                            matching the size of each segment.
+                            This creates an exact fit for every segment.
+                        </li>
+                        <li>
+                            Segmentation is free of internal fragmentation.
+                        </li>
+                        <li>
+                            Suffers from external fragmentation but not as much,
+                            because process is divided into segments which are
+                            smaller in size.
+                        </li>
+                        <li>
+                            Every program/process may occupy more than one non contagious
+                            segments, similar to dynamic partitioning.
+                        </li>
+                    </ul>
+                </details>
 
     </body>
 </html>
