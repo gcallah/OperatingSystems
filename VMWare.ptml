@@ -16,26 +16,78 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Laurentius_de_Voltolina_001.jpg/290px-Laurentius_de_Voltolina_001.jpg">
+                src="https://upload.wikimedia.org/wikipedia/commons/9/96/VMware_vSphere_in_the_Enterprise_diagram_v1.0.gif"
+                width="640" height="451">
                 </p>
             </div>
+
+            <details>
+                <summary class="sum1">
+                    The Early History of VMWare
+                </summary>
+    
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    VMWare Workstation
+                </summary>
+    
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Challenges in Bringing Virtualization to the x86
+                </summary>
+    
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    VMWare Workstation: Solution Overview
+                </summary>
+    
+                <details>
+                    <summary class="sum2">
+                        Virtualizing the x86 Architecture
+                    </summary>
+        
+                </details>
+    
+                <details>
+                    <summary class="sum2">
+                        A Guest Operating System Centric Strategy
+                    </summary>
+        
+                </details>
+    
+                <details>
+                    <summary class="sum2">
+                        The Virtual Hardware Platform
+                    </summary>
+        
+                </details>
+    
+                <details>
+                    <summary class="sum2">
+                        The Role of the Host Operating System
+                    </summary>
+        
+                </details>
+            </details>
 
             <details>
                 <summary class="sum1">
                     Major Topic
                 </summary>
     
-                <details>
-                    <summary class="sum2">
-                        Minor topic
-                    </summary>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Major Topic
+                </summary>
     
-                    <details>
-                        <summary class="sum3">
-                            Teeny topic
-                        </summary>
-                    </details>
-                </details>
             </details>
 
 <!--include quizzes/quiz7.12.html -->            
