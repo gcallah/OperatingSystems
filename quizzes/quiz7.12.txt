@@ -1,1 +1,1 @@
-What is a basic block of assembler?,the most fundamental instructions on any machine,the boot block on the disk,^a short straight-line sequence of instructions,a group of assembly language code re-written in BASIC
+A key attribute of an ideal virtual machine would be, it runs as fast as the real machine, it runs just like the real machine, it is completely isolated from other VMs,^all of the above.

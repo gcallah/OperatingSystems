@@ -36,16 +36,69 @@
 
             <details>
                 <summary class="sum1">
-                    The Early History of VMWare
+                    Video on Building a VMware Home Lab
                 </summary>
-    
+                <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Hm7kQHI4YnM"
+                        frameborder="0" allowfullscreen></iframe>
+                    <figcaption>
+                    VMware home lab
+                    </figcaption>
+                </figure>
             </details>
 
             <details>
                 <summary class="sum1">
-                    VMWare Workstation
+                    The Early History of VMware
                 </summary>
     
+                <ul>
+                    <li>
+                        <b>VMware Workstation for Linux</b>
+                    </li>
+                    <li>
+                        <b>VMware Workstation for Windows</b>
+                    </li>
+                    <li>
+                        <b>ESX Server</b>
+                        <ul>
+                            <li>
+                                Aimed at the server consolidation market.
+                            </li>
+                            <li>
+                                Prior practice: buy a server for each email,
+                                web, DB server application.
+                            </li>
+                            <li>
+                                Machines were often at 10% capacity!
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    VMware Workstation
+                </summary>
+   
+                <details>
+                    <summary class="sum2">
+                        Video: What Is VMware Workstation?
+                    </summary>
+                    <figure>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/_GVZHuHHdnk"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                        <figcaption>
+                            A video on VMware Workstation
+                        </figcaption>
+                    </figure>
+                </details>
+
             </details>
 
             <details>
@@ -53,11 +106,75 @@
                     Challenges in Bringing Virtualization to the x86
                 </summary>
     
+                <p>
+                    Hypervisors <b>add a level of indirection</b> to the domain
+                    of computer hardware. They provide the abstraction of a
+                    <b>virtual machine</b>: each one thinks if is "king of the
+                    hill," and has a whole machine to itself. Ideally, the VMs
+                    should be just like the emulated machine, as fast as the
+                    emulated machine, and completely isolated from each other.
+                    <br />
+                    VMware:
+                </p>
+
+                <ol>
+                    <li>
+                        <b>Compatibility:</b>
+                        <br />
+                        Any x86 OS, and all of its applications, should be able
+                        to run on without modifications on the VM.
+                    </li>
+                    <li>
+                        <b>Performance:</b>
+                        <br />
+                        The overhead of the hypervisor had to be low enough the
+                        users could use a VM as their primary machine.
+                        <br />
+                        Ideally, things run as fast as on a native OS, but at
+                        least as fast as the previous chip generation.
+                    </li>
+                    <li>
+                        <b>Isolation:</b>
+                        <br />
+                        The hypervisor had to ensure complete isolation of each
+                        VM, i.e., be completely in charge of the real physical
+                        resources. A VM might be infected with malicious code:
+                        this will not impact any other VM.
+                    </li>
+                </ol>
+
+                <p>
+                    There was tension between the requirements. E.g., total
+                    compatibility might need to be sacrificed for performance.
+                    But the designers held isolation as paramount.
+                    <br />
+                    The primary challenges were:
+                </p>
+
+                <ol>
+                    <li>
+                        <b>The x86 architecture did not support virtualization.</b>
+                        <br />
+                    </li>
+                    <li>
+                        <b>The x86 architecture was of daunting complexity.</b>
+                        <br />
+                    </li>
+                    <li>
+                        <b>x86 machines had diverse peripherals.</b>
+                        <br />
+                    </li>
+                    <li>
+                        <b>The need for a simple user experience.</b>
+                        <br />
+                    </li>
+                </ol>
+
             </details>
 
             <details>
                 <summary class="sum1">
-                    VMWare Workstation: Solution Overview
+                    VMware Workstation: Solution Overview
                 </summary>
     
                 <details>
@@ -65,6 +182,34 @@
                         Virtualizing the x86 Architecture
                     </summary>
         
+                    <figure>
+                        <img src="graphics/07-08.png"
+                            width="440"
+                            height="210">
+                        <figcaption>
+                        High-level components of the VMware virtual machine
+                        monitor.
+                        </figcaption>
+                    </figure>
+
+                    <p>
+                        Binary translation must be used if:
+                    </p>
+
+                    <ol>
+                        <li>
+                            The virtual machine is running in kernel mode (ring
+                            0).
+                        </li>
+                        <li>
+                            The virtual machine can disable interrupts and
+                            issue I/O instructions.
+                        </li>
+                        <li>
+                            The virtual machine is running in real mode, a
+                            legacy 16-bit mode used by BIOS.
+                        </li>
+                    </ol>
                 </details>
     
                 <details>
@@ -79,6 +224,13 @@
                         The Virtual Hardware Platform
                     </summary>
         
+                    <figure>
+                        <img src="graphics/07-09.png">
+                        <figcaption>
+                        Virtual hardware configuration of VMware
+                        workstation in 2000.
+                        </figcaption>
+                    </figure>
                 </details>
     
                 <details>
@@ -86,22 +238,116 @@
                         The Role of the Host Operating System
                     </summary>
         
+                    <figure>
+                        <img src="graphics/07-10.png"
+                            width="440"
+                            height="250">
+                        <figcaption>
+                        The VMware Hosted Architecture
+                        </figcaption>
+                    </figure>
+
+                    <figure>
+                        <img src="graphics/07-11.png"
+                            width="440"
+                            height="192">
+                        <figcaption>
+                        The difference between a normal context switch and a
+                        world switch.
+                        </figcaption>
+                    </figure>
                 </details>
             </details>
 
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    The Evolution of the VMware Workstation
                 </summary>
     
             </details>
 
             <details>
                 <summary class="sum1">
-                    Major Topic
+                    ESX Server: VMware's type 1 Hypervisor
                 </summary>
+
+                    <figure>
+                            <img src="graphics/07-12.png"
+                                width="440"
+                                height="182">
+                            <figcaption>
+                            ESX Server
+                            </figcaption>
+                    </figure>
     
+                    <ol>
+                        <li>
+                            The CPU scheduler ensures that each virtual machine
+                            gets a fair share of the CPU: no starvation.
+                        </li>
+                        <li>
+                            Scalability: VMs run efficiently even when they
+                            need more memory than is actually available.
+                            <br />
+                            <b>Ballooning</b> and <b>transparent page
+                                sharing</b> introduced.
+                        </li>
+                        <li>
+                            An optimized I/O subsystem: device drivers run
+                            directly within the ESX hypervisor, with no world
+                            switch required.
+                        </li>
+                        <li>
+                            ESX uses a file system (VMFS) optimized to store
+                            virtual machine images. A single ESX Server can
+                            issue over 1 million disk operations per second.
+                        </li>
+                        <li>
+                            ESX Server made it easy to introduce new
+                            capabilities. For example, it introduced VMotion,
+                            which could live migrate a VM from one box running
+                            ESX Server to another. This required the
+                            coordination of the memory manager, the CPU
+                            scheduler, and the networking stack.
+                        </li>
+                    </ol>
             </details>
 
+    <details>
+        <summary class="sum1">
+            Quiz
+        </summary>
+        <ol>
+            <li>
+                A key attribute of an ideal virtual machine would be
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q1" value="new">
+                it runs as fast as the real machine
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                it runs just like the real machine
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                it is completely isolated from other VMs
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                all of the above.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum2">
+                Answers
+            </summary>
+            <p>
+                1. d; 
+            </p>
+        </details>
+    </details>
     </body>
 </html>
