@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+            A Memory Abstraction: Address Spaces
+        </title>
+    </head>
+
+    <body>
+<!--include menu.txt -->
+        <h1>
+            A Memory Abstraction: Address Spaces
+        </h1>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Virtual_address_space_and_physical_address_space_relationship.svg/440px-Virtual_address_space_and_physical_address_space_relationship.svg.png">
+                </p>
+            </div>
+
+
+            <details>
+            <summary class="sum1">
+                Overview
+            </summary>
+
+                <ul>
+                    <li>
+                    The traditional approach of exposing physical
+                    memory to processes has several drawbacks.
+                    </li>
+                    <li>
+                    As the operating system is by itself a process,
+                    another process can trash the operating system by
+                    causing inconsistencies in main memory
+                    </li>
+                    <li>
+                    Also, multiprogramming is a common trend
+                    nowadays and as a result, having processes
+                    access physical memory is dangerous.
+                    </li>
+                    <li>
+                    A solution is, to use abstract memory, i.e
+                    for each process to have  a notion of its
+                    own address space.
+                    </li>
+                    <li>
+                    Each process has its own address space,
+                    independent of those belonging to other processes.
+                    </li>
+                    <li>
+                    The address perceived by the process is called
+                    logical memory address, this is different
+                    from actual physical memory location.
+                    </li>
+                    <li>
+                    A separate hardware is responsible for
+                    converting logical addresses to physical
+                    addresses every time
+                    the process reads or writes from and to memory.
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+            <summary class="sum1">
+                Memory Management Requirements
+            </summary>
+
+            <ul>
+                <li>
+                    <b>Relocation</b> <br>
+                    <br>
+                        Every time a process is swapped in or out, it must be
+                        correctly located and referenced in order to continue from its
+                        previously active state.
+                    </br>
+                </li>
+                <li>
+                    <b>Protection</b>  <br>
+                    <br>
+                        Programs in other processes must be forbidden from
+                        referencing memory locations of a given process without
+                        valid permissions.
+                    </br>
+                </li>
+                <li>
+                    <b>Sharing</b>  <br>
+                    <br>
+                        Multiple processes accessing same main memory.
+                    </br>
+                </li>
+                <li>
+                    <b>Logical Organization</b> <br>
+                    <br>
+                    Organize user programs in form of modules
+                    so that they can later be broken down into
+                    chunks for memory abstraction.
+                    </br>
+                </li>
+            </ul>
+            </details>
+
+            <details>
+            <summary class="sum1">
+                Memory Management Techniques
+            </summary>
+
+
+            <p>
+                There is rarely enough memory to actively hold all code
+                and data structures needed by running processes in memory
+                at any given point of time.
+                The idea is to swap in and out blocks of code as they are
+                required from secondary memory.
+
+            </p>
+            </details>
+
+            <details>
+            <summary class="sum1">
+                Swapping
+            </summary>
+                <p>
+                    <b>Fixed Partitioning</b> <br>
+                        Main memory is divided into static partitions.
+                        Any process, given its requirements may be loaded into a
+                        partition of equal or greater size. <br>
+                        Note that here processes are not divided into modules,
+                        rather memory is divided and entire processes are placed
+                        inside a partition.<br><br>
+
+                        Partitions may be of two types :
+                </p>
+                    <ol>
+                    <li>
+                        <b>Equal Sized</b><br>
+                        If program size is beyond that of the partition size,
+                        need overlays
+                        <br>
+                        Gives rise to internal fragmentation
+                    </li>
+                    <li>
+                        <b>Unequal Sized</b><br>
+                        Fit into smallest possible partition
+                    </li>
+                    </ol>
+
+                <p>
+                <br>
+                <b>Dynamic Partitioning</b>  <br>
+                    <br>
+                        Here, partitions are created dynamically as
+                        per the requirement/size of the process in question.
+                </p>
+                <ul>
+                    <li>
+                        Partition created to be exact fit for asking
+                        process size. No Internal fragmentation.
+                    </li>
+                    <li>
+                        When processes are pulled out, it creates
+                        holes in memory space. This causes external fragmentation.
+                    </li>
+                    <li>
+                        Need to perform a process known as compaction to regularly
+                        shift partitions and remove holes created by processes leaving
+                        main memory. This is a costly process and 
+                        cannot be done repeatedly.
+                    </li>
+                </ul>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Paging
+                </summary>
+                <ul>
+                    <li>
+                        Main memory is divided into equal sized partitions.
+                        Each partition is called a <b>frame</b>.
+                    </li>
+                    <li>
+                        Processes are divided into equal sized chunks
+                        where each chunk is called a <b>page</b>
+                    </li>
+                    <li>
+                        To load a process, all of its pages are loaded
+                        into frames which need not be contagious.
+                        The OS takes care of the order of execution.
+                    </li>
+                    <li>
+                        Operating System maintains a page table for each process
+                        which contains the frame location for each page.
+                    </li>
+                    <li>
+                        Paging causes zero internal fragmentation and
+                        is optimal among static partitioning techniques.
+                    </li>
+                    <li>
+                        Paging causes minimal external fragmentation.
+                    </li>
+                </ul>
+                <details>
+                    <summary class="sum2">
+                    Simple Segmentation
+                    </summary>
+                    <ul>
+                        <li>
+                        Every process is divided into a
+                        number of chunks where each chunk is called a <b>segment</b>
+                        </li>
+                        <li>
+                            Each process is loaded by bringing all of its 
+                            segments onto main memory.
+                            Every segment of the process is loaded into
+                            the main memory by creating partitions dynamically
+                            matching the size of each segment.
+                            This creates an exact fit for every segment.
+                        </li>
+                        <li>
+                            Segmentation is free of internal fragmentation.
+                        </li>
+                        <li>
+                            Suffers from external fragmentation but not as much,
+                            because process is divided into segments which are
+                            smaller in size.
+                        </li>
+                        <li>
+                            Every program/process may occupy more than one non contagious
+                            segments, similar to dynamic partitioning.
+                        </li>
+                    </ul>
+                </details>
+
+    </body>
+</html>

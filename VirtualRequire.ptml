@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+             Requirements for Virtualization
+        </title>
+    </head>
+
+    <body>
+<!--include menu.txt -->
+        <h1>
+             Requirements for Virtualization
+        </h1>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Hardware_Virtualization_%28copy%29.svg/740px-Hardware_Virtualization_%28copy%29.svg.png"
+                height="300" width="230">
+                </p>
+            </div>
+
+            <details>
+                <summary class="sum1">
+                    Requirements
+                </summary>
+    
+                <p>
+                    Hypervisors need to score well on
+                </p>
+
+                <ol>
+                    <li>
+                        <b>Safety:</b>
+                        the hypervisor
+                        has full control of the virtualized resources.
+                    </li>
+                    <li>
+                        <b>Fidelity:</b>
+                        the behavior of a program running on the virtual
+                        machine should be the same as if it were running on the
+                        machine being imitated.
+                    </li>
+                    <li>
+                        <b>Efficiency:</b>
+                        as much code as possible should run without
+                        intervention by the hypervisor.
+                    </li>
+                </ol>
+                <br />
+                
+                <p>
+                    An <b>interpreter</b> can be safe and faithful, but
+                    performance will be bad.
+                </p>
+
+                <p>
+                    <b>Sensitive instructions</b>:
+                    behave differently if executed in kernel mode than when
+                    executed in user mode.
+                    <br />
+                    <b>Privileged instructions</b>:
+                    trap if executed in user mode.
+                    <br />
+                    <br />
+                    Popek and Goldberg showed that a machine is virtualizable
+                    only if the sensitive instructions are a subset of the
+                    privileged instructions.
+                    <br />
+                    <br />
+                    The Intel family did not have this property until 2005.
+                    Also, user mode programs could read senstive info, like
+                    whether they were in user mode. (We don't want the guest OS
+                    doing this.)
+                    <br />
+                    <br />
+                    What we need is <b>trap-and-emulate</b>.
+                </p>
+
+                <p>
+                So how <i>were</i> hypervisors possible before 2005?!
+                Answer: <b>binary translation</b>.
+                </p>
+
+                <p>
+                Another approach: <b>paravirtualization</b>.
+                Here, the host presents a "machine-like" software interface
+                that allows the guest to make <b>hypercalls</b>.
+                <br />
+                <br />
+                Drawback: the guest has to be aware it is running on a VM,
+                since it has to make the hypercalls.
+                </p>
+
+
+            </details>
+
+    <details>
+        <summary class="sum1">
+            Quiz
+        </summary>
+        <ol>
+            <li>
+                Hypervisors should be
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q1" value="new">
+                running as much code as possible directly on the hardware
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                in control of the virtual resources
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                faithful to the imitated machine
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                all of the above.
+                </li>
+            </ol>
+            <li>
+                An interpreter implementing a virtual machine is going to fall short in
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                performance
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                fidelity
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                safety
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                all of the above.
+                </li>
+            </ol>
+            <li>
+                Sensitive instructions
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                cause a trap
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                cause a segmentation error
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                behave differently if executed in kernel versus user mode
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                should never be called.
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum4">
+                Answers
+            </summary>
+            <p>
+                1. d; 2. a; 3. c; 
+            </p>
+        </details>
+    </details>
+    </details>
+
+    </body>
+</html>

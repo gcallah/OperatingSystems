@@ -1,0 +1,3 @@
+The main problem with having two programs in memory without memory abstraction is, it is difficult to determine the name of each program, each program will have different ideas about what the CPU should be doing,^each program can overwrite the memory of the other, none of the above
+Without memory abstraction we can still have multiprogramming,^by only running one program at a time and completely swapping each successive program in and out of memory,by using VT,by taking advantage of an MMU,with paging
+Even without swapping or memory abstraction we can multiprogram,if we write our code very carefully,if we have an MMU,^if we have special hardware to divide memory between different programs,all of the above
