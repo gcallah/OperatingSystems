@@ -1,1 +1,2 @@
 A key attribute of an ideal virtual machine would be, it runs as fast as the real machine, it runs just like the real machine, it is completely isolated from other VMs,^all of the above.
+Live migrating a VM between physical devices requires coordination of, the file system and the stack pointer,^the CPU scheduler the memory manager and the network stack, the RAID array, the number of applications running on each VM.

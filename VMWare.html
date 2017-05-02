@@ -26,27 +26,12 @@
              Case Study: VMware
         </h1>
 
-            <div style="text-align:center">
-                <p>
-                <img
-                src="https://upload.wikimedia.org/wikipedia/commons/9/96/VMware_vSphere_in_the_Enterprise_diagram_v1.0.gif"
-                width="640" height="451">
-                </p>
-            </div>
-
-            <details>
-                <summary class="sum1">
-                    Video on Building a VMware Home Lab
-                </summary>
-                <figure>
-                    <iframe width="560" height="315"
-                        src="https://www.youtube.com/embed/Hm7kQHI4YnM"
-                        frameborder="0" allowfullscreen></iframe>
-                    <figcaption>
-                    VMware home lab
-                    </figcaption>
-                </figure>
-            </details>
+            <figure>
+                <img src="graphics/VSphere.png">
+                <figcaption>
+                VMware vSphere (see credits)
+                </figcaption>
+            </figure>
 
             <details>
                 <summary class="sum1">
@@ -303,7 +288,7 @@
                             issue over 1 million disk operations per second.
                         </li>
                         <li>
-                            ESX Server made it easy to introduce new
+                            ESX Server made it easy to implement new
                             capabilities. For example, it introduced VMotion,
                             which could live migrate a VM from one box running
                             ESX Server to another. This required the
@@ -311,6 +296,20 @@
                             scheduler, and the networking stack.
                         </li>
                     </ol>
+            </details>
+
+            <details>
+                <summary class="sum1">
+                    Video on Building a VMware Home Lab
+                </summary>
+                <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/Hm7kQHI4YnM"
+                        frameborder="0" allowfullscreen></iframe>
+                    <figcaption>
+                    VMware home lab
+                    </figcaption>
+                </figure>
             </details>
 
     <details>
@@ -339,15 +338,45 @@
                 all of the above.
                 </li>
             </ol>
+            <li>
+                Live migrating a VM between physical devices requires coordination of
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                the file system and the stack pointer
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                the CPU scheduler the memory manager and the network stack
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                the RAID array
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                the number of applications running on each VM.
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum2">
                 Answers
             </summary>
             <p>
-                1. d; 
+                1. d; 2. b; 
             </p>
         </details>
     </details>
+
+            <details>
+                <summary class="sum1">
+                    Credits
+                </summary>
+                "VMware in the cloud" graphic by Hany R. Michael.
+            </details>
+
+        
     </body>
 </html>
