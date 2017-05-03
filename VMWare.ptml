@@ -27,13 +27,30 @@
     
                 <ul>
                     <li>
-                        <b>VMware Workstation for Linux</b>
+                        Based on work at Stanford in the late 1990s.
                     </li>
                     <li>
-                        <b>VMware Workstation for Windows</b>
+                        The founders realized that rather than solving existing
+                        problems in large, complex, operating systems, one
+                        could innovate in a layer below the OS.
                     </li>
                     <li>
-                        <b>ESX Server</b>
+                        <b>1998:</b>
+                    </li>
+                    <ul>
+                        <li>
+                            <b>VMware Workstation for Linux</b>
+                            <br />
+                            Ran on top of Linux.
+                        </li>
+                        <li>
+                            <b>VMware Workstation for Windows</b>
+                            <br />
+                            Ran on top of Windows.
+                        </li>
+                    </ul>
+                    <li>
+                        <b>2001: ESX Server</b>
                         <ul>
                             <li>
                                 Aimed at the server consolidation market.
@@ -47,6 +64,25 @@
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <b>2002: Virtual Center / vSphere</b>:
+                        <br />
+                        Manage 1000s of virtual machines from one application.
+                    </li>
+                    <li>
+                        <b>VMotion</b>:
+                        <br />
+                        Live migrate servers.
+                    </li>
+                    <figure>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/9f5GFB0m_E4"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                        <figcaption>
+                            Live migrating a server from Raleigh to Amsterdam.
+                        </figcaption>
+                    </figure>
                 </ul>
 
             </details>
@@ -56,6 +92,16 @@
                     VMware Workstation
                 </summary>
    
+                <ul>
+                    <li>
+                        The first virtualization product for 32-bit x86.
+                    </li>
+                    <li>
+                        The "WinTel" platform was very different from
+                        vertically integrated mainframes:
+                    </li>
+                </ul>
+
                 <details>
                     <summary class="sum2">
                         Video: What Is VMware Workstation?
@@ -275,9 +321,16 @@
                             issue over 1 million disk operations per second.
                         </li>
                         <li>
+                            The workstations were aimed at developers: one
+                            could experiment with new OS releases inside a VM.
+                        </li>
+                        <li>
                             ESX Server made it easy to implement new
-                            capabilities. For example, it introduced VMotion,
-                            which could live migrate a VM from one box running
+                            capabilities.
+                        </li>
+                        <li>
+                            <b>VMotion:</b>
+                            live migrate a VM from one box running
                             ESX Server to another. This required the
                             coordination of the memory manager, the CPU
                             scheduler, and the networking stack.
