@@ -251,14 +251,58 @@
                         Possible approaches:
                     </p>
 
+                    <figure>
+                        <iframe width="560" height="315"
+                            src="https://www.youtube.com/embed/CLR0pq9dy4g"
+                            frameborder="0" allowfullscreen>
+                        </iframe>
+                        <figcaption>
+                            Trap-and-emulate
+                        </figcaption>
+                    </figure>
+
                     <ul>
                         <li>
                             Rely on hardware support for virtualization to
                             <b>trap-and-emulte</b> "dangerous" instructions.
+                            <br />
+                            Not available on x86 until 2005.
+                            <br />
+                            <a
+                                href="https://en.wikipedia.org/wiki/Trap_(computing)">
+                                Trap
+                            </a>
+                        </li>
+                        <li>
+                            <b>Dynamic binary translation</b>: the VMM emulates
+                            all instructions.
+                            <br />
+                            Problem: too slow for most uses. (5x)
                         </li>
                     </ul>
 
                     <p>
+                        The solution:
+                    </p>
+
+                    <ul>
+                        <li>
+                            Trap-and-emulate <i>can</i> be used when user
+                            programs are running.
+                        </li>
+                        <li>
+                            In other cases, resort to binary translation.
+                        </li>
+                        <li>
+                            Run an algorithm to decide which to do.
+                            <br />
+                            This <i>doesn't</i> need to examine code, just
+                            registers!
+                        </li>
+                    </ul>
+
+                    <p>
+                    <br />
                         Binary translation must be used if:
                     </p>
 
@@ -277,6 +321,12 @@
                         </li>
                     </ol>
         
+                    <p>
+                        VMware can speed up binary translation to near-native
+                        speeds because it sets the hardware to run the code
+                        instead of translating it in software.
+                    </p>
+
                     <figure>
                         <img src="graphics/07-08.png"
                             width="440"
@@ -293,6 +343,28 @@
                         A Guest Operating System Centric Strategy
                     </summary>
         
+                    <ul>
+                        <li>
+                            Ideally, we want the hypervisor to emulate the
+                            hardware so successfully that <i>any</i> OS that
+                            runs on that hardware will run on the hypervisor.
+                        </li>
+                        <li>
+                            With the x86 family, this was not possible: no
+                            hardware support for virtualization, too complex.
+                        </li>
+                        <li>
+                            So the VMware engineers focused on just a few, like
+                            Linux, Windows 3.1, 95/98 and NT. (But Minix ran as well,
+                            by accident.)
+                        </li>
+                        <li>
+                            Only OS/2 ever used x86 rings 1 and 2, so VMware
+                            would just shut down the VM if it tried to enter
+                            those rings.
+                        </li>
+                    </ul>
+
                 </details>
     
                 <details>
@@ -300,6 +372,32 @@
                         The Virtual Hardware Platform
                     </summary>
         
+                    <p>
+                        Two layers:
+                    </p>
+
+                    <ul>
+                        <li>
+                            Software model that "looks like" the device to the guest
+                            OS.
+                        </li>
+                        <li>
+                            A back-end that communicates with the host OS.
+                        </li>
+                    </ul>
+
+                    <p>
+                        <b>Example:</b> the "Lance" 10-Mbps ethernet card.
+                        VMware "supported" this card long after the real thing
+                        was off the market, and eventually could run 10x
+                        faster.
+                        <br />
+                        The actual hardware did not have to be what the guest
+                        OS thought was there! It just talked to the VMware
+                        drivers, and they could be coupled with different
+                        back-ends.
+                    </p>
+
                     <figure>
                         <img src="graphics/07-09.png">
                         <figcaption>
@@ -314,6 +412,49 @@
                         The Role of the Host Operating System
                     </summary>
         
+                    <ul>
+                        <li>
+                            By creating a type 2 hypervisor, VMware could be
+                            installed like a normal program.
+                        </li>
+                        <li>
+                            It could use the host's drivers to handle the
+                            problem of multiple peripherals.
+                        </li>
+                    <ul>
+                    </ul>
+                        <li>
+                            But VMware needed to do fancy things an ordinary
+                            application could not.
+                        </li>
+                        <li>
+                            And many of those things an ordinary kernel-level
+                            device driver shouldn't do either.
+                        </li>
+                    </ul>
+
+                    <p>
+                        <b>So</b>, create three components:
+                    </p>
+
+                    <ol>
+                        <li>
+                            <b>VMX:</b> a user-space program the user interacts
+                            with: one per VM.
+                        </li>
+                        <li>
+                            <b>VMX driver:</b> A small kernel-mode device
+                            driver that can suspend the host OS for the...
+                        </li>
+                        <li>
+                            <b>VMM:</b> multiplexes the CPU and memory;
+                            contains trap-and-emulate, device drivers, shadow
+                            paging module, binary translator.
+                            <br />
+                            Runs in kernel mode, but not "in" the host OS.
+                        </li>
+                    </ol>
+
                     <figure>
                         <img src="graphics/07-10.png"
                             width="440"
@@ -322,6 +463,16 @@
                         The VMware Hosted Architecture
                         </figcaption>
                     </figure>
+
+                    <p>
+                        VMX runs as an OS process. But the VMM is a peer. The
+                        VMX suspends the host OS and gives the VMM full control
+                        of the machine. This is a <b>world switch</b>.
+                        <br />
+                        Although earlier described as very time consuming, here
+                        the book says the world switch only takes 45
+                        instructions!
+                    </p>
 
                     <figure>
                         <img src="graphics/07-11.png"
@@ -340,6 +491,15 @@
                     The Evolution of the VMware Workstation
                 </summary>
     
+                <figure>
+                    <iframe width="560" height="315"
+                        src="https://www.youtube.com/embed/lD_y5wTjRqs"
+                        frameborder="0" allowfullscreen>
+                    </iframe>
+                    <figcaption>
+                        Using VMware Workstation
+                    </figcaption>
+                </figure>
             </details>
 
             <details>
