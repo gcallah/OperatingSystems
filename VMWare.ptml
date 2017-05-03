@@ -525,53 +525,66 @@
                     ESX Server: VMware's type 1 Hypervisor
                 </summary>
 
-                    <figure>
-                            <img src="graphics/07-12.png"
-                                width="440"
-                                height="182">
-                            <figcaption>
-                            ESX Server
-                            </figcaption>
-                    </figure>
-    
-                    <ol>
-                        <li>
-                            The CPU scheduler ensures that each virtual machine
-                            gets a fair share of the CPU: no starvation.
-                        </li>
-                        <li>
-                            Scalability: VMs run efficiently even when they
-                            need more memory than is actually available.
-                            <br />
-                            <b>Ballooning</b> and <b>transparent page
-                                sharing</b> introduced.
-                        </li>
-                        <li>
-                            An optimized I/O subsystem: device drivers run
-                            directly within the ESX hypervisor, with no world
-                            switch required.
-                        </li>
-                        <li>
-                            ESX uses a file system (VMFS) optimized to store
-                            virtual machine images. A single ESX Server can
-                            issue over 1 million disk operations per second.
-                        </li>
-                        <li>
-                            The workstations were aimed at developers: one
-                            could experiment with new OS releases inside a VM.
-                        </li>
-                        <li>
-                            ESX Server made it easy to implement new
-                            capabilities.
-                        </li>
-                        <li>
-                            <b>VMotion:</b>
-                            live migrate a VM from one box running
-                            ESX Server to another. This required the
-                            coordination of the memory manager, the CPU
-                            scheduler, and the networking stack.
-                        </li>
-                    </ol>
+                <p>
+                Not having a host OS to rely upon means ESX has more work to do
+                than VMware Workstation. But in a situation where IT
+                organizations are trying to run 1000s of virtual machines, a
+                type 1 hypervisor makes sense: it will run significantly
+                faster.
+                </p>
+
+                <figure>
+                        <img src="graphics/07-12.png"
+                            width="440"
+                            height="182">
+                        <figcaption>
+                        ESX Server
+                        </figcaption>
+                </figure>
+
+                <ol>
+                    <li>
+                        The CPU scheduler ensures that each virtual machine
+                        gets a fair share of the CPU: no starvation.
+                    </li>
+                    <li>
+                        Scalability: VMs run efficiently even when they
+                        need more memory than is actually available.
+                        <br />
+                        <a
+                            href="http://www.vfrank.org/2013/09/18/understanding-vmware-ballooning/">
+                            <b>Ballooning</b></a>
+                        and <a
+                            href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1021095">
+                            <b>transparent page sharing</b></a>
+                            introduced.
+                    </li>
+                    <li>
+                        An optimized I/O subsystem: device drivers run
+                        directly within the ESX hypervisor, with no world
+                        switch required.
+                    </li>
+                    <li>
+                        ESX uses a file system (VMFS) optimized to store
+                        virtual machine images. A single ESX Server can
+                        issue over 1 million disk operations per second.
+                    </li>
+                    <li>
+                        The workstations were aimed at developers: one
+                        could experiment with new OS releases inside a VM.
+                    </li>
+                    <li>
+                        ESX Server made it easy to implement new
+                        capabilities.
+                    </li>
+                    <li>
+                        <b>VMotion:</b>
+                        live migrate a VM from one box running
+                        ESX Server to another. This required the
+                        coordination of the memory manager, the CPU
+                        scheduler, and the networking stack.
+                    </li>
+                </ol>
             </details>
 
             <details>

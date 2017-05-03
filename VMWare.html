@@ -538,53 +538,66 @@
                     ESX Server: VMware's type 1 Hypervisor
                 </summary>
 
-                    <figure>
-                            <img src="graphics/07-12.png"
-                                width="440"
-                                height="182">
-                            <figcaption>
-                            ESX Server
-                            </figcaption>
-                    </figure>
-    
-                    <ol>
-                        <li>
-                            The CPU scheduler ensures that each virtual machine
-                            gets a fair share of the CPU: no starvation.
-                        </li>
-                        <li>
-                            Scalability: VMs run efficiently even when they
-                            need more memory than is actually available.
-                            <br />
-                            <b>Ballooning</b> and <b>transparent page
-                                sharing</b> introduced.
-                        </li>
-                        <li>
-                            An optimized I/O subsystem: device drivers run
-                            directly within the ESX hypervisor, with no world
-                            switch required.
-                        </li>
-                        <li>
-                            ESX uses a file system (VMFS) optimized to store
-                            virtual machine images. A single ESX Server can
-                            issue over 1 million disk operations per second.
-                        </li>
-                        <li>
-                            The workstations were aimed at developers: one
-                            could experiment with new OS releases inside a VM.
-                        </li>
-                        <li>
-                            ESX Server made it easy to implement new
-                            capabilities.
-                        </li>
-                        <li>
-                            <b>VMotion:</b>
-                            live migrate a VM from one box running
-                            ESX Server to another. This required the
-                            coordination of the memory manager, the CPU
-                            scheduler, and the networking stack.
-                        </li>
-                    </ol>
+                <p>
+                Not having a host OS to rely upon means ESX has more work to do
+                than VMware Workstation. But in a situation where IT
+                organizations are trying to run 1000s of virtual machines, a
+                type 1 hypervisor makes sense: it will run significantly
+                faster.
+                </p>
+
+                <figure>
+                        <img src="graphics/07-12.png"
+                            width="440"
+                            height="182">
+                        <figcaption>
+                        ESX Server
+                        </figcaption>
+                </figure>
+
+                <ol>
+                    <li>
+                        The CPU scheduler ensures that each virtual machine
+                        gets a fair share of the CPU: no starvation.
+                    </li>
+                    <li>
+                        Scalability: VMs run efficiently even when they
+                        need more memory than is actually available.
+                        <br />
+                        <a
+                            href="http://www.vfrank.org/2013/09/18/understanding-vmware-ballooning/">
+                            <b>Ballooning</b></a>
+                        and <a
+                            href="https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1021095">
+                            <b>transparent page sharing</b></a>
+                            introduced.
+                    </li>
+                    <li>
+                        An optimized I/O subsystem: device drivers run
+                        directly within the ESX hypervisor, with no world
+                        switch required.
+                    </li>
+                    <li>
+                        ESX uses a file system (VMFS) optimized to store
+                        virtual machine images. A single ESX Server can
+                        issue over 1 million disk operations per second.
+                    </li>
+                    <li>
+                        The workstations were aimed at developers: one
+                        could experiment with new OS releases inside a VM.
+                    </li>
+                    <li>
+                        ESX Server made it easy to implement new
+                        capabilities.
+                    </li>
+                    <li>
+                        <b>VMotion:</b>
+                        live migrate a VM from one box running
+                        ESX Server to another. This required the
+                        coordination of the memory manager, the CPU
+                        scheduler, and the networking stack.
+                    </li>
+                </ol>
             </details>
 
             <details>
@@ -607,150 +620,24 @@
         </summary>
         <ol>
             <li>
-                A key attribute of an ideal virtual machine would be
+                What is a basic block of assembler?
             </li>
             <ol type="a">
                 <li>
                 <input type="radio" name="q1" value="new">
-                it runs as fast as the real machine
+                the most fundamental instructions on any machine
                 </li>
                 <li>
                 <input type="radio" name="q1" value="new">
-                it runs just like the real machine
+                the boot block on the disk
                 </li>
                 <li>
                 <input type="radio" name="q1" value="new">
-                it is completely isolated from other VMs
+                a short straight-line sequence of instructions
                 </li>
                 <li>
                 <input type="radio" name="q1" value="new">
-                all of the above.
-                </li>
-            </ol>
-            <li>
-                Live migrating a VM between physical devices requires coordination of
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q2" value="new">
-                the file system and the stack pointer
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                the CPU scheduler the memory manager and the network stack
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                the RAID array
-                </li>
-                <li>
-                <input type="radio" name="q2" value="new">
-                the number of applications running on each VM.
-                </li>
-            </ol>
-            <li>
-                A motivation for VMware was
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q3" value="new">
-                the desire to copy IBM
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                the need for a research grant
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                the fact that no one had ever created a VM before
-                </li>
-                <li>
-                <input type="radio" name="q3" value="new">
-                the difficulty in innovating in complex modern operatings systems.
-                </li>
-            </ol>
-            <li>
-                One factor making VMs easier to implement on mainframes than on PCs was
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q4" value="new">
-                vertical integration in the mainframe world
-                </li>
-                <li>
-                <input type="radio" name="q4" value="new">
-                Microsoft's opposition to virtualization
-                </li>
-                <li>
-                <input type="radio" name="q4" value="new">
-                the complexity of mainframe design
-                </li>
-                <li>
-                <input type="radio" name="q4" value="new">
-                the lack of UNIX versions on PCs
-                </li>
-            </ol>
-            <li>
-                Another factor making virtualization difficult on the WinTel platform was
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q5" value="new">
-                the overly simple chip architecture
-                </li>
-                <li>
-                <input type="radio" name="q5" value="new">
-                the amazing diversity of peripherals
-                </li>
-                <li>
-                <input type="radio" name="q5" value="new">
-                the competition from IBM
-                </li>
-                <li>
-                <input type="radio" name="q5" value="new">
-                all of the above
-                </li>
-            </ol>
-            <li>
-                A virtualization approach called "trap-and-emulate" involves
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q6" value="new">
-                a switch to the hypervisor when certain instructions are executed by the VM
-                </li>
-                <li>
-                <input type="radio" name="q6" value="new">
-                faking the guest into "thinking" is has really executed certain instructions
-                </li>
-                <li>
-                <input type="radio" name="q6" value="new">
-                allowing most instructions to run directly on the hardware
-                </li>
-                <li>
-                <input type="radio" name="q6" value="new">
-                all of the above
-                </li>
-            </ol>
-            <li>
-                VMware must use binary translation to handle
-            </li>
-            <ol type="a">
-                <li>
-                <input type="radio" name="q7" value="new">
-                graphics programs
-                </li>
-                <li>
-                <input type="radio" name="q7" value="new">
-                playing video
-                </li>
-                <li>
-                <input type="radio" name="q7" value="new">
-                executing privileged instructions
-                </li>
-                <li>
-                <input type="radio" name="q7" value="new">
-                floating point mathematics
+                a group of assembly language code re-written in BASIC
                 </li>
             </ol>
         </ol>
@@ -759,7 +646,7 @@
                 Answers
             </summary>
             <p>
-                1. d; 2. b; 3. d; 4. a; 5. b; 6. d; 7. c; 
+                1. c; 
             </p>
         </details>
     </details>
