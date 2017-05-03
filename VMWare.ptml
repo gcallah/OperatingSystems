@@ -99,6 +99,31 @@
                     <li>
                         The "WinTel" platform was very different from
                         vertically integrated mainframes:
+                        <ol type="a">
+                            <li>
+                                Intel and AMD build the chips.
+                            </li>
+                            <li>
+                                Microsoft (Windows) and open source (Linux)
+                                provide the OS.
+                            </li>
+                            <li>
+                                A third group of companies build peripherals.
+                            </li>
+                            <li>
+                                A fourth group of integrators (Dell, HP) build
+                                systems for retail sale.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        What's more, there was no hardware support for
+                        virtualization.
+                    </li>
+                    <li>
+                        So VMware had to use existing techniques of
+                        virtualization, borrow techniques from other areas, and
+                        invent some.
                     </li>
                 </ul>
 
@@ -132,7 +157,7 @@
                     should be just like the emulated machine, as fast as the
                     emulated machine, and completely isolated from each other.
                     <br />
-                    VMware:
+                    VMware had these goals (general to most virtualization):
                 </p>
 
                 <ol>
@@ -177,6 +202,17 @@
                     <li>
                         <b>The x86 architecture was of daunting complexity.</b>
                         <br />
+                        Decades of "cruft" built up due to backwards
+                        compatibility goal. Four modes: real, protected, v8086,
+                        and 
+                        <a
+                            href="https://en.wikipedia.org/wiki/System_Management_Mode">
+                            system management</a>.
+                        <br />
+                        <a
+                            href="https://en.wikipedia.org/wiki/X86#Operating_modes">
+                            x86 operating modes.
+                        </a>
                     </li>
                     <li>
                         <b>x86 machines had diverse peripherals.</b>
@@ -185,6 +221,8 @@
                     <li>
                         <b>The need for a simple user experience.</b>
                         <br />
+                        The users would be doing the installs themselves, not
+                        (e.g.) an IBM technician.
                     </li>
                 </ol>
 
@@ -199,16 +237,26 @@
                     <summary class="sum2">
                         Virtualizing the x86 Architecture
                     </summary>
-        
-                    <figure>
-                        <img src="graphics/07-08.png"
-                            width="440"
-                            height="210">
-                        <figcaption>
-                        High-level components of the VMware virtual machine
-                        monitor.
-                        </figcaption>
-                    </figure>
+
+                    <ul>
+                        <li>
+                            <b>VMM:</b> runs the actual virtual machine.
+                        </li>
+                        <li>
+                            <b>VMX:</b> interacts with host OS.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Possible approaches:
+                    </p>
+
+                    <ul>
+                        <li>
+                            Rely on hardware support for virtualization to
+                            <b>trap-and-emulte</b> "dangerous" instructions.
+                        </li>
+                    </ul>
 
                     <p>
                         Binary translation must be used if:
@@ -228,6 +276,16 @@
                             legacy 16-bit mode used by BIOS.
                         </li>
                     </ol>
+        
+                    <figure>
+                        <img src="graphics/07-08.png"
+                            width="440"
+                            height="210">
+                        <figcaption>
+                        High-level components of the VMware virtual machine
+                        monitor.
+                        </figcaption>
+                    </figure>
                 </details>
     
                 <details>

@@ -112,6 +112,31 @@
                     <li>
                         The "WinTel" platform was very different from
                         vertically integrated mainframes:
+                        <ol type="a">
+                            <li>
+                                Intel and AMD build the chips.
+                            </li>
+                            <li>
+                                Microsoft (Windows) and open source (Linux)
+                                provide the OS.
+                            </li>
+                            <li>
+                                A third group of companies build peripherals.
+                            </li>
+                            <li>
+                                A fourth group of integrators (Dell, HP) build
+                                systems for retail sale.
+                            </li>
+                        </ol>
+                    </li>
+                    <li>
+                        What's more, there was no hardware support for
+                        virtualization.
+                    </li>
+                    <li>
+                        So VMware had to use existing techniques of
+                        virtualization, borrow techniques from other areas, and
+                        invent some.
                     </li>
                 </ul>
 
@@ -145,7 +170,7 @@
                     should be just like the emulated machine, as fast as the
                     emulated machine, and completely isolated from each other.
                     <br />
-                    VMware:
+                    VMware had these goals (general to most virtualization):
                 </p>
 
                 <ol>
@@ -190,6 +215,17 @@
                     <li>
                         <b>The x86 architecture was of daunting complexity.</b>
                         <br />
+                        Decades of "cruft" built up due to backwards
+                        compatibility goal. Four modes: real, protected, v8086,
+                        and 
+                        <a
+                            href="https://en.wikipedia.org/wiki/System_Management_Mode">
+                            system management</a>.
+                        <br />
+                        <a
+                            href="https://en.wikipedia.org/wiki/X86#Operating_modes">
+                            x86 operating modes.
+                        </a>
                     </li>
                     <li>
                         <b>x86 machines had diverse peripherals.</b>
@@ -198,6 +234,8 @@
                     <li>
                         <b>The need for a simple user experience.</b>
                         <br />
+                        The users would be doing the installs themselves, not
+                        (e.g.) an IBM technician.
                     </li>
                 </ol>
 
@@ -212,16 +250,26 @@
                     <summary class="sum2">
                         Virtualizing the x86 Architecture
                     </summary>
-        
-                    <figure>
-                        <img src="graphics/07-08.png"
-                            width="440"
-                            height="210">
-                        <figcaption>
-                        High-level components of the VMware virtual machine
-                        monitor.
-                        </figcaption>
-                    </figure>
+
+                    <ul>
+                        <li>
+                            <b>VMM:</b> runs the actual virtual machine.
+                        </li>
+                        <li>
+                            <b>VMX:</b> interacts with host OS.
+                        </li>
+                    </ul>
+
+                    <p>
+                        Possible approaches:
+                    </p>
+
+                    <ul>
+                        <li>
+                            Rely on hardware support for virtualization to
+                            <b>trap-and-emulte</b> "dangerous" instructions.
+                        </li>
+                    </ul>
 
                     <p>
                         Binary translation must be used if:
@@ -241,6 +289,16 @@
                             legacy 16-bit mode used by BIOS.
                         </li>
                     </ol>
+        
+                    <figure>
+                        <img src="graphics/07-08.png"
+                            width="440"
+                            height="210">
+                        <figcaption>
+                        High-level components of the VMware virtual machine
+                        monitor.
+                        </figcaption>
+                    </figure>
                 </details>
     
                 <details>
@@ -433,13 +491,76 @@
                 the difficulty in innovating in complex modern operatings systems.
                 </li>
             </ol>
+            <li>
+                One factor making VMs easier to implement on mainframes than on PCs was
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q4" value="new">
+                vertical integration in the mainframe world
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                Microsoft's opposition to virtualization
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                the complexity of mainframe design
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                the lack of UNIX versions on PCs
+                </li>
+            </ol>
+            <li>
+                Another factor making virtualization difficult on the WinTel platform was
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q5" value="new">
+                the overly simple chip architecture
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                the amazing diversity of peripherals
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                the competition from IBM
+                </li>
+                <li>
+                <input type="radio" name="q5" value="new">
+                all of the above
+                </li>
+            </ol>
+            <li>
+                A virtualization approach called "trap-and-emulate" involves
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q6" value="new">
+                a switch to the hypervisor when certain instructions are executed by the VM
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                faking the guest into "thinking" is has really executed certain instructions
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                allowing most instructions to run directly on the hardware
+                </li>
+                <li>
+                <input type="radio" name="q6" value="new">
+                all of the above
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum2">
                 Answers
             </summary>
             <p>
-                1. d; 2. b; 3. d; 
+                1. d; 2. b; 3. d; 4. a; 5. b; 6. d; 
             </p>
         </details>
     </details>
