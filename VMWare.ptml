@@ -469,6 +469,8 @@
                         VMX suspends the host OS and gives the VMM full control
                         of the machine. This is a <b>world switch</b>.
                         <br />
+                        The VMM and the host OS have entirely different address spaces.
+                        <br />
                         Although earlier described as very time consuming, here
                         the book says the world switch only takes 45
                         instructions!
@@ -491,6 +493,22 @@
                     The Evolution of the VMware Workstation
                 </summary>
     
+                <p>
+                    The VMM / hhost OS architecture remains the same.
+                    <br />
+                    But today, VMware Workstation can rely on:
+                </p>
+
+                <ol>
+                    <li>
+                        Trap-and-emulate all the time
+                    </li>
+                    <li>
+                        Nested hardware page tables instead of the shadow page
+                        table
+                    </li>
+                </ol>
+
                 <figure>
                     <iframe width="560" height="315"
                         src="https://www.youtube.com/embed/lD_y5wTjRqs"
