@@ -198,6 +198,13 @@
                     <li>
                         <b>The x86 architecture did not support virtualization.</b>
                         <br />
+                        (<a
+                            href="https://en.wikipedia.org/wiki/Popek_and_Goldberg_virtualization_requirements">
+                            Popek and Goldberg requirements for virtualization
+                        </a>)
+                        <br />
+                        Example: POPF (pop flags) would fail silently 
+                        in user mode.
                     </li>
                     <li>
                         <b>The x86 architecture was of daunting complexity.</b>
@@ -355,8 +362,8 @@
                         </li>
                         <li>
                             So the VMware engineers focused on just a few, like
-                            Linux, Windows 3.1, 95/98 and NT. (But Minix ran as well,
-                            by accident.)
+                            Linux, Windows 3.1, 95/98 and NT.
+                            (But Minix ran as well, by accident.)
                         </li>
                         <li>
                             Only OS/2 ever used x86 rings 1 and 2, so VMware
@@ -378,8 +385,8 @@
 
                     <ul>
                         <li>
-                            Software model that "looks like" the device to the guest
-                            OS.
+                            Software model that "looks like" the 
+                            device to the guest OS.
                         </li>
                         <li>
                             A back-end that communicates with the host OS.
@@ -469,7 +476,8 @@
                         VMX suspends the host OS and gives the VMM full control
                         of the machine. This is a <b>world switch</b>.
                         <br />
-                        The VMM and the host OS have entirely different address spaces.
+                        The VMM and the host OS have entirely 
+                        different address spaces.
                         <br />
                         Although earlier described as very time consuming, here
                         the book says the world switch only takes 45

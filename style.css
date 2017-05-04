@@ -76,7 +76,7 @@ h1 {
 
 h2 {
     text-align: center;
-    font-size: 1.3em;
+    font-size: 1.6em;
     margin: 2em 1.2em .6em 1.2em;
     color: #903;
 }
@@ -87,14 +87,14 @@ h2.subhead {
 }
 
 h3 {
-    font-size: 1.1em;
+    font-size: 1.4em;
     margin: 1em 1.4em .6em 1.4em;
     color: #137;
     font-weight: bold;
 }
 
 h4 {
-    font-size: 1.4em;
+    font-size: 1.3em;
     margin: .8em 1.6em .6em 1.6em;
     color: #339;
     font-weight: bold;
