@@ -142,6 +142,12 @@
                     </figure>
                 </details>
 
+                <p>
+                <a href="https://en.wikipedia.org/wiki/VMware_Workstation">
+                    More on VMware Workstation
+                </a>
+                </p>
+
             </details>
 
             <details>
@@ -247,7 +253,9 @@
 
                     <ul>
                         <li>
-                            <b>VMM:</b> runs the actual virtual machine.
+                            <b>VMM</b>
+                            (Virtual Machine Monitor):
+                            runs the actual virtual machine.
                         </li>
                         <li>
                             <b>VMX:</b> interacts with host OS.
@@ -332,6 +340,8 @@
                         VMware can speed up binary translation to near-native
                         speeds because it sets the hardware to run the code
                         instead of translating it in software.
+                        <br />
+                        Runs at 80% of native speed, instead of 20%.
                     </p>
 
                     <figure>
