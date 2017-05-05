@@ -279,7 +279,10 @@
                     <ul>
                         <li>
                             Rely on hardware support for virtualization to
-                            <b>trap-and-emulte</b> "dangerous" instructions.
+                            <b>trap-and-emulte</b> 
+                            <a
+                                href="http://www.brokenthorn.com/Resources/OSDev23.html">
+                                privileged instructions</a>.
                             <br />
                             Not available on x86 until 2005.
                             <br />

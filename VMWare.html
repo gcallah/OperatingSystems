@@ -292,7 +292,10 @@
                     <ul>
                         <li>
                             Rely on hardware support for virtualization to
-                            <b>trap-and-emulte</b> "dangerous" instructions.
+                            <b>trap-and-emulte</b> 
+                            <a
+                                href="http://www.brokenthorn.com/Resources/OSDev23.html">
+                                privileged instructions</a>.
                             <br />
                             Not available on x86 until 2005.
                             <br />
@@ -805,13 +808,51 @@
                 using direct execution
                 </li>
             </ol>
+            <li>
+                Ballooning consists in
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q9" value="new">
+                pumping up each virtual machine to believe it is in charge of the hardware
+                </li>
+                <li>
+                <input type="radio" name="q9" value="new">
+                creating a process inside a virtual machine that can reclaim memory for the hypervisor
+                </li>
+                <li>
+                <input type="radio" name="q9" value="new">
+                
+                </li>
+            </ol>
+            <li>
+                On an x86 machine privileged instructions
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q10" value="new">
+                make the user who runs them the superuser
+                </li>
+                <li>
+                <input type="radio" name="q10" value="new">
+                are ignored by virtual machines
+                </li>
+                <li>
+                <input type="radio" name="q10" value="new">
+                can only be used by the rich
+                </li>
+                <li>
+                <input type="radio" name="q10" value="new">
+                can only be executed in kernel mode
+                </li>
+            </ol>
         </ol>
         <details>
             <summary class="sum2">
                 Answers
             </summary>
             <p>
-                1. d; 2. b; 3. d; 4. a; 5. b; 6. d; 7. c; 8. a; 
+                1. d; 2. b; 3. d; 4. a; 5. b; 6. d; 7. c; 8. a; 9. b; 10. d; 
             </p>
         </details>
     </details>

@@ -6,3 +6,5 @@ Another factor making virtualization difficult on the WinTel platform was,the ov
 A virtualization approach called "trap-and-emulate" involves,a switch to the hypervisor when certain instructions are executed by the VM,faking the guest into "thinking" is has really executed certain instructions,allowing most instructions to run directly on the hardware,^all of the above
 VMware must use binary translation to handle,graphics programs,playing video,^executing privileged instructions,floating point mathematics
 VMware manages to interact with the host OS by,^creating a kernel-mode device driver,relying on a re-written version of the host OS,using binary translation,using direct execution
+Ballooning consists in,pumping up each virtual machine to believe it is in charge of the hardware,^creating a process inside a virtual machine that can reclaim memory for the hypervisor,
+On an x86 machine privileged instructions,make the user who runs them the superuser,are ignored by virtual machines,can only be used by the rich,^can only be executed in kernel mode
