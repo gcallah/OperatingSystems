@@ -5,3 +5,4 @@ One factor making VMs easier to implement on mainframes than on PCs was,^vertica
 Another factor making virtualization difficult on the WinTel platform was,the overly simple chip architecture,^the amazing diversity of peripherals,the competition from IBM,all of the above
 A virtualization approach called "trap-and-emulate" involves,a switch to the hypervisor when certain instructions are executed by the VM,faking the guest into "thinking" is has really executed certain instructions,allowing most instructions to run directly on the hardware,^all of the above
 VMware must use binary translation to handle,graphics programs,playing video,^executing privileged instructions,floating point mathematics
+VMware manages to interact with the host OS by,^creating a kernel-mode device driver,relying on a re-written version of the host OS,using binary translation,using direct execution
