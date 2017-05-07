@@ -1,0 +1,3 @@
+Biggest drawback of Segmentation is,Internal Fragmentation,^External Fragmentation,Both,None
+Compaction process is used to,^remove memory gaps created by external fragmentation,remove memory gaps created by internal fragmentation,reduce memory size, increase disk space allocated to virtual memory
+In Segmentation with paging,^Segments are further divided into equal sized pages,Pages are further divided into equal sized segments,Both,None
