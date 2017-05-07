@@ -1,0 +1,3 @@
+The key difference between fixed and dynamic partitioning is,^fixed partition sizes are fixed while dynamic partition sizes are determined at runtime depending on size of process,fixed paritioning is done once while dynamic partitioning is done multiple times,fixed partitoning involves disk while dynamic partitioning involves memory,None of the above
+An executing process perceives,physical address,^logical memory address,disk address,None of the above
+Which of the following causes internal fragmentation,swapping(dynamic partitioning),^swapping(fixed partitioning),segmentation,paging
