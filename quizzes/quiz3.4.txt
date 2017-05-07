@@ -1,0 +1,3 @@
+Theoretically the best page replacement algorithm is,^Optimal algorithm,Least Recently Used(LRU),First In First Out(FIFO),Clock Policy Algorithm
+Clock Algorithm outperforms FIFO algorithm in cases where,All pages are equally likely to be referenced,^Certain pages are referenced more often than the others,Some pages are never referenced,None of the above
+We can find the page having the longest time to replace by using,Optimal Algorithm,Working Set Strategy Algorithm,^It is not possible to find the time to replacement for a page,None of the above
