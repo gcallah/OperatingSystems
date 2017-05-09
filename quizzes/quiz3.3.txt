@@ -1,3 +1,2 @@
 Size of virtual memory is,^Larger than main memory,Smaller than main memory,Larger than both disk and main memory,None of the above
 The process which runs immediately after a page fault occurs is,the interrupted process resumes,^The operating system,the next process,None of the above
-First lookup after a page fault is made at,Page Table,Disk,^Translation Lookaisde Buffer,Virtual Memory
