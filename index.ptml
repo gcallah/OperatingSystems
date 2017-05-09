@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+			Modern Operating Systems
+        </title>
+    </head>
+
+    <body>
+
+<!--include menu.txt -->
+
+		<h1>
+			Modern Operating Systems
+		</h1>
+            <div style="text-align:center">
+
+                <figure id="front-page">
+                    <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Kernel_Layout.svg/220px-Kernel_Layout.svg.png"
+                    height="154" width="168"
+                    max-height=100%>
+                </figure>
+                
+                <p>
+                    "UNIX is basically a simple operating system,
+                    but you have to be a genius to understand
+                    the simplicity." -- Dennis Ritchie
+                </p>
+                <hr>
+
+                <p>
+                * indicates chapter will be covered in Spring 2017 CS-6233
+                </p>
+
+                <h2>
+                    1. Introduction *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+
+                    <h3>
+                        <a href="WhatIs.html">
+                            What Is an Operating System?
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="History.html">
+                            History of Operating Systems
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="Hardware.html">
+                            Computer Hardware Review
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="Zoo.html">
+                           The Operating Systems Zoo 
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="OSConcepts.html">
+                            Operating Systems Concepts
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="SystemCalls.html">
+                            System Calls
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="OSStructure.html">
+                            Operating System Structure
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="CWorld.html">
+                            The World According to C
+                        </a>
+                    </h3>
+    
+                    <h3>
+                    </h3>
+                </details>
+    
+                <hr>
+                <h2>
+                    2. Processes and Threads *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+
+                    <h3>
+                        <a href="Processes.html">
+                            Processes
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="Threads.html">
+                            Threads
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="InterprocessComm.html">
+                            Interprocess Communication
+                        </a>
+                    </h3>
+ 
+                    <h3>
+                        <a href="Scheduling.html">
+                            Scheduling    
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="IPCProblems.html">
+                            Classic IPC Problems 
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="ProcThreadResearch.html">
+                        Research on Processes and Threads 
+                        </a>
+                    </h3>
+                </details>
+    
+                <hr>
+                <h2>
+                    3. Memory Management *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+
+    
+                    <h3>
+                        <a href="NoMemoryAbstract.html">
+                            No Memory Abstraction
+                        </a>
+                    </h3>
+
+                    <h3>
+                        <a href="AddressSpaces.html">
+                            Address Spaces
+                        </a>
+                    </h3>
+        
+                    <h3>
+                        <a href="VirtualMemory.html">
+                            Virtual Memory
+                        </a>
+                    </h3>
+        
+                    <h3>
+                        <a href="PageReplace.html">
+                            Page Replacement Algorithms
+                        </a>
+                    </h3>
+        
+                    <h3>
+                        <a href="PagingDesign.html">
+                            Design Issues for Paging Systems
+                        </a>
+                        <br>
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+        
+                    <h3>
+                        <a href="PagingImpl.html">
+                            Implementation Issues
+                        </a>
+                        <br>
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+        
+                    <h3>
+                        <a href="Segmentation.html">
+                            Segmentation
+                        </a>
+                    </h3>
+                </details>
+
+                <hr>
+                <h2>
+                    4. File Systems *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+
+    
+                    <h3>
+                        <a href="Files.html">
+                            Files
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="Directories.html">
+                            Directories 
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="FileImplementation.html">
+                            File-System Implementation 
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="FileManagement.html">
+                            File-System Management and Optimization
+                        </a>
+                    </h3>
+    
+                    <h3>
+                        <a href="FileExamples.html">
+                            Example File Systems 
+                        </a>
+                        <br>
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                </details>
+    
+                <hr>
+                <h2>
+                    5. Input/Output *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+
+                    <h3>
+                        <a href="IOHardware.html">
+                             Principles of I/O Hardware
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="IOSoftware.html">
+                             Principles of I/O Software
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="IOSoftwareLayers.html">
+                             I/O Software Layers
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Disks.html">
+                             Disks
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Clocks.html">
+                             Clocks
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="UserInterfaces.html">
+                             User Interfaces: Keyboard
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="ThinClients.html">
+                             Thin Clients
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="PowerManagement.html">
+                             Power Management
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                </details>
+
+                <hr>
+                <h2>
+                    6. Deadlocks
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="Resource.html">
+                             Resources
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DeadlockIntro.html">
+                             Introduction to Deadlocks
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Ostrich.html">
+                             The Ostrich Algorithm
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DeadlockDetection.html">
+                             Deadlock Detection and Recovery 
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DeadlockAvoidance.html">
+                             Deadlock Avoidance 
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DeadlockPrevention.html">
+                             Deadlock Prevention 
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DeadlockIssues.html">
+                             Other Issues
+                        </a>
+                    </h3>
+    
+                </details>
+
+    
+                <hr>
+                <h2>
+                    7. Virtualization and the Cloud *
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="VirtualHistory.html">
+                             History 
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="VirtualRequire.html">
+                             Requirements for Virtualization
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Hypervisors.html">
+                             Type I and Type II Hypervisors
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="EfficientVirtual.html">
+                             Techniques for Efficient Virtualization
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="HypervisorsMicroKernels.html">
+                             Are Hypervisors Microkernels Done Right?
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="MemoryVirtualization.html">
+                             Memory Virtualization
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="VirtualIO.html">
+                             I/O Virtualization
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="VirtualAppliances.html">
+                             Virtual Appliances
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="VirtualMachines.html">
+                             Virtual Machines on Multicore CPUs
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LicensingIssues.html">
+                             Licensing Issues
+                        </a>
+                        <br />
+                        <b>Not covered Spring 2017!</b>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Clouds.html">
+                             Clouds
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="VMWare.html">
+                             Case Study: VMWare
+                        </a>
+                    </h3>
+    
+                </details>
+
+    
+                <hr>
+                <h2>
+                    8. Multiple Processor Systems
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="Multiprocessors.html">
+                             Multiprocessors
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Multicomputers.html">
+                             Multicomputers
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DistributedSystems.html">
+                             Distributed Systems
+                        </a>
+                    </h3>
+    
+                </details>
+
+    
+                <hr>
+                <h2>
+                    9. Security
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="SecurityEnv.html">
+                             The Security Environment
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="OSSecurity.html">
+                             Operating Systems Security
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="ControllingAccess.html">
+                             Controlling Access to Resources
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="FormalSecure.html">
+                             Formal Models of Secure Systems
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Cryptography.html">
+                             Basics of Cryptography
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Authentication.html">
+                             Authentication
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Exploiting.html">
+                             Exploiting Software
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="InsiderAttacks.html">
+                             Insider Attacks
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Malware.html">
+                             Malware
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Defenses.html">
+                             Defenses
+                        </a>
+                    </h3>
+                        
+                </details>
+                    
+ 
+                <hr>
+                <h2>
+                    10. Case Study I: UNIX, Linux, and Android    
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="UnixHistory.html">
+                             History of UNIX and Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxOverview.html">
+                             Overview of Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxProcesses.html">
+                             Processes in Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxMemManage.html">
+                             Memory Management in Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxIO.html">
+                             Input/Output in Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxFileSys.html">
+                             The Linux File System
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="LinuxSecurity.html">
+                             Security in Linux
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="Android.html">
+                             Android
+                        </a>
+                    </h3>
+    
+                </details>
+
+ 
+                <hr>
+                <h2>
+                    11. Case Study II: Windows 8
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="WindowsHistory.html">
+                             History of Windows Through 8.1
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="ProgrammingWindows.html">
+                             Programming Windows 
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsStructure.html">
+                             System Structure
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsProcesses.html">
+                             Processes and Threads in Windows
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsMemManage.html">
+                             Memory Management
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsCaching.html">
+                             Caching in Windows
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsIO.html">
+                             Input/Output in Windows
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsNTFile.html">
+                             The Windows NT File System
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsPower.html">
+                             Windows Power Management
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="WindowsSecurity.html">
+                             Security in Windows 8
+                        </a>
+                    </h3>
+    
+                </details>
+
+ 
+                <hr>
+                <h2>
+                    12. Operating System Design
+                </h2>
+
+                <details>
+                    <summary>Chapter details</summary>
+                    <h3>
+                        <a href="DesignNature.html">
+                             The Nature of the Design Problem
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DesignInterface.html">
+                             Interface Design
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DesignImplementation.html">
+                             Implementation
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DesignPerformance.html">
+                             Performance
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DesignProjManagement.html">
+                             Project Management
+                        </a>
+                    </h3>
+                        
+                    <h3>
+                        <a href="DesignTrends.html">
+                             Trends in Operating System Design
+                        </a>
+                    </h3>
+    
+                </details>
+
+                <hr>
+            </div>
+
+            <div id="homework">
+                <h3>
+                    Assignments
+                </h3>
+                <ol>
+                    <li>
+                        <a href="Chap1HW.html">
+                            Assignment 1: due 1/31/17
+                        </a>
+                    </li>
+                    <li>
+                        <a href="xv6HW.html">
+                            Assignment 2: due 2/15/17
+                        </a>
+                    </li>
+                    <li>
+                        <a href="PetersonHW.html">
+                            Assignment 3: due 2/22/17
+                        </a>
+                    </li>
+                </ol>
+
+            <div id="other">
+                <h3>
+                    Other Material
+                </h3>
+                <ul>
+                    <li>
+                        <a href="MidTermKey.html">
+                             Mid-Term with answers
+                        </a>
+                    </li>
+                    <li><a href="CS6233Spring2017Syllabus.pdf">
+                            Spring 2017 Syllabus
+                        </a>
+
+                    <li><a href="QuickShellGuide.html">
+                            Quick Guide to UNIX Shell Commands
+                        </a>
+
+                    <li><a
+                            href="https://www.tutorialspoint.com/cprogramming/c_quick_guide.htm">
+                            C Language Quick Guide
+                        </a>
+
+                    <li><a
+                        href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">
+                            Guide to x86 assembly langauge programming
+                        </a>
+                </ul>
+            </div>
+    </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="style.css" rel="stylesheet" type="text/css"/>
+        <title>
+            Segmentation
+        </title>
+    </head>
+
+    <body>
+<!--include menu.txt -->
+        <h1>
+            Segmentation
+        </h1>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Card_reader_segfault.jpg/220px-Card_reader_segfault.jpg">
+                </p>
+            </div>
+
+            <h2>
+                Overview
+            </h2>
+                <ul>
+                    <li>
+                        The Virtual memory discussed so far consisted of virtual
+                        addresses going from 0 to some maximum address, i.e there was a
+                        single consolidated address space.
+                    </li>
+                    <li>
+                        For many problems, having more than one address spaces
+                        is a much better solution. Consider an example where the compiler
+                        procedure call stack grows and shrinks with time but has been
+                        allocated contiguous virtual memory addresses.
+                    </li>
+                    <li>
+                        We need for the program to be free of worries involving the
+                        contraction and shrinking of 
+                        tables storing variables in a way which
+                        is similar to how virtual memory handles the problem by dividing
+                        it into overlays.
+                    </li>
+                    <li>
+                        A general solution for this is to divide the virtual memory space
+                        into completely independent address 
+                        spaces called <b>segments.</b>
+                        Every segment consists of a linear address space starting from 0
+                        to some maximum. <br>
+                        The maximum may vary for each segment 
+                        as segments may have variable lengths.
+                    </li>
+                    <li>
+                        Because each segment constitutes a different address space,
+                        the segment may grow or shrink independently 
+                        without affecting each other.
+                    </li>
+                </ul>
+                <br><br>
+
+            <div style="text-align:center">
+                <p>
+                <img
+                src="graphics/segmentation.gif">
+                </p>
+            </div>
+
+            <h2>
+                Pure Segmentation
+            </h2>
+            <ul>
+                <li>
+                    Segmentation differs from paging in a very essential way.
+                    Page sizes are fixed and are allocated frames which are also of the
+                    same fixed sized.
+                    On the other hand, the basic premise of segmentation says
+                    that segment sizes are variable.
+                </li>
+                <li>
+                    Every process is divided into a number of chunks
+                    where each chunk is called a <b>segment</b>
+                </li>
+                <li>
+                    Each process is loaded by bringing 
+                    all of its segments into main memory.
+                    Every segment of the process is loaded 
+                    into main memory by creating partitions
+                    dynamically matching the size of each segment.
+                    This creates an exact fit for every segment.
+                </li>
+                <li>
+                    Segmentation is free of internal fragmentation.
+                </li>
+                <li>
+                    Suffers from external fragmentation.
+                </li>
+                <li>
+                    Every program/process may occupy more than one
+                    non-contiguous segment, similar to dynamic partitioning.
+                </li>
+                <li>
+                    Consider a case where if a larger segment is evicted and a
+                    segment which is smaller is put in its place.
+                </li>
+                <li>
+                    As the new segment is smaller it leaves an area in the segment
+                    which remains unused. This is called external fragmentation.
+                </li>
+                <li>
+                    The 'holes' created by external fragmentation are dealt with
+                    by implementing a process called 'compaction'.
+                    This is a costly process with a large 
+                    overhead and hence must not be called very often.
+                </li>
+            </ul>
+
+        <h2>
+            Segmentation with paging
+        </h2>
+
+            <ul>
+                <li>
+                    This is a combination of segmentation and paging which
+                    tries to take advantage of the befits of both 
+                    segmentation and paging.
+                </li>
+                <li>
+                    User's address space is divided into segments.
+                </li>
+                <li>
+                    Each segment is further divided into equal sized pages
+                    where every page is the same size as a memory frame.
+                </li>
+                <li>
+                    Logical address space contains the following:
+                    <ul>
+                        <li>
+                            Segment number: used to index segment table who's
+                            entry gives starting address of page number.
+                        </li>
+                        <li>
+                            Page number: used to index page table.
+                        </li>
+                        <li>
+                            offset: used to indicate offset within frame.
+                        </li>
+                    </ul>
+                </li>
+                <li> Advantages of Segmentation with paging
+                    <ul>
+                        <li>
+                            Reduces memory as opposed to paging.
+                        </li>
+                        <li>
+                            Most advantages of paging are retained
+                            while gaining segmentation advantages.
+                        </li>
+                        <li>
+                            Efficiency of pagin is combined with protection
+                            and sharing capabilities of segmentation
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+<!--include quizzes/quiz3.7.qhtm -->            
+
+            <h2>
+                External Links
+            </h2>
+                <ul>
+                    <li>
+                        <a
+                            href="https://en.wikipedia.org/wiki/Segmentation_fault">
+                        Segmentation Faults
+                        </a>
+                </ul>
+
+            <h2>
+                Credits
+            </h2>
+                <ul>
+                       <li> Based on notes by Professor Daniel Katz
+                           (professor at NYU Tandon School of Engineering).
+                    </li>
+                </ul>
+            
+
+    </body>
+</html>
