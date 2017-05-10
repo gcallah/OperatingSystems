@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link href="style.css" rel="stylesheet" type="text/css"/>
@@ -7,6 +8,20 @@
     </head>
 
     <body>
+    <div id="header">
+        <div id="logo">
+            <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/IBM_PPC604e_200.jpg/220px-IBM_PPC604e_200.jpg"
+            height="56" width="56"
+            max-height=100%>
+        </div>
+        <div id="user-tools">
+            <a href="index.html">Home</a>
+            &nbsp; &nbsp; 
+            <a href="about.html">About</a>
+        </div>
+    </div>
+
         <h1>
              Principles of I/O Software
         </h1>
@@ -28,7 +43,7 @@
             		<li>
             			A key concept in the design of I/O software 
                         is known as <b>device independence</b>.
-                It means that I/O devices should be accessable 
+                It means that I/O devices should be accessible to
                 programs without specifying the device in advance.
             		</li>
             		<li>
@@ -208,7 +223,7 @@
             </p>
 
             <h3>
-            	Intrrupt I/O Inputs
+            	Interrupt I/O Inputs
             </h3>
             <p>
             	For input, the device interrupts the CPU when 
@@ -219,7 +234,7 @@
             </p>
 
             <h3>
-            	Intrrupt I/O Outputs
+            	Interrupt I/O Outputs
             </h3>
             <p>
             	For output, the device delivers an interrupt either 
@@ -229,7 +244,7 @@
                 interrupts to tell the system they are done with the buffer.
             </p>
             <h3>
-            	Operations in Intrrupt I/O
+            	Operations in Interrupt I/O
             </h3>
             <ul>
             	<li>CPU issues read command.</li>
@@ -247,7 +262,7 @@
             </div>
 
             <h3>
-            	Advantages of Intrrupt I/O
+            	Advantages of Interrupt-Driven I/O
             </h3>  
             <ul>
             	<li>Its faster than Programmed I/O.</li>
@@ -255,10 +270,9 @@
             </ul>
 
             <h3>
-            	Disadvantages of Interrupt I/O
+            	Disadvantages of Interrupt-Driven I/O
             </h3>
             <ul>
-            	<li></li>
             	<li>It can be tricky to write if using a low level language.</li>
             	<li>It can be tough to get various pieces to work well together.</li>
             </ul>
@@ -313,6 +327,106 @@
             	<li>Speed: no waiting due to much shorter 
                     execution path and no rotation delay.</li>
             </ul>
+
+    <details>
+        <summary class="sum1">
+            Quiz
+        </summary>
+        <ol>
+            <li>
+                Buffering is
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q1" value="new">
+                only important for input devices
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                only important for output devices
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                important for input and output devices
+                </li>
+                <li>
+                <input type="radio" name="q1" value="new">
+                only important for disk drives
+                </li>
+            </ol>
+            <li>
+                I/O errors should be handled
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q2" value="new">
+                at the highest level possible
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                at the lowest level possible
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                by a device driver
+                </li>
+                <li>
+                <input type="radio" name="q2" value="new">
+                by the user-level programs
+                </li>
+            </ol>
+            <li>
+                An advantage of a UNIX-type file system is that
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q3" value="new">
+                it consists of highly structured records
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                files can be quickly searched due to their tree structure
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                the OS knows the distinct type of each file
+                </li>
+                <li>
+                <input type="radio" name="q3" value="new">
+                all disks can be mounted in a single tree and made available by filename
+                </li>
+            </ol>
+            <li>
+                In order to avoid continual process switching to handle I/O OSes will employ
+            </li>
+            <ol type="a">
+                <li>
+                <input type="radio" name="q4" value="new">
+                directory heirarchies
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                buffering
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                uniform interfacing
+                </li>
+                <li>
+                <input type="radio" name="q4" value="new">
+                all of the above
+                </li>
+            </ol>
+        </ol>
+        <details>
+            <summary class="sum2">
+                Answers
+            </summary>
+            <p>
+                1. c; 2. b; 3. d; 4. b; 
+            </p>
+        </details>
+    </details>
 
             <h2>
                 External Links
