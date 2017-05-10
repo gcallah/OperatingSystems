@@ -5,7 +5,7 @@ INCS = menu.txt
 	html_include.awk <$< >$@
 
 website: quizzes $(HTMLFILES) $(INCS)
-	cd quizzes ; make all
+	cd quizzes ; make quiz
 	-git commit -a -m "HTML rebuild."
 	git push origin master
 

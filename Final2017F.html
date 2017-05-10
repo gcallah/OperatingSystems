@@ -1,0 +1,1571 @@
+<html>
+    <head>
+        <link href="MTStyle.css" rel="stylesheet" type="text/css"/>
+        <title>
+            Final
+        </title>
+    </head>
+
+    <body>
+        <h2>
+            NYU Operating System Final, Spring 2017
+        </h2>
+
+        <p>
+        <br>
+        Name: ____________________________________________________
+        <br>
+        <br>
+        NYU Net ID: ______________________________________________
+        <br>
+        </p>
+
+        <ol>
+
+        <li>
+                Buffering is
+                <ol type="a">
+                        <li>
+                        only important for input devices
+                        </li>
+                        <li>
+                        only important for output devices
+                        </li>
+                        <li>
+                        important for input and output devices
+                        </li>
+                        <li>
+                        only important for disk drives
+                        </li>
+                </ol>
+        </li>
+        <li>
+                I/O errors should be handled
+                <ol type="a">
+                        <li>
+                        at the highest level possible
+                        </li>
+                        <li>
+                        at the lowest level possible
+                        </li>
+                        <li>
+                        by a device driver
+                        </li>
+                        <li>
+                        by the user-level programs
+                        </li>
+                </ol>
+        </li>
+        <li>
+                An advantage of a UNIX-type file system is that
+                <ol type="a">
+                        <li>
+                        it consists of highly structured records
+                        </li>
+                        <li>
+                        files can be quickly searched due to their tree structure
+                        </li>
+                        <li>
+                        the OS knows the distinct type of each file
+                        </li>
+                        <li>
+                        all disks can be mounted in a single tree and 
+                        made available by filename
+                        </li>
+                </ol>
+        </li>
+        <li>
+                In order to avoid continual process switching to handle 
+                I/O OSes will employ:
+                <ol type="a">
+                        <li>
+                        directory heirarchies
+                        </li>
+                        <li>
+                        buffering
+                        </li>
+                        <li>
+                        uniform interfacing
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                The main problem with having two programs in memory 
+                without memory abstraction is
+                <ol type="a">
+                        <li>
+                        each program can overwrite the memory of the other
+                        </li>
+                        <li>
+                        it is difficult to determine the name of each program
+                        </li>
+                        <li>
+                        each program will have different ideas about 
+                        what the CPU should be doing
+                        </li>
+                        <li>
+                        none of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+            A good example of a device that must be dedicated to one process
+            until a whole task is completed is:
+            <ol type="a">
+                <li>
+                    a disk
+                </li>
+                <li>
+                    a memory stick
+                </li>
+                <li>
+                    a modem
+                </li>
+                <li>
+                    a printer
+                </li>
+
+            </ol>
+        </li>
+        <li>
+            By completely swapping programs in and out of memory we can have:
+            <ol type="a">
+                    <li>
+                    multiprogramming without memory abstraction
+                    </li>
+                    <li>
+                    good virtualization technology
+                    </li>
+                    <li>
+                    an efficient paging algorithm
+                    </li>
+                    <li>
+                    all of the above
+                    </li>
+            </ol>
+        </li>
+        <li>
+            If we have special hardware to divide memory between different
+            programs:
+            <ol type="a">
+                    <li>
+                    device I/O is greatly simplified
+                    </li>
+                    <li>
+                    hypervisors are possible
+                    </li>
+                    <li>
+                    even without swapping or memory abstraction we can
+                    multiprogram
+                    </li>
+                    <li>
+                    all of the above
+                    </li>
+            </ol>
+        </li>
+            <li>Round-robin scheduling:
+            <ol type="a">
+                <li>gives each process a turn on the CPU in order </li>
+                <li>schedules jobs by priority</li>
+                <li>does batch processing</li>
+                <li>takes the shortest job first</li>
+            </ol>
+            </li>
+
+            <li>If one process is outputting stock quotes and another is
+            doing calculations with those quotes, we have a:
+            <ol type="a">
+                <li>race condition</li>
+                <li>producer-consumer situation </li>
+                <li>priority queue</li>
+                <li>semaphore</li>
+            </ol>
+            </li>
+
+            <li>A process without its own pool of resources:
+            <ol type="a">
+                <li>has no purpose</li>
+                <li>is called an orphan process</li>
+                <li>is called a demon</li>
+                <li>is called a thread </li>
+            </ol>
+            </li>
+
+            <li>In a batch system, we can often increase
+                throughput by scheduling:
+            <ol type="a">
+                <li>the longest jobs first</li>
+                <li>the shortest jobs first </li>
+                <li>the highest priority jobs first</li>
+                <li>the most interactive jobs first</li>
+            </ol>
+            </li>
+
+        <li>
+                An executing process, in a system with virtual
+                memory, sees a:
+                <ol type="a">
+                        <li>
+                        physical address
+                        </li>
+                        <li>
+                        logical memory address
+                        </li>
+                        <li>
+                        disk address
+                        </li>
+                        <li>
+                        none of the above
+                        </li>
+                </ol>
+        </li>
+
+            <li>
+                A long job may wait forever to get scheduled under:
+            <ol type="a">
+                <li>shortest-job-first scheduling </li>
+                <li>round-robin scheduling</li>
+                <li>lottery scheduling</li>
+                <li>guaranteed scheduling</li>
+            </ol>
+            </li>
+
+            <li>A nice feature that would nonetheless make a language unsuitable for
+                writing an OS is:
+            <ol type="a">
+                <li>many compiler optimizations</li>
+                <li>recursive function calls</li>
+                <li>object-orientation</li>
+                <li>garbage-collection </li>
+            </ol>
+            </li>
+
+            <li>We might want to separate scheduling policy from the scheduling
+                mechanism when
+            <ol type="a">
+                <li>we want the OS to set scheduling policy.</li>
+                <li>the scheduling mechanism is too hard to get right.</li>
+                <li>the scheduling policy is illegal.</li>
+                <li>a parent process has information about its child processes</li>
+                    that the OS doesn't have.
+            </ol>
+            </li>
+
+        <li>
+            The virtual memory is
+            <ol type="a">
+                    <li>
+                    larger than main memory
+                    </li>
+                    <li>
+                    smaller than main memory
+                    </li>
+                    <li>
+                    larger than both disk and main memory
+                    </li>
+                    <li>
+                    one can't really say anything about their relative sizes
+                    </li>
+            </ol>
+        </li>
+        <li>
+            The process which runs immediately after a page fault occurs is
+            <ol type="a">
+                    <li>
+                    the interrupted process 
+                    </li>
+                    <li>
+                    the operating system
+                    </li>
+                    <li>
+                    the next process in the queue
+                    </li>
+                    <li>
+                    the highest priority user process
+                    </li>
+            </ol>
+        </li>
+ 
+            <li> One reason C used in this course instead of other programming
+                languages is?
+            	<ol type=”a”>
+            		<li>because it is a high-level language</li>
+            		<li>tradition</li>
+            		<li>because it has direct access to every machine language
+                    instruction</li>
+            		<li>because it is a fairly low-level language </li>
+            	</ol>
+            
+            
+            <li> If the processes appear to run simultaneously
+                but are really sharing just one CPU then such a scenario is called?
+            	<ol type=”a”>
+            		<li>pseudo-parallelism </li>
+            		<li>simultaneous-parallelism</li>
+            		<li>false-parallelism </li>
+            		<li>real-parallelism</li>
+            	</ol>
+            
+            <li>Cron is a UNIX program for:
+            	<ol type="a">
+            		<li>listing files</li>
+            		<li>listing running processes</li>
+            		<li>running batch jobs </li>
+            		<li>finding text in a file</li>
+            	</ol>
+            </li>
+
+        <li>
+            The optimal page replacement algorithm would:
+            <ol type="a">
+                <li>
+                swap out the page that will not be used for the longest
+                future time
+                </li>
+                <li>
+                swap out the least recently used page
+                </li>
+                <li>
+                swap out the most recently used page
+                </li>
+                <li>
+                be the clock algorithm
+                </li>
+            </ol>
+        </li>
+
+        <li>
+            The clock algorithm outperforms FIFO algorithm in cases where:
+            <ol type="a">
+                    <li>
+                    all pages are equally likely to be referenced
+                    </li>
+                    <li>
+                    certain pages are referenced more often than the others
+                    </li>
+                    <li>
+                    some pages are shared
+                    </li>
+                    <li>
+                    none of the above
+                    </li>
+            </ol>
+        </li>
+        <li>
+            We can find the page having the longest time to replace by using
+            <ol type="a">
+                    <li>
+                    the optimal algorithm
+                    </li>
+                    <li>
+                    the working set strategy algorithm
+                    </li>
+                    <li>
+                    It is not possible to find the time to replacement for a page
+                    </li>
+                    <li>
+                    clock algorithm
+                    </li>
+            </ol>
+        </li>
+
+        <li>
+            When a program tries to access one of its pages that is not in
+            memory:
+            <ol type="a">
+                <li>the program crashes</li>
+                <li>a fatal error occurs</li>
+                <li>another program gets the CPU</li>
+                <li>a page fault occurs </li>
+            </ol>
+            </li>
+            
+            <li>
+                When process is all set to run but does not have the CPU it is
+                in the:
+            <ol type="a">
+                <li>blocked state</li>
+                <li>ready state </li>
+                <li>terminal state</li>
+                <li>none of the above</li>
+            </ol>
+            </li>
+            
+        <li>
+                In Segmentation with paging
+                <ol type="a">
+                        <li>
+                        Segments are further divided into equal sized pages
+                        </li>
+                        <li>
+                        Pages are further divided into equal sized segments
+                        </li>
+                        <li>
+                        Both
+                        </li>
+                        <li>
+                        None
+                        </li>
+                </ol>
+        </li>
+            <li>
+                The free list keeps track of:
+            <ol type="a">
+                <li>
+                    processes in a blocked state
+                </li>
+                <li>
+                    processes not yet scheduled
+                </li>
+                <li>
+                    pages in memory not allocated
+                </li>
+                <li>
+                    unused portions of a disk
+                </li>
+            </ol>
+            
+            <li>When a computer starts up, the first thing read from disk is:
+            <ol type="a">
+                <li>
+                    the master boot record
+                </li>
+                <li>
+                    the inodes
+                </li>
+                <li>
+                    the superblock
+                </li>
+                <li>
+                    the kernel
+                </li>
+            </ol>
+            </li>
+
+            <li>The file system becoming fragmented means
+                <ol type="a">
+                    <li>
+                    one file will be scattered all over the disk
+                    </li>
+                    <li>
+                    the hard disk is falling apart
+                    </li>
+                    <li>
+                    inodes can't hold the full file
+                    </li>
+                    <li>
+                    none of the above
+                    </li>
+                </ol>
+            </li>
+            
+        <li>
+                A key attribute of an ideal virtual machine would be
+                <ol type="a">
+                        <li>
+                        it runs as fast as the real machine
+                        </li>
+                        <li>
+                        it runs just like the real machine
+                        </li>
+                        <li>
+                        it is completely isolated from other VMs
+                        </li>
+                        <li>
+                        all of the above.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Live migrating a VM between physical devices requires coordination of
+                <ol type="a">
+                        <li>
+                        the file system and the stack pointer
+                        </li>
+                        <li>
+                        the CPU scheduler the memory manager and the network stack
+                        </li>
+                        <li>
+                        the RAID array
+                        </li>
+                        <li>
+                        the number of applications running on each VM.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A motivation for VMware was
+                <ol type="a">
+                        <li>
+                        the desire to copy IBM
+                        </li>
+                        <li>
+                        the need for a research grant
+                        </li>
+                        <li>
+                        the fact that no one had ever created a VM before
+                        </li>
+                        <li>
+                        the difficulty in innovating in complex modern operatings systems.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                One factor making VMs easier to implement on mainframes than on PCs was
+                <ol type="a">
+                        <li>
+                        vertical integration in the mainframe world
+                        </li>
+                        <li>
+                        Microsoft's opposition to virtualization
+                        </li>
+                        <li>
+                        the complexity of mainframe design
+                        </li>
+                        <li>
+                        the lack of UNIX versions on PCs
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Another factor making virtualization difficult on the WinTel platform was
+                <ol type="a">
+                        <li>
+                        the overly simple chip architecture
+                        </li>
+                        <li>
+                        the amazing diversity of peripherals
+                        </li>
+                        <li>
+                        the competition from IBM
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A virtualization approach called "trap-and-emulate" involves
+                <ol type="a">
+                        <li>
+                        a switch to the hypervisor when certain instructions are executed by the VM
+                        </li>
+                        <li>
+                        faking the guest into "thinking" is has really executed certain instructions
+                        </li>
+                        <li>
+                        allowing most instructions to run directly on the hardware
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                VMware must use binary translation to handle
+                <ol type="a">
+                        <li>
+                        graphics programs
+                        </li>
+                        <li>
+                        playing video
+                        </li>
+                        <li>
+                        executing privileged instructions
+                        </li>
+                        <li>
+                        floating point mathematics
+                        </li>
+                </ol>
+        </li>
+        <li>
+                VMware manages to interact with the host OS by
+                <ol type="a">
+                        <li>
+                        creating a kernel-mode device driver
+                        </li>
+                        <li>
+                        relying on a re-written version of the host OS
+                        </li>
+                        <li>
+                        using binary translation
+                        </li>
+                        <li>
+                        using direct execution
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Ballooning consists in
+                <ol type="a">
+                        <li>
+                        pumping up each virtual machine 
+                        to believe it is in charge of the hardware
+                        </li>
+                        <li>
+                        creating a process inside a virtual 
+                        machine that can reclaim 
+                        memory for the hypervisor
+                        </li>
+                        <li>
+                        giving guest OSes the impression 
+                        that the hard disk is
+                        bigger than it really is
+                        </li>
+                        <li>
+                        all of the above        
+                        </li>
+                </ol>
+        </li>
+        <li>
+                On an x86 machine privileged instructions
+                <ol type="a">
+                        <li>
+                        make the user who runs them the superuser
+                        </li>
+                        <li>
+                        are ignored by virtual machines
+                        </li>
+                        <li>
+                        can only be used by the rich
+                        </li>
+                        <li>
+                        can only be executed in kernel mode
+                        </li>
+                </ol>
+        </li>
+            <li>Which type of memory provides the fastest access?
+                <ol type="a">
+                    <li>L1 cache</li>
+                    <li>hardware registers </li>
+                    <li>magnetic tape</li>
+                    <li>main memory</li>
+                </ol>
+            </li>
+            
+        <li>
+                Hypervisors should be
+                <ol type="a">
+                        <li>
+                        running as much code as possible directly on the hardware
+                        </li>
+                        <li>
+                        in control of the virtual resources
+                        </li>
+                        <li>
+                        faithful to the imitated machine
+                        </li>
+                        <li>
+                        all of the above.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                An interpreter implementing a virtual machine is going to fall short in
+                <ol type="a">
+                        <li>
+                        performance
+                        </li>
+                        <li>
+                        fidelity
+                        </li>
+                        <li>
+                        safety
+                        </li>
+                        <li>
+                        all of the above.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Sensitive instructions
+                <ol type="a">
+                        <li>
+                        cause a trap
+                        </li>
+                        <li>
+                        cause a segmentation error
+                        </li>
+                        <li>
+                        behave differently if executed in kernel versus user mode
+                        </li>
+                        <li>
+                        should never be called.
+                        </li>
+                </ol>
+        </li>
+            <li>The I/O method where a process continuously polls 
+				a device to check for I/O completion is called?
+                <ol type="a">
+                    <li>direct memory access</li>
+                    <li>busy waiting </li>
+                    <li>interrupt-driven programming</li>
+                    <li>none of the above</li>
+                </ol>
+            </li>
+
+        <li>
+                The operating system running on top of either a type 1 or type 2 hypervisor is called
+                <ol type="a">
+                        <li>
+                        tourist operating system
+                        </li>
+                        <li>
+                        guest operating system
+                        </li>
+                        <li>
+                        migrant operating system
+                        </li>
+                        <li>
+                        Windows
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A type 1 hypervisor
+                <ol type="a">
+                        <li>
+                        is like an OS
+                        </li>
+                        <li>
+                        runs on a host OS
+                        </li>
+                        <li>
+                        cannot be used to run Windows
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Type 2 hypervisors are also called
+                <ol type="a">
+                        <li>
+                        bare metal hypervisors
+                        </li>
+                        <li>
+                        hosted hypervisors
+                        </li>
+                        <li>
+                        binary hypervisors
+                        </li>
+                        <li>
+                        real hypervisors
+                        </li>
+                </ol>
+        </li>
+            <li>Which of the following items are kept "per thread" in a thread
+                based system?
+            <ol type="a">
+                <li>accounting information and address space</li>
+                <li>child processes and signal handlers</li>
+                <li>address space, pending alarms, and global variables</li>
+                <li>program counter, registers, and stack </li>
+            </ol>
+            </li>
+            
+        <li>
+                What is a basic block of assembler?
+                <ol type="a">
+                        <li>
+                        the most fundamental instructions on any machine
+                        </li>
+                        <li>
+                        the boot block on the disk
+                        </li>
+                        <li>
+                        a short straight-line sequence of instructions
+                        </li>
+                        <li>
+                        a group of assembly language code re-written in BASIC
+                        </li>
+                </ol>
+        </li>
+        <li>
+                The guest OS runs
+                <ol type="a">
+                        <li>
+                        in virtual kernel mode
+                        </li>
+                        <li>
+                        in kernel mode
+                        </li>
+                        <li>
+                        as an ordinary application
+                        </li>
+                        <li>
+                        very very slowly
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Without VT one thing hypervisors did was to rely on
+                <ol type="a">
+                        <li>
+                        automatic trapping of sensitive instructions
+                        </li>
+                        <li>
+                        the native x86 virtualization technology
+                        </li>
+                        <li>
+                        protection rings
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                When virtualizing without VT support sensitive instructions in basic blocks are replaced by
+                <ol type="a">
+                        <li>
+                        calls to the hypervisor
+                        </li>
+                        <li>
+                        interrupts
+                        </li>
+                        <li>
+                        page faults
+                        </li>
+                        <li>
+                        segementation errors.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                When a type 2 hypervisor needs to pass control to the host OS to handle a hardware interrupt it executes
+                <ol type="a">
+                        <li>
+                        a trap
+                        </li>
+                        <li>
+                        a hypercall
+                        </li>
+                        <li>
+                        a prisoner
+                        </li>
+                        <li>
+                        a world switch.
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Virtualization relying on VT hardware
+                <ol type="a">
+                        <li>
+                        always beats translation
+                        </li>
+                        <li>
+                        never beats translation
+                        </li>
+                        <li>
+                        sometimes beats translation
+                        </li>
+                        <li>
+                        no one knows.
+                        </li>
+                </ol>
+        </li>
+            <li>
+            When a character is typed at the keyboard, one way for it to let
+            the OS know is:
+            <ol type="a">
+                <li>
+                    an interrupt
+                </li>
+                <li>
+                    a system call
+                </li>
+                <li>
+                    a context switch
+                </li>
+                <li>
+                    a kernel entry point
+                </li>
+            </ol>
+            </li>
+
+            <li>All varieties of process creation ultimately come down to:
+            <ol type="a">
+                <li>a hardware interrupt.</li>
+                <li>a user mouse click on an icon.</li>
+                <li>a semaphore being bypassed.</li>
+                <li>a running process executing a process-creation system call.
+                </li>
+            </ol>
+
+        <li>
+                A hypercall is
+                <ol type="a">
+                        <li>
+                        a replacement for a sensitive instruction
+                        </li>
+                        <li>
+                        a call that jumps far in memory
+                        </li>
+                        <li>
+                        a call that won't settle down
+                        </li>
+                        <li>
+                        a new element in HTML5
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Hypercalls are the hypervisor equivalent of
+                <ol type="a">
+                        <li>
+                        system calls
+                        </li>
+                        <li>
+                        class methods
+                        </li>
+                        <li>
+                        recursive calls
+                        </li>
+                        <li>
+                        long distance calls
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A disadvantage of paravirtualization is
+                <ol type="a">
+                        <li>
+                        the need to emulate elaborate hardware instructions
+                        </li>
+                        <li>
+                        the fact that Intel processors do not support it
+                        </li>
+                        <li>
+                        the fact that we need a special version of the guest OS
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+            <li>System calls for process management might include:
+            <ol type="a">
+                <li>fork(), exec() and kill() </li>
+                <li>wait(), malloc() and load()</li>
+                <li>open(), close(), and write()</li>
+                <li>kill(), time(), and chmod()</li>
+            </ol>
+
+        <li>
+                For each virtual machine a hypervisor needs to create
+                <ol type="a">
+                        <li>
+                        lottery scheduling
+                        </li>
+                        <li>
+                        clock driven interrupts
+                        </li>
+                        <li>
+                        hypervisor-induced page faults
+                        </li>
+                        <li>
+                        a shadow page table
+                        </li>
+                </ol>
+        </li>
+
+        <li>
+        What is wrong with the following C code?
+        <pre>
+        <code>
+        char* s;
+        strcpy(s, "Hello world!");
+        printf("%s", s);
+        </code>
+        </pre>
+            <ol type="a">
+                <li>
+                    s cannot hold a string
+                </li>
+                <li>
+                    you can't strcpy into a char pointer
+                </li>
+                <li>
+                    you can't print a value like that
+                </li>
+                <li>
+                    the strcpy will overwrite some random area of memory
+                </li>
+            </ol>
+        </li>
+
+        <li>
+                The problem with shadow page tables is
+                <ol type="a">
+                        <li>
+                        they create lots of page faults
+                        </li>
+                        <li>
+                        the hypervisor itself doesn't know where pages really are in memory
+                        </li>
+                        <li>
+                        they suck up too much RAM
+                        </li>
+                        <li>
+                        they are illegal on Intel CPUs
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A hypervisor-induced page fault occurs when
+                <ol type="a">
+                        <li>
+                        a page has been swapped to disk
+                        </li>
+                        <li>
+                        the shadow page table must be updated
+                        </li>
+                        <li>
+                        the hypervisor tries to access a page not in memory
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+
+		<li>
+		Consider the following pseudo-code:
+        <br />
+        <pre>
+        <code>
+        NUM_TASKS = 12
+        func sched_algorithm begin
+            while (victim page not found)
+                if(used bit for current page = 0) then
+                    replace current page
+                 else
+                     reset used bit
+                 end if
+                 advance this_algorithms_pointer mod NUM_TASKS
+            end while
+        end sched_algorithm
+        </code>
+        </pre>
+        This is an example of a:
+            <ol type="a">
+                <li>
+                    second-chance page replacement algorithm
+                </li>
+                <li>
+                    FIFO page replacement algorithm
+                </li>
+                <li>
+                    least-recently used page replacement algorithm
+                </li>
+                <li>
+                    clock page replacement algorithm
+                </li>
+            </ol>
+		</li>
+
+        <li>
+                A VM exit is when
+                <ol type="a">
+                        <li>
+                        the virtual machine crashes
+                        </li>
+                        <li>
+                        the hypervisor crashes
+                        </li>
+                        <li>
+                        the virtual machine is done working
+                        </li>
+                        <li>
+                        control returns to the hypervisor
+                        </li>
+                </ol>
+        </li>
+        <li>
+                Deduplication is when
+                <ol type="a">
+                        <li>
+                        some resources (like the Linux kernel) are shared between VMs
+                        </li>
+                        <li>
+                        duplicate files are removed from a disk drive
+                        </li>
+                        <li>
+                        duplicate pages are removed from a VMs memory
+                        </li>
+                        <li>
+                        duplicate VMs are removed from a hypervisor
+                        </li>
+                </ol>
+        </li>
+
+            <li>Sensor-node operating systems handle things like:
+            <ol type="a">
+                <li>motion detection</li>
+                <li>smoke detection</li>
+                <li>recording temperature changes</li>
+                <li>all of the above </li>
+            </ol>
+        </li>
+
+            <li>An advantage of implementing threads in the kernel is</li>
+            <ol type="a">
+                <li>no special system calls are needed to avoid blocking.</li>
+                <li>no user-level threading system is needed.</li>
+                <li>clock pre-emption is available.</li>
+                <li>all of the above. </li>
+            </ol>
+        </li>
+
+            <li>What is wrong with the following C code?</li>
+                <pre>
+                <code>
+                #define N 40
+                char* s;
+                s = malloc(N);
+                int i;
+                for(i = 0; i < N; i++)
+                {
+                    s[i] = 'x';
+                }
+                printf("%s", s);
+                </code></pre>
+            <ol type="a">
+                <li>We can't assign a character to s[i].</li>
+                <li>The loop will never terminate.</li>
+                <li>The C string is not properly terminated.</li>
+                <li>We can't define N that way.</li>
+            </ol>
+        </li>
+
+        <li>In order to reduce the number of kernel bugs, one might employ:
+            <ol type="a">
+                <li>a monolithic OS</li>
+                <li>a microkernel-based OS </li>
+                <li>device drivers</li>
+                <li>virtual memory</li>
+            </ol>
+        </li>
+
+        <li>
+            A device pass through allows
+            <ol type="a">
+                    <li>
+                    a hacker to directly access a device by bypassing the hypervisor
+                    </li>
+                    <li>
+                    interrupt remapping
+                    </li>
+                    <li>
+                    a printer to pass through jobs to another printer
+                    </li>
+                    <li>
+                    a physical device to be assigned directly to a particular virtual machine
+                    </li>
+            </ol>
+        </li>
+        <li>
+            The seek() system call is used:
+            <ol type="a">
+                <li>
+                    to look for a particular record in a file
+                </li>
+                <li>
+                    to seek relief when thrashing has started to occur
+                </li>
+                <li>
+                    to seek the next process that should be scheduled
+                </li>
+                <li>
+                    to specify from what place in a random-access file to do
+                    the next read
+                </li>
+            </ol>
+        </li>
+        <li>
+            I/O virtualization can be used to
+            <ol type="a">
+                    <li>
+                    allow access to more memory than the real machine has
+                    </li>
+                    <li>
+                    trap sensitive instructions
+                    </li>
+                    <li>
+                    upgrade hardware without having to update the guest OSes
+                    </li>
+                    <li>
+                    all of the above
+                    </li>
+            </ol>
+        </li>
+
+        <li>
+            Consider the follwing assembly language code:
+            <pre>
+            <code>
+      mov eax, 12
+      mov ebx, 4
+
+; compare eax and ebx and loop until equal
+loop: cmp eax, ebx
+      jz done
+      inc ebx
+      dec edx
+      jnz loop
+
+done: mov ecx, ebx  ; when done, store ebx in ecx
+            </code>
+            </pre>
+			What value will be stored in register edx when this loop completes?
+            <ol type="a">
+                <li>
+                    12
+                </li>
+                <li>
+                    8
+                </li>
+                <li>
+                    -12
+                </li>
+                <li>
+                    -8
+                </li>
+            </ol>
+        </li>
+
+            <li>Virtual machines have been made more popular by the importance
+                of:
+            <ol type="a">
+                <li>web hosting</li>
+                <li>Java</li>
+                <li>cloud computing</li>
+                <li>all of the above </li>
+            </ol>
+
+            <li>Which one of the following describes the sequential file access method?
+                <ol type="a">
+                    <li>random access according to the given byte number</li>
+                    <li> read bytes one at a time, in order </li>
+                    <li>read/write sequentially by record</li>
+                    <li>read/write randomly by record</li>
+                </ol>
+            </li>
+            
+            <li>What type of files are generally used to 
+            model serial I/O devices?
+                <ol type="a">
+                    <li>character-special files </li>
+                    <li>block-special files</li>
+                    <li>archive files</li>
+                    <li>symbolically linked file</li>
+                </ol>
+            </li> 
+            
+            <li>In which file system a log is maintained that contains what the
+            file system is going to do before it does it is a
+                <ol type="a">
+                    <li>Record-Structured File Systems</li>
+                    <li>Shared File Systems </li>
+                    <li>Virtual File Systems</li>
+                    <li>Journaling File Systems </li>
+                </ol>
+            </li>
+            
+            <li>
+                The authors Popek and Goldberg showed that smooth
+                virtualization of a chip architecture depends upon:
+                <ol type="a">
+                    <li>
+                        the chip having a RISC instruction set
+                    </li>
+                    <li>
+                        the chip having no built-in support for paging
+                    </li>
+                    <li>
+                        the set of sensitive instructions being a subset of the
+                        set of privileged instructions
+                    </li>
+                    <li>
+                        the set of arithmetic instructions being a subset of
+                        the set of privileged instructions
+                    </li>
+                </ol>
+            </li>
+
+            <li>Which of the following statements about inodes is true?
+                <ol type="a">
+                    <li>inodes can be used to store attributes</li>
+                    <li>inode can be used to find which block belongs to which file</li>
+                    <li>an inode needs be in the memory when the
+                        corresponding file is open</li>
+                    <li>all of the above </li>
+                </ol>
+            </li>
+            
+            <li>
+                Hard-linking is an OS feature by which:
+                <ol type="a">
+                    <li>
+                        a file can appear in more than one directory
+                    </li>
+                    <li>
+                        a hyperlink can be stored in the file system 
+                    </li>
+                    <li>
+                        one process can be linked to another process
+                    </li>
+                    <li>
+                        a link between records in a file is established
+                    </li>
+                </ol>
+            </li>
+
+            <li>A process is moved to the wait queue when an I/O request is
+                made with:
+                <ol type="a">
+                    <li>non-blocking I/O</li>
+                    <li>blocking I/O </li>
+                    <li>programmed I/O</li>
+                    <li>interrupt-driven I/O</li>
+                </ol>
+            </li>
+            
+            <li>Block read-ahead works only when
+                <ol type="a">
+                    <li>files are read randomly</li>
+                    <li>files are read in either random or sequential way</li>
+                    <li>files are read sequentially </li>
+                    <li>files are read in neither random nor sequential way</li>
+                </ol>
+            </li>
+
+            <li>One difference between user mode and kernel mode is:
+            <ol type="a">
+                <li>there are certain machine-level instructions that can only
+                be executed in kernel mode. </li>
+                <li>semaphores can only be set in kernel mode.</li>
+                <li>only in the kernel mode can any machine language
+                instructions be used.</li>
+                <li>all GUI interactions take place in kernel mode.</li>
+            </ol>
+
+            <li>Individual processes can have their own scheduling
+                    algorithm by employing:
+            <ol type="a">
+                <li>blocking system calls</li>
+                <li>asynchronous I/O</li>
+                <li>user-level threads </li>
+                <li>all of the above</li>
+            </ol>
+            </li>
+
+            <li>When making single-threaded code multi-threaded, one must be
+                careful:
+            <ol type="a">
+                <li>to check if the data structures accessed by several threads
+                    are "thread safe". </li>
+                <li>to place every piece of code inside a monitor.</li>
+                <li>to ensure that Peterson's algorithm is employed before
+                    setting any variable.</li>
+                <li>put mutexes before and after every loop.</li>
+            </ol>
+            </li>
+
+        <li>
+                Elasticity refers to
+                <ol type="a">
+                        <li>
+                        the ability of paging to make memory appear larger than it is
+                        </li>
+                        <li>
+                        the change in demand for a good in response to price
+                        </li>
+                        <li>
+                        the ability of cloud services to add and drop resources swiftly
+                        </li>
+                        <li>
+                        the way cloud providers stretch the truth in their advertising
+                        </li>
+                </ol>
+        </li>
+        <li>
+                In a seamless live migration
+                <ol type="a">
+                        <li>
+                        no users notice there was a migration
+                        </li>
+                        <li>
+                        VMs only need to be shut down for a few minutes
+                        </li>
+                        <li>
+                        the data center never closed during the migration
+                        </li>
+                        <li>
+                        no lawsuits were filed against the cloud provider
+                        </li>
+                </ol>
+        </li>
+        <li>
+                An insurmountable problem for VM checkpointing is
+                <ol type="a">
+                        <li>
+                        what to do about large disks
+                        </li>
+                        <li>
+                        what to do if the machine crashes
+                        </li>
+                        <li>
+                        how to handle security
+                        </li>
+                        <li>
+                        restoring remote interactions at the time of the checkpoint.
+                        </li>
+                </ol>
+        </li>
+            <li>A daemon is:
+            <ol type="a">
+                <li>ineffective.</li>
+                <li>low priority.</li>
+                <li>a process that runs in the background. </li>
+                <li>a cron job.</li>
+            </ol>
+            </li>
+
+        <li>
+                DMA exists to permit
+                <ol type="a">
+                        <li>
+                        the fast transfer of data between a device and memory
+                        </li>
+                        <li>
+                        the CPU to continue processing while data transfer occurs
+                        </li>
+                        <li>
+                        the CPU to tell the controller where in memory to put incoming data
+                        </li>
+                        <li>
+                        all of the above
+                        </li>
+                </ol>
+        </li>
+        <li>
+                The method of communicating between the processor and the I/O device in which the device sends a signal when it is ready is called
+                <ol type="a">
+                        <li>
+                        exceptions
+                        </li>
+                        <li>
+                        signal handling
+                        </li>
+                        <li>
+                        interrupts
+                        </li>
+                        <li>
+                        DMA
+                        </li>
+                </ol>
+        </li>
+        <li>
+                A device that stores information in chunks of say 512 or 1024 bytes is called
+                <ol type="a">
+                        <li>
+                        a block device
+                        </li>
+                        <li>
+                        a character device
+                        </li>
+                        <li>
+                        a characterless device
+                        </li>
+                        <li>
+                        a chunked device
+                        </li>
+                </ol>
+        </li>
+        <li>
+        The software module intended to hide the 
+        messy details of a hardware
+        peripheral from other programs is called
+        </li>
+            <ol type="a">
+                <li>
+                a virtual machine
+                </li>
+                <li>
+                a device driver
+                </li>
+                <li>
+                the kernel
+                </li>
+                <li>
+                the MMU
+                </li>
+            </ol>
+            </li>
+
+            <li>A process could achieve exclusive access to a critical area by
+                disabling interrupts. A downside to this technique is:
+            <ol type="a">
+                <li>it involves busy waiting.</li>
+                <li>it involves multiple context switches.</li>
+                <li>if the process hangs, the system is dead. </li>
+                <li>all of the above.</li>
+            </ol>
+            </li>
+
+            <li>A job that calculates employee payroll and prints checks would
+                be a good candidate for running:
+                <ol type="a">
+                    <li>in a hypervisor</li>
+                    <li>as a futex</li>
+                    <li>in a batch system </li>
+                    <li>all of the above</li>
+                </ol>
+            </li>
+
+            <li>
+            Consider the following UNIX shell command:
+                <pre>
+                <code>
+                cat $1 | tr -cs A-Za-z '\012' | tr A-Z a-z | sort | uniq -c |
+                sort -r -n
+                </code>
+                </pre>
+            Assume that "$1" will be the name of a text file.
+            What does the command do?
+                <ol type="a">
+                    <li>
+                        strips all letters out of $1
+                    </li>
+                    <li>
+                        counts the letters in $1
+                    </li>
+                    <li>
+                        sorts the letters in $1
+                    </li>
+                    <li>
+                        produces a sorted word count for $1
+                    </li>
+                </ol>
+            </li>
+
+            <li>A process will run until it blocks or
+                    voluntarily gives up the CPU under:
+                <ol type="a">
+                    <li>round-robin scheduling</li>
+                    <li>non-preemptive scheduling </li>
+                    <li>FIFO scheduling</li>
+                    <li>clock scheduling</li>
+                </ol>
+            </li>
+
+        </ol>
+    </body>
+</html>
