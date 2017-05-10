@@ -1,0 +1,4 @@
+Buffering is,only important for input devices,only important for output devices,^important for input and output devices,only important for disk drives
+I/O errors should be handled,at the highest level possible,^at the lowest level possible,by a device driver,by the user-level programs
+An advantage of a UNIX-type file system is that,it consists of highly structured records,files can be quickly searched due to their tree structure,the OS knows the distinct type of each file,^all disks can be mounted in a single tree and made available by filename
+In order to avoid continual process switching to handle I/O OSes will employ,directory heirarchies,^buffering,uniform interfacing,all of the above
