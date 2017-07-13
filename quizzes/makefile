@@ -8,7 +8,7 @@ QUIZZES = $(shell ls quiz*.txt)
 %.thtm: %.txt
 	../utils/quiz2test.py $< >$@
 
-all: $(QINCS)
+quiz: $(QINCS)
 
 test: $(TEST)
 
