@@ -747,23 +747,40 @@
                              Mid-Term with answers
                         </a>
                     </li>
-                    <li><a href="CS6233Spring2017Syllabus.pdf">
+                    <li>
+                        <a href="CS6233Spring2017Syllabus.pdf">
                             Spring 2017 Syllabus
                         </a>
+                    </li>
 
-                    <li><a href="QuickShellGuide.html">
+                    <li>
+                        <a href="QuickShellGuide.html">
                             Quick Guide to UNIX Shell Commands
                         </a>
+                    </li>
 
-                    <li><a
+
+                    <li>
+                        <a
                             href="https://www.tutorialspoint.com/cprogramming/c_quick_guide.htm">
                             C Language Quick Guide
                         </a>
+                    </li>
 
-                    <li><a
+
+                    <li>
+                        <a
                         href="http://www.cs.virginia.edu/~evans/cs216/guides/x86.html">
                             Guide to x86 assembly langauge programming
                         </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://randomascii.wordpress.com/2017/07/09/24-core-cpu-and-i-cant-move-my-mouse/amp/">
+                            24 Cores and I Can't MOve My Mouse!
+                        </a>
+                    </li>
                 </ul>
             </div>
     </body>
