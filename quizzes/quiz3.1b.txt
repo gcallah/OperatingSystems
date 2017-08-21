@@ -1,0 +1,7 @@
+Programming with multiple threads is of limited use to provide parallelism with
+no memory abstraction because,^It does not allow multiple programs to run at
+the same time, It is a cause for race conditions, Concurrent Programming is
+difficult,There is no way for multithreading to work without memory
+abstraction 
+Without memory abstraction we can still have multiprogramming,^by only running one program at a time and completely swapping each successive program in and out of memory,by using VT,by taking advantage of an MMU,with paging
+Even without swapping or memory abstraction we can multiprogram,if we write our code very carefully,if we have an MMU,^if we have special hardware to divide memory between different programs,all of the above

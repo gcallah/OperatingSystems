@@ -1,0 +1,6 @@
+IBM 360 provided multiprogramming without abstraction or swapping  by,
+Magic,^using a technique called static relocation, using segmentation,
+providing pseudo-parallelism the same was an operating system running on a
+single core cpu  
+Without memory abstraction we can still have multiprogramming,^by only running one program at a time and completely swapping each successive program in and out of memory,by using VT,by taking advantage of an MMU,with paging
+Even without swapping or memory abstraction we can multiprogram,if we write our code very carefully,if we have an MMU,^if we have special hardware to divide memory between different programs,all of the above
