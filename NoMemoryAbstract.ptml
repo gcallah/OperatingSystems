@@ -87,7 +87,7 @@
                         Early models of IBM 360 followed this approach:
                         <ul>
                             <li> 
-                            Memory was divided into 2 KB bloks and each 
+                            Memory was divided into 2 KB blocks and each
                             block was assigned a 4-bit protetion key
                             held in special registers inside the CPU.
                             </li> 
