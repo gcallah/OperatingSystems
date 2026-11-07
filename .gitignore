@@ -2,3 +2,6 @@
 *.qhtm
 *.thtm
 *.pdf
+.superset/.port
+.superset/.server.pid
+.superset/config.local.json
