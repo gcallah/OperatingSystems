@@ -515,7 +515,7 @@
                 </summary>
     
                 <p>
-                    The VMM / hhost OS architecture remains the same.
+                    The VMM / host OS architecture remains the same.
                     <br />
                     But today, VMware Workstation can rely on:
                 </p>

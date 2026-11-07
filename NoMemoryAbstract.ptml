@@ -88,7 +88,7 @@
                         <ul>
                             <li> 
                             Memory was divided into 2 KB blocks and each
-                            block was assigned a 4-bit protetion key
+                            block was assigned a 4-bit protection key
                             held in special registers inside the CPU.
                             </li> 
         

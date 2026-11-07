@@ -15,8 +15,8 @@
 
             <div style="text-align:center">
                 <p>
-                <img
-                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cumulus_clouds_panorama.jpg/320px-Cumulus_clouds_panorama.jpg">
+                <img width="320"
+                 src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Cumulus_clouds_panorama.jpg/330px-Cumulus_clouds_panorama.jpg">
                 </p>
             </div>
 
@@ -119,7 +119,7 @@
                     </dd>
                     <dd>
                         We could pause them, transfer their memory, and resume:
-                        still a noticable pause.
+                        still a noticeable pause.
                     </dd>
                     <dd>
                         Or, using <b>pre-copy memory migration</b>, we can copy

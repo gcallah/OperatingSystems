@@ -16,7 +16,7 @@
             <div style="text-align:center">
                 <p>
                 <img
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Hardware_Virtualization_%28copy%29.svg/740px-Hardware_Virtualization_%28copy%29.svg.png"
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Hardware_Virtualization_%28copy%29.svg/960px-Hardware_Virtualization_%28copy%29.svg.png"
                 height="300" width="230">
                 </p>
             </div>
@@ -70,7 +70,7 @@
                     <br />
                     <br />
                     The Intel family did not have this property until 2005.
-                    Also, user mode programs could read senstive info, like
+                    Also, user mode programs could read sensitive info, like
                     whether they were in user mode. (We don't want the guest OS
                     doing this.)
                     <br />

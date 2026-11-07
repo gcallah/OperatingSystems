@@ -83,8 +83,8 @@
                 </summary>
 
                 <figure>
-                        <img
-                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/MMU_and_IOMMU.svg/282px-MMU_and_IOMMU.svg.png">
+                        <img width="282"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/MMU_and_IOMMU.svg/330px-MMU_and_IOMMU.svg.png">
                         <figcaption>
                         IOMMU and MMU
                         </figcaption>
@@ -124,7 +124,7 @@
                         other guests.
                         <figure>
                                 <img
-                                src="https://pubs.vmware.com/vsphere-4-esx-vcenter/topic/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/images/sec_virtual_connections.png">
+                                src="https://web.archive.org/web/20130607094544id_/http://pubs.vmware.com/vsphere-4-esx-vcenter/topic/com.vmware.vsphere.server_configclassic.doc_40/esx_server_config/images/sec_virtual_connections.png">
                                 <figcaption>
                                     Virtual machine isolation
                                 </figcaption>
