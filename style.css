@@ -1,193 +1,315 @@
-body {
-    margin: 0;
-    padding: 0;
-    font-size: 100%;
-    color: #333;
-    background: #def;
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap");
+
+/* ---------- Palette & type ---------- */
+:root {
+    --ink: #1f2933;
+    --muted: #52606d;
+    --navy: #0b2e4a;
+    --navy-2: #134e6f;
+    --accent: #b8323f;      /* h2 */
+    --blue: #1d4f91;        /* h3 */
+    --violet: #4b3f9e;      /* h4 */
+    --link: #1a62b8;
+    --paper: #ffffff;
+    --rule: #d9e2ec;
+    --code-bg: #f3f6fa;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
+/* ---------- Page: circuit background + centered paper column ---------- */
+html {
+    background: #e9eef5 url("graphics/bg-circuit.svg") repeat;
+}
+
+body {
+    max-width: 58rem;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 0 3rem 0;
+    box-sizing: border-box;
+    background: var(--paper);
+    box-shadow: 0 0 0 1px rgba(11, 46, 74, .08), 0 10px 40px rgba(11, 46, 74, .15);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+/* Pages without the menu header: keep content off the top edge. */
+body > :first-child:not(#header):not(h1) {
+    margin-top: 1.5rem;
+}
+
+/* ---------- Header bar (menu.txt) ---------- */
 #header {
-    width: auto;
-    height: 3em;
-    padding: .5em 2em;
-    line-height: 2em;
-    background-color: #045;
-    color: #dff;
-    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .6rem 1.5rem;
+    background: linear-gradient(135deg, var(--navy), var(--navy-2));
+    color: #e6f1ff;
+    font-family: var(--sans);
+}
+
+#logo img {
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, .25);
+}
+
+#user-tools {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: .9rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
 }
 
 #header a:link, #header a:visited {
-    color: #fcc;
+    color: #ffd7d7;
+    text-decoration: none;
+    margin-left: 1.2rem;
 }
 
-#header a:focus , #header a:hover {
+#header a:focus, #header a:hover {
+    color: #fff;
     text-decoration: underline;
 }
 
-table, th, td {
-    font-size: 1.2em;
-    border-collapse: collapse;
-    border: 1px solid black;
-    }
-    th, td {
-            padding: 1em;
-    }
-
-p {
-    margin: .4em 3em .4em 3em;
-    font-size: 1.2rem;
-    padding: 0;
-    line-height: 140%;
-}
-
-hr {
-    margin: 1.2em 22em 1.2em 22em;
-}
-
-blockquote {
-    margin: .4em 6em .4em 6em;
-    font-size: 1.1em;
-}
-
-ol, ul, dl, li {
-    margin: 1em 3em .4em 3em;
-    font-size: 1.2rem;
-}
-
-dt {
-    font-size: 1.1rem;
-    font-weight: bold;
-    margin: .4em 3em .4em 1em;
-}
-
-h1,h2,h3,h4,h5 {
-    font-weight: bold;
+/* ---------- Headings ---------- */
+h1, h2, h3, h4, h5, summary {
+    font-family: var(--sans);
+    line-height: 1.25;
 }
 
 h1 {
-    margin: 0px 0px 1.2em 0px;
-    padding-bottom: 1.2em;
+    margin: 0 0 1.5rem 0;
+    padding: 1.6rem 1.5rem;
     text-align: center;
-    font-weight: 300;
-    font-size: 2em;
-    background-color: #045;
-    color: #fcc;
+    font-weight: 600;
+    font-size: 2.1rem;
+    letter-spacing: .01em;
+    color: #fff;
+    background:
+        linear-gradient(135deg, rgba(11, 46, 74, .94), rgba(19, 78, 111, .92)),
+        url("graphics/bg-circuit.svg");
+    border-bottom: 4px solid var(--accent);
 }
 
 h2 {
     text-align: center;
-    font-size: 1.6em;
-    margin: 2em 1.2em .6em 1.2em;
-    color: #903;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin: 2.2rem 1.5rem .8rem 1.5rem;
+    color: var(--accent);
 }
 
 h2.subhead {
-    font-weight:
-    normal;
+    font-weight: normal;
 }
 
 h3 {
-    font-size: 1.4em;
-    margin: 1em 1.4em .6em 1.4em;
-    color: #137;
-    font-weight: bold;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin: 1.6rem 2rem .6rem 2rem;
+    color: var(--blue);
 }
 
 h4 {
-    font-size: 1.3em;
-    margin: .8em 1.6em .6em 1.6em;
-    color: #339;
-    font-weight: bold;
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin: 1.2rem 2.5rem .5rem 2.5rem;
+    color: var(--violet);
+}
+
+/* ---------- Body text ---------- */
+p {
+    margin: .6em 2.5rem;
+    padding: 0;
+}
+
+ol, ul, dl {
+    margin: .6em 2.5rem .6em 1.5rem;
+    padding-left: 2rem;
+}
+
+li {
+    margin: .35em 0;
+}
+
+li > ol, li > ul {
+    margin: .3em 0;
+}
+
+dt {
+    font-family: var(--sans);
+    font-weight: 600;
+    margin: .6em 0 .2em 0;
+}
+
+dd {
+    margin: 0 0 .6em 1.5rem;
+}
+
+blockquote {
+    margin: 1em 3.5rem;
+    padding: .4em 1.2em;
+    border-left: 4px solid var(--rule);
+    color: var(--muted);
+    font-style: italic;
+}
+
+hr {
+    width: 40%;
+    margin: 1.8em auto;
+    border: 0;
+    border-top: 1px solid var(--rule);
+}
+
+a:link { color: var(--link); }
+a:visited { color: #6b3fa0; }
+a:hover, a:focus { color: var(--accent); }
+
+/* ---------- Code ---------- */
+code, pre, kbd, tt {
+    font-family: var(--mono);
+    font-size: .88em;
+}
+
+pre {
+    margin: 1em 2.5rem;
+    padding: 1em 1.2em;
+    background: var(--code-bg);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--navy-2);
+    border-radius: 4px;
+    overflow-x: auto;
+    line-height: 1.45;
+    text-align: left;
+}
+
+/* ---------- Figures & images ---------- */
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 figure {
     text-align: center;
+    margin: 1.5em 2.5rem;
 }
 
-figure#front-page {
-    margin: 0em 1em 1em 1em;
-}
-
-figcaption {
-    color: #606;
-    font-style: italic;
-    text-align: center;
-    margin: .8em 1em .6em 1em;
-}
-
-table {
-    margin: 1em 12em 1em 12em;
-}
-
-table, th, td {
-    border: 1px solid black;
-    }
-    th, td {
-            padding: 1.2em;
-    }
-
-td {
+figure img {
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(11, 46, 74, .15);
     background: #fff;
 }
 
-th {
-    background: #dcf;
+figure#front-page {
+    margin: 0 1rem 1rem 1rem;
 }
 
-div.homework {
-
-}
-
-div.other {
-
-}
-
-summary.sum1 {
-    font-size: 1.8em;
-    color: #903;
-    margin: .8em 1.2em .8em 1.2em;
-}
-
-summary.sum2 {
-    font-size: 1.6em;
-    color: #137;
-    margin: .6em 1.2em .6em 2em;
-}
-
-summary.sum3 {
-    font-size: 1.4em;
-    color: #339;
-    margin: .4em 1.2em .4em 2.8em;
-}
-
-summary.sum4 {
-    font-size: 1.2em;
-    color: #903;
-    margin: .4em 1.2em .4em 2.8em;
-}
-
-summary.menu_sum {
-    font-size: 1.4em;
-    color: #639;
-    margin: .5em 0em .5em 0em;
+figcaption {
+    color: var(--muted);
+    font-style: italic;
+    font-size: .95rem;
+    text-align: center;
+    margin: .7em 1rem .5em 1rem;
 }
 
 .lead_illus {
     text-align: center;
 }
 
-#logo {
-    float: left;
+/* ---------- Tables ---------- */
+table {
+    margin: 1.2em auto;
+    border-collapse: collapse;
+    font-size: 1rem;
 }
 
-#user-tools {
-    float: right;
-    padding: 0;
-    margin: 0 0 0 1em;
-    font-weight: 300;
-    font-size: 1em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    text-align: right;
+table, th, td {
+    border: 1px solid var(--rule);
 }
 
+th, td {
+    padding: .6em 1em;
+}
+
+td {
+    background: #fff;
+}
+
+th {
+    background: #e6ecf7;
+    font-family: var(--sans);
+    font-weight: 600;
+}
+
+tr:nth-child(even) td {
+    background: #f8fafc;
+}
+
+/* ---------- Collapsible sections (index & quizzes) ---------- */
+details {
+    margin: .2em 0;
+}
+
+summary {
+    cursor: pointer;
+}
+
+summary.sum1 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: .8em 1.5rem .5em 1.5rem;
+}
+
+summary.sum2 {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--blue);
+    margin: .5em 1.5rem .4em 2.2rem;
+}
+
+summary.sum3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--violet);
+    margin: .4em 1.5rem .3em 3rem;
+}
+
+summary.sum4 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: .4em 1.5rem .3em 3rem;
+}
+
+summary.menu_sum {
+    font-size: 1.25rem;
+    color: #5b3a99;
+    margin: .5em 0;
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+    body { font-size: 1rem; box-shadow: none; }
+    h1 { font-size: 1.6rem; padding: 1.2rem 1rem; }
+    p, pre, figure { margin-left: 1rem; margin-right: 1rem; }
+    ol, ul, dl { margin-left: .5rem; margin-right: 1rem; padding-left: 1.4rem; }
+    h3, h4 { margin-left: 1rem; margin-right: 1rem; }
+    blockquote { margin: 1em 1.2rem; }
+    table { display: block; overflow-x: auto; }
+}
+
+/* ---------- Print ---------- */
+@media print {
+    html { background: none; }
+    body { max-width: none; box-shadow: none; }
+    #header { display: none; }
+    h1 { background: none; color: #000; border-bottom: 2px solid #000; }
+}
